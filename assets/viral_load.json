@@ -1,806 +1,740 @@
 {
-    "40705000817": [
+    "1247501252": [
         {
-            "date_tested": "2012-09-12",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000153": [
-        {
-            "date_tested": "2012-09-13",
-            "result": "150680"
-        }
-    ],
-    "40705000016": [
-        {
-            "date_tested": "2012-09-13",
-            "result": "1579 "
+            "date_tested": "2013-02-11",
+            "result": "39767"
         },
         {
-            "date_tested": "2015-01-22",
-            "result": "Collect New Sample"
+            "date_tested": "2014-05-12",
+            "result": "21753"
         }
     ],
-    "40705000081": [
+    "1247501258": [
         {
-            "date_tested": "2012-09-13",
-            "result": "15989 "
+            "date_tested": "2013-02-11",
+            "result": "21826"
         }
     ],
-    "40705000330": [
+    "40400103659": [
         {
-            "date_tested": "2012-09-13",
-            "result": "35700 "
+            "date_tested": "2013-06-05",
+            "result": "2096 "
+        }
+    ],
+    "40424400625": [
+        {
+            "date_tested": "2013-06-13",
+            "result": "1079 "
+        }
+    ],
+    "40400106289": [
+        {
+            "date_tested": "2013-06-19",
+            "result": "4778 "
+        }
+    ],
+    "40424400804": [
+        {
+            "date_tested": "2013-06-24",
+            "result": "25713 "
+        }
+    ],
+    "40424400453": [
+        {
+            "date_tested": "2013-06-24",
+            "result": "1772 "
         },
-        {
-            "date_tested": "2015-01-19",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000777": [
-        {
-            "date_tested": "2012-09-13",
-            "result": "523 "
-        }
-    ],
-    "40705000098": [
-        {
-            "date_tested": "2012-09-13",
-            "result": "1226 "
-        }
-    ],
-    "40705000816": [
         {
             "date_tested": "0000-00-00",
+            "result": ""
+        }
+    ],
+    "JUSTUS MUTISO 404244001009": [
+        {
+            "date_tested": "2013-07-09",
+            "result": "6416 "
+        }
+    ],
+    "JOSEPHINE NTHIKE-40424400994": [
+        {
+            "date_tested": "2013-07-09",
+            "result": "130024 "
+        }
+    ],
+    "40424400795": [
+        {
+            "date_tested": "2013-07-15",
+            "result": "1432 "
+        }
+    ],
+    "40410010894": [
+        {
+            "date_tested": "2013-07-15",
+            "result": "2104 "
+        }
+    ],
+    "1247501335": [
+        {
+            "date_tested": "2013-07-25",
+            "result": "41581 "
+        }
+    ],
+    "1247501334": [
+        {
+            "date_tested": "2013-07-26",
             "result": "Collect New Sample"
         }
     ],
-    "40705000120": [
+    "40424400713": [
         {
-            "date_tested": "2012-09-14",
-            "result": "2057 "
+            "date_tested": "2013-08-01",
+            "result": "< 400 "
+        }
+    ],
+    "404244000198": [
+        {
+            "date_tested": "2013-08-01",
+            "result": "3113 "
+        }
+    ],
+    "40424400308": [
+        {
+            "date_tested": "2013-08-01",
+            "result": "4727 "
+        }
+    ],
+    "1247501246": [
+        {
+            "date_tested": "2013-08-01",
+            "result": "887 "
+        }
+    ],
+    "40424400370": [
+        {
+            "date_tested": "2013-08-02",
+            "result": "520 "
         },
         {
-            "date_tested": "2014-10-31",
+            "date_tested": "2014-01-13",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40205000383": [
+    "1247501324": [
         {
-            "date_tested": "2012-09-09",
-            "result": "< LDL copies\/ml"
+            "date_tested": "2013-08-02",
+            "result": "250567 "
         }
     ],
-    "12508000964": [
+    "404244001009": [
         {
-            "date_tested": "2012-09-09",
-            "result": "87898"
+            "date_tested": "2013-08-02",
+            "result": "58749 "
         }
     ],
-    "40400103247": [
+    "40424400886": [
         {
-            "date_tested": "2012-09-09",
-            "result": "< LDL copies\/ml"
+            "date_tested": "2013-08-02",
+            "result": "83732 "
         }
     ],
-    "12508000913": [
+    "12475001197": [
         {
-            "date_tested": "2012-09-10",
-            "result": "11380 "
-        }
-    ],
-    "40705000042": [
-        {
-            "date_tested": "2012-09-09",
-            "result": "< LDL copies\/ml"
+            "date_tested": "2013-08-13",
+            "result": "808226 "
         },
         {
-            "date_tested": "2014-10-31",
+            "date_tested": "0000-00-00",
+            "result": ""
+        }
+    ],
+    "40424400767": [
+        {
+            "date_tested": "2013-08-13",
+            "result": "1433 "
+        }
+    ],
+    "40424400614": [
+        {
+            "date_tested": "2013-08-14",
+            "result": "2568 "
+        }
+    ],
+    "40424400304": [
+        {
+            "date_tested": "2013-08-02",
+            "result": "10080 "
+        }
+    ],
+    "40424400793": [
+        {
+            "date_tested": "2013-08-02",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40705000457": [
+    "40400101278": [
         {
-            "date_tested": "2012-09-09",
-            "result": "1203"
+            "date_tested": "2013-08-14",
+            "result": "104121 "
         }
     ],
-    "40400102176": [
+    "40424400789": [
         {
-            "date_tested": "2012-09-09",
-            "result": "< LDL copies\/ml"
-        },
-        {
-            "date_tested": "2015-01-22",
-            "result": "< LDL copies\/ml"
+            "date_tested": "2013-09-15",
+            "result": "85717"
         }
     ],
-    "40400104777": [
+    "3110908073": [
         {
-            "date_tested": "2012-09-12",
-            "result": "5181 "
-        }
-    ],
-    "125-972": [
-        {
-            "date_tested": "2013-01-15",
-            "result": "11143"
-        }
-    ],
-    "407-296": [
-        {
-            "date_tested": "2013-01-15",
+            "date_tested": "2013-09-15",
             "result": "< LDL copies\/ml"
         }
     ],
-    "407-582": [
+    "404001500874": [
         {
-            "date_tested": "2013-01-15",
+            "date_tested": "2013-10-28",
+            "result": "5521"
+        }
+    ],
+    "40424400321": [
+        {
+            "date_tested": "2013-10-28",
+            "result": "2376"
+        }
+    ],
+    "40400101275": [
+        {
+            "date_tested": "2013-12-04",
             "result": "< LDL copies\/ml"
         }
     ],
-    "407-484": [
+    "12475001115": [
         {
-            "date_tested": "2013-01-15",
+            "date_tested": "2013-12-04",
             "result": "< LDL copies\/ml"
         }
     ],
-    "125-894": [
+    "40424400701": [
         {
-            "date_tested": "2013-01-15",
-            "result": "31747"
-        }
-    ],
-    "407-228": [
-        {
-            "date_tested": "2013-01-15",
+            "date_tested": "2013-12-04",
             "result": "< LDL copies\/ml"
         }
     ],
-    "407-653": [
+    "40424400515": [
         {
-            "date_tested": "2013-01-15",
-            "result": "8286"
-        }
-    ],
-    "407-241": [
-        {
-            "date_tested": "2013-01-15",
-            "result": "1421"
-        }
-    ],
-    "107-308": [
-        {
-            "date_tested": "2013-01-15",
+            "date_tested": "2013-12-04",
             "result": "< LDL copies\/ml"
         }
     ],
-    "407-840": [
+    "40400101894": [
         {
-            "date_tested": "2013-01-15",
+            "date_tested": "2013-12-04",
             "result": "< LDL copies\/ml"
         }
     ],
-    "407-099": [
+    "40400100362": [
         {
-            "date_tested": "2013-01-15",
-            "result": "13146"
+            "date_tested": "2013-12-04",
+            "result": "73952"
         }
     ],
-    "dorcus ndunge nzioki": [
+    "4024400805": [
         {
-            "date_tested": "2013-01-15",
+            "date_tested": "2013-12-06",
+            "result": "4825"
+        }
+    ],
+    "40424400851": [
+        {
+            "date_tested": "2013-12-06",
             "result": "< LDL copies\/ml"
         }
     ],
-    "407-450": [
+    "40400104393": [
         {
-            "date_tested": "2013-01-15",
-            "result": "< LDL copies\/ml"
+            "date_tested": "2013-11-11",
+            "result": "6877"
         }
     ],
-    "304013630": [
+    "1247501231": [
         {
-            "date_tested": "2013-02-12",
-            "result": "< LDL copies\/ml"
+            "date_tested": "2013-11-11",
+            "result": "51827"
         }
     ],
-    "40705000382": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000713": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000389": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "< LDL copies\/ml"
-        },
-        {
-            "date_tested": "2014-10-31",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40701000793": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "18171"
-        }
-    ],
-    "102041130": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "4551"
-        }
-    ],
-    "40705000096": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "108190"
-        }
-    ],
-    "40705000341": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40701000755": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000141": [
-        {
-            "date_tested": "2013-02-12",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000659": [
-        {
-            "date_tested": "2013-03-13",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000512": [
-        {
-            "date_tested": "2013-03-13",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "12136000310": [
-        {
-            "date_tested": "2013-03-13",
-            "result": "<550"
-        }
-    ],
-    "1258000984": [
-        {
-            "date_tested": "2013-05-28",
-            "result": "19140 "
-        }
-    ],
-    "12508000983": [
-        {
-            "date_tested": "2013-05-28",
-            "result": "4024 "
-        }
-    ],
-    "40705000473": [
-        {
-            "date_tested": "2013-05-28",
-            "result": "1437 "
-        }
-    ],
-    "40705000765": [
-        {
-            "date_tested": "2013-05-30",
-            "result": "98233 "
-        }
-    ],
-    "40701000162": [
-        {
-            "date_tested": "2013-06-21",
-            "result": "3994 "
-        }
-    ],
-    "40705000297": [
-        {
-            "date_tested": "2013-06-21",
-            "result": "7473 "
-        }
-    ],
-    "12508000875": [
-        {
-            "date_tested": "2013-06-21",
-            "result": "2813 "
-        }
-    ],
-    "40705000737": [
-        {
-            "date_tested": "2013-06-21",
-            "result": "1759 "
-        }
-    ],
-    "4070500001": [
-        {
-            "date_tested": "2013-06-21",
-            "result": "2814 "
-        }
-    ],
-    "407-05-000631": [
-        {
-            "date_tested": "2013-06-21",
-            "result": "8825 "
-        }
-    ],
-    "40705000459-MBOONI": [
-        {
-            "date_tested": "2013-07-01",
-            "result": "2560 "
-        }
-    ],
-    "12508000925-MBOONI": [
-        {
-            "date_tested": "2013-07-01",
-            "result": "982 "
-        }
-    ],
-    "125080000820-MBOONI": [
-        {
-            "date_tested": "2013-07-01",
-            "result": "331733 "
-        }
-    ],
-    "407-05-000198": [
-        {
-            "date_tested": "2013-07-01",
-            "result": "5671 "
-        }
-    ],
-    "407-05-000276-MBOONI": [
-        {
-            "date_tested": "2013-07-01",
-            "result": "3523 "
-        }
-    ],
-    "4070500239": [
-        {
-            "date_tested": "2013-07-08",
-            "result": "355954 "
-        }
-    ],
-    "ALICE MUENI-586": [
-        {
-            "date_tested": "2013-07-08",
-            "result": "1122 "
-        }
-    ],
-    "CHRISTOPHER MUNYAO 40701000793": [
-        {
-            "date_tested": "2013-11-05",
-            "result": "11414"
-        }
-    ],
-    "40705000504 MBOONI": [
-        {
-            "date_tested": "2013-11-05",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000737 MBOONI": [
-        {
-            "date_tested": "2013-11-05",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000120 MBOONI": [
-        {
-            "date_tested": "2013-11-05",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000083": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "12508000919 MBOONI": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000814": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "92846"
-        }
-    ],
-    "12508001011": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "407-05-000293 MBOONI": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "407-05-000181 MBOONI": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000693 MBOONI D.H": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000098 MBOONI D.H": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "20091"
-        }
-    ],
-    "12508000920 MBOONI D.H": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000861 MBOONI D.H": [
-        {
-            "date_tested": "2013-11-15",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "4070500039": [
+    "12475001171": [
         {
             "date_tested": "2014-01-10",
-            "result": "287193"
+            "result": "< LDL copies\/ml"
         }
     ],
-    "40705000306": [
+    "351": [
+        {
+            "date_tested": "2014-01-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400661": [
+        {
+            "date_tested": "2014-01-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400600": [
+        {
+            "date_tested": "2014-01-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "1020281197": [
+        {
+            "date_tested": "2014-01-27",
+            "result": "128380"
+        }
+    ],
+    "1247501292": [
+        {
+            "date_tested": "2014-01-27",
+            "result": "1029"
+        }
+    ],
+    "40424400251": [
+        {
+            "date_tested": "2014-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400496": [
+        {
+            "date_tested": "2014-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40400104449": [
+        {
+            "date_tested": "2014-01-28",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "20424400468": [
+        {
+            "date_tested": "2014-01-28",
+            "result": "20420"
+        }
+    ],
+    "40424400631": [
+        {
+            "date_tested": "2014-02-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400214": [
         {
             "date_tested": "0000-00-00",
             "result": ""
         }
     ],
-    "40705000748": [
+    "40424400641": [
+        {
+            "date_tested": "2014-03-03",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40400103763": [
+        {
+            "date_tested": "2014-03-06",
+            "result": "73968"
+        },
+        {
+            "date_tested": "2014-06-24",
+            "result": "67224"
+        },
+        {
+            "date_tested": "2015-01-16",
+            "result": "58006"
+        }
+    ],
+    "404244000964": [
         {
             "date_tested": "0000-00-00",
             "result": ""
         }
     ],
-    "40705000369": [
+    "404244001068": [
         {
-            "date_tested": "2014-02-10",
-            "result": "10841"
+            "date_tested": "0000-00-00",
+            "result": ""
         }
     ],
-    "40705000820 MBOONI DH": [
+    "40400102889": [
         {
-            "date_tested": "2014-03-11",
-            "result": "Collect New Sample"
-        }
-    ],
-    "4070100012": [
-        {
-            "date_tested": "2014-03-17",
+            "date_tested": "2014-05-05",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40705000769-MBOONI": [
+    "40701060182": [
         {
-            "date_tested": "2014-03-27",
-            "result": "1940"
-        }
-    ],
-    "40705000357": [
-        {
-            "date_tested": "2014-03-27",
+            "date_tested": "2014-05-12",
             "result": "< LDL copies\/ml"
         }
     ],
-    "4070500416-MBOONI": [
+    "40424400218": [
         {
-            "date_tested": "2014-03-27",
-            "result": "24591"
+            "date_tested": "2014-05-20",
+            "result": "17373"
         }
     ],
-    "40705000141-MBOONI.D.H": [
+    "40424400300": [
         {
-            "date_tested": "2014-10-26",
+            "date_tested": "2014-05-28",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40705000828-MB00NI.D.H": [
+    "40400102591": [
         {
-            "date_tested": "2014-10-26",
+            "date_tested": "2014-05-28",
+            "result": "12117"
+        }
+    ],
+    "40424400873": [
+        {
+            "date_tested": "2014-05-28",
+            "result": "1781"
+        }
+    ],
+    "12475001173": [
+        {
+            "date_tested": "2014-06-11",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40705000258-MB00NI.D.H": [
+    "0949-46": [
         {
-            "date_tested": "2014-10-26",
+            "date_tested": "2014-06-23",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40705000379-MBOONI DH": [
+    "SIMON NGANGA MUTUNGO": [
         {
-            "date_tested": "2014-10-26",
+            "date_tested": "2014-06-24",
             "result": "< LDL copies\/ml"
         }
     ],
-    "12508001075-MBOONI DH": [
+    "40424400733": [
         {
-            "date_tested": "2014-10-26",
-            "result": "81507"
+            "date_tested": "2014-02-06",
+            "result": "109682"
         }
     ],
-    "40705000336-D.H": [
-        {
-            "date_tested": "2014-10-26",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000020-MBOONI D.H": [
-        {
-            "date_tested": "2014-10-26",
-            "result": "266671"
-        }
-    ],
-    "40705000644": [
-        {
-            "date_tested": "2014-10-31",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000488": [
-        {
-            "date_tested": "2014-10-31",
-            "result": "5419"
-        }
-    ],
-    "40705000731": [
-        {
-            "date_tested": "2014-10-31",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000398": [
-        {
-            "date_tested": "2014-10-31",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000200": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000201": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "1636"
-        }
-    ],
-    "12508000986": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "76957"
-        }
-    ],
-    "40705000606": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000408": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000424": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "9339"
-        }
-    ],
-    "40705000793": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000388": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40701000056": [
-        {
-            "date_tested": "2014-11-06",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000051": [
+    "404244001069": [
         {
             "date_tested": "2014-07-10",
-            "result": "< LDL copies\/ml"
+            "result": "25772"
         }
     ],
-    "40705000459": [
+    "4042 4400 302": [
         {
-            "date_tested": "2014-07-10",
+            "date_tested": "2014-07-16",
             "result": "< LDL copies\/ml"
         }
     ],
-    "4070500032": [
+    "40424400292": [
+        {
+            "date_tested": "2014-07-25",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400805": [
+        {
+            "date_tested": "2014-01-07",
+            "result": "33077"
+        }
+    ],
+    "40424400603": [
+        {
+            "date_tested": "2014-01-07",
+            "result": "288102"
+        }
+    ],
+    "12475001155": [
+        {
+            "date_tested": "2014-10-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400414": [
+        {
+            "date_tested": "2014-10-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400193": [
+        {
+            "date_tested": "2014-11-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "12475001156": [
         {
             "date_tested": "0000-00-00",
             "result": "Collect New Sample"
         }
     ],
-    "40705000651": [
+    "40424400146": [
         {
-            "date_tested": "0000-00-00",
-            "result": "Collect New Sample"
-        }
-    ],
-    "40705000309": [
-        {
-            "date_tested": "0000-00-00",
-            "result": "Collect New Sample"
-        }
-    ],
-    "4070500857": [
-        {
-            "date_tested": "0000-00-00",
-            "result": ""
-        }
-    ],
-    "12508001096": [
-        {
-            "date_tested": "2015-01-08",
-            "result": "<550"
-        }
-    ],
-    "40705000818": [
-        {
-            "date_tested": "2015-01-11",
-            "result": "19636"
-        }
-    ],
-    "40705000197": [
-        {
-            "date_tested": "2015-01-12",
-            "result": "6928"
-        }
-    ],
-    "12508001160": [
-        {
-            "date_tested": "2015-01-12",
-            "result": "15855"
-        }
-    ],
-    "12508000959": [
-        {
-            "date_tested": "2015-01-19",
-            "result": "98499"
-        }
-    ],
-    "40105000834": [
-        {
-            "date_tested": "2015-01-19",
-            "result": "130528"
-        }
-    ],
-    "40705000717": [
-        {
-            "date_tested": "2015-01-19",
+            "date_tested": "2015-01-18",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40705000571": [
+    "40400101853": [
         {
-            "date_tested": "2015-01-19",
-            "result": "31940"
-        }
-    ],
-    "40705000857": [
-        {
-            "date_tested": "2015-01-19",
-            "result": "7870"
-        }
-    ],
-    "40705000799": [
-        {
-            "date_tested": "2015-01-13",
+            "date_tested": "2015-01-18",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40705000241": [
+    "40400101854": [
         {
-            "date_tested": "2015-01-13",
-            "result": "2711"
+            "date_tested": "2015-01-18",
+            "result": "18695"
         }
     ],
-    "12508001111": [
-        {
-            "date_tested": "2015-01-13",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000443": [
-        {
-            "date_tested": "2015-01-13",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000752": [
-        {
-            "date_tested": "2015-01-13",
-            "result": "< LDL copies\/ml"
-        }
-    ],
-    "40705000184": [
+    "JACKLINE MUTUKU": [
         {
             "date_tested": "2015-01-22",
             "result": "< LDL copies\/ml"
         }
     ],
-    "40705000577": [
+    "STEPHEN NGUGI": [
         {
             "date_tested": "2015-01-22",
             "result": "< LDL copies\/ml"
         }
     ],
-    "12508000944": [
-        {
-            "date_tested": "2015-01-22",
-            "result": "800"
-        }
-    ],
-    "40705000199": [
+    "RUTH MUENI": [
         {
             "date_tested": "2015-01-22",
             "result": "< LDL copies\/ml"
         }
     ],
-    "12074000017": [
+    "40424400897": [
         {
             "date_tested": "2015-01-22",
             "result": "< LDL copies\/ml"
         }
     ],
-    "1250800896": [
+    "1243808169": [
         {
-            "date_tested": "0000-00-00",
-            "result": ""
+            "date_tested": "2015-01-16",
+            "result": "35541"
         }
     ],
-    "40705000677": [
+    "404244001042": [
         {
-            "date_tested": "0000-00-00",
-            "result": ""
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40400102423": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "7040020035": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "1247501415": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424401037": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "4042400480": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "21478"
+        }
+    ],
+    "40400104614": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "659"
+        }
+    ],
+    "40500400076": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "1247501183": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400576": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400546": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "12627"
+        }
+    ],
+    "1199500313": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "4129"
+        }
+    ],
+    "40424400934": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400887": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400726": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "404244000725": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40400102622": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400638": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "18454"
+        }
+    ],
+    "40400106000": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400853": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400736": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400446": [
+        {
+            "date_tested": "2015-01-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400001": [
+        {
+            "date_tested": "2015-01-18",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40400103143": [
+        {
+            "date_tested": "2015-01-18",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40400102271": [
+        {
+            "date_tested": "2015-01-18",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400990": [
+        {
+            "date_tested": "2015-01-18",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40400102663": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "124402"
+        }
+    ],
+    "40424401035": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "811"
+        }
+    ],
+    "40424400803": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "4042441084": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "726"
+        }
+    ],
+    "40424400390": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "163726"
+        }
+    ],
+    "40400106288": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40400102165": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "11402"
+        }
+    ],
+    "1247501216": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "40424400273": [
+        {
+            "date_tested": "2015-02-02",
+            "result": "20440"
         }
     ]
 }

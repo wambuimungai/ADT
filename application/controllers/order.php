@@ -57,8 +57,8 @@ class Order extends MY_Controller {
 				     "email" =>  $this -> input -> post("email", TRUE),
 			         "password" => $this -> input -> post("password",TRUE)
 			        );                                                                                                 
-		    $url = $this -> nascop_url . 'sync/user';
-		    $curl -> post($url,$post_data);
+		    $url = trim($this -> nascop_url) . 'sync/user';
+		    $curl -> post($url,$post_data);     
 		}
 		if ($curl -> error) {
 			$curl -> error_code;
@@ -407,6 +407,7 @@ class Order extends MY_Controller {
 		if ($sql != "") {
 			$query = $this -> db -> query($sql);
 			$results = $query -> result_array();
+                        echo $results;die();
 		} else {
 			$results = array();
 		}
