@@ -121,14 +121,11 @@ public function get_faq(){
                $header["module"]=$rows -> modules;
            $header["question"]=$rows -> questions;
           $header["answer"]=$rows -> answers;
-//pass as an array!
+           //pass as an array!
            $data['info'][]=($header);
-           //print_r($data['info']);
-        
      }
-
        }
-//die();
+
       
 
         $data['title'] = "webADT | System Home";

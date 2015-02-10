@@ -45,8 +45,6 @@
        <div class="span10 offset1">
            <div class="faq_container">
    <div class="faq">
-       
-
  <?php
  foreach ($info as $key) { ?>
     <div class="faq_header">

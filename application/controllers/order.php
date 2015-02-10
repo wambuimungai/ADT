@@ -57,8 +57,8 @@ class Order extends MY_Controller {
 				     "email" =>  $this -> input -> post("email", TRUE),
 			         "password" => $this -> input -> post("password",TRUE)
 			        );                                                                                                 
-		    $url = $this -> nascop_url . 'sync/user';
-		    $curl -> post($url,$post_data);
+		    $url = trim($this -> nascop_url) . 'sync/user';
+		    $curl -> post($url,$post_data);     
 		}
 		if ($curl -> error) {
 			$curl -> error_code;
@@ -390,7 +390,7 @@ class Order extends MY_Controller {
 			$columns = array('#', 'Facility Name', 'Period Beginning', 'Options');
 
 			if ($facility_type > 1  && $supplier == "KEMSA") {
-				$sql = "SELECT c.period_begin as id,sf.name as facility_name,c.period_begin,c.id as cdrr_id,m.id as maps_id,c.facility_id as facility_id,f.facilitycode as facility_code
+				 $sql = "SELECT c.period_begin as id,sf.name as facility_name,c.period_begin,c.id as cdrr_id,m.id as maps_id,c.facility_id as facility_id,f.facilitycode as facility_code
 						FROM cdrr c 
 						LEFT JOIN maps m ON (c.facility_id=m.facility_id) AND (c.period_begin=m.period_begin) AND (c.period_end=m.period_end)
 						LEFT JOIN sync_facility sf ON sf.id=c.facility_id 
