@@ -390,7 +390,7 @@ class Order extends MY_Controller {
 			$columns = array('#', 'Facility Name', 'Period Beginning', 'Options');
 
 			if ($facility_type > 1  && $supplier == "KEMSA") {
-				$sql = "SELECT c.period_begin as id,sf.name as facility_name,c.period_begin,c.id as cdrr_id,m.id as maps_id,c.facility_id as facility_id,f.facilitycode as facility_code
+				 $sql = "SELECT c.period_begin as id,sf.name as facility_name,c.period_begin,c.id as cdrr_id,m.id as maps_id,c.facility_id as facility_id,f.facilitycode as facility_code
 						FROM cdrr c 
 						LEFT JOIN maps m ON (c.facility_id=m.facility_id) AND (c.period_begin=m.period_begin) AND (c.period_end=m.period_end)
 						LEFT JOIN sync_facility sf ON sf.id=c.facility_id 
@@ -407,7 +407,6 @@ class Order extends MY_Controller {
 		if ($sql != "") {
 			$query = $this -> db -> query($sql);
 			$results = $query -> result_array();
-                        echo $results;die();
 		} else {
 			$results = array();
 		}
