@@ -47,7 +47,8 @@
    <div class="faq">
        
 
- <?php
+<!--  <?php
+ if ($info >0){
  foreach ($info as $key) { ?>
     <div class="faq_header">
        <h3><?php echo $key['module']; ?></h3>
@@ -56,7 +57,82 @@
            <div class="faq_answer_container">
               <div class="faq_answer"><?php echo $key['answer'] ; ?></div>
            </div>   
-           <?php }?>     
+           <?php }    
+           }else{ ?>
+
+<h3><?php echo "No FAQS" ?></h3>
+
+          <?php } ?> -->
+          <h3>Patients</h3>
+          <?php
+          if (@$info > 0)  {
+          foreach ($info as $key) { ?>
+    
+      <div class="faq_question"><?php echo $key['question']; ?></div>
+           <div class="faq_answer_container">
+              <div class="faq_answer"><?php echo $key['answer'] ; ?></div>
+           </div>   
+           <?php } 
+           }else{?>
+             <div class="faq_question"><?php echo "No FAQS" ?></div>
+
+           <?php } ?>
+
+          <h3>Inventory</h3>
+          <?php
+           if (@$inventory > 0)  {
+          foreach ($inventory as $key) { ?>
+    
+      <div class="faq_question"><?php echo $key['question']; ?></div>
+           <div class="faq_answer_container">
+              <div class="faq_answer"><?php echo $key['answer'] ; ?></div>
+           </div>   
+           <?php }
+           }else{?>
+             <div class="faq_question"><?php echo "No FAQS" ?></div>
+
+           <?php } ?>
+          <h3>Orders</h3>
+           <?php
+            if (@$orders > 0)  {
+          foreach ($orders as $key) { ?>
+    
+      <div class="faq_question"><?php echo $key['question']; ?></div>
+           <div class="faq_answer_container">
+              <div class="faq_answer"><?php echo $key['answer'] ; ?></div>
+           </div>   
+           <?php }  
+           }else{?>
+             <div class="faq_question"><?php echo "No FAQS" ?></div>
+
+           <?php } ?>
+          <h3>Reports</h3>
+           <?php
+           if (@$reports > 0)  {
+          foreach ($reports as $key) { ?>
+    
+      <div class="faq_question"><?php echo $key['question']; ?></div>
+           <div class="faq_answer_container">
+              <div class="faq_answer"><?php echo $key['answer'] ; ?></div>
+           </div>   
+           <?php }
+            }else{?>
+             <div class="faq_question"><?php echo "No FAQS" ?></div>
+
+           <?php } ?> 
+          <h3>Settings</h3>
+           <?php
+           if (@$settings > 0)  {
+          foreach ($settings as $key) { ?>
+    
+      <div class="faq_question"><?php echo $key['question']; ?></div>
+           <div class="faq_answer_container">
+              <div class="faq_answer"><?php echo $key['answer'] ; ?></div>
+           </div>   
+           <?php }  }else{?>
+             <div class="faq_question"><?php echo "No FAQS" ?></div>
+
+           <?php } ?> 
     </div>
       
  </div>

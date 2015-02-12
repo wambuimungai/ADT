@@ -305,7 +305,14 @@ if($table){
 	<div class="modal-body">
             <div class="max-row">
 				<label>Module</label>
-				<input type="text" class="input-large" name="faq_module" required="required"/>
+				<!--<input type="text" class="input-large" name="faq_module" required="required"/>-->
+				<select class="input-large" name="faq_module">
+					<option value="Patients">Patients</option>
+					<option value="Inventory">Inventory</option>
+					<option value="Orders">Orders</option>
+					<option value="Reports">Reports</option>
+					<option value="Settings">Settings</option>
+				</select>
 		</div>
 		<div class="max-row">
 				<label>Question</label>

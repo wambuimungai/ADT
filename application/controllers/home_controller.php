@@ -111,23 +111,97 @@ class Home_Controller extends MY_Controller {
         
 public function get_faq(){
 
-        $sql= $this -> db -> query("SELECT modules,questions,answers FROM faq WHERE active='1' GROUP BY modules",array());
+ ///patients
+        $sql= $this -> db -> query("SELECT modules,questions,answers FROM faq WHERE active='1' AND modules='Patients'",array());
         $header=array();
-		$resu=array();
+
        if($sql -> num_rows()>0){
 
             foreach ($sql -> result() as $rows) {
-          	
-               $header["module"]=$rows -> modules;
+           //$header["module"]=$rows -> modules;
            $header["question"]=$rows -> questions;
           $header["answer"]=$rows -> answers;
-//pass as an array!
+
            $data['info'][]=($header);
-           //print_r($data['info']);
-        
+           print_r($data['info']);
+
      }
 
        }
+       ///inventory
+      
+        $sql1= $this -> db -> query("SELECT modules,questions,answers FROM faq WHERE active='1' AND modules='Inventory'",array());
+        $header1=array();
+
+       if($sql1 -> num_rows()>0){
+
+            foreach ($sql1 -> result() as $rows) {
+           //$header["module"]=$rows -> modules;
+           $header1["question"]=$rows -> questions;
+          $header1["answer"]=$rows -> answers;
+
+           $data['inventory'][]=($header1);
+          print_r($data['inventory']);
+
+     }
+
+       }
+//orders
+        $sql2= $this -> db -> query("SELECT modules,questions,answers FROM faq WHERE active='1' AND modules='Orders'",array());
+        $header2=array();
+
+       if($sql2 -> num_rows()>0){
+
+            foreach ($sql2 -> result() as $rows) {
+           //$header["module"]=$rows -> modules;
+           $header2["question"]=$rows -> questions;
+          $header2["answer"]=$rows -> answers;
+
+           $data['orders'][]=($header2);
+           print_r($data['orders']);
+          
+
+     }
+
+       }
+       //reports
+        $sql3= $this -> db -> query("SELECT modules,questions,answers FROM faq WHERE active='1' AND modules='Reports'",array());
+        $header3=array();
+
+       if($sql3 -> num_rows()>0){
+
+            foreach ($sql3 -> result() as $rows) {
+           //$header["module"]=$rows -> modules;
+           $header3["question"]=$rows -> questions;
+          $header3["answer"]=$rows -> answers;
+
+           $data['reports'][]=($header3);
+          
+          print_r($data['reports']);
+
+     }
+
+       }
+       //settings
+        $sql4= $this -> db -> query("SELECT modules,questions,answers FROM faq WHERE active='1' AND modules='Settings'",array());
+        $header4=array();
+
+       if($sql4 -> num_rows()>0){
+
+            foreach ($sql4 -> result() as $rows) {
+           //$header["module"]=$rows -> modules;
+           $header4["question"]=$rows -> questions;
+          $header4["answer"]=$rows -> answers;
+
+           $data['settings'][]=($header4);
+          
+          print_r($data['settings']);
+
+     }
+
+       }
+
+
 //die();
       
 
