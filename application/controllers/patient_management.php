@@ -373,7 +373,7 @@ class Patient_Management extends MY_Controller {
 	}
 
 	public function edit($record_no) {
-		$sql = "SELECT p.*,
+		 $sql = "SELECT p.*,
 		               rst.Name as service_name,
 		               dp.child,
 		               s.secondary_spouse 
@@ -1016,12 +1016,9 @@ class Patient_Management extends MY_Controller {
 				
                 $adherence = doubleval(str_replace(array("%","<",">","="), "", $result['adherence']));
 				$average_adherence = (( doubleval($result['pill_adh']) + doubleval($result['missed_adh']) + $adherence) / 3);
-				
 				$dyn_table .= "<td>" . $adherence . "%</td>";
 				$dyn_table .= "<td>" . number_format($average_adherence,2) . "%</td>";
-				$dyn_table .= "</tr></tbody>";
-				//echo "<pre>"; print_r($dyn_table); echo "</pre>";die;
-			}
+				$dyn_table .= "</tr></tbody>";			}
 		}
 		echo $dyn_table;
 	}
@@ -1093,8 +1090,6 @@ class Patient_Management extends MY_Controller {
 				if ($denominator > 0) {
 					$pill_count_reporting = ($numerator / $denominator) * 100;
 					$pill_count_reporting = number_format($pill_count_reporting, 2) . "%";
-					
-
 				} else {
 					$pill_count_reporting = "-";
 				}

@@ -484,7 +484,7 @@ if($table){
 				    	$("#satellite").empty();
 				    	$("#satellite").append($("<option></option>").attr("value",'').text('--Select One--'));
 				    	$.each(data, function(i, jsondata){
-				    		$("#satellite").append($("<option></option>").attr("value",jsondata.facilitycode).text(jsondata.facilitycode));
+				    		//$("#satellite").append($("<option></option>").attr("value",jsondata.facilitycode).text(jsondata.facilitycode));
 				    		$("#satellite").append($("<option></option>").attr("value",jsondata.facilitycode).text(jsondata.name));
 				    	});
 				    	
