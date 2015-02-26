@@ -1846,9 +1846,7 @@ class report_management extends MY_Controller {
 			}
 		}
 
-		echo "<pre>";
-		print_r($overall_array);
-		echo "</pre>";
+		
 
 	}
 
@@ -3868,9 +3866,7 @@ class report_management extends MY_Controller {
 		}
 		$output['aaData'] = array_filter($output['aaData']);
 		$output['aaData'] = array_values($output['aaData']);
-		//echo "<pre>";
-		//print_r($output);
-		//echo "</pre>";
+		
 		echo json_encode($output);
 		/*
 
