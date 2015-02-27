@@ -1356,7 +1356,7 @@ class Order extends MY_Controller {
 				WHERE c.id='$id'";
 			$query = $this -> db -> query($sql);
 			$cdrr_array = $query -> result_array();
-			$data['cdrr_array'] = $cdrr_array;
+                        $data['cdrr_array'] = $cdrr_array;
 			$data['options'] = "view";
 
 			//echo "<pre>"; print_r($cdrr_array); die;
