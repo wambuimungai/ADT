@@ -274,13 +274,13 @@
                             <input type="text" name="pill_count[]" class="pill_count input-small" readonly="readonly" />
                         </td>
                         <td>
-                            <input type="text" name="next_pill_count[]" class="next_pill_count input-small"qty  />
+                            <input type="number" name="next_pill_count[]" class="next_pill_count input-small"qty  />
                         </td>
                         <td>
-                            <input type="text" name="duration[]" class="duration input-small" />
+                            <input type="number" name="duration[]" class="duration input-small" />
                         </td>
                         <td>
-                            <input type="text" name="qty_disp[]" class="qty_disp input-small next_pill validate[requireds]"  id="qty_disp"/>
+                            <input type="number" name="qty_disp[]" class="qty_disp input-small next_pill validate[requireds]"  id="qty_disp"/>
                         <td>
                             <input type="text" name="soh[]" class="soh input-small" readonly="readonly"/>
                         </td>
@@ -377,6 +377,7 @@
 		//Add listener to the 'days_to_next' field so that the date picker can reflect the correct number of days!
         $("#days_to_next").change(function() {
             var days = $("#days_to_next").attr("value");
+            if(days > 0){
             var base_date = new Date();
             var appointment_date = $("#next_appointment_date");
             var today = new Date(base_date.getFullYear(), base_date.getMonth(), base_date.getDate());
@@ -384,7 +385,9 @@
             var appointment_timestamp = (1000 * 60 * 60 * 24 * days) + today_timestamp;
             appointment_date.datepicker("setDate", new Date(appointment_timestamp));
             retrieveAppointedPatients();
-
+            }else{
+               bootbox.alert("<h4>Notice!</h4>\n\<center>Days cannot be empty or negative</center>");
+            }
             //Loop through Table to calculate pill counts for all rows
             $.each($(".drug"), function(i, v) {
                 var row = $(this);
@@ -1037,7 +1040,8 @@
             alert_qty_check = true;
         }
         var selected_value = $(this).attr("value");
-        var stock_at_hand = row.closest("tr").find(".soh ").attr("value");
+        if(selected_value > 0){
+        stock_at_hand = row.closest("tr").find(".soh ").attr("value");
         var stock_validity = stock_at_hand - selected_value;
         
         if (stock_validity < 0) {
@@ -1052,7 +1056,11 @@
             row.closest("tr").find(".qty_disp").css("background-color", "white");
             row.closest("tr").find(".qty_disp").removeClass("input_error");
         }
-
+        }else{
+            bootbox.alert("<h4>Notice!</h4>\n\<hr/><center>Quantity dispensed cannot be negative or empty</center>");
+            row.closest("tr").find(".qty_disp").css("background-color", "red");
+            row.closest("tr").find(".qty_disp").addClass("input_error");
+        }
     });
 
     //next pill count change event
@@ -1067,6 +1075,7 @@
     $(".duration").on('keyup', function() {
         var row = $(this);
         var duration = $(this).val();
+        if(duration>0){
         var val = row.closest("tr").find('#doselist').val();
         var dose_val = row.closest("tr").find('.dose option').filter(function() {
             return this.value == val;
@@ -1079,6 +1088,14 @@
         row.closest("tr").find(".qty_disp").val(qty_disp);
         alert_qty_check = true;
         $(".qty_disp").trigger('keyup',[row]);
+        
+            row.closest("tr").find(".duration").css("background-color", "white");
+            row.closest("tr").find(".duration").removeClass("input_error");
+        }else {
+           bootbox.alert("<h4>Notice!</h4>\n\<hr/><center>Duration cannot be negative or empty</center>"); 
+            row.closest("tr").find(".duration").css("background-color", "red");
+            row.closest("tr").find(".duration").addClass("input_error");
+        }
     });
 	//-------------------------------- CHANGE EVENT END ----------------------------------
 	
@@ -1087,7 +1104,7 @@
 	//function to add drug row in table 
     $(".add").click(function() {
         routine_check=0;
-        var last_row = $('#tbl-dispensing-drugs tr:last');
+        var last_row = $('#tbl-dispensing-drugs tr');
         var drug_selected = last_row.find(".drug").val();
         var quantity_entered = last_row.find(".qty_disp").val();
         if (last_row.find(".qty_disp").hasClass("input_error")) {
@@ -1247,11 +1264,12 @@
     function saveData(){
         $("#btn_submit").attr("readonly","readonly");
         var timestamp = new Date().getTime();
-        var all_rows=$('#drugs_table>tbody>tr');
+        var all_rows=$('#tbl-dispensing-drugs>tbody>tr');
         var msg = '';
-        
+    
         //Loop through all rows to check values
         $.each(all_rows,function(i,v){
+            
             var last_row = $(this);
             var drug_name = last_row.find(".drug option:selected").text();
 
@@ -1259,13 +1277,16 @@
                 msg+='There is no commodity selected<br/>';
             }
             if(last_row.find(".batch").val()==0){
-                msg+='<b>'+drug_name + '</b><br/> There is no batch for the commodity selected<br/>';
+                msg+='<b>'+drug_name + '</b> : There is no batch for the commodity selected<br/>';
+            }
+            if(last_row.find(".duration").val()==0 || last_row.find(".duration").val()=="" || isNaN(last_row.find(".duration").val())==true){
+                msg+='<b>'+drug_name + '</b> :  You have not entered the duration<br/>';
             }
             if(last_row.find(".qty_disp").val()==0 || last_row.find(".qty_disp").val()=="" || isNaN(last_row.find(".qty_disp").val())==true){
-                msg+='<b>'+drug_name + '</b><br/> You have not entered the quantity being dispensed for a commodity entered<br/>';
+                msg+='<b>'+drug_name + '</b> :  You have not entered the quantity being dispensed for a commodity entered<br/>';
             }
-            if(last_row.find(".qty_disp").hasClass("input_error")){
-                msg+='<b>'+drug_name + '</b><br/> There is a commodity that has a quantity greater than the quantity available<br/>';
+            if(last_row.find(".qty_disp").hasClass("input_error")&&last_row.find(".qty_disp").val()>stock_at_hand){
+                msg+='<b>'+drug_name + '</b> :  There is a commodity that has a quantity greater than the quantity available<br/>';
             }
         
         });
