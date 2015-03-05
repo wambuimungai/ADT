@@ -182,6 +182,7 @@ class Dispensement_Management extends MY_Controller {
 		$get_drugs_array = $get_drugs_sql -> result_array();
 		echo json_encode($get_drugs_array);
 
+die();
 	}
 
         public function getBrands() {

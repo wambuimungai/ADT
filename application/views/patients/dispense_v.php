@@ -292,7 +292,7 @@
                                 <option value="0">None</option>
                             </select></td>
                         <td>
-                            <input type="text" name="comment[]" class="comment input-small" />
+                            <input type="text" name="comment[]" id ="comment" class="comment input-small" />
                         </td>
                         <td>
                             <input type="text" name="missed_pills[]" class="missed_pills input-small" />
@@ -832,9 +832,18 @@
         resetFields(row);
         row.closest("tr").find(".batch option").remove();
         row.closest("tr").find(".batch").append($("<option value='0'>Loading ...</option>"));
+        
         var row = $(this);
         var selected_drug = $(this).val();
         var patient_no = $("#patient").val();
+        var weighting = $("#weight").val();
+        var paed_dosage='';
+        
+        
+
+//row.closest("tr").find(".dose").append($("<option value='0'>"+paed_dosage+"</option>"));
+       // $('#dose').append("<option value='" + paed_dosage+ "'>");
+      /// bootbox.alert("<h4>Allergy Alert!</h4>\n\<hr/><center>This patient is allergic to "+paed_dosage+"</center>");
         //Check if patient allergic to selected drug
         var _url = "<?php echo base_url() . 'dispensement_management/drugAllergies'; ?>";
         var request = $.ajax({
@@ -914,6 +923,8 @@
                     dataType: "json",
                     async: false
                 });
+
+                //dosaging
                 request.done(function(data) {
                     var url_dose = "<?php echo base_url() . 'dispensement_management/getDoses'; ?>";
                     //Get doses
@@ -925,8 +936,13 @@
                     request_dose.done(function(data) {
                         row.closest("tr").find(".dose option").remove();
                         $.each(data, function(key, value) {
+                            
                             row.closest("tr").find(".dose").append("<option value='" + value.Name + "'  data-dose_val='" + value.value + "' data-dose_freq='" + value.frequency + "' >" + value.Name + "</option> ");
+                        //test dosaging here
+                       // bootbox.alert("<h4>Allergy Alert!</h4>\n\<hr/><center>This patient is allergic to "+selected_drug+"</center>");
+
                         });
+                       // row.closest("tr").find(".dose").append("<option value='" + value.Name + "'  data-dose_val='" + value.value + "' data-dose_freq='" + value.frequency + "' >" + paed_dosage + "</option> ");
                     });
 
                     row.closest("tr").find(".batch option").remove();
@@ -948,6 +964,38 @@
                         row.closest("tr").find(".comment").val(value.comment);
                         dose = value.dose;
                     });
+//Dosage for Paediatrics
+
+        if (selected_drug=='12'){
+
+        	if (weighting>=3 && weighting<=5.9){
+
+        		paed_dosage="1 tab";
+        		//row.closest("tr").find(".comment").append($(paed_dosage));
+        		
+        	}else if (weighting>=6 && weighting<=9.9){
+        		paed_dosage="1.5 tab";
+        	}else if (weighting>=10 && weighting<=13.9){
+        		paed_dosage="2 tab";
+        	}else if (weighting>=14 && weighting<=19.9){
+        		paed_dosage="2.5 tab";
+        	}else if (weighting>=20 && weighting<=24.9){
+        		paed_dosage="3 tab";
+        	}else if (weighting>=25 && weighting<=34.9){
+        		paed_dosage="300 +500mg";
+        	}
+        	///bootbox.alert("The Paediatrics Dosage equals to "+ paed_dosage);
+        	//row.closest("tr").find(".qty_disp").val(paed_dosage);
+        	row.closest("tr").find(".dose").val("");
+        	row.closest("tr").find(".dose").val(paed_dosage);
+        	
+        	
+        }
+      
+
+
+
+
                     //Get brands
                     var new_url = "<?php echo base_url() . 'dispensement_management/getBrands'; ?>";
                     var request_brand = $.ajax({

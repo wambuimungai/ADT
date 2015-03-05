@@ -164,7 +164,13 @@ class Order extends MY_Controller {
 				$error_log .= "Error: " . $curl -> error_code . "<br/>";
 			} else {
 				$main_array = json_decode($curl -> response, TRUE);
+
+				foreach ($main_array as $key => $value) {
+					unset($main_array[$key]['lmis_id']);
+					# code...
+				}
 				$this -> db -> query("TRUNCATE $table");
+
 				$this -> db -> insert_batch($table, $main_array);
 				$success_log .= "Success: " . $table . " Synched <br/>";
 				//start mapping process
