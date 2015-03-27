@@ -260,6 +260,7 @@ class Order extends MY_Controller {
 				echo "Error: " . $curl -> error_code . "<br/>";
 			} else {
 				$main_array = json_decode($curl -> response, TRUE);
+//                                echo "<pre>";  print_r($main_array);
 				$clean_data = array();
 
 				foreach ($main_array as $main) {
@@ -3827,7 +3828,7 @@ class Order extends MY_Controller {
 		else
 		{
 			$row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments'];
-        	$row['resupply'] = ($row['dispensed_to_patients'] * 3) - $row['physical_stock'];
+                        $row['resupply'] = ($row['dispensed_to_patients'] * 3) - $row['physical_stock'];
         }
 
         if($code == "F-CDRR_packs"){
@@ -3840,6 +3841,8 @@ class Order extends MY_Controller {
 			if($row['dispensed_to_patients'] >0){
 			   $row['dispensed_packs']=round(@$row['dispensed_to_patients'] / @$pack_size);
 			}
+                        $row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_packs'] - $row['losses'] + $row['adjustments'];
+                        $row['resupply'] = ($row['dispensed_packs'] * 3) - $row['physical_stock'];
 		}
 
 		echo json_encode($row);
@@ -3849,11 +3852,15 @@ class Order extends MY_Controller {
 		$balance=0;
 		//we are checking for the physical count of theis drug month before reporting period
 		$param['period_begin']=date('Y-m-d',strtotime($param['period_begin']."-1 month"));
-		$balance=Cdrr_Item::getLastPhysicalStock($param['period_begin'], $param['drug_id'], $param['facility_id']);
+               // print_r($param);
+                $balance=Cdrr_Item::getLastPhysicalStock($param['period_begin'], $param['drug_id'], $param['facility_id']);
 		if(!$balance && $month<3){
 			$month++;
 			$param['period_begin']=date('Y-m-d',strtotime($param['period_begin']."-1 month"));
+                        //print_r($param);die;
 			$balance=$this->getBeginningBalance($param,$month);
+                        
+                        
 		}
 
 		if($balance==null){

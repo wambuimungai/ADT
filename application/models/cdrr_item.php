@@ -34,7 +34,7 @@ class Cdrr_Item extends Doctrine_Record {
 
 	public function getLastPhysicalStock($period_begin, $drug_id, $facility_id) {
 		$query = Doctrine_Query::create() -> select("count") -> from("cdrr_item ci") -> where("ci.Cdrr.period_begin = '$period_begin' and ci.drug_id='$drug_id' and ci.Cdrr.facility_id='$facility_id' and ci.Cdrr.status !='prepared' and ci.Cdrr.status !='deleted'") -> OrderBy("ci.Cdrr.id desc");
-		$items = $query -> execute();
+                $items = $query -> execute();
 		return @$items[0]['count'];
 	}
 
