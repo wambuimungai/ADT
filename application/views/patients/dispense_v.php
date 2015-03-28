@@ -832,18 +832,15 @@
         resetFields(row);
         row.closest("tr").find(".batch option").remove();
         row.closest("tr").find(".batch").append($("<option value='0'>Loading ...</option>"));
-        
+       
         var row = $(this);
         var selected_drug = $(this).val();
         var patient_no = $("#patient").val();
         var weighting = $("#weight").val();
         var paed_dosage='';
-        
-        
+  
 
-//row.closest("tr").find(".dose").append($("<option value='0'>"+paed_dosage+"</option>"));
-       // $('#dose').append("<option value='" + paed_dosage+ "'>");
-      /// bootbox.alert("<h4>Allergy Alert!</h4>\n\<hr/><center>This patient is allergic to "+paed_dosage+"</center>");
+
         //Check if patient allergic to selected drug
         var _url = "<?php echo base_url() . 'dispensement_management/drugAllergies'; ?>";
         var request = $.ajax({
@@ -942,8 +939,204 @@
                        // bootbox.alert("<h4>Allergy Alert!</h4>\n\<hr/><center>This patient is allergic to "+selected_drug+"</center>");
 
                         });
-                       // row.closest("tr").find(".dose").append("<option value='" + value.Name + "'  data-dose_val='" + value.value + "' data-dose_freq='" + value.frequency + "' >" + paed_dosage + "</option> ");
+
                     });
+
+             
+
+
+ //Check the selected drug map code
+
+       var new_urls = "<?php echo base_url() . 'dispensement_management/getMappedDrugCode'; ?>";
+                    var request_map = $.ajax({
+                        url: new_urls,
+                        type: 'post',
+                        data: {"selected_drug": selected_drug},
+                        dataType: "json"
+                    });
+                  
+                    request_map.done(function(data) {
+                       
+                    var resulting = data[0].map;
+
+               //bootbox.alert(resulting);
+                  
+                    //Calculate dosages based on the resulting drug code and the weight of the patient
+
+        if (resulting=='18'){ //Abacavir+Lamuvide 60/30mg
+
+            if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="1BD";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="1.5BD";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="2BD";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="2.5BD";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="3BD";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="300 +500mg";
+            }
+          
+        }else if (resulting==17){//zidovudine+Lamivudine 60/30mg
+			if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="1BD";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="1.5BD";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="2BD";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="2.5BD";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="3BD";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="300 +500mg";
+            }
+
+        }else if(resulting==16){//zidovudine+Lamivudine+Nevirapine (60/30/50mg)
+        	if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="1BD";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="1.5BD";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="2BD";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="2.5BD";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="3BD";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="300/150/200mg";
+            }
+
+        }else if(resulting==25){//Efivarenz 200mg
+        	if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="1OD";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="1.5OD";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="1.5OD";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="2OD";
+            }
+
+        }else if(resulting==30 || resulting==31 || resulting==141){//	Nevirapine 10mg/ml suspension
+        	if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="5ml";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="8ml";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="10ml";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="15ml";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="15ml";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="";
+            }
+
+        }else if(resulting==9){//	Nevirapine 200mg tabs 
+        	if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="0.5OD";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="1AM 0.5PM";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="1AM 0.5PM";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="1OD";
+            }
+
+        }else if(resulting==28){//	Lopinavir/ritonavir 80/20 MG/ML
+        	if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="1.5ml";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="1.5ml";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="2ml";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="2.5ml";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="3ml";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="4ml";
+            }
+
+        }else if(resulting==15){//	Lopinavir/ritonavir 200/50mg tab
+        	if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="1BD";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="1BD";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="2AM 1PM";
+            }
+
+        }else if(resulting==147){//	ritonavir 80MG/ML
+        	if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="1ml";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="1ml";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="1.5ml";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="2ml";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="2.5ml";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="4mlAM 2mlPM";
+            }
+
+        }else if(resulting==110){//	100mg tablets
+        	if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="";
+             }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="2BD";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="2BD";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="2AM 3PM";
+            }
+
+        }
+       // bootbox.alert(paed_dosage);
+  row.closest("tr").find(".dose").val(paed_dosage);
+                    
+                    });
+                    request_map.fail(function(data) {
+                        bootbox.alert("failed");
+                    });
+
+                    /*****************************/
+
+
+        
 
                     row.closest("tr").find(".batch option").remove();
                     row.closest("tr").find(".batch").append($("<option value='0'>Select</option>"));
@@ -964,38 +1157,6 @@
                         row.closest("tr").find(".comment").val(value.comment);
                         dose = value.dose;
                     });
-//Dosage for Paediatrics
-
-        if (selected_drug=='12'){
-
-        	if (weighting>=3 && weighting<=5.9){
-
-        		paed_dosage="1 tab";
-        		//row.closest("tr").find(".comment").append($(paed_dosage));
-        		
-        	}else if (weighting>=6 && weighting<=9.9){
-        		paed_dosage="1.5 tab";
-        	}else if (weighting>=10 && weighting<=13.9){
-        		paed_dosage="2 tab";
-        	}else if (weighting>=14 && weighting<=19.9){
-        		paed_dosage="2.5 tab";
-        	}else if (weighting>=20 && weighting<=24.9){
-        		paed_dosage="3 tab";
-        	}else if (weighting>=25 && weighting<=34.9){
-        		paed_dosage="300 +500mg";
-        	}
-        	///bootbox.alert("The Paediatrics Dosage equals to "+ paed_dosage);
-        	//row.closest("tr").find(".qty_disp").val(paed_dosage);
-        	row.closest("tr").find(".dose").val("");
-        	row.closest("tr").find(".dose").val(paed_dosage);
-        	
-        	
-        }
-      
-
-
-
-
                     //Get brands
                     var new_url = "<?php echo base_url() . 'dispensement_management/getBrands'; ?>";
                     var request_brand = $.ajax({

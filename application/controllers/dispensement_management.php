@@ -182,7 +182,7 @@ class Dispensement_Management extends MY_Controller {
 		$get_drugs_array = $get_drugs_sql -> result_array();
 		echo json_encode($get_drugs_array);
 
-die();
+//die();
 	}
 
         public function getBrands() {
@@ -197,6 +197,16 @@ die();
 		$get_doses_array = $get_doses_sql -> result_array();
 		echo json_encode($get_doses_array);
 	}
+
+//function to return drugs on the sync_drugs
+	public function getMappedDrugCode(){
+		$drug_id = $this -> input -> post("selected_drug");
+		$get_drugcode_sql = $this -> db ->query("SELECT map FROM drugcode WHERE id='".$drug_id."' ");
+		$get_drugcode_array = $get_drugcode_sql -> result_array();
+		echo json_encode($get_drugcode_array);
+	}
+
+
 
 	public function getIndications() {
 		$drug_id = $this -> input -> post("drug_id");

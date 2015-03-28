@@ -1635,7 +1635,7 @@ class Patient_Management extends MY_Controller {
                 FROM patient_visit pv
                 LEFT JOIN patient p ON pv.patient_id = p.patient_number_ccc 
                 LEFT JOIN drugcode d ON pv.drug_id = d.id 
-                LEFT JOIN regimen r ON pv.regimen 
+                LEFT JOIN regimen r ON pv.regimen=r.id 
                 LEFT JOIN regimen r1 ON pv.last_regimen = r1.id 
                 LEFT JOIN visit_purpose v ON pv.visit_purpose = v.id 
                 LEFT JOIN regimen_change_purpose rcp ON rcp.id=pv.regimen_change_reason 
