@@ -9,7 +9,15 @@ class Order extends MY_Controller {
 
 		$dir = realpath($_SERVER['DOCUMENT_ROOT']);
 	    $link = $dir . "\\ADT\\assets\\nascop.txt";
+	   // $vr = file_get_contents($link)."/laban";
+	   // $vr1=str_replace(" ",'',$vr);
+	   // print_r($vr);
+	    //die();
 		$this -> nascop_url = file_get_contents($link);
+		//nascop_url = file_get_contents($link);
+//print_r(nascop_url);
+	  //  die();
+
 	}
 
 	public function index() {
@@ -156,8 +164,10 @@ class Order extends MY_Controller {
 			$links['sync_facility'] = "sync/facilities";
 			$links['sync_regimen'] = "sync/regimen";
 		}
+
 		foreach ($links as $table => $link) {
-			$target_url = $url . $link;
+			$target_url = trim($url.$link);
+			//print_r($target_url);
 			$curl -> get($target_url);
 			if ($curl -> error) {
 				$curl -> error_code;
@@ -169,6 +179,12 @@ class Order extends MY_Controller {
 					unset($main_array[$key]['lmis_id']);
 					# code...
 				}
+					/*echo "<pre>";
+				print_r($main_array);
+				echo "</pre>";*/
+
+//die();
+
 				$this -> db -> query("TRUNCATE $table");
 
 				$this -> db -> insert_batch($table, $main_array);
@@ -487,9 +503,11 @@ class Order extends MY_Controller {
 				$facility = $this -> input -> post("satellite_facility", TRUE);
 				if ($facility == null) {
 					$facility = $this -> session -> userdata("facility");
+
 				} else {
 					$data['hide_generate'] = 1;
 				}
+
 
 			} else if ($order_type == 3) {
 				$data['page_title'] = "Stand-alone(F-CDRR)";
@@ -696,6 +714,8 @@ class Order extends MY_Controller {
 		}
 
 	}
+
+
 
 	public function check_duplicate($code, $period_start, $period_end, $facility, $table = "cdrr") {
 		$response = false;
