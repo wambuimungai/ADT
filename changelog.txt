@@ -1,3 +1,9 @@
+Version 2.19 27/04/2015
+=============================================
+-Added: Controls for dispensing 
+-Fixed: Routine Refill and expired batch notification
+-Fixed: Add Patient, pregnancy prompt
+-Fixed: Stock Transaction 'adjustment'
 Version 2.18 10/11/2014
 ==============================================
 - Added: Lost to Followup Reporty

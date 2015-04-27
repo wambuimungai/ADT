@@ -1328,7 +1328,7 @@
 								
 									if(@$user_is_facility_administrator==0){//Display adjustments for only facility administrators
 										$trans_name=str_replace(" ","",strtolower($transaction_type['Name']));
-										$findme="ajustment";
+										$findme="adjustment";
 										$pos = stripos($trans_name, $findme);
 										//echo '<option label="" value="0" selected="">'.$user_is_facility_administrator.'</option>';
 										if($pos===0){

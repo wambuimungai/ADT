@@ -501,7 +501,7 @@ class Inventory_Management extends MY_Controller {
 		echo json_encode($batches_array);
 	}
 
-	public function getBacthDetails() {
+	public function getBatchDetails() {
 		$facility_code = $this -> session -> userdata('facility');
 		$stock_type = $this -> input -> post("stock_type");
 		$selected_drug = $this -> input -> post("selected_drug");

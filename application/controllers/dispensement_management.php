@@ -56,18 +56,21 @@ class Dispensement_Management extends MY_Controller {
 			{ 
 				$visit_purpose = strtolower($result['visit_purpose_name']);
 				
-				if (strpos($visit_purpose,'startart') !== false)
+				if (strpos($visit_purpose,'startart') === true)
 				{
-                   $start_art_check = 1;
+                                    $start_art_check = 1;
+                                    
 				} 
-				if(strpos($visit_purpose,'enrollment') !== false) {
+				if(strpos($visit_purpose,'enrollment') === true) {
 				    $enrollment_check = 1;
 				}
 			}
 
 			$data['purposes'] = Visit_Purpose::getFiltered($enrollment_check,$start_art_check);
+                       
 		}else{
 			$data['purposes'] = Visit_Purpose::getAll();
+                        
 		}
 
 		$sql = "SELECT DISTINCT(d.drug),

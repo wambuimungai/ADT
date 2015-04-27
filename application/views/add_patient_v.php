@@ -126,9 +126,9 @@
 			//Function to check if female is pregnant
 			$("#gender").change(function() {
 					var selected_value = $(this).attr("value");
-                                        
+                                        alert(selected_value)
 					//if female, display the prengancy selector
-					if(selected_value == 2 && $('age_in_years').val()>=8) {
+					if(selected_value ==2 && $('#age_in_years').val()>=8) {
 						//If female show pregnant container
 						$('#pregnant_view').slideDown('slow', function() {
 

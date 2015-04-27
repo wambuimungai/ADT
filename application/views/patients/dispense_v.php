@@ -798,8 +798,8 @@
 
         var regimen = $("#current_regimen option:selected").attr("value");
         var last_regimen = $("#last_regimen").attr("value");
-
-        if (last_regimen != 0) {
+        
+            if (last_regimen != 0) {
             if ($("#last_regimen_disp").val().toLowerCase().indexOf("oi") == -1) {
                 //contains oi
                 if (regimen != last_regimen) {
@@ -809,8 +809,8 @@
                     $("#regimen_change_reason").removeClass("validate[required]");
                     $("#regimen_change_reason_container").hide();
                     $("#regimen_change_reason").val("");
-
-                    if(purpose_visit == 'routine refill'){
+                    
+                     if(purpose_visit.toLowerCase().indexOf("routine")!== -1){
                         routine_check=1;
                         //append visits
                         if(typeof previous_dispensed_data !=="undefined"){
@@ -1004,17 +1004,12 @@
     
     //batch change event
     $(".batch").change(function() {
-        if ($(this).prop("selectedIndex") > 1) {
-            bootbox.alert("<h4>Expired Batch</h4>\
-                                        <hr/>\n\
-                                    <center>This is not the first expiring batch</center>");
-        }
-        var row = $(this);
+            var row = $(this);
         //Get batch details(balance,expiry date)
         if ($(this).val() != 0) {
             var batch_selected = $(this).val();
             var selected_drug = row.closest("tr").find(".drug").val();
-            var _url = "<?php echo base_url() . 'inventory_management/getBacthDetails'; ?>";
+            var _url = "<?php echo base_url() . 'inventory_management/getBatchDetails'; ?>";
             var request = $.ajax({
                 url: _url,
                 type: 'post',
