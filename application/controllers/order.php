@@ -609,6 +609,7 @@ class Order extends MY_Controller {
 			}
 
 			if (!empty($content_array)) {
+//                            echo "<pre>";print_r($content_array);die;
 				$fmaps_array = $content_array;
 				$data['fmaps_array'] = $fmaps_array['fmaps_array'];
 				$facility_id = $fmaps_array['fmaps_array'][0]['facility_id'];
@@ -652,6 +653,7 @@ class Order extends MY_Controller {
 					$regimen_categories = array();
 					foreach ($regimen_array as $value) {
 						$regimen_categories[] = $value['name'];
+                                               
 					}
 					$regimen_categories = array_unique($regimen_categories);
 					$data['regimen_categories'] = $regimen_categories;

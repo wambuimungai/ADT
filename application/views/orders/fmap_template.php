@@ -272,7 +272,7 @@ if ($facility_object -> service_pep == "1") {
 							}
 						   }else{
 						   	foreach($regimen_list as $regimen){
-						   	?>
+                                                             ?>
 								<tr>
 								<td style="border-right:2px solid #DDD;"><?php echo $regimen['code'];?></td>
 								<td regimen_id="<?php echo $regimen['reg_id'];?>" class="regimen_desc col_drug"><?php echo $regimen['description'];?></td>
@@ -337,7 +337,7 @@ if ($facility_object -> service_pep == "1") {
 			</div>
 			<div class="facility_info_bottom" style="width:100%;">
 				<table class=" table table-bordered ">
-					<tr>
+<!--					<tr>
 						<td colspan="3">
 							<strong>List Any Other Regimen</strong><br>
 							<textarea name="other_regimen" id="other_regimen" style="width:100%" value="<?php echo @$fmaps_array[0]['comments'];?>" ></textarea>
@@ -367,7 +367,12 @@ if ($facility_object -> service_pep == "1") {
 						<td><span>Adults (&gt;15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="diflucan_adult" id="diflucan_adult" value="<?php echo @$fmaps_array[0]['diflucan_adult'];?>" /></td>
 						<td><span>Children (&lt;=15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="diflucan_child" id="diflucan_child" value="<?php echo @$fmaps_array[0]['diflucan_child'];?>" /></td>
 					</tr>
-				</table>
+				</table>	<tr>
+						<td>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_cm" id="new_cm" value="<?php echo @$fmaps_array[0]['new_cm'];?>" /></td>
+						<td>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_cm" id="revisit_cm" value="<?php echo @$fmaps_array[0]['revisit_cm'];?>" /></td>
+						<td>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_oc" id="new_oc" value="<?php echo @$fmaps_array[0]['new_oc'];?>" /></td>
+						<td>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_oc" id="revisit_oc" value="<?php echo @$fmaps_array[0]['revisit_oc'];?>" /></td>
+					</tr>
 				<table class=" table table-bordered ">
 					<tr>
 						<th colspan="2" style="text-align: center">CM</th><th colspan="2" style="text-align: center">OC</th>
@@ -377,7 +382,7 @@ if ($facility_object -> service_pep == "1") {
 						<td>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_cm" id="revisit_cm" value="<?php echo @$fmaps_array[0]['revisit_cm'];?>" /></td>
 						<td>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_oc" id="new_oc" value="<?php echo @$fmaps_array[0]['new_oc'];?>" /></td>
 						<td>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_oc" id="revisit_oc" value="<?php echo @$fmaps_array[0]['revisit_oc'];?>" /></td>
-					</tr>
+					</tr>-->
 					<?php
 					if(isset($hide_generate) && $hide_generate==2){
 						?>

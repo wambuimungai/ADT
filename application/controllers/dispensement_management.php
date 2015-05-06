@@ -45,24 +45,25 @@ class Dispensement_Management extends MY_Controller {
                 ORDER BY pv.dispensing_date DESC";
 		$query = $this -> db -> query($sql);
 		$results = $query -> result_array();
+                
 		if ($results) {
 			$data['last_regimens'] = $results[0];
 			$dispensing_date = $results[0]['dispensing_date'];
 
 			//Check if patient had startART or enrollment purpose in previous visits
-			$enrollment_check = 0;
-			$start_art_check = 0;
+			$enrollment_check = false;
+			$start_art_check = false;
 			foreach($results as $result)
 			{ 
 				$visit_purpose = strtolower($result['visit_purpose_name']);
-				
-				if (strpos($visit_purpose,'startart') === true)
+//				echo "<pre>";
+//                print_r($visit_purpose);die;
+				if (strpos($visit_purpose,'start') !== false)
 				{
-                                    $start_art_check = 1;
-                                    
+                                    $start_art_check = true;
 				} 
-				if(strpos($visit_purpose,'enrollment') === true) {
-				    $enrollment_check = 1;
+				if(strpos($visit_purpose,'enrollment') !== false) {
+				    $enrollment_check = true;
 				}
 			}
 
@@ -70,7 +71,6 @@ class Dispensement_Management extends MY_Controller {
                        
 		}else{
 			$data['purposes'] = Visit_Purpose::getAll();
-                        
 		}
 
 		$sql = "SELECT DISTINCT(d.drug),

@@ -1,3 +1,3960 @@
-[
-
-]
+{
+    "BENSON": [
+        {
+            "date_tested": "2012-03-12",
+            "result": "744"
+        }
+    ],
+    "REGINA ATIENO": [
+        {
+            "date_tested": "2012-04-04",
+            "result": "118214 "
+        }
+    ],
+    "HIVDR\/146\/28\/3": [
+        {
+            "date_tested": "2012-04-04",
+            "result": "41767 "
+        }
+    ],
+    "ANNE WANGARI": [
+        {
+            "date_tested": "2012-04-18",
+            "result": "698 "
+        }
+    ],
+    "HIVDR\/154\/25\/04": [
+        {
+            "date_tested": "2012-04-26",
+            "result": "472 "
+        }
+    ],
+    "HIVDR\/153\/18\/04": [
+        {
+            "date_tested": "2012-04-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR\/152\/18\/04": [
+        {
+            "date_tested": "2012-04-26",
+            "result": "1117 "
+        }
+    ],
+    "HIVDR\/151\/18\/04": [
+        {
+            "date_tested": "2012-04-26",
+            "result": "32617 "
+        }
+    ],
+    "HIVDR\/150\/18\/04": [
+        {
+            "date_tested": "2012-04-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR\/149\/11\/04": [
+        {
+            "date_tested": "2012-04-26",
+            "result": "1400 "
+        }
+    ],
+    "SIMON MWANGI": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JANE KIMANI": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "517659 "
+        }
+    ],
+    "BEATRICE A. MAGERA": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "V AGADE": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "2100 "
+        }
+    ],
+    "HIVDR 147\/04\/04": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "2364 "
+        }
+    ],
+    "HIVDR 148\/11\/04": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 149\/11\/04": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "2448 "
+        }
+    ],
+    "JUSTUS BOSIRE": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "55684 "
+        }
+    ],
+    "B.K 00988 MIM": [
+        {
+            "date_tested": "2012-05-03",
+            "result": "7236 "
+        }
+    ],
+    "Peter Agwaro": [
+        {
+            "date_tested": "2012-05-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "Caroline Achieng": [
+        {
+            "date_tested": "2012-05-16",
+            "result": "11608 "
+        }
+    ],
+    "CLEOPAS ONYANGO": [
+        {
+            "date_tested": "2012-05-16",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "LAGAT MARGRET": [
+        {
+            "date_tested": "2012-05-18",
+            "result": "< 400 "
+        }
+    ],
+    "HIVDR 108": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "109": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 150": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 151": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "29822 "
+        }
+    ],
+    "HIVDR 152": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "1187 "
+        }
+    ],
+    "HIVDR 153": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 154": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 155": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "180067 "
+        }
+    ],
+    "HIVDR 156": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "14322 "
+        }
+    ],
+    "HIVDR 157": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "1413 "
+        }
+    ],
+    "HIVDR 158": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "1867 "
+        }
+    ],
+    "HIVDR 159": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 160": [
+        {
+            "date_tested": "2012-05-25",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 161": [
+        {
+            "date_tested": "2012-05-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MARGARET ADHIAMBO": [
+        {
+            "date_tested": "2012-05-31",
+            "result": "3610 "
+        }
+    ],
+    "WILLIAM GITHUA": [
+        {
+            "date_tested": "2012-06-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR\/162\/23\/5": [
+        {
+            "date_tested": "2012-06-04",
+            "result": "2979"
+        }
+    ],
+    "HIVDR164\/23\/5": [
+        {
+            "date_tested": "2012-06-04",
+            "result": "Collect New Sample"
+        }
+    ],
+    "HIVDR 165": [
+        {
+            "date_tested": "2012-06-07",
+            "result": "412 "
+        }
+    ],
+    "HIVDR 168\/30\/5": [
+        {
+            "date_tested": "2012-06-07",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 167": [
+        {
+            "date_tested": "2012-06-07",
+            "result": "265628 "
+        }
+    ],
+    "HIVDR 169\/30\/5": [
+        {
+            "date_tested": "2012-06-07",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 163": [
+        {
+            "date_tested": "2012-06-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 170": [
+        {
+            "date_tested": "2012-06-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 171": [
+        {
+            "date_tested": "2012-06-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 173": [
+        {
+            "date_tested": "2012-06-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HIVDR 174": [
+        {
+            "date_tested": "2012-06-11",
+            "result": "3064"
+        }
+    ],
+    "HIVDR 172": [
+        {
+            "date_tested": "2012-06-12",
+            "result": "< 400 "
+        }
+    ],
+    "CAROLYNE CHEBET": [
+        {
+            "date_tested": "2012-07-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "kmc 00043\/12": [
+        {
+            "date_tested": "2012-08-08",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "F.A 0005": [
+        {
+            "date_tested": "2012-08-23",
+            "result": "731329 "
+        }
+    ],
+    "01145crd": [
+        {
+            "date_tested": "2012-09-26",
+            "result": "136027 "
+        }
+    ],
+    "PETER KIBUI KINUTHIA": [
+        {
+            "date_tested": "2012-10-08",
+            "result": "3325092 "
+        }
+    ],
+    "justus obure magena": [
+        {
+            "date_tested": "2012-11-01",
+            "result": "1168"
+        }
+    ],
+    "NICHOLAS MUSYA": [
+        {
+            "date_tested": "2012-11-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "josephine namusonge": [
+        {
+            "date_tested": "2013-02-18",
+            "result": "851475"
+        }
+    ],
+    "judith mwende": [
+        {
+            "date_tested": "2013-08-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "rodrick muhoro": [
+        {
+            "date_tested": "2013-08-01",
+            "result": "1853"
+        }
+    ],
+    "joseph, akuma": [
+        {
+            "date_tested": "2013-08-01",
+            "result": "74346"
+        }
+    ],
+    "agnes ngechu": [
+        {
+            "date_tested": "2013-08-01",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-10-17",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "steve ndegwa": [
+        {
+            "date_tested": "2013-08-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "simon ndirangu": [
+        {
+            "date_tested": "2013-08-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "phostine simiyu": [
+        {
+            "date_tested": "2013-08-13",
+            "result": "21313"
+        }
+    ],
+    "simon barasa": [
+        {
+            "date_tested": "2013-08-13",
+            "result": "2180"
+        }
+    ],
+    "adamu hawa": [
+        {
+            "date_tested": "2013-08-25",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2013-10-07",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "kawe rose": [
+        {
+            "date_tested": "2013-08-25",
+            "result": "643"
+        }
+    ],
+    "barasa simon": [
+        {
+            "date_tested": "2013-08-25",
+            "result": "30765"
+        }
+    ],
+    "WAWERU WILSON": [
+        {
+            "date_tested": "2013-08-25",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CHONE JUDITH": [
+        {
+            "date_tested": "2013-08-25",
+            "result": "7822"
+        }
+    ],
+    "mbae gerald": [
+        {
+            "date_tested": "2013-08-25",
+            "result": "4542"
+        },
+        {
+            "date_tested": "2013-10-17",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ngechu agnes": [
+        {
+            "date_tested": "2013-08-25",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "02108 crd": [
+        {
+            "date_tested": "2013-08-25",
+            "result": "32097"
+        }
+    ],
+    "wangari eunice": [
+        {
+            "date_tested": "2013-08-28",
+            "result": "67407"
+        }
+    ],
+    "joseph akuma": [
+        {
+            "date_tested": "2013-08-28",
+            "result": "23516"
+        },
+        {
+            "date_tested": "2013-10-17",
+            "result": "152754"
+        }
+    ],
+    "macitaria grace": [
+        {
+            "date_tested": "2013-08-28",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ndegwa stephin": [
+        {
+            "date_tested": "2013-08-28",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "lydia nduta": [
+        {
+            "date_tested": "2013-08-28",
+            "result": "258590"
+        }
+    ],
+    "macharia edward": [
+        {
+            "date_tested": "2013-08-28",
+            "result": "781"
+        }
+    ],
+    "mwende judy": [
+        {
+            "date_tested": "2013-08-28",
+            "result": "52"
+        }
+    ],
+    "dena daniel": [
+        {
+            "date_tested": "2013-10-07",
+            "result": "306"
+        }
+    ],
+    "musa mukasa": [
+        {
+            "date_tested": "2013-10-07",
+            "result": "2830"
+        }
+    ],
+    "omari samuel": [
+        {
+            "date_tested": "2013-10-07",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "mutisyia damaris": [
+        {
+            "date_tested": "2013-10-07",
+            "result": "253"
+        }
+    ],
+    "odhiambo bonface": [
+        {
+            "date_tested": "2013-10-07",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "njuguna james": [
+        {
+            "date_tested": "2013-10-07",
+            "result": "455"
+        }
+    ],
+    "faiza abdul": [
+        {
+            "date_tested": "2013-10-07",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "jane njou": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "168"
+        }
+    ],
+    "grace nderitu": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "2104"
+        }
+    ],
+    "ejam alfred": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "506"
+        }
+    ],
+    "stephen ndegwa": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "12730"
+        }
+    ],
+    "florence wamahiga": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "cecilia luminae": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "rose kawe": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "570"
+        },
+        {
+            "date_tested": "2013-11-06",
+            "result": "<150"
+        }
+    ],
+    "tekla kamanza": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "348889"
+        }
+    ],
+    "veronica ndengu": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "221"
+        }
+    ],
+    "grace macharia": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "4738"
+        }
+    ],
+    "veronica karedi": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "judith chone": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "6697"
+        }
+    ],
+    "francis wanguzi": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "199"
+        }
+    ],
+    "peninah opiyo": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "solomon kakui": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "emily kemoi": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "peter mulinge": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "392"
+        }
+    ],
+    "judy mwende": [
+        {
+            "date_tested": "2013-10-17",
+            "result": "<150"
+        }
+    ],
+    "john karuga": [
+        {
+            "date_tested": "2013-10-28",
+            "result": "<150"
+        }
+    ],
+    "veronicah ndungu": [
+        {
+            "date_tested": "2013-10-28",
+            "result": "<150"
+        }
+    ],
+    "solomon kakul": [
+        {
+            "date_tested": "2013-10-28",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "samuel omari": [
+        {
+            "date_tested": "2013-10-28",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "james njuguna": [
+        {
+            "date_tested": "2013-10-28",
+            "result": "221"
+        }
+    ],
+    "3049 simeon barasa": [
+        {
+            "date_tested": "2013-10-28",
+            "result": "42870"
+        }
+    ],
+    "126813": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-11-21",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "<150"
+        }
+    ],
+    "126995": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126814": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "57"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126815": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-15",
+            "result": "< 400 "
+        }
+    ],
+    "126816": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-11-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126817": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126818": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "599"
+        },
+        {
+            "date_tested": "2013-12-04",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126819": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126801": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126900": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-04",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126820": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "<150"
+        }
+    ],
+    "126821": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126822": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "1801"
+        },
+        {
+            "date_tested": "2013-12-06",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126823": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "41092"
+        }
+    ],
+    "126993": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126824": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126825": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "193"
+        }
+    ],
+    "michael mauka": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "198"
+        }
+    ],
+    "126802": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-06",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126809": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "389212"
+        },
+        {
+            "date_tested": "2013-12-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126826": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "8757"
+        },
+        {
+            "date_tested": "2013-12-04",
+            "result": "24238"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "38645"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "408"
+        }
+    ],
+    "simeon b": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "62763"
+        }
+    ],
+    "mukasa musa": [
+        {
+            "date_tested": "2013-11-06",
+            "result": "471"
+        }
+    ],
+    "126829": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "186"
+        },
+        {
+            "date_tested": "2013-12-04",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2014-01-14",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126991": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "1205"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "736"
+        }
+    ],
+    "126830": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126397": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126831": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126805": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2013-12-02",
+            "result": "174"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "88"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126832": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126812": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "<150"
+        }
+    ],
+    "126998": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-04",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126833": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2013-12-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126834": [
+        {
+            "date_tested": "2013-11-21",
+            "result": "2752"
+        }
+    ],
+    "126997": [
+        {
+            "date_tested": "2013-11-26",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2013-12-04",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "114"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126609": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126800": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126399": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "211"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "<150"
+        }
+    ],
+    "126601": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "11848"
+        },
+        {
+            "date_tested": "2013-12-06",
+            "result": "8745"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "1800"
+        }
+    ],
+    "126602": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "4799"
+        }
+    ],
+    "126605": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "10478"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "8313"
+        }
+    ],
+    "126775": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "213"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "156"
+        }
+    ],
+    "126999": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126604": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126807": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126811": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2013-12-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "55"
+        }
+    ],
+    "126603": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "<150"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "287"
+        }
+    ],
+    "126607": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126608": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126888": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "379"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "15391"
+        }
+    ],
+    "126625": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "191"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "<150"
+        }
+    ],
+    "wilson waweru": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "<150"
+        }
+    ],
+    "mwangi ewea": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "millicent obunga": [
+        {
+            "date_tested": "2013-12-02",
+            "result": "<150"
+        }
+    ],
+    "119900": [
+        {
+            "date_tested": "2013-12-04",
+            "result": "5466"
+        }
+    ],
+    "126623": [
+        {
+            "date_tested": "2013-12-04",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126629": [
+        {
+            "date_tested": "2013-12-04",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126814b": [
+        {
+            "date_tested": "2013-12-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126803": [
+        {
+            "date_tested": "2013-12-06",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00706\/CRD": [
+        {
+            "date_tested": "2013-12-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126613": [
+        {
+            "date_tested": "2014-01-08",
+            "result": "40211"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "89056"
+        }
+    ],
+    "126627": [
+        {
+            "date_tested": "2014-01-08",
+            "result": "74"
+        }
+    ],
+    "119901": [
+        {
+            "date_tested": "2014-01-08",
+            "result": "98"
+        }
+    ],
+    "126626": [
+        {
+            "date_tested": "2014-01-08",
+            "result": "1719"
+        }
+    ],
+    "126621": [
+        {
+            "date_tested": "2014-01-08",
+            "result": "53"
+        }
+    ],
+    "126632": [
+        {
+            "date_tested": "2014-01-08",
+            "result": "< LDL copies\/ml"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "<150"
+        }
+    ],
+    "126631": [
+        {
+            "date_tested": "0000-00-00",
+            "result": "Collect New Sample"
+        },
+        {
+            "date_tested": "2014-01-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "126634": [
+        {
+            "date_tested": "2014-01-21",
+            "result": "426"
+        }
+    ],
+    "nyiwira teresia": [
+        {
+            "date_tested": "2014-01-26",
+            "result": "<150"
+        }
+    ],
+    "00335MIM": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00280MIM": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "< 400 "
+        }
+    ],
+    "00637MIM": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "> 10000000 "
+        }
+    ],
+    "00394MIM": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "1881966 "
+        }
+    ],
+    "00068MIM": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00608MIM": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00501MIM": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00735MIM": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "7485 "
+        }
+    ],
+    "02505": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "99480 "
+        }
+    ],
+    "01888CRD": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "< 400 "
+        }
+    ],
+    "02592CRD": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "495107 "
+        }
+    ],
+    "00044": [
+        {
+            "date_tested": "2014-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "02505 CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "283577 "
+        }
+    ],
+    "00640MIM": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "02880CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "891 "
+        }
+    ],
+    "01452CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "01167 CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "1896 "
+        }
+    ],
+    "02631 CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "12021 "
+        }
+    ],
+    "00190CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00753CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "01377CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< 400 "
+        }
+    ],
+    "01012CRD": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00509MIM": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< 400 "
+        }
+    ],
+    "00069MIM": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00102MIM": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00302MIM": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "802 "
+        }
+    ],
+    "00071MIM": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00202MIM": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "15426 "
+        }
+    ],
+    "00683MIM": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< 400 "
+        }
+    ],
+    "00653": [
+        {
+            "date_tested": "2014-02-21",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00425MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< 400 "
+        }
+    ],
+    "00244MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00614MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00230MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00561MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00225MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00978MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "1169349 "
+        }
+    ],
+    "00642MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< 400 "
+        }
+    ],
+    "00998MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "01592MIM": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00256 CRD": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "4607 "
+        }
+    ],
+    "02410 CRD": [
+        {
+            "date_tested": "2014-02-24",
+            "result": "611091 "
+        }
+    ],
+    "0055MIM": [
+        {
+            "date_tested": "2014-02-25",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "Roselyne makhoha": [
+        {
+            "date_tested": "2014-03-05",
+            "result": "Collect New Sample"
+        }
+    ],
+    "00747MIM": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00310 MIM": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00209MIM": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "02340CRD": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00001 CRD": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "02890 CRD": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "02877 CRD": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "36536"
+        }
+    ],
+    "00311 CRD": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00954 CRD": [
+        {
+            "date_tested": "2014-03-11",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "rosemary muchisa": [
+        {
+            "date_tested": "0000-00-00",
+            "result": "Collect New Sample"
+        }
+    ],
+    "J.M 02828": [
+        {
+            "date_tested": "2014-12-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "C.N\/01003": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "48330"
+        }
+    ],
+    "L.A\/00625 CRD": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "S.M\/01101 CRD": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "J.O\/01070 CRD": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "Margaret Oruko\/00732": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "R.J.o - 02240": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "22184"
+        }
+    ],
+    "A.W 02918 CRD": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "Bilha Juma 00177MIM": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "1596"
+        }
+    ],
+    "J.M 01014": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "H.A00112": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "G.O 02013": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "D.G 02130": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "41798"
+        }
+    ],
+    "B.N 02335": [
+        {
+            "date_tested": "2014-12-26",
+            "result": "24686"
+        }
+    ],
+    "J.K 02921": [
+        {
+            "date_tested": "2014-12-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "J. K 02922": [
+        {
+            "date_tested": "2014-12-24",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "T.W\/00867CRD": [
+        {
+            "date_tested": "2015-01-05",
+            "result": "230"
+        }
+    ],
+    "M.K\/01510CRD": [
+        {
+            "date_tested": "2015-01-05",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "S.K. 03697CDR": [
+        {
+            "date_tested": "2015-01-05",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "J.M1228CDR": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "11532"
+        }
+    ],
+    "B.A00630CRD": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "E.K02780CRD": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "Collect New Sample"
+        }
+    ],
+    "N.M01587CRD": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "R.M02411CRD": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "S.K \/00328CRD": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "R.K\/01397": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "00516CRD": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "J.W 00496CRD": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "GLADYS ODHIAMBO MUHANDIA\/00984": [
+        {
+            "date_tested": "2015-01-14",
+            "result": "193544"
+        }
+    ],
+    "1286 CRD": [
+        {
+            "date_tested": "0000-00-00",
+            "result": "0"
+        }
+    ],
+    "hannah wanjiru kamau\/00544": [
+        {
+            "date_tested": "0000-00-00",
+            "result": "0"
+        }
+    ],
+    "daniel mwangi mark\/00105": [
+        {
+            "date_tested": "0000-00-00",
+            "result": "0"
+        }
+    ],
+    "jacinta wambui kimani\/00113": [
+        {
+            "date_tested": "0000-00-00",
+            "result": "0"
+        }
+    ],
+    "2644": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "2340": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "2934 CRD": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "0033": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "1098": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "Collect New Sample"
+        }
+    ],
+    "2791": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "Collect New Sample"
+        }
+    ],
+    "1139": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "Collect New Sample"
+        }
+    ],
+    "ELIJAH TEEKA\/356": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "A.N\/317": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "S.K\/2653": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "Collect New Sample"
+        }
+    ],
+    "L.A\/1041": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CHELANGA CHEPKETER\/737": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "58"
+        }
+    ],
+    "peter nganga\/02274": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "32050"
+        }
+    ],
+    "josephat kamau\/01085": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "everlyne nanjom\/21846": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "nancy waithera\/01742": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "raymond mutura\/02135": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "pauline wambui\/00085": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "108338"
+        }
+    ],
+    "elizabeth wanjiku\/02666": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "dolly mutinda\/01315": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ann ndanu\/02963": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "mary wangui\/00268": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ashley akinyi\/02384CRD": [
+        {
+            "date_tested": "2015-01-27",
+            "result": "6852"
+        }
+    ],
+    "lob\/02046crd": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "peris achieng\/01403crd": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "margaret wambui\/00499crd": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "m m m\/02326": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "33070"
+        }
+    ],
+    "j o i\/00384": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "l w k\/00364": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "54"
+        }
+    ],
+    "willium wandera\/00338": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "p i m\/01519crd": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "edward gichuki\/02557crd": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "f a o\/02848": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "mary njoki\/00487crd": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "a m k\/01504crd": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "m t m\/02799crd": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "vicky odhiambo\/01022": [
+        {
+            "date_tested": "2015-01-26",
+            "result": "76324"
+        }
+    ],
+    "gladys anyango\/0093CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "LYDIA WANJIKU\/01571CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ROSEMARY NAFULA\/01938CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JULIUS CHEGE.\/01505": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "EVA WARANGOI\/01062CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SUSAN WANJIKU\/00186CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "NANCY NDUTA\/01722": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "4724"
+        }
+    ],
+    "CECILIA NJERI\/0052": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FREDRICK ODHIAMBO\/01961CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "WILFRED ODHIAMBO\/00145CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "KENEDY NYAMBUTO\/01760CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CHARLES OSANGO\/01089": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FRANCIS MWAI\/00381CRD": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ROSE ACHIENG\/02966": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "LUCY MUTHONI\/02998": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ABDIKADIR HASSAN ADAN\/00483MIM": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "HASSAN ABDIKADIR ADAN\/01511MIM": [
+        {
+            "date_tested": "2015-02-04",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "francis kiptami\/00081crd": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "margaret atieno\/2899crd": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "mary awili\/00692crd": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "dominic nzioka\/00559crd": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "mwanahamisi mwinyi\/02060crd": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "alex mbura\/3863crd": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "mary awinja\/00682": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "mary auma\/3689": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "antony mochai\/00920": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "grace atieno\/1362cdr": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "john chola\/00296cdr": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "elizabeth atieno\/0841crd": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "peter komo\/1838": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "beatrice muthoni\/00925crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "esther mukii\/00414crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "susan wanjiru\/271crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "harison wathero\/01647crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "georgina wangare\/02559crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "glen kasili\/2319": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "peter mbuthia\/01923crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ragina njagi\/1575mim": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "peninah muli\/00113mim": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "grace kaluki\/00143mim": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "thomas kimaiyo\/00399": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "violet ayuma\/00008crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "joakim oriba\/00467crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "julia wachera\/2458crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "1950"
+        }
+    ],
+    "francis wainaina\/2197": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "fredrick kariuki\/00256": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "maureen wangare\/00122crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "james wainaina\/00132crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "agnatia mwaongeli\/01676": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "rose chipkiter\/01067crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "dorcas ndinda\/02919crdr": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "peter gichuhi\/00731crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "wycliff otieno\/00743crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "14616"
+        }
+    ],
+    "dowson ogutu\/03035crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "caroline were\/00980crd": [
+        {
+            "date_tested": "2015-02-20",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "carolyn nyakio\/01757crd": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "abigael jabuya\/00963mim": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "174"
+        }
+    ],
+    "christine alouch\/00473mim": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "faith njeri\/00394mim\/": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "82586"
+        }
+    ],
+    "richard amollo\/00373mimi": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "48"
+        }
+    ],
+    "ann mukami\/01695mimi": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "millicent miloba\/00657mim": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "pius lanya\/01720mim": [
+        {
+            "date_tested": "2015-02-19",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "phiona achieng\/03000crd": [
+        {
+            "date_tested": "2015-03-04",
+            "result": "104018"
+        }
+    ],
+    "hezron odhiambo\/00305": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "joyce kemumu mokaya\/00520": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "patrick muchai kimani\/00221": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "lucy wanjiku macharia\/00147": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "janvier okello atoke\/01667": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "joyce wachoke\/00093": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "lilian akinyi\/02704": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "joyce nyambura\/00962": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "enele awounda kamiere\/00230": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "peter adara ogonda\/02096": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "32247"
+        }
+    ],
+    "regina njoki\/01012": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "susan wanjiru\/00507": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "jackson obtero\/01519": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "edwin kimumu\/00676": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "grace oyando musimbi\/00050": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "lydia wangeci\/00749": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "mmela lenana\/00312": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "julius mutoka langat\/00170": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "lydia ken njenga\/00656": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "bilha margi\/00528": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "david mukatia\/00139": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "jane wakonyo\/02626": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "lilian njeri\/02924": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ann syombua\/02151": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "sarah nyambura\/03005": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ruth otaro awour\/00214": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "onesmas kinyanjui\/00607": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "haron murithi abdalla\/00266": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "joseph njoroge\/01499": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "benson muturi kariuki\/00301": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "EMPHALUS MWANGI WANGEHI\/02203C": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "THOMAS ONCHIRI\/00963CRD": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JEMIMA MUNYIRI\/01955CRD": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOSEPH OMULELE OKINYI\/02008CRD": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JANE WANGECHI GATHUNI\/01411CRD": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "DANIEL NDUNGU\/00755CRD": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "LILIAN ATIENO\/02840CRD": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "86296"
+        }
+    ],
+    "EUNICE MUTUNGU NYAMBURA\/01694C": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "39048"
+        }
+    ],
+    "FRANCIS MBURU MWANGI\/01824": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CAROLYNE WANGARI\/01971CRD": [
+        {
+            "date_tested": "0000-00-00",
+            "result": "Collect New Sample"
+        }
+    ],
+    "JANE WAMBU\/00363MIM": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PHYLLIS NJERI KINUTHIA\/00417MI": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOSEPH NJOROGE CHEGE\/1668MIM": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CATHERINE WAITHIRA N\/01678MIM": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PAUL A OTIENO\/00181MIM": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "VIOLET AGANWA K\/00577MIM": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PHOEBE ATIENO OKELLO\/01640MIM": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "102"
+        }
+    ],
+    "CHRISTINE M KITHEKE\/00720MIM": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SARAH WAITHERA KINYANJUI\/00083": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOHN OGOLLA O\/00322MIM": [
+        {
+            "date_tested": "2015-03-30",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PETER ONYANGO\/02003CRD": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOSEPHINE NJERI\/01940CRD": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "RODGES NYAKUNDI BOSIRE\/02738CR": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "LYDIA WANJIKU WANYIRI\/01600MIM": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PETER GICHERU MIAKO\/00979MIM": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "TERRY M FLORAH\/00067MIM": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JANET WANZA\/00955CRD": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ANN MUTHONI KIAMBI\/01450CRD": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "DAMARIS NTHENYA\/00890": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MILLICENT OTIENO\/01909CRD": [
+        {
+            "date_tested": "2015-03-31",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "harrison airo lawi\/00912": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "agnes wanza mutisya\/00046": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "peter nyabegera milkani\/01332": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "48353"
+        }
+    ],
+    "ben wafula wasakania\/00858": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "janipher mueni kaluki\/02950": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "grace achieng \/00070": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "39902"
+        }
+    ],
+    "gordon olang festa\/01078": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "172"
+        }
+    ],
+    "rose wamuyu kabiga\/00712": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "rose mbori\/01418": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ann rose gathoni\/01343": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "elly ohino mitana\/01462": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "samuel onyango awiti\/00504": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "esther akinyi obuya\/1524": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "deborah naya monica\/00079": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "doris kadogo muyesi\/00582": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "cannold owino ndiwo\/00157": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "florence wanjiru muchuru\/00599": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "isaac murray otieno\/00742": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "paul muteti mutua\/00454": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "kennedy weche mboni\/01641": [
+        {
+            "date_tested": "2015-03-26",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JAVAN OTIENO\/00209CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "7322"
+        }
+    ],
+    "MVUNA ABDALLA ALI\/00377CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PETER ONYANGO\/01025CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ERIKA ANYANGO OSUDO\/03063CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SILAS BARAKA WERE\/00480CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "WINFRED MUTHEU\/00758CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "206"
+        }
+    ],
+    "HILLARY ATIENO\/02264CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "28046"
+        }
+    ],
+    "BENTA NAFULA OCHIEL\/000997MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "VINCENT OLOO OLUM\/00071MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "BOAZ M OBILO\/00509MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOSEPH WAFULA M\/00350MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "52668"
+        }
+    ],
+    "G NYAMBUGA KASIKO\/00098CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "STANLEY MIHESO KISA\/02763CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOHNSON MWAHIME\/01167": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "DANIEL OSANO\/02972CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "1018"
+        }
+    ],
+    "LYDIA NGESA\/01245CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JAMES KAMIRU MUIRURI\/03058CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "GILBERT NDENA\/02993CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "YASMIN ALI IBRAHIM\/02440CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CHARLES AKETCH O\/01800CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "181604"
+        }
+    ],
+    "DONALD MURITHI\/02236CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SOO BECHABERI\/03015CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "GRACE NJERI MURIGI\/00659MIM": [
+        {
+            "date_tested": "0000-00-00",
+            "result": "Collect New Sample"
+        }
+    ],
+    "BEATRICE SOLA OLOLA\/01514MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "62"
+        }
+    ],
+    "MARY W NJEGI\/01687MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MARY MALUKI KUGUMBA\/00224MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JANE AKOTH OMBI\/00461": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "TIMOTHY MULAHA ODUOR\/00216MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "60"
+        }
+    ],
+    "NELLY ODHIAMBO\/00408MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JANE MIDERA GAVEDI\/03739CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "DANIEL KAMBO KARUGA\/01765CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "NAOMI ACHIENG OJWANG\/02528CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SOPHIA AWUOR AKINYI\/02067CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "P M\/00485": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "K K\/01540": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "14798"
+        }
+    ],
+    "L W K\/02833": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CAROLYNE AKEYO OKOTH\/00989CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "S A\/02642CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "AMIMO WAMDUGU HASSAN\/00169CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "J O\/02190": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "T W\/01490": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "64"
+        }
+    ],
+    "ALEX OGOCHO AWUOR\/00102CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PETER MWAURA KAMAU\/03050CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "IRENE WAITHERA\/00137": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JANE WANJIRU\/02155": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "LILIAN WAITHERA WAKAMBA\/00035C": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "**NO PATIENT NAME**\/01987": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JUDITH AWINO\/01978CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "REBECCA WAMBUI MUNGE\/01916": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "EPHANTUS KILILA\/01612CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOSEPH OKELLO SAWEGA\/02082CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "OLIVIA MASISTA AKATHA\/00309MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PETER OUMA\/00069MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "KERINE AKINYI ONYANGO\/00219MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CHARLES OWUOR OGWANG\/00579MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "AMOLLO MARY MIDIWO\/00273MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FLORINA K MVASA\/00712MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MAGRET AWINO OWALA OKELLO\/0096": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PURITY GAKII KILTIA\/01639MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "J RUTH NYAMBURA\/00800MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "IRENE ATITO AKINYI\/00180MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "WYCLIFF OGUK ODERO\/00102MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SAIDA AZIZA JUMA\/00428MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ISAAC M MWANGI\/02153CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "DIANA MUTHONI\/00880CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "DORCAS IMBONA\/00763": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ALICE MUTHONI\/02415CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ELIZABETH MWONGELI\/01027CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MARY MUENI MUTHEWA\/01416CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FELISTUS OUMA\/02300CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MAGRINA MALESI SHIVACHI\/01582C": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "KENNEDY SEDE LUGONZO\/02873": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PHYLLIS SONZI\/01494": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FRASHIA WACEKE\/02100CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "78"
+        }
+    ],
+    "JOSEPH ONDIRI ONYANGO\/00591CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "STEPHEN WANJOHI\/01816": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JAMES NGUGI\/00627": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FREDRICK OMONDI\/00897": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MAURICE ODHIAMBO OJIJA\/02923": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JANE OUKU ADHIAMBO\/00309": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "3048"
+        }
+    ],
+    "PHYLLIS NGENDO\/01750CRD": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CAROLINE MWENDE MUTHENI\/01659M": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SUSAN OGERO NYABATI\/01732MIM": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "7312"
+        }
+    ],
+    "MICHAEL NAMASAKA MASIKA\/00293M": [
+        {
+            "date_tested": "2015-04-01",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JESSICA OKUMU NAMUSI\/00329MIM": [
+        {
+            "date_tested": "2015-04-02",
+            "result": "87720"
+        }
+    ],
+    "MAGRET AKINYI OWINO\/00527MIM": [
+        {
+            "date_tested": "2015-04-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "DOROTHY C MANYUNYI\/00338MIM": [
+        {
+            "date_tested": "2015-04-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "LENA NJIRU MURAITI\/01682MIM": [
+        {
+            "date_tested": "2015-04-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PEGGY AZINEKA VISEWA\/00370MIM": [
+        {
+            "date_tested": "2015-04-02",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "damaris mwikali wahugu\/00502": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "diana anyango ayodo\/00404": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "james kariuki kimatwa\/00374": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "rosemary anyango opiyo\/00426": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "elizabeth wambui saitoti\/0164": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "jotham fundi ondieki\/00995": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "elizabeth check olala\/02620": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "rose bangira wakutalala\/01112": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "9076"
+        }
+    ],
+    "harrison airo lawi": [
+        {
+            "date_tested": "2015-03-10",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "kenugushia angel neno\/00610": [
+        {
+            "date_tested": "2015-04-07",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOHN O NDAGA\/00585MIM": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "BENTA N ABONYO\/00269MIM": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "7989"
+        }
+    ],
+    "FAITH M WANGECI\/01513MIM": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "45536"
+        }
+    ],
+    "REDEMPTA K KAMITA\/00042CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "49"
+        }
+    ],
+    "MARBLE MUKASA\/00010CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PHILIP OMONSI\/2115CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SELPHINE AKINYI\/01274CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JOYCE W KURIA\/01401": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "3527"
+        }
+    ],
+    "JOSEPH A NUDI\/0724787093": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CLEMENT OBITO MARK\/01696": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "AGNES ONYANGO\/03023": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MARY WANGARI\/01443": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MARY WANZILA C\/01073CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "JULIANA KANINI MWATU\/02634": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PHOEBE MULI\/01498": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FLORAH WANJA MUKORA\/02944": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "34241"
+        }
+    ],
+    "ANGEL BEATRICE\/02983": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "LOICE MUKABI\/00875": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MILLICENT ATIENO\/01399": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "VIRGINIA MBITHE\/01658": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SHAWN NJOROGE\/02154": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FAITH WANJIRU\/00420": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PAMELA AKINYI\/03701": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ANN MWENDWA KIAMBI\/00566": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FREDRICK OCHIENG\/00443": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ROSE KABUNGO\/00706": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "DANIEL K ONDIECHA\/02872CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "100104"
+        }
+    ],
+    "VERONICA MUMBUA NZIOKA\/01752": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ANN WAIRIMU KARIUKI\/00985": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "2024"
+        }
+    ],
+    "ZIPPORAH KIOKO\/01009": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MILLICENT GATHERU WANJIKU\/0011": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SIMON OTIENO\/02711": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ALDEHEID ACHIENG\/02305": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "125370"
+        }
+    ],
+    "DAVID CHOGO\/02119": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "4450"
+        }
+    ],
+    "DAMARIS SANDE\/0834": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "50"
+        }
+    ],
+    "DINAH OGANA AKINYI\/01575": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "CAROLINE ANYNAGO OUMA\/01736": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "BEATRICE MBAIRE\/02575": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "FELIX ONYANGO CLAY\/02208": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MARGARET MUGURE\/02764": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "GRACE S OSALEI\/00614-CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "ALICE ALOLA\/01929CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "12160"
+        }
+    ],
+    "VALENTINE OTIENO\/00680CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "03008CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "32981"
+        }
+    ],
+    "01102CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MOUREEN M THAKURA\/15061MIM": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "A OCHIENG OKUMU\/01616": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "PHOEBE A OPIYO\/01617": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SALOME NKATHA M\/00097MIM": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MERCY A OMOLLO\/00360": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "MARGRET WAMBOI N\/01727CRB": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "TIMOTHY K KUA\/00183MIM": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "16916"
+        }
+    ],
+    "CAROLYNE O JANED\/00298": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ],
+    "SIMON M NGARE\/01884CRD": [
+        {
+            "date_tested": "2015-04-13",
+            "result": "< LDL copies\/ml"
+        }
+    ]
+}

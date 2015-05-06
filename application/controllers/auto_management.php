@@ -14,7 +14,7 @@ class auto_management extends MY_Controller {
 	    $link = $dir . "\\ADT\\assets\\nascop.txt";
 		$this -> nascop_url = trim(file_get_contents($link));
 		$this -> eid_url="http://nascop.org/eid/";
-                $this->ftp_url='192.168.133.10';
+                $this->ftp_url='41.89.6.210';
 	}
 
 	public function index($manual=FALSE){
@@ -817,6 +817,26 @@ class auto_management extends MY_Controller {
                                                   `active` int(5) NOT NULL DEFAULT '1',
                                                   PRIMARY KEY (`id`)
                                                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;";
+                            
+                            $tables['oi_regimen']="CREATE TABLE IF NOT EXISTS `oi_regimen` (
+                                                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                                                      `oi_code` varchar(20) NOT NULL,
+                                                      `oi_description` varchar(200) NOT NULL,
+                                                      PRIMARY KEY (`id`)
+                                                    ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+                                                    INSERT INTO `oi_regimen` (`id`, `oi_code`, `oi_description`) VALUES
+                                                    (1, 'OI1A', 'Adult patients (=>15 Yrs) on Cotrimoxazole prophylaxis '),
+                                                    (2, 'OI1C', 'Paediatric patients (<15 Yrs) on Cotrimoxazole prophylaxis '),
+                                                    (3, 'OI2A', 'Adult patients (=>15 Yrs) on Dapsone prophylaxis '),
+                                                    (4, 'OI2C', 'Paediatric patients (<15 Yrs) on Dapsone prophylaxis '),
+                                                    (5, 'OI4A', 'Adult patients (=>15 Yrs) on Isoniazid prophylaxis '),
+                                                    (6, 'OI4C', 'Paediatric patients (<15 Yrs) on Isoniazid prophylaxis '),
+                                                    (7, 'OI3A', 'Adult patients on Diflucan (For Diflucan Donation Program ONLY)'),
+                                                    (8, 'OI3C', 'Paed patients on Diflucan (For Diflucan Donation Program ONLY)'),
+                                                    (9, 'CM3N', 'New patients with CM on Diflucan (For Diflucan Donation Program ONLY)'),
+                                                    (10, 'CM3R', 'Revisit patients with CM on Diflucan (For Diflucan Donation Program ONLY)'),
+                                                    (11, 'OC3N', 'New patients with OC on Diflucan (For Diflucan Donation Program ONLY)'),
+                                                    (12, 'OC3R', 'Revisit patients with OC on Diflucan (For Diflucan Donation Program ONLY)');";
             foreach($tables as $table=>$statements){
             if (!$this->db->table_exists($table)){
             	$statements=explode(";",$statements);

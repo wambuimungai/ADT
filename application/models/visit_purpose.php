@@ -19,14 +19,14 @@ class Visit_Purpose extends Doctrine_Record {
 	public function getFiltered($enrollment_check,$start_art_check) 
 	{   
 		$filter = "";
-		if($enrollment_check == 1)
+		if($enrollment_check == true)
 		{
            $filter .= " AND Name NOT LIKE '%enroll%'";
 		}
 
-		if($start_art_check == 1)
+		if($start_art_check == true)
 		{
-           $filter .= " AND Name NOT LIKE '%startart%'";
+           $filter .= " AND Name NOT LIKE '%start%'";
 		}
 		$query = Doctrine_Query::create() -> select("*") -> from("Visit_Purpose") -> where("Active='1' $filter ");
 		$purposes = $query -> execute();
