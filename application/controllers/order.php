@@ -228,7 +228,7 @@ class Order extends MY_Controller {
 			$curl -> setBasicAuthentication($username, $password);
 			$curl -> setOpt(CURLOPT_RETURNTRANSFER, TRUE);
 		} else {
-			$url = $this -> nascop_url;
+			$url = trim($this -> nascop_url);
 			if(!empty($lists))
 			{
 				$lists = explode(",", $lists[0]);
@@ -1540,7 +1540,7 @@ class Order extends MY_Controller {
 		} else {
 			//Go to nascop
 			$target_url = "sync/save/nascop/" . $type . "/" . $id;
-			$url = $this -> nascop_url . $target_url;
+			$url = trim($this -> nascop_url) . $target_url;
 			$responses = $this -> post_order($url, $json_data,$supplier);
 		}
 		$responses = json_decode($responses, TRUE);
@@ -1772,7 +1772,7 @@ class Order extends MY_Controller {
 						} else {
 							//Go to nascop
 							$target_url = "sync/save/nascop/" . $type;
-							$url = $this -> nascop_url . $target_url;
+							$url = trim($this -> nascop_url) . $target_url;
 						}
 						$responses = $this -> post_order($url, $json_data,$supplier);
 						$responses = json_decode($responses, TRUE);
@@ -1962,7 +1962,7 @@ class Order extends MY_Controller {
 						} else {
 							//Go to nascop
 							$target_url = "sync/save/nascop/" . $type;
-							$url = $this -> nascop_url . $target_url;
+							$url = trim($this -> nascop_url) . $target_url;
 						}
 						$responses = $this -> post_order($url, $json_data,$supplier);
 						$responses = json_decode($responses, TRUE);
