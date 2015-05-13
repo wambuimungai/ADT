@@ -410,7 +410,7 @@ class Order extends MY_Controller {
 	                    ORDER BY c.period_begin desc"; 
 			}
 		}
-		if ($sql !== "") {
+		if ($sql != "") {
 			$query = $this -> db -> query($sql);
 //                         echo "<pre>";print_r($query);die;
 			$results = $query -> result_array();
