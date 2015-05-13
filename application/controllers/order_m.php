@@ -57,8 +57,8 @@ class Order extends MY_Controller {
 				     "email" =>  $this -> input -> post("email", TRUE),
 			         "password" => $this -> input -> post("password",TRUE)
 			        );                                                                                                 
-		    $url = trim($this -> nascop_url) . 'sync/user';
-		    $curl -> post($url,$post_data);     
+		    $url = $this -> nascop_url . 'sync/user';
+		    $curl -> post($url,$post_data);
 		}
 		if ($curl -> error) {
 			$curl -> error_code;
@@ -132,7 +132,7 @@ class Order extends MY_Controller {
 
 	public function api_sync() {
 		/*Get Drugs,facilities and Regimens from NASCOP or eSCM
-		 *Update Drugs,facilities and Regimens into weADT
+		 *Update Drugs,facilities and Regimens into webADT
 		 */
 		$facility_code = $this -> session -> userdata('facility');
 		$facility = Facilities::getSupplier($facility_code);
@@ -155,19 +155,15 @@ class Order extends MY_Controller {
 			$links['sync_drug'] = "sync/drugs";
 			$links['sync_facility'] = "sync/facilities";
 			$links['sync_regimen'] = "sync/regimen";
-                        
 		}
 		foreach ($links as $table => $link) {
-			$target_url = preg_replace('/\s+/', '', $url . $link);
+			$target_url = $url . $link;
 			$curl -> get($target_url);
 			if ($curl -> error) {
 				$curl -> error_code;
 				$error_log .= "Error: " . $curl -> error_code . "<br/>";
 			} else {
 				$main_array = json_decode($curl -> response, TRUE);
-				foreach ($main_array as $key => $value) {
-					unset($main_array[$key]['lmis_id']);
-				}
 				$this -> db -> query("TRUNCATE $table");
 				$this -> db -> insert_batch($table, $main_array);
 				$success_log .= "Success: " . $table . " Synched <br/>";
@@ -261,7 +257,6 @@ class Order extends MY_Controller {
 				echo "Error: " . $curl -> error_code . "<br/>";
 			} else {
 				$main_array = json_decode($curl -> response, TRUE);
-//                                echo "<pre>";  print_r($main_array);
 				$clean_data = array();
 
 				foreach ($main_array as $main) {
@@ -390,7 +385,6 @@ class Order extends MY_Controller {
 					$conditions
 					ORDER BY m.period_begin desc";
 		} else if ($type == "aggregate") {
-                    
 			$facility_type = Facilities::getType($facility_code);
 			$sql = "";
 			$columns = array('#', 'Facility Name', 'Period Beginning', 'Options');
@@ -407,19 +401,14 @@ class Order extends MY_Controller {
 						AND LCASE(m.status) NOT IN('prepared','review','deleted')
 						AND c.facility_id IN($facilities)
 						GROUP BY c.period_begin
-	                    ORDER BY c.period_begin desc"; 
+	                    ORDER BY c.period_begin desc";
 			}
 		}
-		if ($sql !== "") {
+		if ($sql != "") {
 			$query = $this -> db -> query($sql);
-//                         echo "<pre>";print_r($query);die;
 			$results = $query -> result_array();
-//                        echo "<pre>";print_r($results);die;
-                        
-		}
-                else {
+		} else {
 			$results = array();
-                        
 		}
 
 		if ($period_begin != "") {
@@ -584,7 +573,7 @@ class Order extends MY_Controller {
 				$facility_id = $this -> session -> userdata('facility_id');
 				$supplier['supplied_by'] = Facilities::getSupplier($facility_code);
 				$data['commodities'] = Drugcode::getAllObjects($supplier['supplied_by']);
-                                
+
 				$data['page_title'] = "Central Dispensing Point";
 				$data['banner_text'] = "Maps Form";
 			} else if ($order_type == 2) {//Satellite
@@ -602,7 +591,6 @@ class Order extends MY_Controller {
 				$facility_id = $this -> session -> userdata('facility_id');
 				$supplier['supplied_by'] = Facilities::getSupplier($facility_code);
 				$data['commodities'] = Drugcode::getAllObjects($supplier['supplied_by']);
-//                                echo "<pre>";print_r($data);die;
 				$data['page_title'] = "Stand-Alone MAPS";
 				$data['banner_text'] = "Maps Form";
 			} else {//Aggregated order
@@ -617,7 +605,6 @@ class Order extends MY_Controller {
 			}
 
 			if (!empty($content_array)) {
-//                            echo "<pre>";print_r($content_array);die;
 				$fmaps_array = $content_array;
 				$data['fmaps_array'] = $fmaps_array['fmaps_array'];
 				$facility_id = $fmaps_array['fmaps_array'][0]['facility_id'];
@@ -661,7 +648,6 @@ class Order extends MY_Controller {
 					$regimen_categories = array();
 					foreach ($regimen_array as $value) {
 						$regimen_categories[] = $value['name'];
-                                               
 					}
 					$regimen_categories = array_unique($regimen_categories);
 					$data['regimen_categories'] = $regimen_categories;
@@ -724,7 +710,6 @@ class Order extends MY_Controller {
 		$created = date('Y-m-d H:i:s'); 
 		
 		if ($id != "") {
-                    
 			$status = $this -> input -> post("status");
 			$created = $this -> input -> post("created");
 			$item_id = $this -> input -> post("item_id");
@@ -739,7 +724,6 @@ class Order extends MY_Controller {
 			$save = $this -> input -> post("save");
 			if ($save) {
 				$facility_id = $this -> input -> post("facility_id");
-//                                echo $facility_id;die;
 				$facility_code = $this -> input -> post("facility_code");
 				$code = $this -> input -> post("report_type");
 				$code = $this -> getActualCode($code, $type);
@@ -1020,8 +1004,7 @@ class Order extends MY_Controller {
 			} else {
 				//Go to nascop
 				$target_url = "sync/save/nascop/" . $type;
-				$url = trim($this -> nascop_url) . $target_url;
-                                
+				$url = $this -> nascop_url . $target_url;
 			}
 			$responses = $this -> post_order($url, $json_data,$supplier);
 			$responses = json_decode($responses, TRUE);
@@ -1041,12 +1024,12 @@ class Order extends MY_Controller {
 			//save links
 			if ($supplier != "KEMSA") {
 				//Go to escm
-				$url = trim($this -> esm_url) . $type . "/" . $id;
+				$url = $this -> esm_url . $type . "/" . $id;
 				$responses = $this -> put_order($url, $json_data);
 			} else {
 				//Go to nascop
 				$target_url = "sync/save/nascop/" . $type . "/" . $id;
-				$url = trim($this -> nascop_url) . $target_url;
+				$url = $this -> nascop_url . $target_url;
 				$responses = $this -> post_order($url, $json_data,$supplier);
 			}
 			$responses = json_decode($responses, TRUE);
@@ -1370,10 +1353,8 @@ class Order extends MY_Controller {
 				WHERE c.id='$id'";
 			$query = $this -> db -> query($sql);
 			$cdrr_array = $query -> result_array();
-                        $data['cdrr_array'] = $cdrr_array;
+			$data['cdrr_array'] = $cdrr_array;
 			$data['options'] = "view";
-
-			//echo "<pre>"; print_r($cdrr_array); die;
 			if ($cdrr_array[0]['code'] == "D-CDRR") {
 				$code = 0;
 			} else if ($cdrr_array[0]['code'] == "F-CDRR_units") {
@@ -3110,7 +3091,7 @@ class Order extends MY_Controller {
 			return 0;
 		}
 	}
-    
+
 	public function base_params($data) {
 		$data['title'] = "Order Reporting";
 		$data['link'] = "order_management";
@@ -3201,15 +3182,12 @@ class Order extends MY_Controller {
 		        AND sf.name NOT LIKE '%dispensing%'
 		        GROUP BY sf.id";
 		$query = $this -> db -> query($sql);
-
 		$satellites = $query -> result_array();
-		
 
 		$notification .= "<table class='dataTables table table-bordered table-hover'>";
 		$notification .= "<thead><tr><th>Name</th><th>Code</th><th>Status</th></tr></thead><tbody>";
 		if ($satellites) {
 			foreach ($satellites as $satellite) {
-			//echo "<pre>";print_r($satellite);die;
 				if ($satellite['status'] == "reported") {
 					$satellite['status'] = "<div class='alert-success'>" . $satellite['status'] . "</div>";
 				} else {
@@ -3752,7 +3730,7 @@ class Order extends MY_Controller {
 
 		$row['beginning_balance']=$this->getBeginningBalance($param);
 	    $row=$this->getOtherTransactions($param,$row);
-	    
+
 	    if($row['stock_out']==null){
 			$row['stock_out']=0;
 		}
@@ -3841,10 +3819,10 @@ class Order extends MY_Controller {
 		else
 		{
 			$row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments'];
-                        $row['resupply'] = ($row['dispensed_to_patients'] * 3) - $row['physical_stock'];
+        	$row['resupply'] = ($row['dispensed_to_patients'] * 3) - $row['physical_stock'];
         }
 
-        if($code == "F-CDRR_packs"){
+       if($code == "F-CDRR_packs"){
             foreach ($row as $i => $v) {
 				if ($i != "expiry_month" && $i != "dispensed_to_patients" && $i !="beginning_balance") {
 					$row[$i] = round(@$v / @$pack_size);
@@ -3854,10 +3832,13 @@ class Order extends MY_Controller {
 			if($row['dispensed_to_patients'] >0){
 			   $row['dispensed_packs']=round(@$row['dispensed_to_patients'] / @$pack_size);
 			}
-                        $row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_packs'] - $row['losses'] + $row['adjustments'];
-                        $row['resupply'] = ($row['dispensed_packs'] * 3) - $row['physical_stock'];
 		}
+        $row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_packs'] - $row['losses'] + $row['adjustments'];
 
+		if($row['physical_stock'] <0){
+			$row['physical_stock'] = 0;
+		}
+		$row['resupply'] = ($row['dispensed_packs'] * 3) - $row['physical_stock'];
 		echo json_encode($row);
 	}
 
@@ -3865,15 +3846,11 @@ class Order extends MY_Controller {
 		$balance=0;
 		//we are checking for the physical count of theis drug month before reporting period
 		$param['period_begin']=date('Y-m-d',strtotime($param['period_begin']."-1 month"));
-               // print_r($param);
-                $balance=Cdrr_Item::getLastPhysicalStock($param['period_begin'], $param['drug_id'], $param['facility_id']);
+		$balance=Cdrr_Item::getLastPhysicalStock($param['period_begin'], $param['drug_id'], $param['facility_id']);
 		if(!$balance && $month<3){
 			$month++;
 			$param['period_begin']=date('Y-m-d',strtotime($param['period_begin']."-1 month"));
-                        //print_r($param);die;
 			$balance=$this->getBeginningBalance($param,$month);
-                        
-                        
 		}
 
 		if($balance==null){
