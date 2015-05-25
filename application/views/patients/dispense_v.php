@@ -103,16 +103,17 @@
 	            	<div class="span6 dispensing-field">
 	            		<div class="control-group">
 		            		<label><span class='astericks'>*</span>Dispensing Date</label>
-	                        <input type="text"name="dispensing_date" id="dispensing_date" class="validate[required] ">
+	                        <input type="text" name="dispensing_date" id="dispensing_date" class="validate[required] ">
 			    		</div>
 	            	</div>
 	            	<div class="span6 dispensing-field">
 	            		<div class="control-group">
 		            		<label><span class='astericks'>*</span>Purpose of Visit</label>
-	                        <select  type="text"name="purpose" id="purpose" class="validate[required] " >
+	                        <select type="text"  name="purpose" id="purpose" class="validate[required] " >
 	                        	<option value="">--Select One--</option>
 	                        	<?php
                                 foreach ($purposes as $purpose) {
+                                    //echo "<pre>";print_r($purpose);die;
                                     echo "<option value='" . $purpose['id'] . "'>" . $purpose['Name'] . "</option>";
                                 }
                                 ?>
@@ -164,7 +165,7 @@
 	            	<div class="span6 dispensing-field">
 	            		<div class="control-group">
 		            		<label><span class='astericks'>*</span>Current Regimen</label>
-	                       <select type="text"name="current_regimen" id="current_regimen"  class="validate[required]" style='width:100%;' >
+	                       <select type="text" name="current_regimen" id="current_regimen"  class="validate[required]" style='width:100%;' >
 	                                <option value="">-Select One--</option>
 	                       </select>
 			    		</div>

@@ -414,7 +414,7 @@ class Order extends MY_Controller {
 			$query = $this -> db -> query($sql);
 //                         echo "<pre>";print_r($query);die;
 			$results = $query -> result_array();
-//                        echo "<pre>";print_r($results);die;
+                        //echo "<pre>";print_r($results);die;
                         
 		}
                 else {
@@ -587,7 +587,8 @@ class Order extends MY_Controller {
                                 
 				$data['page_title'] = "Central Dispensing Point";
 				$data['banner_text'] = "Maps Form";
-			} else if ($order_type == 2) {//Satellite
+			} 
+			else if ($order_type == 2) {//Satellite
 				$facility_code = $this -> input -> post("satellite_facility", TRUE);
 				$data['page_title'] = "Satellite Facility(F-MAPS)";
 				$data['banner_text'] = "Satellite Facility(F-MAPS)";
@@ -676,7 +677,8 @@ class Order extends MY_Controller {
 					$data['regimens'] = Maps_Item::getOrderItems($maps_id);
 				}
 
-			} else {
+			} 
+			else {
 				$data['supplier'] = $this -> get_supplier($facility_code);
 				if($data['supplier']=='KEMSA'){
 					$data['regimen_categories'] = Sync_Regimen_Category::getAll();
@@ -694,7 +696,7 @@ class Order extends MY_Controller {
 				if ($duplicate == true) {
 					//redirect("order");
 				}
-			}
+	}
 			$facilities = Sync_Facility::getId($facility_code, $order_type);
 			$data['facility_id'] = $facilities['id'];
 			$data['content_view'] = "orders/fmap_template";
@@ -2797,6 +2799,7 @@ class Order extends MY_Controller {
 		echo json_encode($data);
 
 	}
+      
 
 	public function get_fmaps_details($map_id) {
 		$facility_code = $this -> session -> userdata('facility');
@@ -2867,6 +2870,10 @@ class Order extends MY_Controller {
 		$data['maps_items_array'] = $maps_items_array;
 		echo json_encode($data);
 	}
+          public function get_ois(){
+            $ois=  Oi_regimen::getAll();
+            echo "<pre>";print_r($ois);die;
+        }
 
 	public function getPeriodRegimenPatients($from, $to) {
 		$facility_code = $this -> session -> userdata("facility");
@@ -3152,7 +3159,9 @@ class Order extends MY_Controller {
 
 		//Map Regimens
 		$regimens = Regimen::getRegimens();
+                   //echo "<pre>";print_r($regimens);die;
 		foreach ($regimens as $regimen) {
+                    
 			$regimen_id = $regimen['id'];
 			$code = $regimen['Regimen_Code'];
 			$name = $regimen['Regimen_Desc'];

@@ -790,25 +790,30 @@ class auto_management extends MY_Controller {
 									(32, 'Contains aspirin', 1),
 									(33, 'contains an apirin-like medicine', 1),
 									(34, 'Avoid a lot of fatty meals together with efavirenz', 1);";
-		$tables['sync_regimen_category']="CREATE TABLE IF NOT EXISTS `sync_regimen_category` (
-										  `id` int(2) NOT NULL AUTO_INCREMENT,
-										  `Name` varchar(50) NOT NULL,
-										  `Active` varchar(2) NOT NULL,
-										  `ccc_store_sp` int(11) NOT NULL DEFAULT '2',
-										  PRIMARY KEY (`id`),
-										  KEY `ccc_store_sp` (`ccc_store_sp`)
-										) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14;
+		         $tables['sync_regimen_category']="DROP TABLE IF EXISTS`sync_regimen_category`;                     
+                                                          CREATE TABLE `sync_regimen_category` (
+                                                          `id` int(2) NOT NULL AUTO_INCREMENT,
+                                                          `Name` varchar(100) NOT NULL,
+                                                          `Active` varchar(2) NOT NULL,
+                                                          `ccc_store_sp` int(11) NOT NULL DEFAULT '2',
+                                                          PRIMARY KEY (`id`),
+                                                          KEY `ccc_store_sp` (`ccc_store_sp`)
+                                                        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 										INSERT INTO `sync_regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
-										(4, 'Adult First Line', '1', 2),
-										(5, 'Adult Second Line', '1', 2),
-										(6, 'Other Adult ART', '1', 2),
-										(7, 'Paediatric First Line', '1', 2),
-										(8, 'Paediatric Second Line', '1', 2),
-										(9, 'Other Pediatric Regimen', '1', 2),
-										(10, 'PMTCT Mother', '1', 2),
-										(11, 'PMTCT Child', '1', 2),
-										(12, 'PEP Adult', '1', 2),
-										(13, 'PEP Child', '', 2);";
+                                                                                (4, 'Adult First Line', '1', 2),
+                                                                                (5, 'Adult Second Line', '1', 2),
+                                                                                (6, 'Other Adult ART', '1', 2),
+                                                                                (7, 'Paediatric First Line', '1', 2),
+                                                                                (8, 'Paediatric Second Line', '1', 2),
+                                                                                (9, 'Other Pediatric Regimen', '1', 2),
+                                                                                (10, 'PMTCT Mother', '1', 2),
+                                                                                (11, 'PMTCT Child', '1', 2),
+                                                                                (12, 'PEP Adult', '1', 2),
+                                                                                (13, 'PEP Child', '', 2),
+                                                                                (14, 'Universal prophylaxis', '1', 2),
+                                                                                (16, 'IPT', '1', 2),
+                                                                                (17, 'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC)  [For Diflucan Donation Program ONLY]', '1', 2);"; 
+                 
                             $tables['faq'] = "CREATE TABLE IF NOT EXISTS `faq` (
                                                   `id` int(11) NOT NULL AUTO_INCREMENT,
                                                   `modules` varchar(100) NOT NULL,
@@ -822,21 +827,42 @@ class auto_management extends MY_Controller {
                                                       `id` int(11) NOT NULL AUTO_INCREMENT,
                                                       `oi_code` varchar(20) NOT NULL,
                                                       `oi_description` varchar(200) NOT NULL,
+                                                      `category` int(11) NOT NULL,
                                                       PRIMARY KEY (`id`)
                                                     ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
-                                                    INSERT INTO `oi_regimen` (`id`, `oi_code`, `oi_description`) VALUES
-                                                    (1, 'OI1A', 'Adult patients (=>15 Yrs) on Cotrimoxazole prophylaxis '),
-                                                    (2, 'OI1C', 'Paediatric patients (<15 Yrs) on Cotrimoxazole prophylaxis '),
-                                                    (3, 'OI2A', 'Adult patients (=>15 Yrs) on Dapsone prophylaxis '),
-                                                    (4, 'OI2C', 'Paediatric patients (<15 Yrs) on Dapsone prophylaxis '),
-                                                    (5, 'OI4A', 'Adult patients (=>15 Yrs) on Isoniazid prophylaxis '),
-                                                    (6, 'OI4C', 'Paediatric patients (<15 Yrs) on Isoniazid prophylaxis '),
-                                                    (7, 'OI3A', 'Adult patients on Diflucan (For Diflucan Donation Program ONLY)'),
-                                                    (8, 'OI3C', 'Paed patients on Diflucan (For Diflucan Donation Program ONLY)'),
-                                                    (9, 'CM3N', 'New patients with CM on Diflucan (For Diflucan Donation Program ONLY)'),
-                                                    (10, 'CM3R', 'Revisit patients with CM on Diflucan (For Diflucan Donation Program ONLY)'),
-                                                    (11, 'OC3N', 'New patients with OC on Diflucan (For Diflucan Donation Program ONLY)'),
-                                                    (12, 'OC3R', 'Revisit patients with OC on Diflucan (For Diflucan Donation Program ONLY)');";
+                                                    INSERT INTO `oi_regimen` (`id`, `oi_code`, `oi_description`, `category`) VALUES
+                                                       (1, 'OI1A', 'Adult patients (=>15 Yrs) on Cotrimoxazole prophylaxis ', 14),
+                                                       (2, 'OI1C', 'Paediatric patients (<15 Yrs) on Cotrimoxazole prophylaxis ', 14),
+                                                       (3, 'OI2A', 'Adult patients (=>15 Yrs) on Dapsone prophylaxis ', 14),
+                                                       (4, 'OI2C', 'Paediatric patients (<15 Yrs) on Dapsone prophylaxis ', 14),
+                                                       (5, 'OI4A', 'Adult patients (=>15 Yrs) on Isoniazid prophylaxis ', 16),
+                                                       (6, 'OI4C', 'Paediatric patients (<15 Yrs) on Isoniazid prophylaxis ', 16),
+                                                       (7, 'OI3A', 'Adult patients on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (8, 'OI3C', 'Paed patients on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (9, 'CM3N', 'New patients with CM on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (10, 'CM3R', 'Revisit patients with CM on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (11, 'OC3N', 'New patients with OC on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (12, 'OC3R', 'Revisit patients with OC on Diflucan (For Diflucan Donation Program ONLY)', 17);";
+                            $tables['sync_oi_regimen']="CREATE TABLE IF NOT EXISTS `sync_oi_regimen` (
+                                                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                                                      `oi_code` varchar(20) NOT NULL,
+                                                      `oi_description` varchar(200) NOT NULL,
+                                                      `category_id` int(11) NOT NULL,
+                                                      PRIMARY KEY (`id`)
+                                                    ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+                                                        INSERT INTO `sync_oi_regimen` (`id`, `oi_code`, `oi_description`, `category_id`) VALUES
+                                                       (1, 'OI1A', 'Adult patients (=>15 Yrs) on Cotrimoxazole prophylaxis ', 14),
+                                                       (2, 'OI1C', 'Paediatric patients (<15 Yrs) on Cotrimoxazole prophylaxis ', 14),
+                                                       (3, 'OI2A', 'Adult patients (=>15 Yrs) on Dapsone prophylaxis ', 14),
+                                                       (4, 'OI2C', 'Paediatric patients (<15 Yrs) on Dapsone prophylaxis ', 14),
+                                                       (5, 'OI4A', 'Adult patients (=>15 Yrs) on Isoniazid prophylaxis ', 16),
+                                                       (6, 'OI4C', 'Paediatric patients (<15 Yrs) on Isoniazid prophylaxis ', 16),
+                                                       (7, 'OI3A', 'Adult patients on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (8, 'OI3C', 'Paed patients on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (9, 'CM3N', 'New patients with CM on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (10, 'CM3R', 'Revisit patients with CM on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (11, 'OC3N', 'New patients with OC on Diflucan (For Diflucan Donation Program ONLY)', 17),
+                                                       (12, 'OC3R', 'Revisit patients with OC on Diflucan (For Diflucan Donation Program ONLY)', 17);";
             foreach($tables as $table=>$statements){
             if (!$this->db->table_exists($table)){
             	$statements=explode(";",$statements);

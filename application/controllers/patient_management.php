@@ -92,7 +92,7 @@ class Patient_Management extends MY_Controller {
 		 * you want to insert a non-database field (for example a counter or static image)
 		 */
 		$aColumns = array('Patient_Number_CCC', 'First_Name', 'Last_Name', 'Other_Name',  'NextAppointment', 'Phone', 'Regimen_Desc', 'Name');
-
+                
 		$iDisplayStart = $this -> input -> get_post('iDisplayStart', true);
 		$iDisplayLength = $this -> input -> get_post('iDisplayLength', true);
 		$iSortCol_0 = $this -> input -> get_post('iSortCol_0', true);
@@ -140,7 +140,7 @@ class Patient_Management extends MY_Controller {
 				$col = $aColumns[$i];
 				if($col=='First_Name' ){
 					$value=$this -> db -> escape_like_str($sSearch_);
-					$where = "(First_Name LIKE '%$value%' OR Last_Name LIKE '%$value%' OR Last_Name LIKE '%$value%')";
+					$where = "(First_Name LIKE '$value%' OR Last_Name LIKE '$value%' OR Last_Name LIKE '$value%')";
                     $this ->db -> where($where);
 				}else{
 					$this -> db -> like($col, $this -> db -> escape_like_str($sSearch_));
@@ -176,9 +176,9 @@ class Patient_Management extends MY_Controller {
 		$this -> db -> where("p.Facility_Code", $facility_code);
 		$this -> db -> join("regimen r", "r.id=p.Current_Regimen", "left");
 		$this -> db -> join("patient_status s", "s.id=p.current_status", "left");
-		$tot_patients = $this -> db -> get();
+		$tot_patients = $this -> db -> get();              
 		$iTotal = count($tot_patients -> result_array());
-
+//                echo "<pre>";print_r($iTotal);die;  
 		// Output
 		$output = array('sEcho' => intval($sEcho), 'iTotalRecords' => $iTotal, 'iTotalDisplayRecords' => $iFilteredTotal, 'aaData' => array());
 
@@ -1868,7 +1868,7 @@ class Patient_Management extends MY_Controller {
 
 		$sql = "SELECT 
 		            p.patient_number_ccc as ccc_no,
-		            UPPER(CONCAT_WS(' ',CONCAT_WS(' ',p.first_name,p.other_name),p.last_name)) as patient_name,
+		            UPPER(CONCAT_WS(' ',p.first_name,p.other_name,p.last_name)) as patient_name,
 		            DATE_FORMAT(p.nextappointment,'%b %D, %Y') as appointment,
 		            IF(p.phone='',p.alternate,p.phone) as phone_number,
                     CONCAT_WS(' | ',r.regimen_code,r.regimen_desc) as regimen,

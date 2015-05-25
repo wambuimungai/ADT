@@ -16,26 +16,18 @@ class Visit_Purpose extends Doctrine_Record {
 		return $purposes;
 	}
 
-	public function getFiltered($enrollment_check,$start_art_check) 
+	public function getFiltered() 
 	{   
-		$filter = "";
-		if($enrollment_check == true)
-		{
-           $filter .= " AND Name NOT LIKE '%enroll%'";
-		}
-
-		if($start_art_check == true)
-		{
-           $filter .= " AND Name NOT LIKE '%start%'";
-		}
-		$query = Doctrine_Query::create() -> select("*") -> from("Visit_Purpose") -> where("Active='1' $filter ");
-		$purposes = $query -> execute();
+                $query = Doctrine_Query::create() -> select("*") -> from("Visit_Purpose") -> where("Name NOT LIKE '%enroll%' AND Name NOT LIKE '%start%' AND Active=1");
+		//echo $query->getSql();die;
+                $purposes = $query -> execute();
 		return $purposes;
 	}
 	
 	public function getThemAll() {
 		$query = Doctrine_Query::create() -> select("*") -> from("Visit_Purpose")->orderby("Name asc");
-		$purposes = $query -> execute();
+		//echo $query->getSql();die;
+                $purposes = $query -> execute();
 		return $purposes;
 	}
 

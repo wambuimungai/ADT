@@ -75,7 +75,7 @@ if($table){
 	<div class="modal-body">
 		<div class="max-row">
 				<label>Facility Name</label>
-				<select name="facility" id="satellite" class="input-xlarge">
+				<select name="facility" id="satellite"  class="input-xlarge">
 				</select>
 		</div>
 	</div>
@@ -473,7 +473,7 @@ if($table){
 		var base_url="<?php echo base_url(); ?>";
 		$("#actual_page").text("<?php echo $actual_page; ?>");
 		//Adding Facilities
-		$("#facilities").live('click',function(){
+		$("#facilities").on('click',function(){
 		    var link=base_url+"facility_management/getFacilityList";
 				$.ajax({
 				    url: link,
@@ -482,10 +482,12 @@ if($table){
 				    async:false,
 				    success: function(data) {	
 				    	$("#satellite").empty();
-				    	$("#satellite").append($("<option></option>").attr("value",'').text('--Select One--'));
+				    	//$("#satellite").append($("<option></option>").attr("value",'').text('--Select One--'));
 				    	$.each(data, function(i, jsondata){
 				    		//$("#satellite").append($("<option></option>").attr("value",jsondata.facilitycode).text(jsondata.facilitycode));
 				    		$("#satellite").append($("<option></option>").attr("value",jsondata.facilitycode).text(jsondata.name));
+				    		
+				    		
 				    	});
 				    	
 				    }

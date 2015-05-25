@@ -47,29 +47,20 @@ class Dispensement_Management extends MY_Controller {
 		$results = $query -> result_array();
                 
 		if ($results) {
+                     
 			$data['last_regimens'] = $results[0];
 			$dispensing_date = $results[0]['dispensing_date'];
 
 			//Check if patient had startART or enrollment purpose in previous visits
-			$enrollment_check = false;
-			$start_art_check = false;
-			foreach($results as $result)
-			{ 
-				$visit_purpose = strtolower($result['visit_purpose_name']);
-//				echo "<pre>";
-//                print_r($visit_purpose);die;
-				if (strpos($visit_purpose,'start') !== false)
-				{
-                                    $start_art_check = true;
-				} 
-				if(strpos($visit_purpose,'enrollment') !== false) {
-				    $enrollment_check = true;
-				}
-			}
-
-			$data['purposes'] = Visit_Purpose::getFiltered($enrollment_check,$start_art_check);
-                       
-		}else{
+			
+				$visit_purpose = strtolower($results[1]['visit_purpose_name']);
+                                if($visit_purpose=='routine refill'){
+                                   
+                        	$data['purposes'] = Visit_Purpose::getFiltered();
+                                 //echo "<pre>";print_r($data);die;
+                                }
+		}
+                else{
 			$data['purposes'] = Visit_Purpose::getAll();
 		}
 

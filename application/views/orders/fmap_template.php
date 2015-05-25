@@ -242,7 +242,7 @@ if ($facility_object -> service_pep == "1") {
 					<?php
 			$counter = 1;
 			foreach($regimen_categories as $category){
-					$cat = str_replace(' ', '_',$category);
+					$cat = str_replace(' ', '_',$category); 
 						?>
 					<tbody>
 						<?php
@@ -272,6 +272,7 @@ if ($facility_object -> service_pep == "1") {
 							}
 						   }else{
 						   	foreach($regimen_list as $regimen){
+                                                            
                                                              ?>
 								<tr>
 								<td style="border-right:2px solid #DDD;"><?php echo $regimen['code'];?></td>
@@ -287,11 +288,13 @@ if ($facility_object -> service_pep == "1") {
 						   }
 						}
 						else{
+                                                    //listing regimens under their respective categories
 							//Don't displai OI regimens
 							if(strtoupper($category -> Name) == 'OI REGIMEN'){
 							 continue;
 							}
-							$regimens = $category -> Regimens;
+							$regimens = $category -> Regimens; 
+                                                        
 							$cat = str_replace(' ', '_',$category -> Name);
 						?><tr class="accordion"><th colspan="3" class="reg_cat_name" id="<?php echo $cat; ?>" ><?php echo $category -> Name;?></th></tr><?php
 						 if($supplier=="KEMSA"){
@@ -312,6 +315,7 @@ if ($facility_object -> service_pep == "1") {
 							}
 						}else{
 							foreach($regimens as $regimen){
+                                                           // echo "<pre>";print_r($regimen);die;
 								?>
 							<tr>
 								<td style="border-right:2px solid #DDD;"><?php echo $regimen -> code;?>
@@ -327,11 +331,17 @@ if ($facility_object -> service_pep == "1") {
 							</tr>
 						<?php
 						   }
+                                                   foreach($ois as $oi){
+                                                       echo "<pre>";print_r($oi);die;  
+            
+                                                    }
+                                                   }
+                                                   
 					   }
 						?>
 					</tbody>
 					<?php
-					}}
+					}
 					?>
 				</table>
 			</div>
