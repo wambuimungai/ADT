@@ -684,6 +684,7 @@ class Order extends MY_Controller {
 					$data['regimen_categories'] = Sync_Regimen_Category::getAll();
 				}else if($data['supplier']=='KENYA PHARMA'){
 					$data['regimen_categories'] = Sync_Regimen_Category::getAll();
+                                        //echo json_encode($data,JSON_PRETTY_PRINT);die;
 				}
 
 				$period_start = date('Y-m-01', strtotime(date('Y-m-d') . "-1 month"));
@@ -2052,6 +2053,7 @@ class Order extends MY_Controller {
 				    OR sr.name='$regimen_desc')";
 			$query = $this -> db -> query($sql);
 			$results = $query -> result_array();
+                        //echo "<pre>"; print_r($results);die;
 			if ($results) {
 				return $results[0]['id'];
 			} else {
@@ -2802,6 +2804,7 @@ class Order extends MY_Controller {
       
 
 	public function get_fmaps_details($map_id) {
+           // echo "<pre>";print_r($map_id);die;
 		$facility_code = $this -> session -> userdata('facility');
 		//Get maps
 		$sql_maps = 'SELECT m.* FROM maps m WHERE m.id="' . $map_id . '" ORDER BY m.code DESC';
@@ -2870,11 +2873,6 @@ class Order extends MY_Controller {
 		$data['maps_items_array'] = $maps_items_array;
 		echo json_encode($data);
 	}
-          public function get_ois(){
-            $ois=  Oi_regimen::getAll();
-            echo "<pre>";print_r($ois);die;
-        }
-
 	public function getPeriodRegimenPatients($from, $to) {
 		$facility_code = $this -> session -> userdata("facility");
 		$supplier = $this -> get_supplier($facility_code);

@@ -373,6 +373,7 @@
 						<select class="input-xlarge" id="category" name="category">
 							<?php
 			foreach($regimen_categories as $regimen_category){
+                            //echo "<pre>";print_r($regimen_category);die;
 							?>
 							<option value="<?php echo $regimen_category -> id;?>"><?php echo $regimen_category -> Name;?></option>
 							<?php }?>

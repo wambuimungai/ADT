@@ -93,7 +93,7 @@ if ($facility_object -> service_pep == "1") {
         	$(".btn").attr("disabled","disabled");
         	return true;
         }
-    }
+    }   
 </script>
 <style>
 	.ui-datepicker-calendar {
@@ -106,7 +106,6 @@ if ($facility_object -> service_pep == "1") {
 		padding:3px;
 	}
 </style>
-
 	<div class="center-content" >
 		<?php
 		 	if ($this->session->flashdata('order_message')){
@@ -240,7 +239,7 @@ if ($facility_object -> service_pep == "1") {
 						</tr>
 					</thead>
 					<?php
-			$counter = 1;
+			$counter = 1;                       
 			foreach($regimen_categories as $category){
 					$cat = str_replace(' ', '_',$category); 
 						?>
@@ -315,8 +314,7 @@ if ($facility_object -> service_pep == "1") {
 							}
 						}else{
 							foreach($regimens as $regimen){
-                                                           // echo "<pre>";print_r($regimen);die;
-								?>
+//                                                           	?>
 							<tr>
 								<td style="border-right:2px solid #DDD;"><?php echo $regimen -> code;?>
 									<!--<input type="hidden" name="item_id[]" class="item_id" id="item_id_<?php echo $regimen -> id;?>" value=""/>-->
@@ -331,14 +329,8 @@ if ($facility_object -> service_pep == "1") {
 							</tr>
 						<?php
 						   }
-                                                   foreach($ois as $oi){
-                                                       echo "<pre>";print_r($oi);die;  
-            
-                                                    }
-                                                   }
-                                                   
-					   }
-						?>
+                                           }          
+					   }			?>
 					</tbody>
 					<?php
 					}
@@ -347,12 +339,13 @@ if ($facility_object -> service_pep == "1") {
 			</div>
 			<div class="facility_info_bottom" style="width:100%;">
 				<table class=" table table-bordered ">
-<!--					<tr>
+					<tr>
 						<td colspan="3">
 							<strong>List Any Other Regimen</strong><br>
 							<textarea name="other_regimen" id="other_regimen" style="width:100%" value="<?php echo @$fmaps_array[0]['comments'];?>" ></textarea>
 						</td>
 					</tr>
+                                      
 					<tr>
 						<th>Totals for PMTCT Clients (Pregnant Women ONLY):</th>
 						<td><span>New Clients</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="new_pmtct" id="new_pmtct" value="<?php echo @$fmaps_array[0]['new_pmtct'];?>"  /></td>
@@ -367,32 +360,7 @@ if ($facility_object -> service_pep == "1") {
 						<td><span>Adults (&gt;15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="pep_adult" id="pep_adult" value="<?php echo @$fmaps_array[0]['pep_adult'];?>" /></td>
 						<td><span>Children (&lt;=15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="pep_child" id="pep_child" value="<?php echo @$fmaps_array[0]['pep_child'];?>" /></td>
 					</tr>
-					<tr>
-						<th>Totals for Patients / Clients (ART plus Non-ART) on Cotrimoxazole/Dapsone prophylaxis:</th>
-						<td><span>Adults (&gt;15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="tot_cotr_adult" id="total_adult" value="<?php echo @$fmaps_array[0]['total_adult'];?>" /></td>
-						<td><span>Children (&lt;=15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="tot_cotr_child" id="total_child" value="<?php echo @$fmaps_array[0]['total_child'];?>" /></td>
-					</tr>
-					<tr>
-						<th>Totals for Patients / Clients on Diflucan (For Diflucan Donation Program ONLY):</th>
-						<td><span>Adults (&gt;15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="diflucan_adult" id="diflucan_adult" value="<?php echo @$fmaps_array[0]['diflucan_adult'];?>" /></td>
-						<td><span>Children (&lt;=15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="diflucan_child" id="diflucan_child" value="<?php echo @$fmaps_array[0]['diflucan_child'];?>" /></td>
-					</tr>
-				</table>	<tr>
-						<td>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_cm" id="new_cm" value="<?php echo @$fmaps_array[0]['new_cm'];?>" /></td>
-						<td>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_cm" id="revisit_cm" value="<?php echo @$fmaps_array[0]['revisit_cm'];?>" /></td>
-						<td>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_oc" id="new_oc" value="<?php echo @$fmaps_array[0]['new_oc'];?>" /></td>
-						<td>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_oc" id="revisit_oc" value="<?php echo @$fmaps_array[0]['revisit_oc'];?>" /></td>
-					</tr>
-				<table class=" table table-bordered ">
-					<tr>
-						<th colspan="2" style="text-align: center">CM</th><th colspan="2" style="text-align: center">OC</th>
-					</tr>
-					<tr>
-						<td>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_cm" id="new_cm" value="<?php echo @$fmaps_array[0]['new_cm'];?>" /></td>
-						<td>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_cm" id="revisit_cm" value="<?php echo @$fmaps_array[0]['revisit_cm'];?>" /></td>
-						<td>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_oc" id="new_oc" value="<?php echo @$fmaps_array[0]['new_oc'];?>" /></td>
-						<td>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_oc" id="revisit_oc" value="<?php echo @$fmaps_array[0]['revisit_oc'];?>" /></td>
-					</tr>-->
+                                   
 					<?php
 					if(isset($hide_generate) && $hide_generate==2){
 						?>
