@@ -652,12 +652,6 @@ class Order extends MY_Controller {
 				$data['map_id'] = $map_id;
 				$data['logs'] = Maps_Log::getMapLogs($map_id);
 
-				/*echo "<pre>";
-				print_r($data);
-				echo "</pre>";
-				die();*/
-
-
 				if ($data['options'] == "view") {
 					$data['hide_save'] = 1;	
 					$regimen_table = 'sync_regimen';
@@ -2720,17 +2714,16 @@ class Order extends MY_Controller {
 		echo json_encode($row);
 	}
 
-	public function get_aggregated_fmaps($period_start, $period_end) {//Generate aggregated fmaps
+	public function get_aggregated_fmaps($period_start = '2014-09-01', $period_end = '2014-09-30') {//Generate aggregated fmaps
 		$map_id = '"NOTTHERE"';
 		$facility_code = $this -> session -> userdata("facility");
-
 		//Get only F-MAPS
 		$sql_maps = "
 					SELECT m.id, m.code, m.status, m.period_begin,m.period_end,m.reports_expected,m.reports_actual,m.services,m.sponsors,m.art_adult, m.art_child,m.new_male,m.revisit_male,m.new_female,m.revisit_female,m.new_pmtct,m.revisit_pmtct,m.total_infant,m.pep_adult,m.pep_child,m.total_adult,m.total_child, m.diflucan_adult,m.diflucan_child,m.new_cm,m.revisit_cm,m.new_oc,m.revisit_oc,m.comments 
 					FROM maps m LEFT JOIN sync_facility sf ON sf.id=m.facility_id 
-                    WHERE  m.status ='prepared' 
+                    WHERE  m.status ='approved' 
                     AND m.code='F-MAPS'
-                   
+                    AND sf.category = 'satellite'
                     AND m.period_begin='$period_start'  ORDER BY m.code DESC
 					";
 					
@@ -2810,13 +2803,9 @@ class Order extends MY_Controller {
 
 		$data['maps_array'] = $maps_array;
 		$data['maps_items_array'] = $maps_items_array;
-		
 		echo json_encode($data);
-		//die();
-		
-	}
 
-   
+	}
 
 	public function get_fmaps_details($map_id) {
 		$facility_code = $this -> session -> userdata('facility');
