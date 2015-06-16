@@ -128,8 +128,8 @@ if ($facility_object -> service_pep == "1") {
 				<div>
 					<?php
 				if($options=='view'){
-						echo "<h4>".@$maps_id.' '.@ucfirst($status)."</h4>";
-						echo "<a href='".site_url("order/download_order/maps/".$map_id)."'>".$maps_id." ".$fmaps_array[0]['facility_name']." ".$fmaps_array[0]['period_begin']." to ".$fmaps_array[0]['period_end'].".xls</a><p>";
+						 "<h4>".@$maps_id.' '.@ucfirst($status)."</h4>";
+						"<a href='".site_url("order/download_order/maps/".$map_id)."'>".$maps_id." ".$fmaps_array[0]['facility_name']." ".$fmaps_array[0]['period_begin']." to ".$fmaps_array[0]['period_end'].".xls</a><p>";
 						$access_level = $this -> session -> userdata("user_indicator");
 				      	if($access_level=="facility_administrator"){
 					      	if($status=="prepared"){
@@ -339,28 +339,6 @@ if ($facility_object -> service_pep == "1") {
 			</div>
 			<div class="facility_info_bottom" style="width:100%;">
 				<table class=" table table-bordered ">
-					<tr>
-						<td colspan="3">
-							<strong>List Any Other Regimen</strong><br>
-							<textarea name="other_regimen" id="other_regimen" style="width:100%" value="<?php echo @$fmaps_array[0]['comments'];?>" ></textarea>
-						</td>
-					</tr>
-                                      
-					<tr>
-						<th>Totals for PMTCT Clients (Pregnant Women ONLY):</th>
-						<td><span>New Clients</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="new_pmtct" id="new_pmtct" value="<?php echo @$fmaps_array[0]['new_pmtct'];?>"  /></td>
-						<td><span>Revisit Clients</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_pmtct" id="revisit_pmtct" value="<?php echo @$fmaps_array[0]['revisit_pmtct'];?>"  /></td>
-					</tr>
-					<tr>
-						<th colspan="2">Total No. of Infants receiving ARV prophylaxis for PMTCT:</th>
-						<td><input type="text"  class="validate[requied] tbl_header_input f_right" name="total_infant" id="total_infant" value="<?php echo @$fmaps_array[0]['total_infant'];?>" /></td>
-					</tr>
-					<tr>
-						<th>Totals for PEP Clients ONLY:</th>
-						<td><span>Adults (&gt;15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="pep_adult" id="pep_adult" value="<?php echo @$fmaps_array[0]['pep_adult'];?>" /></td>
-						<td><span>Children (&lt;=15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right" name="pep_child" id="pep_child" value="<?php echo @$fmaps_array[0]['pep_child'];?>" /></td>
-					</tr>
-                                   
 					<?php
 					if(isset($hide_generate) && $hide_generate==2){
 						?>

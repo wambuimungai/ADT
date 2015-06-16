@@ -57,7 +57,7 @@ class Order extends MY_Controller {
 				     "email" =>  $this -> input -> post("email", TRUE),
 			         "password" => $this -> input -> post("password",TRUE)
 			        );                                                                                                 
-		    $url = trim($this -> nascop_url) . 'sync/user';
+		    $url =trim($this -> nascop_url) . 'sync/user';
 		    $curl -> post($url,$post_data);     
 		}
 		if ($curl -> error) {
@@ -73,6 +73,7 @@ class Order extends MY_Controller {
 			redirect("order");
 		} else {
 			$main_array = json_decode($curl -> response, TRUE);
+           // echo "<pre>";print_r($main_array);die;
 			if ($login_type == 1) {
 				$user_array = array();
 				foreach ($main_array as $main) {
@@ -102,6 +103,7 @@ class Order extends MY_Controller {
 
                 //Set User Facilities
 				$facility_array = json_decode($main_array['ownUser_facility'], TRUE);
+               // echo "<pre>";print_r($facility_array);die;
 				//Remove User Facilities
 				$sql = "DELETE FROM user_facilities WHERE user_id='$id'";
 				$this -> db -> query($sql);
@@ -113,6 +115,7 @@ class Order extends MY_Controller {
 					                "user_id" => $id, 
 					                "facility" => json_encode(array($facility_array))
 					               );
+                //echo "<pre>";print_r($facility_data);die;
 				$this -> db -> insert("user_facilities",$facility_data);
                 
 				//Set Data_Array
@@ -356,9 +359,10 @@ class Order extends MY_Controller {
 		$conditions = "";
 
 		$user_facilities = User_Facilities::getHydratedFacilityList($this -> session -> userdata("api_id"));
-
+        //echo "<pre>";print_r($user_facilities);die;
 		$facilities = json_decode($user_facilities['facility'], TRUE);
 		$facilities = implode(",", $facilities);
+
 
 		if ($period_begin != "" && $type == "cdrr") {
 			$conditions = "AND c.period_begin='$period_begin'";
@@ -374,7 +378,7 @@ class Order extends MY_Controller {
 		}
 
 		if ($type == "cdrr") {
-			$sql = "SELECT c.id,IF(c.code='D-CDRR',CONCAT('D-CDRR#',c.id),CONCAT('F-CDRR#',c.id)) as cdrr_id,c.period_begin,LCASE(c.status) as status_name,$facility_name as facility_name
+           $sql = "SELECT c.id,IF(c.code='D-CDRR',CONCAT('D-CDRR#',c.id),CONCAT('F-CDRR#',c.id)) as cdrr_id,c.period_begin,LCASE(c.status) as status_name,$facility_name as facility_name
 				    FROM cdrr c
 				    LEFT JOIN $facility_table f ON f.id=c.facility_id
 				    WHERE facility_id IN($facilities)
@@ -392,11 +396,11 @@ class Order extends MY_Controller {
 		} else if ($type == "aggregate") {
                     
 			$facility_type = Facilities::getType($facility_code);
-			$sql = "";
+            $sql = "";
 			$columns = array('#', 'Facility Name', 'Period Beginning', 'Options');
 
 			if ($facility_type > 1  && $supplier == "KEMSA") {
-				$sql = "SELECT c.period_begin as id,sf.name as facility_name,c.period_begin,c.id as cdrr_id,m.id as maps_id,c.facility_id as facility_id,f.facilitycode as facility_code
+            $sql = "SELECT c.period_begin as id,sf.name as facility_name,c.period_begin,c.id as cdrr_id,m.id as maps_id,c.facility_id as facility_id,f.facilitycode as facility_code
 						FROM cdrr c 
 						LEFT JOIN maps m ON (c.facility_id=m.facility_id) AND (c.period_begin=m.period_begin) AND (c.period_end=m.period_end)
 						LEFT JOIN sync_facility sf ON sf.id=c.facility_id 
@@ -407,19 +411,16 @@ class Order extends MY_Controller {
 						AND LCASE(m.status) NOT IN('prepared','review','deleted')
 						AND c.facility_id IN($facilities)
 						GROUP BY c.period_begin
-	                    ORDER BY c.period_begin desc"; 
+	                    ORDER BY c.period_begin desc";
 			}
 		}
-		if ($sql != "") {
-			$query = $this -> db -> query($sql);
-//                         echo "<pre>";print_r($query);die;
-			$results = $query -> result_array();
-                        //echo "<pre>";print_r($results);die;
-                        
+        $query = $this -> db -> query($sql);
+		if ($query!= "") {
+            $results = $query -> result_array();
 		}
-                else {
+        else
+        {
 			$results = array();
-                        
 		}
 
 		if ($period_begin != "") {
@@ -811,6 +812,7 @@ class Order extends MY_Controller {
 						}
 						$cdrr_array[$commodity_counter]['balance'] = $opening_balances[$commodity_counter];
 						$cdrr_array[$commodity_counter]['received'] = $quantities_received[$commodity_counter];
+
 						if ($code == "F-CDRR_units") {
 						    $cdrr_array[$commodity_counter]['dispensed_units'] = $quantities_dispensed[$commodity_counter];
 					        $cdrr_array[$commodity_counter]['dispensed_packs'] = ceil(@$quantities_dispensed[$commodity_counter] / @$pack_size[$commodity_counter]);
@@ -2881,7 +2883,7 @@ class Order extends MY_Controller {
 		/*if ($supplier == "KEMSA") {
 			$regimen_column = "r.id";
 		}*/
-		$sql = "SELECT count(DISTINCT(p.id)) as patients,rc.name as regimen_category,r.id as regimen_id, r.regimen_desc,r.regimen_code,$regimen_column as regimen 
+	$sql = "SELECT count(DISTINCT(p.id)) as patients,rc.name as regimen_category,r.id as regimen_id, r.regimen_desc,r.regimen_code,$regimen_column as regimen
 		        FROM patient p
 		        INNER JOIN regimen r ON r.id=p.current_regimen
 		        INNER JOIN patient_status ps ON ps.id=p.current_status
@@ -3898,7 +3900,7 @@ class Order extends MY_Controller {
         $drug_id=$param['drug_id'];
 
         //execute query to get all other transactions
-        $sql = "SELECT trans.name, trans.id, trans.effect, dsm.in_total, dsm.out_total 
+      $sql = "SELECT trans.name, trans.id, trans.effect, dsm.in_total, dsm.out_total 
 			    FROM (SELECT id, name, effect 
 			          FROM transaction_type 
 			          WHERE name LIKE  '%received%' 

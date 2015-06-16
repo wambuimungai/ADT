@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - testrussia@localhost" uuid="7fd1be69-fae3-4250-94b6-afc00a3223d7">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>testrussia.*</schema-pattern>
+      <default-schemas>testrussia.*</default-schemas>
+    </data-source>
+    <data-source name="MySQL - testthika@localhost" uuid="918942cb-53a8-4eb9-a8e7-8e798b763639">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>testthika.*</schema-pattern>
+      <default-schemas>testthika.*</default-schemas>
+    </data-source>
+  </component>
+</project>
