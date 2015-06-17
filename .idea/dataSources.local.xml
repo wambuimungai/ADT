@@ -13,5 +13,11 @@
       <schema-pattern>testthika.*</schema-pattern>
       <default-schemas>testthika.*</default-schemas>
     </data-source>
+    <data-source name="MySQL - testthika@localhost" uuid="325652da-0958-4d8c-8228-c9ef2ac7a633">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>testthika.*</schema-pattern>
+      <default-schemas>testthika.*</default-schemas>
+    </data-source>
   </component>
 </project>
