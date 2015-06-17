@@ -2883,7 +2883,7 @@ class Order extends MY_Controller {
 		/*if ($supplier == "KEMSA") {
 			$regimen_column = "r.id";
 		}*/
-	$sql = "SELECT count(DISTINCT(p.id)) as patients,rc.name as regimen_category,r.id as regimen_id, r.regimen_desc,r.regimen_code,$regimen_column as regimen
+	 $sql = "SELECT count(DISTINCT(p.id)) as patients,rc.name as regimen_category,r.id as regimen_id, r.regimen_desc,r.regimen_code,$regimen_column as regimen
 		        FROM patient p
 		        INNER JOIN regimen r ON r.id=p.current_regimen
 		        INNER JOIN patient_status ps ON ps.id=p.current_status
@@ -2898,7 +2898,57 @@ class Order extends MY_Controller {
 		$results = $query -> result_array();
 		echo json_encode($results);
 	}
-	
+    public function getOiRegimenPatients($from,$to){
+        $sql['cotrimo']='SELECT IF(ROUND(DATEDIFF( CURDATE(),p.dob )/360 )>=15,"total_adult","total_child" )AS age,COUNT(DISTINCT(
+                    p.id
+                    )) AS total
+                    FROM patient p
+                    LEFT JOIN drug_prophylaxis dp ON dp.id = p.drug_prophylaxis
+                    INNER JOIN patient_status ps ON ps.id = p.current_status
+                    WHERE (
+                    dp.name LIKE "%cotrimo%"
+                    )
+                    AND ps.name LIKE "%active%"
+                    GROUP BY age';
+
+        $sql['dapsone']='SELECT IF( ROUND( DATEDIFF( CURDATE( ) , p.dob ) /360 ) >=15,  "total_adult",  "total_child" ) AS age, COUNT( DISTINCT (
+                        p.id
+                        ) ) AS total
+                        FROM patient p
+                        LEFT JOIN drug_prophylaxis dp ON dp.id = p.drug_prophylaxis
+                        INNER JOIN patient_status ps ON ps.id = p.current_status
+                        WHERE (
+                        dp.name LIKE  "%dapsone%"
+                        )
+                        AND ps.name LIKE  "%active%"
+                        GROUP BY age';
+        $sql['isoniazid']='SELECT IF( ROUND( DATEDIFF( CURDATE( ) , p.dob ) /360 ) >=15,  "total_adult",  "total_child" ) AS age, COUNT( DISTINCT (
+                            p.id
+                            ) ) AS total
+                            FROM patient p
+                            LEFT JOIN drug_prophylaxis dp ON dp.id = p.drug_prophylaxis
+                            INNER JOIN patient_status ps ON ps.id = p.current_status
+                            WHERE (
+                            dp.name LIKE  "%isoniazid%"
+                            )
+                            AND ps.name LIKE  "%active%"
+                            GROUP BY age';
+        $sql['diflucan']='SELECT IF(round(datediff(CURDATE(),p.dob)/360)>=15,"diflucan_adult","diflucan_child") as age,
+                            COUNT(DISTINCT(p.id)) as total
+                            FROM  patient p
+                            LEFT JOIN drug_prophylaxis dp ON dp.id = p.drug_prophylaxis
+                            INNER JOIN patient_status ps ON ps.id=p.current_status
+                            WHERE (dp.name LIKE "%flucona%")
+                            AND ps.name LIKE "%active%"
+                            GROUP BY age';
+        foreach($sql as $q){
+            $query = $this -> db -> query($q);
+            $results = $query -> result_array();
+            echo json_encode($results);
+        }
+
+    }
+
 	public function getNotMappedRegimenPatients($from,$to){
 		$facility_code = $this -> session -> userdata("facility");
 		$supplier = $this -> get_supplier($facility_code);
@@ -2916,6 +2966,7 @@ class Order extends MY_Controller {
 				";
 		$query = $this -> db -> query($sql);
 		$results = $query -> result_array();
+
 		echo json_encode($results);
 	}
 
