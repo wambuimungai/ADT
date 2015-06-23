@@ -3151,4 +3151,1052 @@
       <primary-key name="PRIMARY" columns="id"/>
     </table>
   </data-source>
+  <data-source name="MySQL - testadt@localhost" uuid="d2ea15ed-2136-4b3f-82ec-691bf90d50d5">
+    <database-info product="MySQL" version="5.5.27" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="testadt"/>
+    <table name="access_level" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="level_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="indicator" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="access_log" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="machine_code" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_id" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="access_level" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="start_time" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="end_time" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facility_code" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="access_type" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="access_type" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="type_name" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="brand" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="drug_id" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="brand" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="brand_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="ccc_store_service_point" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="brand_ibfk_1" table="brand" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="dose_ibfk_1" table="dose" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="drug_cons_balance_ibfk_1" table="drug_cons_balance" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="drug_destination_ibfk_1" table="drug_destination" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="drug_source_ibfk_1" table="drug_source" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="drug_stock_balance_ibfk_1" table="drug_stock_balance" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="drug_stock_movement_ibfk_1" table="drug_stock_movement" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="drug_unit_ibfk_1" table="drug_unit" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="drugcode_ibfk_1" table="drugcode" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="generic_name_ibfk_1" table="generic_name" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="opportunistic_infection_ibfk_1" table="opportunistic_infection" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="patient_ibfk_1" table="patient" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="patient_source_ibfk_1" table="patient_source" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="patient_status_ibfk_1" table="patient_status" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="regimen_ibfk_1" table="regimen" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="regimen_category_ibfk_1" table="regimen_category" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="regimen_change_purpose_ibfk_1" table="regimen_change_purpose" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="regimen_service_type_ibfk_1" table="regimen_service_type" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="transaction_type_ibfk_1" table="transaction_type" schema="" catalog="testadt" columns="ccc_store_sp"/>
+      <exported-key name="visit_purpose_ibfk_1" table="visit_purpose" schema="" catalog="testadt" columns="ccc_store_sp"/>
+    </table>
+    <table name="cdrr" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="code" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="period_begin" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="period_end" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="comments" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="reports_expected" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="reports_actual" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="services" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sponsors" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="non_arv" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="delivery_note" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="facility_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cdrr_item" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="balance" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="received" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="dispensed_units" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="dispensed_packs" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="losses" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="adjustments" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="count" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="expiry_quant" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="expiry_date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="out_of_stock" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="resupply" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="aggr_consumed" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="aggr_on_hand" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="publish" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <column name="cdrr_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="drug_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="cdrr_log" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cdrr_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="counties" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="county" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="denied_log" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ip_address" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="location" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_id" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="timestamp" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="dependants" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="parent" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="child" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="district" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ID" unique="false" columns="id"/>
+    </table>
+    <table name="dose" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="value" sqlType="FLOAT" precision="12" scale="0" nullable="true" jdbcType="7"/>
+      <column name="frequency" sqlType="VARCHAR" precision="1" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="dose_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="drug_classification" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="drug_cons_balance" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="drug_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="stock_type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="period" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12" remarks="Y29uc2lkZSBvbmx5IG1vbnRoIGFuZCB5ZWFyLCBkYXkgaXMgb25seSBmb3IgZm9ybWF0aW5nIHB1cnBvc2Vz"/>
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="facility" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_update" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="drug_cons_balance_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="drug_id" unique="true" columns="drug_id,stock_type,period"/>
+      <index name="drug_id_2" unique="false" columns="drug_id"/>
+      <index name="period" unique="false" columns="period"/>
+    </table>
+    <table name="drug_destination" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="drug_destination_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="drug_instructions" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="drug_prophylaxis" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="drug_source" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="drug_source_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="drug_stock_balance" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="drug_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch_number" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="expiry_date" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="stock_type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="facility_code" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="balance" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA==" remarks="S2VlcHMgYmFsYW5jZSBvZiBjb21tb2RpdHk="/>
+      <column name="last_update" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="drug_stock_balance_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="drug_id" unique="true" columns="drug_id,batch_number,expiry_date,stock_type,facility_code"/>
+      <index name="drug_id_2" unique="true" columns="drug_id,batch_number,expiry_date,stock_type,facility_code"/>
+    </table>
+    <table name="drug_stock_movement" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="drug" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="transaction_date" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch_number" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="transaction_type" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="source" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="destination" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Source_Destination" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="expiry_date" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="packs" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="quantity" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="quantity_out" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="balance" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8" def="MA=="/>
+      <column name="unit_cost" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="remarks" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="operator" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="order_number" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facility" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="machine_code" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="merged_from" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="timestamp" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="drug_stock_movement_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="Source_Destination" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_10" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_11" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_12" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_13" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_14" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_15" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_16" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_17" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_18" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_19" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_2" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_20" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_21" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_22" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_23" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_24" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_25" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_26" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_27" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_28" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_29" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_3" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_30" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_31" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_32" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_33" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_34" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_35" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_36" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_37" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_38" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_39" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_4" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_40" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_41" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_42" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_43" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_44" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_45" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_46" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_47" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_48" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_49" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_5" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_50" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_51" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_52" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_53" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_54" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_55" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_56" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_57" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_58" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_59" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_6" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_60" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_61" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_62" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_7" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_8" unique="false" columns="Source_Destination"/>
+      <index name="Source_Destination_9" unique="false" columns="Source_Destination"/>
+    </table>
+    <table name="drug_unit" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="drug_unit_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="drugcode" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="drug" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="unit" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pack_size" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="safety_quantity" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <column name="generic_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="supported_by" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="classification" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="none_arv" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tb_drug" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="drug_in_use" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="comment" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dose" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="duration" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <column name="quantity" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <column name="source" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="type" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="supplied" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="enabled" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="strength" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="merged_to" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="map" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <column name="instructions" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="drugcode_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="facilities" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="facilitycode" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facilitytype" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="district" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="county" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="flag" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="adult_age" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="weekday_max" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="weekend_max" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="supported_by" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="service_art" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="service_pmtct" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="service_pep" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="supplied_by" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="parent" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="map" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="facilitycode" unique="false" columns="facilitycode,district"/>
+      <index name="facilitytype" unique="false" columns="facilitytype"/>
+    </table>
+    <table name="facility_types" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="family_planning" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="indicator" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="faq" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="modules" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="questions" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="answers" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="gender" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="generic_name" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="generic_name_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="git_log" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="hash_value" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="update_time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="maps" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="status" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="code" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="period_begin" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="period_end" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="reports_expected" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="reports_actual" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="services" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sponsors" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="art_adult" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="CgkJ"/>
+      <column name="art_child" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="new_male" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="revisit_male" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="new_female" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="revisit_female" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="new_pmtct" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="revisit_pmtct" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="total_infant" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="pep_adult" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="pep_child" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="total_adult" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="total_child" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="diflucan_adult" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="diflucan_child" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="new_cm" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="revisit_cm" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="new_oc" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="revisit_oc" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="comments" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="report_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="facility_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="maps_item" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="total" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="regimen_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="maps_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="maps_log" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="user_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="maps_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="menu" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="menu_text" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="menu_url" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="offline" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="migration_log" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="source" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_index" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ccc_store_sp" unique="false" columns="ccc_store_sp"/>
+    </table>
+    <table name="non_adherence_reasons" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="opportunistic_infection" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="indication" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="JzEn"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="opportunistic_infection_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="other_illnesses" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="indicator" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="password_log" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_changed" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="patient" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="medical_record_number" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="patient_number_ccc" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="other_name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dob" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pob" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="gender" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pregnant" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="weight" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="height" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sa" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="physical" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="alternate" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="other_illnesses" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="other_drugs" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="adr" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="tb" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="smoke" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alcohol" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="date_enrolled" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="source" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="supported_by" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="timestamp" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facility_code" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="service" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start_regimen" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start_regimen_date" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="current_status" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="migration_id" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="machine_code" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="sms_consent" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="partner_status" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fplan" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="tbphase" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="startphase" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="endphase" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="disclosure" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="non_commun" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status_change_date" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="partner_type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="support_group" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="current_regimen" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Start_Regimen_Merged_From" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Current_Regimen_Merged_From" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="nextappointment" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start_height" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start_weight" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start_bsa" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="transfer_from" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="drug_allergies" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="tb_test" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="pep_reason" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="who_stage" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="drug_prophylaxis" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <column name="isoniazid_start_date" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="isoniazid_end_date" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tb_category" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="patient_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+      <index name="patient_number_ccc" unique="true" columns="patient_number_ccc"/>
+      <index name="date_enrolled" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_10" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_11" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_12" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_13" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_14" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_15" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_16" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_17" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_18" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_19" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_2" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_20" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_21" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_22" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_23" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_24" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_25" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_26" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_27" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_28" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_29" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_3" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_30" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_31" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_32" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_33" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_34" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_35" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_36" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_37" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_38" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_39" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_4" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_40" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_41" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_42" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_43" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_44" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_45" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_46" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_47" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_48" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_49" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_5" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_50" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_51" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_52" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_53" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_54" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_55" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_56" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_57" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_58" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_59" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_6" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_7" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_8" unique="false" columns="date_enrolled"/>
+      <index name="date_enrolled_9" unique="false" columns="date_enrolled"/>
+      <index name="facility_index" unique="false" columns="facility_code"/>
+      <index name="patient_ccc_index" unique="false" columns="patient_number_ccc"/>
+    </table>
+    <table name="patient_appointment" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="patient" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="appointment" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facility" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="machine_code" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="merge" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="facility_index" unique="false" columns="facility"/>
+      <index name="patient_index" unique="false" columns="patient"/>
+    </table>
+    <table name="patient_source" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="JzEn"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="patient_source_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="patient_status" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Active" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12" def="JzEn"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="patient_status_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="patient_visit" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="patient_id" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="visit_purpose" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="current_height" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="current_weight" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="regimen" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="regimen_change_reason" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="drug_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch_number" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="brand" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="indication" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pill_count" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="comment" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="timestamp" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facility" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dose" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dispensing_date" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dispensing_date_timestamp" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="migration_id" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="quantity" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="machine_code" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="last_regimen" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="duration" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="months_of_stock" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="adherence" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="missed_pills" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="non_adherence_reason" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="merged_from" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="regimen_merged_from" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_regimen_merged_from" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ccc_pharmacy" unique="false" columns="ccc_store_sp"/>
+      <index name="dispensing_date" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_10" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_11" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_12" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_13" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_14" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_15" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_16" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_17" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_18" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_19" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_2" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_20" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_21" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_22" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_23" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_24" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_25" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_26" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_27" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_28" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_29" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_3" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_30" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_31" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_32" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_33" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_34" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_35" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_36" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_37" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_38" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_39" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_4" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_40" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_41" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_42" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_43" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_44" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_45" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_46" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_47" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_48" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_49" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_5" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_50" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_51" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_52" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_53" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_54" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_55" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_56" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_57" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_58" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_59" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_6" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_60" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_7" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_8" unique="false" columns="dispensing_date"/>
+      <index name="dispensing_date_9" unique="false" columns="dispensing_date"/>
+      <index name="facility_index" unique="false" columns="facility"/>
+      <index name="patient_visit_index" unique="false" columns="patient_id"/>
+    </table>
+    <table name="pep_reason" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="regimen" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="regimen_code" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="regimen_desc" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="category" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="line" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type_of_service" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="remarks" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="enabled" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12" def="JzEn"/>
+      <column name="source" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="optimality" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="JzEn"/>
+      <column name="Merged_To" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="map" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="regimen_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="regimen_category" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Active" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="regimen_category_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="regimen_change_purpose" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="JzEn"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="regimen_change_purpose_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="regimen_drug" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="regimen" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="drugcode" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="source" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="Merged_From" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Regimen_Merged_From" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ccc_store_sp" unique="false" columns="ccc_store_sp"/>
+    </table>
+    <table name="regimen_service_type" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="JzEn"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="regimen_service_type_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="spouses" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="primary_spouse" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="secondary_spouse" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="suppliers" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="supporter" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="sync_drug" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="abbreviation" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="strength" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="packsize" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="formulation" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="unit" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="note" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="weight" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="OTk5"/>
+      <column name="category_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="regimen_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="sync_facility" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="code" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="category" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sponsors" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="services" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="manager_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="district_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="address_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="parent_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ordering" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="affiliation" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="service_point" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="county_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="hcsm_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="keph_level" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12" def="J05vdCBDbGFzc2lmaWVkJw=="/>
+      <column name="location" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="affiliate_organization_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="sync_regimen" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="code" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="old_code" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="category_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="sync_regimen_category" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Active" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ccc_store_sp" unique="false" columns="ccc_store_sp"/>
+    </table>
+    <table name="sync_user" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1"/>
+      <column name="email" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="role" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" def="J3VzZXIn"/>
+      <column name="status" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1" def="J0En"/>
+      <column name="profile_id" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="transaction_type" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="desc" sqlType="VARCHAR" precision="150" scale="0" nullable="false" jdbcType="12"/>
+      <column name="effect" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="transaction_type_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="user_facilities" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="facility" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="user_right" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="access_level" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="menu" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="access_type" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="user_sessions" schema="" catalog="testadt" type="TABLE">
+      <column name="session_id" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="ip_address" sqlType="VARCHAR" precision="16" scale="0" nullable="false" jdbcType="12" def="JzAn"/>
+      <column name="user_agent" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_activity" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="user_data" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="session_id"/>
+    </table>
+    <table name="users" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Access_Level" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Facility_Code" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Created_By" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Time_Created" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Phone_Number" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Email_Address" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Active" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Signature" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="map" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="ccc_store_sp" unique="false" columns="ccc_store_sp"/>
+    </table>
+    <table name="v_patient_visits" schema="" catalog="testadt" type="VIEW">
+      <column name="patient_visit_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="patient_id" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="medical_record_number" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="patient_number_ccc" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="other_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="dob" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pob" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gender" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pregnant" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="weight" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="height" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sa" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="physical" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="alternate" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="other_illnesses" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="other_drugs" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="adr" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="tb" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="smoke" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="alcohol" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="date_enrolled" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="source" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="supported_by" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="timestamp" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="facility_code" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="service" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="start_regimen" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="start_regimen_date" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_status" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="migration_id" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="machine_code" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" def="JzAn"/>
+      <column name="sms_consent" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="partner_status" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fplan" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="tbphase" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="startphase" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="endphase" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="disclosure" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="non_commun" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="status_change_date" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="partner_type" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="support_group" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_regimen" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Start_Regimen_Merged_From" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="Current_Regimen_Merged_From" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nextappointment" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="start_height" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="start_weight" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="start_bsa" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="transfer_from" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="active" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MQ=="/>
+      <column name="drug_allergies" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="tb_test" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="pep_reason" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="who_stage" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="drug_prophylaxis" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gender_desc" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="visit_purpose_id" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="visit_purpose_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="current_height" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="current_weight" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="regimen_id" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="regimen_service_type" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="regimen_change_reason" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="drug_id" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="batch_number" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="brand" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="indication" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pill_count" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="comment" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="visit_timestamp" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="facility" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dose" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dispensing_date" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="quantity" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_regimen" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="duration" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="months_of_stock" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="adherence" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="missed_pills" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="non_adherence_reason" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="merged_from" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="regimen_merged_from" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_regimen_merged_from" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="appointment" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pv_active" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+    </table>
+    <table name="visit_purpose" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Active" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12" def="JzEn"/>
+      <column name="ccc_store_sp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mg=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="visit_purpose_ibfk_1" columns="ccc_store_sp" ref-table="ccc_store_service_point" ref-schema="" ref-catalog="testadt" ref-columns="id" update-rule="0" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="who_stage" schema="" catalog="testadt" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
 </component>

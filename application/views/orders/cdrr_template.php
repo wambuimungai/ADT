@@ -289,16 +289,16 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<th class="number">Quantity required for RESUPPLY</th>
 					</tr>
 					<tr>
-						<th>In Units</th>
-						<th>In Units</th>
-						<th class="col_dispensed_units">In Units</th>
-						<th class="col_dispensed_units">In Units</th>
-						<th>In Units</th>
-						<th>In Units</th>
+						<th>In Packs</th>
+						<th>In Packs</th>
+						<th class="col_dispensed_units">In Packs</th>
+						<th class="col_dispensed_units">In Packs</th>
+						<th>In Packs</th>
+						<th>In Packs</th>
 						<th>Quantity</th>
 						<th>Expiry Date</th>
 						<th></th>
-						<th>In Units</th>
+						<th>In Packs</th>
 					</tr>
 					<tr>
 						<th>A</th>
@@ -307,7 +307,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<th>D</th>
 						<th>E</th>
 						<th>F</th>
-						<th>In Units</th>
+						<th>In Packs</th>
 						<th>mm-yy</th>
 						<th>G</th>
 						<th>H</th>
@@ -599,11 +599,11 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		<?php	
 		}
 		?>
-		<?php  
+		<?php
 		if($cdrr_array[0]['code']=="F-CDRR_packs"){
 		?>
-		  $("#dispensed_in_period_packs_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['dispensed_packs']; ?>"); 	
-		<?php	
+		  $("#dispensed_in_period_packs_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['dispensed_packs']; ?>");
+		<?php
 		}
 		?>
 		  $("#losses_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['losses']; ?>");

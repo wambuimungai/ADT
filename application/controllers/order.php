@@ -2896,9 +2896,12 @@ class Order extends MY_Controller {
 		$query = $this -> db -> query($sql);
 		$results = $query -> result_array();
 		echo json_encode($results);
+
 	}
-    public function getOiRegimenPatients($from,$to){
-        $sql['cotrimo']='SELECT IF(ROUND(DATEDIFF( CURDATE(),p.dob )/360 )>=15,"total_adult","total_child" )AS age,COUNT(DISTINCT(
+    public function getOiRegimenPatients($start_date,$end_date){
+        $to  = $this->input->post("period_end");
+
+        $sql['cotrimo']='SELECT IF(ROUND(DATEDIFF( CURDATE(),p.dob )/360 )>=15,"cotri_adult","cotri_child" )AS age,COUNT(DISTINCT(
                     p.id
                     )) AS total
                     FROM patient p
@@ -2910,7 +2913,7 @@ class Order extends MY_Controller {
                     AND ps.name LIKE "%active%"
                     GROUP BY age';
 
-        $sql['dapsone']='SELECT IF( ROUND( DATEDIFF( CURDATE( ) , p.dob ) /360 ) >=15,  "total_adult",  "total_child" ) AS age, COUNT( DISTINCT (
+        $sql['dapsone']='SELECT IF( ROUND( DATEDIFF( CURDATE( ) , p.dob ) /360 ) >=15,  "dapsone_adult",  "dapsone_child" ) AS age, COUNT( DISTINCT (
                         p.id
                         ) ) AS total
                         FROM patient p
@@ -2921,7 +2924,7 @@ class Order extends MY_Controller {
                         )
                         AND ps.name LIKE  "%active%"
                         GROUP BY age';
-        $sql['isoniazid']='SELECT IF( ROUND( DATEDIFF( CURDATE( ) , p.dob ) /360 ) >=15,  "total_adult",  "total_child" ) AS age, COUNT( DISTINCT (
+        $sql['isoniazid']='SELECT IF( ROUND( DATEDIFF( CURDATE( ) , p.dob ) /360 ) >=15,  "isoniazid_adult",  "isoniazid_child" ) AS age, COUNT( DISTINCT (
                             p.id
                             ) ) AS total
                             FROM patient p
@@ -2940,12 +2943,53 @@ class Order extends MY_Controller {
                             WHERE (dp.name LIKE "%flucona%")
                             AND ps.name LIKE "%active%"
                             GROUP BY age';
-        foreach($sql as $q){
+        $sql['new_oc_cm']="SELECT IF( p.other_illnesses LIKE  '%cryptococcal%',  'new_cm', IF( oi.name LIKE  '%oesophageal%',  'new_oc',  '' ) ) AS OI, COUNT( DISTINCT (
+                            p.patient_number_ccc
+                            ) ) AS total
+                            FROM patient p
+                            LEFT JOIN patient_visit pv ON pv.patient_id = p.patient_number_ccc
+                            LEFT JOIN opportunistic_infection oi ON oi.indication = pv.indication
+                            INNER JOIN patient_status ps ON ps.id = p.current_status
+                            WHERE (
+                            p.other_illnesses LIKE  '%cryptococcal%'
+                            OR oi.name LIKE  '%oesophageal%'
+                            )
+                            AND p.date_enrolled
+                            BETWEEN  '$start_date'
+                            AND  '$end_date'
+                            AND ps.name LIKE  '%active%'
+                            GROUP BY OI";
+        $sql['revisit_oc_cm']="SELECT IF( temp2.other_illnesses LIKE  '%cryptococcal%',  'revisit_cm',  'revisit_oc' ) AS OI, COUNT( temp2.ccc_number ) AS total
+                                FROM (
+
+                                SELECT DISTINCT (
+                                pv.patient_id
+                                ) AS ccc_number, oi.name AS opportunistic_infection
+                                FROM patient_visit pv
+                                INNER JOIN opportunistic_infection oi ON oi.indication = pv.indication
+                                ) AS temp1
+                                INNER JOIN (
+
+                                SELECT DISTINCT (
+                                p.patient_number_ccc
+                                ) AS ccc_number, other_illnesses
+                                FROM patient p
+                                INNER JOIN patient_status ps ON ps.id = p.current_status
+                                WHERE p.date_enrolled
+                                BETWEEN  '$start_date'
+                                AND  '$end_date'
+                                AND ps.name LIKE  '%active%'
+                                ) AS temp2 ON temp2.ccc_number = temp1.ccc_number
+                                WHERE temp2.other_illnesses LIKE  '%cryptococcal%'
+                                OR temp1.opportunistic_infection LIKE  '%oesophageal%'";
+
+        $sql_results=array();
+        foreach($sql as $key => $q){
             $query = $this -> db -> query($q);
             $results = $query -> result_array();
-            echo json_encode($results);
+            $sql_results[$key] = $results;
         }
-
+        echo json_encode($sql_results);
     }
 
 	public function getNotMappedRegimenPatients($from,$to){
@@ -2967,6 +3011,7 @@ class Order extends MY_Controller {
 		$results = $query -> result_array();
 
 		echo json_encode($results);
+
 	}
 
 	public function getCentralDataMaps($start_date, $end_date,$data_type ='') {//Get data when generating reports for central site
@@ -3045,80 +3090,18 @@ class Order extends MY_Controller {
 				$query = $this -> db -> query($sql_clients);
 				$results = $query -> result_array();
 				$data['prophylaxis'] = $results;
-			}else if($data_type=='pep'){
-				//Totals for PEP Clients ONLY
-				$sql_clients = 'SELECT IF(round(datediff(CURDATE(),p.dob)/360)>15,"pep_adult","pep_child") as age,COUNT(DISTINCT(p.id)) as total FROM patient p 
+			}else if($data_type=='pep') {
+                //Totals for PEP Clients ONLY
+                $sql_clients = 'SELECT IF(round(datediff(CURDATE(),p.dob)/360)>15,"pep_adult","pep_child") as age,COUNT(DISTINCT(p.id)) as total FROM patient p
 							LEFT JOIN regimen_service_type rs ON rs.id=p.service
 							LEFT JOIN patient_status ps ON ps.id=p.current_status
 							WHERE rs.name LIKE "%pep%" 
-							AND ps.name LIKE "%active%" GROUP BY age';
-				;
-				$query = $this -> db -> query($sql_clients);
-				$results = $query -> result_array();
-				$data['pep'] = $results;
-			}else if($data_type=='cotrimo_dapsone'){
-				//Totals for Patients / Clients (ART plus Non-ART) on Cotrimoxazole/Dapsone prophylaxis
-				$sql_clients = 'SELECT IF(round(datediff(CURDATE(),p.dob)/360)>15,"total_adult","total_child") as age,COUNT(DISTINCT(p.id)) as total
-								FROM  patient p 
-								LEFT JOIN drug_prophylaxis dp ON dp.id = p.drug_prophylaxis
-								INNER JOIN patient_status ps ON ps.id=p.current_status
-								WHERE (dp.name LIKE "%cotrimo%" OR dp.name LIKE "%dapsone%")
-								AND ps.name LIKE "%active%" 
-								GROUP BY age
-								';
-				//echo $sql_clients;
-				$query = $this -> db -> query($sql_clients);
-				$results = $query -> result_array();
-				$data['cotrimo_dapsone'] = $results;
-			}else if($data_type=='diflucan'){
-				//Totals for Patients / Clients on Diflucan (For Diflucan Donation Program ONLY):
-				$sql_clients ='SELECT IF(round(datediff(CURDATE(),p.dob)/360)>15,"diflucan_adult","diflucan_child") as age,COUNT(DISTINCT(p.id)) as total
-								FROM  patient p 
-								LEFT JOIN drug_prophylaxis dp ON dp.id = p.drug_prophylaxis
-								INNER JOIN patient_status ps ON ps.id=p.current_status
-								WHERE (dp.name LIKE "%flucona%")
-								AND ps.name LIKE "%active%" 
-								GROUP BY age';
-				$query = $this -> db -> query($sql_clients);
-				$results = $query -> result_array();
-				$data['diflucan'] = $results;
-			}else if($data_type=='new_cm_oc'){
-				//New and revisit CM/OM
-				//New
-				$sql_clients = "
-								SELECT IF(p.other_illnesses LIKE '%cryptococcal%','new_cm',
-							    	   IF(oi.name LIKE '%oesophageal%','new_oc','')) as OI, COUNT(DISTINCT(p.patient_number_ccc)) as total 
-							    	   FROM patient p
-								LEFT JOIN patient_visit pv ON pv.patient_id = p.patient_number_ccc
-								LEFT JOIN opportunistic_infection oi ON oi.indication = pv.indication
-								INNER JOIN patient_status ps ON ps.id=p.current_status
-								WHERE (p.other_illnesses LIKE '%cryptococcal%' OR oi.name LIKE '%oesophageal%')
-								AND p.date_enrolled BETWEEN '$start_date' AND '$end_date'
-								AND ps.name LIKE '%active%'
-								GROUP BY OI " ;	
-				$query = $this -> db -> query($sql_clients);
-				$results = $query -> result_array();
-				$data['new_cm_oc'] = $results;
-			}
-			else if($data_type=='revisit_cm_oc'){
+							AND ps.name LIKE "%active%" GROUP BY age';;
+                $query = $this->db->query($sql_clients);
+                $results = $query->result_array();
+                $data['pep'] = $results;
 
-				//Revisit
-				$sql_clients="SELECT IF(temp2.other_illnesses LIKE '%cryptococcal%','revisit_cm','revisit_oc') as OI,COUNT(temp2.ccc_number) as total
-								FROM (SELECT DISTINCT(pv.patient_id) as ccc_number,oi.name as opportunistic_infection FROM patient_visit pv
-												INNER JOIN  opportunistic_infection oi ON oi.indication = pv.indication
-											) as temp1
-								INNER JOIN (
-										SELECT DISTINCT(p.patient_number_ccc) as ccc_number,other_illnesses FROM patient p
-										INNER JOIN patient_status ps ON ps.id = p.current_status
-										WHERE p.date_enrolled < '$start_date'
-										AND ps.name LIKE '%active%'
-								) as temp2 ON temp2.ccc_number = temp1.ccc_number
-								WHERE temp2.other_illnesses LIKE '%cryptococcal%' OR temp1.opportunistic_infection LIKE '%oesophageal%';";			
-				$query = $this -> db -> query($sql_clients);
-				$results = $query -> result_array();
-				$data['revisit_cm_oc'] = $results;
-			}
-
+            }
 			echo json_encode($data);
 		}
 	}
@@ -3899,6 +3882,11 @@ class Order extends MY_Controller {
 		}
 		else
 		{
+            foreach ($row as $i => $v) {
+                if ($i != "expiry_month" ) {
+                    $row[$i] = round(@$v / @$pack_size);
+                }
+            }
 			$row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments'];
                         $row['resupply'] = ($row['dispensed_to_patients'] * 3) - $row['physical_stock'];
         }

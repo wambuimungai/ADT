@@ -248,7 +248,7 @@ if ($facility_object -> service_pep == "1") {
 						if($options=='view'){
 							//Don't displai OI regimens
 							if(strtoupper($category) == 'OI REGIMEN'){
-								continue;
+								getOiRegimenPatients();
 							}
 							echo '<tr class="accordion"><th colspan="3" id="'.$cat.'"  >'.$category.'</th></tr>';
 							
@@ -297,6 +297,7 @@ if ($facility_object -> service_pep == "1") {
 							$cat = str_replace(' ', '_',$category -> Name);
 						?><tr class="accordion"><th colspan="3" class="reg_cat_name" id="<?php echo $cat; ?>" ><?php echo $category -> Name;?></th></tr><?php
 						 if($supplier=="KEMSA"){
+
 							foreach($regimens as $regimen){
 								?>
 							<tr>
@@ -425,12 +426,12 @@ if ($facility_object -> service_pep == "1") {
 				$('#art_child').removeAttr('readonly');
 			}
 		}
-		
+
 		$("#generate").click(function() {//Get aggregated data
 			$.blockUI({ message: '<h3><img width="30" height="30" src="<?php echo asset_url().'images/loading_spin.gif' ?>" /> Generating...</h3>' }); 
             var period_start = '<?php echo date('Y-m-01',strtotime(date('Y-m-d').'-1 month')) ?>';
             var period_end = '<?php echo date('Y-m-t',strtotime(date('Y-m-d').'-1 month')) ?>';
-            
+
             getAggregateFmaps(period_start, period_end);
             setTimeout($.unblockUI, 10000);	
 		});
@@ -446,22 +447,10 @@ if ($facility_object -> service_pep == "1") {
 			$('#new_female').val(0);
 			$('#revisit_male').val(0);
 			$('#revisit_female').val(0);
-		  	$('#revisit_pmtct').val(0);
-		  	$('#new_pmtct').val(0);
-		  	$('#total_infant').val(0);
-		  	$('#pep_adult').val(0);
-		  	$('#pep_child').val(0);
-		  	$('#total_adult').val(0);
-		  	$('#total_child').val(0);
-		  	$('#diflucan_adult').val(0);
-		  	$('#diflucan_child').val(0);
-		  	$('#new_cm').val(0);
-		  	$('#revisit_cm').val(0);
-		  	$('#new_oc').val(0);
-		  	$('#revisit_oc').val(0);
-            getPeriodRegimenPatients(period_start, period_end);
+		  	getPeriodRegimenPatients(period_start, period_end);
             getNonMappedRegimen(period_start, period_end);
             getCentralData(period_start, period_end,data_type);
+            getOiData(period_start,period_end);
             
 		});
 		
@@ -536,7 +525,38 @@ if ($facility_object -> service_pep == "1") {
 		});
 		
 	}
-		
+
+    function getOiData(period_start,period_end){
+        var base_url = getbaseurl();
+        var link = base_url + 'order/getOiRegimenPatients';
+        var packets = {
+            "period_start" : period_start,
+            "period_end" : period_end
+        }
+        $.ajax({
+            url : link,
+            type : 'POST',
+            dataType : 'json',
+            data:packets,
+            success : function(data) {
+              $("#patient_numbers_169").val(data.cotrimo[0].total);
+                $("#patient_numbers_170").val(data.cotrimo[1].total);
+                $("#patient_numbers_171").val(data.dapsone[0].total);
+                $("#patient_numbers_172").val(data.dapsone[1].total);
+                $("#patient_numbers_173").val(data.isoniazid[0].total);
+                $("#patient_numbers_174").val(data.isoniazid[1].total);
+                $("#patient_numbers_175").val(data.diflucan[0].total);
+                $("#patient_numbers_176").val(data.diflucan[1].total);
+                $("#patient_numbers_177").val(data.new_oc_cm[0].total);
+                $("#patient_numbers_179").val(data.new_oc_cm[1].total);
+                $("#patient_numbers_178").val(data.revisit_oc_cm[0].total);
+                $("#patient_numbers_180").val(data.revisit_oc_cm[1].total);
+
+
+            }
+        });
+
+    }
 	function getCentralData(period_start,period_end,data_type){
 		
 		var base_url = getbaseurl();
@@ -586,121 +606,7 @@ if ($facility_object -> service_pep == "1") {
 							}
 							
 						}
-						getCentralData(period_start,period_end,'revisit_pmtct');//Recursive function for the next data to be appended
-						
-					}else if('revisit_pmtct' in data){
-						var l_revisit_pmtct=data.revisit_pmtct.length;
-						$('#revisit_pmtct').val(data.revisit_pmtct[0].total);
-						
-						getCentralData(period_start,period_end,'new_pmtct');//Recursive function for the next data to be appended
-						
-					}else if('new_pmtct' in data){
-						var l_new_pmtct=data.new_pmtct.length;
-						$('#new_pmtct').val(data.new_pmtct[0].total);
-						
-						getCentralData(period_start,period_end,'prophylaxis');//Recursive function for the next data to be appended
-						
-					}else if('prophylaxis' in data){
-						var l_prophylaxis=data.prophylaxis.length;
-						$('#total_infant').val(data.prophylaxis[0].total);
-						
-						getCentralData(period_start,period_end,'pep');//Recursive function for the next data to be appended
-						
-					}else if('pep' in data){
-						var l_pep=data.pep.length;
-						if(l_pep==1){
-							if(data.pep[0].age=='pep_adult'){$('#pep_adult').val(data.pep[0].total);}
-							else{$('#pep_child').val(data.pep[0].total);}
-						}
-						else if(l_pep==2){
-							if(data.pep[0].age=='pep_adult'){
-								$('#pep_adult').val(data.pep[0].total);
-								$('#pep_child').val(data.pep[1].total);
-							}
-							else if(data.pep[0].age=='pep_child'){
-								$('#pep_adult').val(data.pep[1].total);
-								$('#pep_child').val(data.pep[0].total);
-							}
-							
-						}
-						
-						getCentralData(period_start,period_end,'cotrimo_dapsone');//Recursive function for the next data to be appended
-						
-					}else if('cotrimo_dapsone' in data){
-						var l_cotrimo_dapsone=data.cotrimo_dapsone.length;
-						if(l_cotrimo_dapsone==1){
-							if(data.cotrimo_dapsone[0].age=='total_adult'){$('#total_adult').val(data.cotrimo_dapsone[0].total);}
-							else{$('#total_child').val(data.cotrimo_dapsone[0].total);}
-						}
-						else if(l_cotrimo_dapsone==2){
-							if(data.cotrimo_dapsone[0].age=='total_adult'){
-								$('#total_adult').val(data.cotrimo_dapsone[0].total);
-								$('#total_child').val(data.cotrimo_dapsone[1].total);
-							}
-							else if(data.cotrimo_dapsone[0].age=='total_child'){
-								$('#total_adult').val(data.cotrimo_dapsone[1].total);
-								$('#total_child').val(data.cotrimo_dapsone[0].total);
-							}
-							
-						}
-						
-						getCentralData(period_start,period_end,'diflucan');//Recursive function for the next data to be appended
-						
-					}else if('diflucan' in data){
-						var l_diflucan=data.diflucan.length;
-						if(l_diflucan==1){
-							if(data.diflucan[0].age=='diflucan_adult'){$('#diflucan_adult').val(data.diflucan[0].total);}
-							else{$('#diflucan_child').val(data.diflucan[0].total);}
-						}
-						else if(l_diflucan==2){
-							if(data.diflucan[0].age=='diflucan_adult'){
-								$('#diflucan_adult').val(data.diflucan[0].total);
-								$('#diflucan_child').val(data.diflucan[1].total);
-							}
-							else if(data.diflucan[0].age=='diflucan_child'){
-								$('#diflucan_adult').val(data.diflucan[1].total);
-								$('#diflucan_child').val(data.diflucan[0].total);
-							}
-							
-						}
-						getCentralData(period_start,period_end,'new_cm_oc');//Recursive function for the next data to be appended
-						
-					}else if('new_cm_oc' in data){
-						var l_new_oc_cm=data.new_cm_oc.length;
-						if(l_new_oc_cm==1){//CHeck if you only have males or female patients
-							if(data.new_cm_oc[0].OI=='new_cm'){$('#new_cm').val(data.new_cm_oc[0].total);}
-							else{$('#new_oc').val(data.new_cm_oc[0].total);}
-						}
-						else if(l_new_oc_cm==2){
-							if(data.new_cm_oc[0].OI=='new_cm'){
-								$('#new_cm').val(data.new_cm_oc[0].total);
-								$('#new_oc').val(data.new_cm_oc[1].total);
-							}
-							else if(jsondata[0].OI=='new_oc'){
-								$('#new_oc').val(data.new_cm_oc[1].total);
-								$('#new_cm').val(data.new_cm_oc[0].total);
-							}
-							
-						}
-						getCentralData(period_start,period_end,'revisit_cm_oc');//Recursive function for the next data to be appended
-						
-					}else if('revisit_cm_oc' in data){
-						var l_revisit_oc_cm=data.revisit_cm_oc.length;
-						if(l_revisit_oc_cm==1){//CHeck if you only have males or female patients
-							if(data.revisit_cm_oc[0].OI=='revisit_cm'){$('#revisit_cm').val(data.revisit_cm_oc[0].total);}
-							else{$('#revisit_oc').val(data.revisit_cm_oc[0].total);}
-						}
-						else if(l_revisit_oc_cm==2){
-							if(data.revisit_cm_oc[0].OI=='revisit_cm'){
-								$('#revisit_cm').val(data.revisit_cm_oc[0].total);
-								$('#revisit_oc').val(data.revisit_cm_oc[1].total);
-							}
-							else if(data.revisit_cm_oc[0].OI=='new_oc'){
-								$('#revisit_oc').val(data.revisit_cm_oc[1].total);
-								$('#revisit_cm').val(data.revisit_cm_oc[0].total);
-							}
-							
-						}
+
 						setTimeout($.unblockUI,1000);	
 					}
 							
@@ -708,6 +614,7 @@ if ($facility_object -> service_pep == "1") {
 		});
 	  	
 	}
+
 	
 </script>
 
