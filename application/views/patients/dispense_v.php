@@ -331,6 +331,7 @@
 </div>
 
 <script type="text/javascript">
+var age ;
 	$(document).ready(function(){
 		/* -------------------------- Dispensing date, date picker settings and checks -------------------------*/
 		//Attach date picker for date of dispensing
@@ -659,7 +660,8 @@
 				$("#patient_names").text(data.names);
 				is_pregnant	= data.Pregnant;
 				has_tb		= data.Tb;
-				var age = data.age;
+				age = data.Dob;
+				
 				patient_ccc = data.Patient_Number_CCC;
 				//CHeck if patient is pregnant
 				checkIfPregnant(is_pregnant,patient_ccc);
@@ -668,12 +670,15 @@
 				//Load regimens
 				loadRegimens(age);
 				loadOtherDetails(patient_ccc);
+
+				//bootbox.alert(age);
 			})
 			request.fail(function(jqXHR, textStatus) {
                 bootbox.alert("<h4>Patient Details Alert</h4>\n\<hr/>\n\<center>Could not retrieve patient details : </center>" + textStatus);
             });
 	});
 	
+
 	//-------------------------------- CHANGE EVENT --------------------------------------
 	//store type change event
 	$("#ccc_store_id").change(function() {
@@ -931,23 +936,24 @@
                         dataType: "json"
                     });
                     request_dose.done(function(data) {
+                    	
                         row.closest("tr").find(".dose option").remove();
                         $.each(data, function(key, value) {
                             
                             row.closest("tr").find(".dose").append("<option value='" + value.Name + "'  data-dose_val='" + value.value + "' data-dose_freq='" + value.frequency + "' >" + value.Name + "</option> ");
                         //test dosaging here
-                       // bootbox.alert("<h4>Allergy Alert!</h4>\n\<hr/><center>This patient is allergic to "+selected_drug+"</center>");
-
+                      							
                         });
+
 
                     });
 
              
+function getPaedDosage(){
 
+if (age <=15){
 
- //Check the selected drug map code
-
-       var new_urls = "<?php echo base_url() . 'dispensement_management/getMappedDrugCode'; ?>";
+ var new_urls = "<?php echo base_url() . 'dispensement_management/getMappedDrugCode'; ?>";
                     var request_map = $.ajax({
                         url: new_urls,
                         type: 'post',
@@ -1015,9 +1021,9 @@
         }else if(resulting==25){//Efivarenz 200mg
         	if (weighting>=3 && weighting<=5.9){
 
-                paed_dosage="";
+                //paed_dosage="";
              }else if (weighting>=6 && weighting<=9.9){
-                paed_dosage="";
+                //paed_dosage="";
             }else if (weighting>=10 && weighting<=13.9){
                 paed_dosage="1OD";
             }else if (weighting>=14 && weighting<=19.9){
@@ -1041,7 +1047,7 @@
             }else if (weighting>=20 && weighting<=24.9){
                 paed_dosage="15ml";
             }else if (weighting>=25 && weighting<=34.9){
-                paed_dosage="";
+                //paed_dosage="";
             }
 
         }else if(resulting==9){//	Nevirapine 200mg tabs 
@@ -1122,21 +1128,29 @@
                 paed_dosage="2BD";
             }else if (weighting>=25 && weighting<=34.9){
                 paed_dosage="2AM 3PM";
+            }else{
+            	paed_dosage="";
             }
+            
+
+        }else{
+
+        	//paed_dosage="";
 
         }
-       // bootbox.alert(paed_dosage);
-  row.closest("tr").find(".dose").val(paed_dosage);
-                    
+        row.closest("tr").find(".dose").val(paed_dosage);
+       
                     });
                     request_map.fail(function(data) {
                         bootbox.alert("failed");
                     });
 
-                    /*****************************/
+                /*****************************/
+}
+}
 
-
-        
+ //Check the selected drug map code
+getPaedDosage();
 
                     row.closest("tr").find(".batch option").remove();
                     row.closest("tr").find(".batch").append($("<option value='0'>Select</option>"));
@@ -1289,6 +1303,22 @@
         alert_qty_check = true;
         $(".qty_disp").trigger('keyup',[row]);
     });
+
+///----------function to calculate paed dosages once you change the weight--------///  $("#days_to_next").change(function() {
+
+$("weight").keyup(function(){
+        
+      
+        bootbox.alert("nimeclick");
+    });
+
+  
+       
+//getPaedDosage();	
+
+
+   
+
 	//-------------------------------- CHANGE EVENT END ----------------------------------
 	
 	
