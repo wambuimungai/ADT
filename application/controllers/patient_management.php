@@ -5,7 +5,7 @@ class Patient_Management extends MY_Controller {
 		$this -> load -> database();
 		$this -> load -> library('PHPExcel');
 		ini_set("max_execution_time", "100000");
-		ini_set('memory_limit', '512M');
+		ini_set('memory_limit', '712M');
 	}
 
 	public function index() {

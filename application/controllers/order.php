@@ -9,7 +9,15 @@ class Order extends MY_Controller {
 
 		$dir = realpath($_SERVER['DOCUMENT_ROOT']);
 	    $link = $dir . "\\ADT\\assets\\nascop.txt";
+	   // $vr = file_get_contents($link)."/laban";
+	   // $vr1=str_replace(" ",'',$vr);
+	   // print_r($vr);
+	    //die();
 		$this -> nascop_url = file_get_contents($link);
+		//nascop_url = file_get_contents($link);
+//print_r(nascop_url);
+	  //  die();
+
 	}
 
 	public function index() {
@@ -160,7 +168,9 @@ class Order extends MY_Controller {
 			$links['new_sync_regimen'] = "sync/regimen";
 
 		}
+
 		foreach ($links as $table => $link) {
+
 			$target_url = preg_replace('/\s+/', '', $url . $link);
 			$curl -> get($target_url);
 			if ($curl -> error) {
@@ -168,11 +178,18 @@ class Order extends MY_Controller {
 				$error_log .= "Error: " . $curl -> error_code . "<br/>";
 			} else {
 				$main_array = json_decode($curl -> response, TRUE);
-               // echo "<pre>";print_r($main_array);die;
 				foreach ($main_array as $key => $value) {
 					unset($main_array[$key]['lmis_id']);
+					# code...
 				}
+					/*echo "<pre>";
+				print_r($main_array);
+				echo "</pre>";*/
+
+//die();
+
 				$this -> db -> query("TRUNCATE $table");
+
 				$this -> db -> insert_batch($table, $main_array);
 				$success_log .= "Success: " . $table . " Synched <br/>";
 				//start mapping process
@@ -494,9 +511,11 @@ class Order extends MY_Controller {
 				$facility = $this -> input -> post("satellite_facility", TRUE);
 				if ($facility == null) {
 					$facility = $this -> session -> userdata("facility");
+
 				} else {
 					$data['hide_generate'] = 1;
 				}
+
 
 			} else if ($order_type == 3) {
 				$data['page_title'] = "Stand-alone(F-CDRR)";
@@ -644,6 +663,12 @@ class Order extends MY_Controller {
 				$data['map_id'] = $map_id;
 				$data['logs'] = Maps_Log::getMapLogs($map_id);
 
+				/*echo "<pre>";
+				print_r($data);
+				echo "</pre>";
+				die();*/
+
+
 				if ($data['options'] == "view") {
 					$data['hide_save'] = 1;
 					$regimen_table = 'new_sync_regimen';
@@ -709,6 +734,8 @@ class Order extends MY_Controller {
 		}
 
 	}
+
+
 
 	public function check_duplicate($code, $period_start, $period_end, $facility, $table = "cdrr") {
 		$response = false;
@@ -1378,7 +1405,7 @@ class Order extends MY_Controller {
 				WHERE c.id='$id'";
 			$query = $this -> db -> query($sql);
 			$cdrr_array = $query -> result_array();
-                        $data['cdrr_array'] = $cdrr_array;
+			$data['cdrr_array'] = $cdrr_array;
 			$data['options'] = "view";
 
 			//echo "<pre>"; print_r($cdrr_array); die;
@@ -2718,14 +2745,16 @@ class Order extends MY_Controller {
 		echo json_encode($row);
 	}
 
-	public function get_aggregated_fmaps($period_start, $period_end ) {//Generate aggregated fmaps
+	public function get_aggregated_fmaps($period_start, $period_end) {//Generate aggregated fmaps
 		$map_id = '"NOTTHERE"';
 		$facility_code = $this -> session -> userdata("facility");
+
 		//Get only F-MAPS
 		$sql_maps = "
-					SELECT m.id, m.code, m.status, m.period_begin,m.period_end,m.reports_expected,m.reports_actual,m.services,m.sponsors,m.art_adult, m.art_child,m.new_male,m.revisit_male,m.new_female,m.revisit_female,m.new_pmtct,m.revisit_pmtct,m.total_infant,m.pep_adult,m.pep_child,m.total_adult,m.total_child, m.diflucan_adult,m.diflucan_child,m.new_cm,m.revisit_cm,m.new_oc,m.revisit_oc,m.comments
-					FROM maps m LEFT JOIN new_sync_facility sf ON sf.id=m.facility_id
-                    WHERE  m.status ='prepared'
+
+					SELECT m.id, m.code, m.status, m.period_begin,m.period_end,m.reports_expected,m.reports_actual,m.services,m.sponsors,m.art_adult, m.art_child,m.new_male,m.revisit_male,m.new_female,m.revisit_female,m.new_pmtct,m.revisit_pmtct,m.total_infant,m.pep_adult,m.pep_child,m.total_adult,m.total_child, m.diflucan_adult,m.diflucan_child,m.new_cm,m.revisit_cm,m.new_oc,m.revisit_oc,m.comments 
+					FROM maps m LEFT JOIN sync_facility sf ON sf.id=m.facility_id 
+                    WHERE  m.status ='prepared' 
                     AND m.code='F-MAPS'
                     AND m.period_begin='$period_start'  ORDER BY m.code DESC
 					";
@@ -2806,10 +2835,11 @@ class Order extends MY_Controller {
 
 		$data['maps_array'] = $maps_array;
 		$data['maps_items_array'] = $maps_items_array;
+		
 		echo json_encode($data);
-
+		//die();
+		
 	}
-
 
 	public function get_fmaps_details($map_id) {
            // echo "<pre>";print_r($map_id);die;

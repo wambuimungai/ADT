@@ -633,10 +633,15 @@ foreach ($results as $result) {
                     var drug_name = row.find("option:selected").text();
                     resetFields(row);
                     row.closest("tr").find(".batch option").remove();
-                    row.closest("tr").find(".batch").append($("<option value='0'>Loading ...</option>"));
+                  //  row.closest("tr").find(".batch").append($("<option value='0'>Loading ...</option>"));
+                   // bootbox.alert(drug_name);
                     var row = $(this);
                     var selected_drug = $(this).val();
                     var patient_no = $("#patient").val();
+                    var weighting = $("#weight").val();
+                    var paed_dosage='';
+
+
                     //Check if patient allergic to selected drug
                     var _url = "<?php echo base_url() . 'dispensement_management/drugAllergies'; ?>";
                     var request = $.ajax({
@@ -754,7 +759,38 @@ foreach ($results as $result) {
                                     row.closest("tr").find(".batch").append("<option "+_class+" value='" + value.batch_number + "'>" + value.batch_number + "</option> ");
                                     row.closest("tr").find(".comment").val(value.comment);
                                     dose = value.dose;
-                                });
+                               
+ //Dosage for Paediatrics
+
+        if (selected_drug=='12'){
+
+            if (weighting>=3 && weighting<=5.9){
+
+                paed_dosage="1 tab";
+                //row.closest("tr").find(".comment").append($(paed_dosage));
+                
+            }else if (weighting>=6 && weighting<=9.9){
+                paed_dosage="1.5 tab";
+            }else if (weighting>=10 && weighting<=13.9){
+                paed_dosage="2 tab";
+            }else if (weighting>=14 && weighting<=19.9){
+                paed_dosage="2.5 tab";
+            }else if (weighting>=20 && weighting<=24.9){
+                paed_dosage="3 tab";
+            }else if (weighting>=25 && weighting<=34.9){
+                paed_dosage="300 +500mg";
+            }
+           // bootbox.alert("The Paediatrics Dosage equals to "+ paed_dosage);
+            //row.closest("tr").find(".qty_disp").val(paed_dosage);
+            row.closest("tr").find(".dose").val("");
+            row.closest("tr").find(".dose").val(paed_dosage);
+            
+            
+        }
+         });
+
+
+
                                 //Get brands
                                 var new_url = "<?php echo base_url() . 'dispensement_management/getBrands'; ?>";
                                 var request_brand = $.ajax({
@@ -1534,7 +1570,7 @@ foreach ($results as $result) {
                     <table border="0" class="data-table" id="drugs_table" style="">
                         <thead>
                         <th class="subsection-title" colspan="15">Select Drugs</th>
-                        <tr style="font-size:0.8em">
+                       <!--  <tr style="font-size:0.8em">
                             <th>Drug</th>
                             <th>Unit</th>
                             <th >Batch No.&nbsp;</th>
@@ -1550,11 +1586,11 @@ foreach ($results as $result) {
                             <th>Comment</th>
                             <th>Missed Pills</th>
                             <th style="">Action</th>
-                        </tr>
+                        </tr> -->
                         </thead>
                         <tbody>
                             <tr drug_row="0">
-                                <td><select name="drug[]" class="drug input-large span3"></select></td>
+                                <td><select name="drug[]" id="drug" class="drug input-large span3"></select></td>
                                 <td>
                                     <input type="text" name="unit[]" class="unit input-small" style="" readonly="" />
                                     <input type="hidden" name="comment[]" class="comment input-small" style="" readonly="" />
