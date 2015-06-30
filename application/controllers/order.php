@@ -1,6 +1,6 @@
 <?php
 class Order extends MY_Controller {
-	var $esm_url = "http://api.kenyapharma.org/demo/";
+	var $esm_url = "http://api.kenyapharma.org/";
 	var $nascop_url = "";
 	function __construct() {
 		parent::__construct();
@@ -379,7 +379,7 @@ class Order extends MY_Controller {
 		$user_facilities = User_Facilities::getHydratedFacilityList($this -> session -> userdata("api_id"));
         //echo "<pre>";print_r($user_facilities);die;
 		$facilities = json_decode($user_facilities['facility'], TRUE);
-	//	$facilities = implode(",", $facilities);
+		$facilities = implode(",", $facilities);
 
 
 		if ($period_begin != "" && $type == "cdrr") {

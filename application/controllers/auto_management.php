@@ -908,7 +908,7 @@ class auto_management extends MY_Controller {
 																			  `dispensed_packs` int(11) DEFAULT NULL,
 																			  `losses` int(11) DEFAULT NULL,
 																			  `adjustments` int(11) DEFAULT NULL,
-																			  `neg_adjustments` int(11) DEFAULT NULL,
+																			  `adjustments_neg` int(11) DEFAULT NULL,
 																			  `count` int(11) DEFAULT NULL,
 																			  `expiry_quant` int(11) DEFAULT NULL,
 																			  `expiry_date` date DEFAULT NULL,

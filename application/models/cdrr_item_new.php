@@ -8,7 +8,7 @@ class Cdrr_Item_New extends Doctrine_Record {
 		$this -> hasColumn('dispensed_packs', 'int', 11);
 		$this -> hasColumn('losses', 'int', 11);
 		$this -> hasColumn('adjustments', 'int', 11);
-        $this -> hasColumn('neg_adjustments', 'int', 11);
+        $this -> hasColumn('adjustments_neg', 'int', 11);
 		$this -> hasColumn('count', 'int', 11);
 		$this -> hasColumn('expiry_quant', 'int', 11);
 		$this -> hasColumn('expiry_date', 'date');
