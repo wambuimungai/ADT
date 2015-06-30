@@ -15,7 +15,9 @@ class auto_management extends MY_Controller {
 		$this -> nascop_url = trim(file_get_contents($link));
 		$this -> eid_url="http://nascop.org/eid/";
                 $this->ftp_url='41.89.6.210';
-	}
+       // $this->ftp_url='192.168.133.10';
+
+    }
 
 	public function index($manual=FALSE){
 		$message ="";
@@ -38,10 +40,10 @@ class auto_management extends MY_Controller {
 			//function to update ccc_store_sp column in drug_stock_movement table for pharmacy transactions
 			$message .= $this->updateCCC_Store();
 			//function to update patients without current_regimen with last regimen dispensed
-			$message .= $this->update_current_regimen(); 
+			$message .= $this->update_current_regimen();
 			//function to send eid statistics to nascop dashboard
 			$message .= $this->updateEid();
-			//function to update patient data such as active to lost_to_follow_up	
+			//function to update patient data such as active to lost_to_follow_up
 			$message .= $this->updatePatientData();
 			//function to update data bugs by applying query fixes
 			$message .= $this->updateFixes();
@@ -64,12 +66,12 @@ class auto_management extends MY_Controller {
 			//function to update facility admin that reporting deadline is close
 			$message .= $this->update_reporting();
 
-	        //finally update the log file for auto_update 
+	        //finally update the log file for auto_update
 	        if ($this -> session -> userdata("curl_error") != 1) {
 	        	$sql="UPDATE migration_log SET last_index='$today' WHERE source='auto_update'";
 				$this -> db -> query($sql);
 				$this -> session -> set_userdata("curl_error", "");
-			} 
+			}
 	    }
 
 	    if($manual==TRUE){
@@ -82,7 +84,7 @@ class auto_management extends MY_Controller {
 		//function to update drug_id column in drug_stock_movement table where drug_id column is zero
 		//Get batches for drugs which are associateed with those drugs
 		$sql = "SELECT batch_number
-				FROM  `drug_stock_movement` 
+				FROM  `drug_stock_movement`
 				WHERE drug =0 AND batch_number!=''
 				ORDER BY  `drug_stock_movement`.`drug` ";
 
@@ -116,7 +118,7 @@ class auto_management extends MY_Controller {
 		//function to update drug column in patient_visit table where drug column is zero
 		//Get batches for drugs which are associateed with those drugs
 		$sql = "SELECT batch_number
-				FROM  `patient_visit` 
+				FROM  `patient_visit`
 				WHERE drug_id =0 AND batch_number!=''
 				ORDER BY  `patient_visit`.`drug_id` ";
 
@@ -190,7 +192,7 @@ class auto_management extends MY_Controller {
 		$sql="UPDATE drug_stock_movement dsm
 		      SET ccc_store_sp='1'
 		      WHERE dsm.source !=dsm.destination
-		      AND ccc_store_sp='2' 
+		      AND ccc_store_sp='2'
 		      AND (dsm.source='$facility_code' OR dsm.destination='$facility_code')";
         $this->db->query($sql);
         $count=$this->db->affected_rows();
@@ -201,12 +203,12 @@ class auto_management extends MY_Controller {
 		}
 		return $message;
 	}
-	
+
 	public function setBatchBalance(){//Set batch balance to zero where balance is negative
 		$facility_code=$this->session->userdata("facility");
 		$sql="UPDATE drug_stock_balance dsb
 		      SET dsb.balance=0
-		      WHERE dsb.balance<0 
+		      WHERE dsb.balance<0
 		      AND dsb.facility_code='$facility_code'";
         $this->db->query($sql);
         $count=$this->db->affected_rows();
@@ -222,9 +224,9 @@ class auto_management extends MY_Controller {
 		$count=1;
 		//Get all patients without current regimen and who are not active
 		$sql_get_current_regimen = "SELECT p.id,p.patient_number_ccc, p.current_regimen ,ps.name
-									FROM patient p 
+									FROM patient p
 									INNER JOIN patient_status ps ON ps.id = p.current_status
-									WHERE current_regimen = '' 
+									WHERE current_regimen = ''
 									AND ps.name != 'active'";
 		$query = $this -> db -> query($sql_get_current_regimen);
 		$result_array = $query -> result_array();
@@ -242,8 +244,8 @@ class auto_management extends MY_Controller {
 					$query = $this -> db -> query($sql);
 					$count++;
 				}
-			}   
-		}     
+			}
+		}
         $message="(".$count.") patients without current_regimen have been updated with last dispensed regimen!<br/>";
         if($count<=0){
 			$message="";
@@ -295,7 +297,7 @@ class auto_management extends MY_Controller {
 		}
 		return $message."<br/>";
 	}
-    
+
     public function updateSms() {
     	$alert="";
 		$facility_name=$this -> session -> userdata('facility_name');
@@ -324,7 +326,7 @@ class auto_management extends MY_Controller {
 			/*Get All Patient Who Consented Yes That have an appointment Tommorow */
 			$sql = "SELECT p.phone,p.patient_number_ccc,p.nextappointment,temp.patient,temp.appointment,temp.machine_code as status,temp.id
 						FROM patient p
-						LEFT JOIN 
+						LEFT JOIN
 						(SELECT pa.id,pa.patient, pa.appointment, pa.machine_code
 						FROM patient_appointment pa
 						WHERE pa.appointment IN ('$tommorrow','$nextweek')
@@ -400,7 +402,7 @@ class auto_management extends MY_Controller {
 
 				$phone_list = explode("+", $phone_list);
 			    $messages_list = explode("+", $messages_list);
-			
+
 				foreach ($phone_list as $counter=>$contact) {
 					$message = urlencode($messages_list[$counter]);
 					file("http://41.57.109.242:13000/cgi-bin/sendsms?username=clinton&password=ch41sms&to=$contact&text=$message");
@@ -435,14 +437,14 @@ class auto_management extends MY_Controller {
 			    $state[$status] = $rs[0]['id'];
 			}  else {
                             $state[$status]='NAN'; //If non existant
-                        }	
+                        }
 		}
 
 		if(!empty($state)){
 			/*Change Last Appointment to Next Appointment*/
 			$sql['Change Last Appointment to Next Appointment'] = "(SELECT patient_number_ccc,nextappointment,temp.appointment,temp.patient
 						FROM patient p
-						LEFT JOIN 
+						LEFT JOIN
 						(SELECT MAX(pa.appointment)as appointment,pa.patient
 						FROM patient_appointment pa
 						GROUP BY pa.patient) as temp ON p.patient_number_ccc =temp.patient
@@ -460,7 +462,7 @@ class auto_management extends MY_Controller {
 					   AND (DATEDIFF(CURDATE(),nextappointment )) >=$days_to_lost_followup) as p1
 					   SET p.current_status = '$state[$lost]'";
 			}
-			
+
 			/*Change Lost_to_follow_up to Active */
 			if(isset($state[$active])){
 				$sql['Change Lost_to_follow_up to Active'] = "(SELECT patient_number_ccc,nextappointment,DATEDIFF(CURDATE(),nextappointment) as days
@@ -470,7 +472,7 @@ class auto_management extends MY_Controller {
 					   AND (DATEDIFF(CURDATE(),nextappointment )) <$days_to_lost_followup) as p1
 					   SET p.current_status = '$state[$active]' ";
 			}
-			
+
 
 			/*Change Active to PEP End*/
 			if(isset($state[$pep])){
@@ -478,12 +480,12 @@ class auto_management extends MY_Controller {
 					   FROM patient p
 					   LEFT JOIN regimen_service_type rst ON rst.id=p.service
 					   LEFT JOIN patient_status ps ON ps.id=p.current_status
-					   WHERE (DATEDIFF(CURDATE(),date_enrolled))>=$days_to_pep_end 
-					   AND rst.name LIKE '%$pep%' 
+					   WHERE (DATEDIFF(CURDATE(),date_enrolled))>=$days_to_pep_end
+					   AND rst.name LIKE '%$pep%'
 					   AND ps.Name NOT LIKE '%$pep%') as p1
 					   SET p.current_status = '$state[$pep]' ";
 			}
-			
+
 
 			/*Change PEP End to Active*/
 			if(isset($state[$active])){
@@ -491,12 +493,12 @@ class auto_management extends MY_Controller {
 					   FROM patient p
 					   LEFT JOIN regimen_service_type rst ON rst.id=p.service
 					   LEFT JOIN patient_status ps ON ps.id=p.current_status
-					   WHERE (DATEDIFF(CURDATE(),date_enrolled))<$days_to_pep_end 
-					   AND rst.name LIKE '%$pep%' 
+					   WHERE (DATEDIFF(CURDATE(),date_enrolled))<$days_to_pep_end
+					   AND rst.name LIKE '%$pep%'
 					   AND ps.Name NOT LIKE '%$active%') as p1
 					   SET p.current_status = '$state[$active]' ";
 			}
-			
+
 
 			/*Change Active to PMTCT End(children)*/
 			if(isset($state[$pmtct])){
@@ -510,21 +512,21 @@ class auto_management extends MY_Controller {
 					   AND ps.Name NOT LIKE  '%$pmtct%') as p1
 					   SET p.current_status = '$state[$pmtct]'";
 			}
-			
+
 
 			/*Change PMTCT End to Active(Adults)*/
 			if(isset($state[$active])){
 				$sql['Change PMTCT End to Active(Adults)'] = "(SELECT patient_number_ccc,rst.name AS Service,ps.Name AS Status,DATEDIFF(CURDATE(),dob) AS days
 					   FROM patient p
 					   LEFT JOIN regimen_service_type rst ON rst.id = p.service
-					   LEFT JOIN patient_status ps ON ps.id = p.current_status 
-					   WHERE (DATEDIFF(CURDATE(),dob)) >=$two_year_days 
-					   AND (DATEDIFF(CURDATE(),dob)) >=$adult_days 
+					   LEFT JOIN patient_status ps ON ps.id = p.current_status
+					   WHERE (DATEDIFF(CURDATE(),dob)) >=$two_year_days
+					   AND (DATEDIFF(CURDATE(),dob)) >=$adult_days
 					   AND rst.name LIKE '%$pmtct%'
 					   AND ps.Name LIKE '%$pmtct%') as p1
 					   SET p.current_status = '$state[$active]'";
 			}
-			
+
 			foreach ($sql as $i => $q) {
 				$stmt1 = "UPDATE patient p,";
 				$stmt2 = " WHERE p.patient_number_ccc=p1.patient_number_ccc;";
@@ -547,7 +549,7 @@ class auto_management extends MY_Controller {
         //Remove start_regimen_date in OI only patients records
         $fixes[]="UPDATE patient p
                   LEFT JOIN regimen_service_type rst ON p.service=rst.id
-                  SET p.start_regimen_date='' 
+                  SET p.start_regimen_date=''
                   WHERE rst.name LIKE '%oi%'
                   AND p.start_regimen_date IS NOT NULL";
         //Update status_change_date for lost_to_follow_up patients
@@ -555,13 +557,13 @@ class auto_management extends MY_Controller {
 				 (SELECT p.id, INTERVAL 90 DAY + p.nextappointment AS choosen_date
 				  FROM patient p
 				  LEFT JOIN patient_status ps ON ps.id = p.current_status
-				  WHERE ps.Name LIKE  '%lost%') as test 
+				  WHERE ps.Name LIKE  '%lost%') as test
 				 SET p.status_change_date=test.choosen_date
 				 WHERE p.id=test.id";
 	    //Update patients without service lines ie Pep end status should have pep as a service line
         $fixes[]="UPDATE patient p
 			 	  LEFT JOIN patient_status ps ON ps.id=p.current_status,
-			 	  (SELECT id 
+			 	  (SELECT id
 			 	   FROM regimen_service_type
 			 	   WHERE name LIKE '%pep%') as rs
 			 	  SET p.service=rs.id
@@ -570,22 +572,22 @@ class auto_management extends MY_Controller {
 		//Updating patients without service lines ie PMTCT status should have PMTCT as a service line
         $fixes[]= "UPDATE patient p
 				   LEFT JOIN patient_status ps ON ps.id=p.current_status,
-				   (SELECT id 
+				   (SELECT id
 				 	FROM regimen_service_type
 				 	WHERE name LIKE '%pmtct%') as rs
 				    SET p.service=rs.id
 				    WHERE ps.name LIKE '%pmtct end%'
 				 	AND p.service=''";
 		//Remove ??? in drug instructions
-		$fixes[]="UPDATE drug_instructions 
+		$fixes[]="UPDATE drug_instructions
 				  SET name=REPLACE(name, '?', '.')
 				  WHERE name LIKE '%?%'";
 
 		$facility_code=$this->session->userdata("facility");
 		//Auto Update Supported and supplied columns for satellite facilities
-		$fixes[] = "UPDATE facilities f, 
+		$fixes[] = "UPDATE facilities f,
 						(SELECT facilitycode,supported_by,supplied_by
-					     FROM facilities 
+					     FROM facilities
 					     WHERE facilitycode='$facility_code') as temp
 	                SET f.supported_by=temp.supported_by,
 	                f.supplied_by=temp.supplied_by
@@ -610,7 +612,7 @@ class auto_management extends MY_Controller {
 				$total += $this -> db -> affected_rows();
 			}
 	    }
-        
+
         $message="(".$total.") rows affected by fixes applied!<br/>";
 	    if($total>0){
 			$message="";
@@ -792,30 +794,30 @@ class auto_management extends MY_Controller {
 									(32, 'Contains aspirin', 1),
 									(33, 'contains an apirin-like medicine', 1),
 									(34, 'Avoid a lot of fatty meals together with efavirenz', 1);";
-		$tables['sync_regimen_category']="CREATE TABLE IF NOT EXISTS `sync_regimen_category` (
+		$tables['sync_regimen_category']="  CREATE TABLE IF NOT EXISTS `sync_regimen_category` (
 										  `id` int(2) NOT NULL AUTO_INCREMENT,
-										  `Name` varchar(50) NOT NULL,
+										  `Name` varchar(255) NOT NULL,
 										  `Active` varchar(2) NOT NULL,
 										  `ccc_store_sp` int(11) NOT NULL DEFAULT '2',
 										  PRIMARY KEY (`id`),
 										  KEY `ccc_store_sp` (`ccc_store_sp`)
 										) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21;
 										INSERT INTO `sync_regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
-                                        (4, 'Adult First Line', '1', 2),
-                                        (5, 'Adult Second Line', '1', 2),
-                                        (6, 'Other Adult ART', '1', 2),
-                                        (7, 'Paediatric First Line', '1', 2),
-                                        (8, 'Paediatric Second Line', '1', 2),
-                                        (9, 'Other Pediatric Regimen', '1', 2),
-                                        (10, 'PMTCT Mother', '1', 2),
-                                        (11, 'PMTCT Child', '1', 2),
-                                        (12, 'PEP Adult', '1', 2),
-                                        (13, 'PEP Child', '', 2),
-                                        (16, 'Adult Third Line', '1', 2),
-                                        (17, 'Paediatric Third Line', '1', 2),
-                                        (18, 'CM and OC  [For Diflucan Donation Program ONLY]', '1', 2),
-                                        (19, 'IPT', '1', 2),
-                                        (20, 'Universal Prophylaxis', '1', 2);";
+                                        (4,	'ADULT ART First-Line Regimens','1', 2),
+                                        (5,	'ADULT ART Second-Line Regimens','1', 2),
+                                        (6,	'Other ADULT ART Regimens','1', 2),
+                                        (7,	'PAEDIATRIC ART First-Line Regimens','1', 2),
+                                        (8,	'PAEDIATRIC ART Second-Line Regimens','1', 2),
+                                        (9,	'Other PAEDIATRIC ART Regimens','1', 2),
+                                        (10,	'PMTCT Regimens for Pregnant Women','1', 2),
+                                        (11,	'PMTCT Regimens for Infants','1', 2),
+                                        (12,	'Post Exposure Prophylaxis (PEP) for Adults','1', 2),
+                                        (13,	'Post Exposure Prophylaxis (PEP) for Children',	'1', 2),
+                                        (17,	'ADULT ART Third-Line Regimens','1', 2),
+                                        (18,	'PAEDIATRIC ART Third-Line Regimens','1', 2),
+                                        (19,	'Universal Prophylaxis','1', 2),
+                                        (20,	'IPT','1', 2),
+                                        (21,	'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]','1', 2)";
 
                             $tables['faq'] = "CREATE TABLE IF NOT EXISTS `faq` (
                                                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -825,7 +827,102 @@ class auto_management extends MY_Controller {
                                                   `active` int(5) NOT NULL DEFAULT '1',
                                                   PRIMARY KEY (`id`)
                                                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;";
-                            
+        $tables['new_sync_drug']="CREATE TABLE IF NOT EXISTS `new_sync_drug` (
+                                  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                  `name` varchar(255) NOT NULL,
+                                  `abbreviation` varchar(255) DEFAULT NULL,
+                                  `strength` varchar(255) NOT NULL,
+                                  `packsize` int(7) DEFAULT NULL,
+                                  `formulation` varchar(255) DEFAULT NULL,
+                                  `unit` varchar(255) DEFAULT NULL,
+                                  `note` varchar(255) DEFAULT NULL,
+                                  `weight` int(4) DEFAULT '999',
+                                  `category_id` int(11) unsigned DEFAULT NULL,
+                                  `regimen_id` int(11) NOT NULL,
+                                  PRIMARY KEY (`id`)
+                                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
+
+        $tables['new_sync_regimen']="CREATE TABLE IF NOT EXISTS `new_sync_regimen` (
+                                      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                      `name` varchar(255) NOT NULL,
+                                      `code` varchar(5) DEFAULT NULL,
+                                      `old_code` varchar(45) DEFAULT NULL,
+                                      `description` text NOT NULL,
+                                      `category_id` int(11) unsigned DEFAULT NULL,
+                                      PRIMARY KEY (`id`)
+                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
+
+        $tables['new_sync_facility']="CREATE TABLE IF NOT EXISTS `new_sync_facility` (
+                                  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+                                  `name` varchar(255) NOT NULL,
+                                  `code` varchar(15) DEFAULT NULL,
+                                  `category` varchar(15) DEFAULT NULL,
+                                  `sponsors` varchar(255) DEFAULT NULL,
+                                  `services` varchar(255) DEFAULT NULL,
+                                  `manager_id` int(11) unsigned DEFAULT NULL,
+                                  `district_id` int(11) unsigned NOT NULL,
+                                  `address_id` int(11) unsigned DEFAULT NULL,
+                                  `parent_id` int(11) unsigned DEFAULT NULL,
+                                  `ordering` tinyint(1) NOT NULL DEFAULT '1',
+                                  `affiliation` varchar(255) DEFAULT NULL,
+                                  `service_point` tinyint(1) NOT NULL DEFAULT '1',
+                                  `county_id` int(11) unsigned DEFAULT NULL,
+                                  `hcsm_id` int(11) unsigned DEFAULT NULL,
+                                  `keph_level` varchar(25) DEFAULT 'Not Classified',
+                                  `location` varchar(255) DEFAULT NULL,
+                                  `affiliate_organization_id` int(11) unsigned DEFAULT NULL,
+                                  PRIMARY KEY (`id`)
+                                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
+
+        $tables['new_sync_regimen_category']="CREATE TABLE IF NOT EXISTS `new_sync_regimen_category` (
+                                              `id` int(2) NOT NULL AUTO_INCREMENT,
+                                              `Name` varchar(255) NOT NULL,
+                                              `Active` varchar(2) NOT NULL,
+                                              `ccc_store_sp` int(11) NOT NULL DEFAULT '2',
+                                              PRIMARY KEY (`id`),
+                                              KEY `ccc_store_sp` (`ccc_store_sp`)
+                                            ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+                                            INSERT INTO `new_sync_regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
+                                            (4, 'ADULT ART First-Line Regimens', '1', 2),
+                                            (5, 'ADULT ART Second-Line Regimens', '1', 2),
+                                            (6, 'Other ADULT ART Regimens', '1', 2),
+                                            (7, 'PAEDIATRIC ART First-Line Regimens', '1', 2),
+                                            (8, 'PAEDIATRIC ART Second-Line Regimens', '1', 2),
+                                            (9, 'Other PAEDIATRIC ART Regimens', '1', 2),
+                                            (10, 'PMTCT Regimens for Pregnant Women', '1', 2),
+                                            (11, 'PMTCT Regimens for Infants', '1', 2),
+                                            (12, 'Post Exposure Prophylaxis (PEP) for Adults', '1', 2),
+                                            (13, 'Post Exposure Prophylaxis (PEP) for Children', '1', 2),
+                                            (17, 'ADULT ART Third-Line Regimens', '1', 2),
+                                            (18, 'PAEDIATRIC ART Third-Line Regimens', '1', 2),
+                                            (19, 'Universal Prophylaxis', '1', 2),
+                                            (20, 'IPT', '1', 2),
+                                            (21, 'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]', '1', 2);
+                                            ";
+							$tables['cdrr_item_new']="CREATE TABLE IF NOT EXISTS `cdrr_item_new` (
+																			  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+																			  `balance` int(11) DEFAULT NULL,
+																			  `received` int(11) DEFAULT NULL,
+																			  `dispensed_units` int(11) DEFAULT NULL,
+																			  `dispensed_packs` int(11) DEFAULT NULL,
+																			  `losses` int(11) DEFAULT NULL,
+																			  `adjustments` int(11) DEFAULT NULL,
+																			  `neg_adjustments` int(11) DEFAULT NULL,
+																			  `count` int(11) DEFAULT NULL,
+																			  `expiry_quant` int(11) DEFAULT NULL,
+																			  `expiry_date` date DEFAULT NULL,
+																			  `out_of_stock` int(11) DEFAULT NULL,
+																			  `resupply` int(11) DEFAULT NULL,
+																			  `aggr_consumed` int(11) DEFAULT NULL,
+																			  `aggr_on_hand` int(11) DEFAULT NULL,
+																			  `publish` tinyint(1) NOT NULL DEFAULT '0',
+																			  `cdrr_id` int(11) unsigned NOT NULL,
+																			  `drug_id` int(11) unsigned NOT NULL,
+																			  PRIMARY KEY (`id`)
+																			) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1902746 ;";
+
+
             foreach($tables as $table=>$statements){
             if (!$this->db->table_exists($table)){
             	$statements=explode(";",$statements);
@@ -841,56 +938,55 @@ class auto_management extends MY_Controller {
         }
         return $message;
 	}
-        
+
         public function update_existing_tables(){
             $count=0;
             $message="";
             $tables['regimen_category'] = "TRUNCATE TABLE regimen_category;
-                                                        INSERT INTO `regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
-                                                        (1, 'PMTCT Mother', '1', 2),
-                                                        (2, 'Adult First Line', '1', 2),
-                                                        (3, 'Adult Second Line', '1', 2),
-                                                        (4, 'Other Adult ART', '1', 2),
-                                                        (5, 'Paediatric First line', '1', 2),
-                                                        (6, 'Paediatric Second line', '1', 2),
-                                                        (7, 'Other Pediatrics Regimen', '1', 2),
-                                                        (8, 'PEP Adult', '1', 2),
-                                                        (9, 'PEP Children', '1', 2),
-                                                        (10, 'PMTCT Child', '1', 2),
-                                                        (11, 'OI Regimen', '1', 2),
-                                                        (12, 'Universal prophylaxis', '1', 2),
-                                                        (13, 'IPT', '1', 2),
-                                                        (14, 'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC)  [For Diflucan Donation Program ONLY]', '1', 2),
-                                                        (15, 'Adult Third Line', '1', 2),
-                                                        (16, 'PaediatricThird Line', '1', 2);";
-            
+                                        INSERT INTO `regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
+                                        (1,	'ADULT ART First-Line Regimens','1', 2),
+                                        (2,	'ADULT ART Second-Line Regimens','1', 2),
+                                        (3,	'Other ADULT ART Regimens','1', 2),
+                                        (4,	'PAEDIATRIC ART First-Line Regimens','1', 2),
+                                        (5,	'PAEDIATRIC ART Second-Line Regimens','1', 2),
+                                        (6,	'Other PAEDIATRIC ART Regimens','1', 2),
+                                        (7,	'PMTCT Regimens for Pregnant Women','1', 2),
+                                        (8,	'PMTCT Regimens for Infants','1', 2),
+                                        (9,	'Post Exposure Prophylaxis (PEP) for Adults','1', 2),
+                                        (10,	'Post Exposure Prophylaxis (PEP) for Children',	'1', 2),
+                                        (11,	'ADULT ART Third-Line Regimens','1', 2),
+                                        (12,	'PAEDIATRIC ART Third-Line Regimens','1', 2),
+                                        (13,	'Universal Prophylaxis','1', 2),
+                                        (14,	'IPT','1', 2),
+                                        (15,	'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]','1', 2);";
+
             		$tables['sync_regimen_category']="DROP TABLE IF EXISTS sync_regimen_category;
                                           CREATE TABLE IF NOT EXISTS `sync_regimen_category` (
 										  `id` int(2) NOT NULL AUTO_INCREMENT,
-										  `Name` varchar(50) NOT NULL,
+										  `Name` varchar(255) NOT NULL,
 										  `Active` varchar(2) NOT NULL,
 										  `ccc_store_sp` int(11) NOT NULL DEFAULT '2',
 										  PRIMARY KEY (`id`),
 										  KEY `ccc_store_sp` (`ccc_store_sp`)
 										) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21;
 										INSERT INTO `sync_regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
-                                        (4, 'Adult First Line', '1', 2),
-                                        (5, 'Adult Second Line', '1', 2),
-                                        (6, 'Other Adult ART', '1', 2),
-                                        (7, 'Paediatric First Line', '1', 2),
-                                        (8, 'Paediatric Second Line', '1', 2),
-                                        (9, 'Other Pediatric Regimen', '1', 2),
-                                        (10, 'PMTCT Mother', '1', 2),
-                                        (11, 'PMTCT Child', '1', 2),
-                                        (12, 'PEP Adult', '1', 2),
-                                        (13, 'PEP Child', '', 2),
-                                        (16, 'Adult Third Line', '1', 2),
-                                        (17, 'Paediatric Third Line', '1', 2),
-                                        (18, 'CM and OC  [For Diflucan Donation Program ONLY]', '1', 2),
-                                        (19, 'IPT', '1', 2),
-                                        (20, 'Universal Prophylaxis', '1', 2);";
+                                        (4,	'ADULT ART First-Line Regimens','1', 2),
+                                        (5,	'ADULT ART Second-Line Regimens','1', 2),
+                                        (6,	'Other ADULT ART Regimens','1', 2),
+                                        (7,	'PAEDIATRIC ART First-Line Regimens','1', 2),
+                                        (8,	'PAEDIATRIC ART Second-Line Regimens','1', 2),
+                                        (9,	'Other PAEDIATRIC ART Regimens','1', 2),
+                                        (10,	'PMTCT Regimens for Pregnant Women','1', 2),
+                                        (11,	'PMTCT Regimens for Infants','1', 2),
+                                        (12,	'Post Exposure Prophylaxis (PEP) for Adults','1', 2),
+                                        (13,	'Post Exposure Prophylaxis (PEP) for Children',	'1', 2),
+                                        (17,	'ADULT ART Third-Line Regimens','1', 2),
+                                        (18,	'PAEDIATRIC ART Third-Line Regimens','1', 2),
+                                        (19,	'Universal Prophylaxis','1', 2),
+                                        (20,	'IPT','1', 2),
+                                        (21,	'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]','1', 2)";
 
-            
+
             foreach($tables as $table=>$statements){
             if ($this->db->table_exists($table)){
             	$statements=explode(";",$statements);
@@ -905,7 +1001,7 @@ class auto_management extends MY_Controller {
  			$message="(".$count.") tables created!<br/>";
         }
         return $message;
-      
+
             }
 
 	public function update_database_columns(){
@@ -928,8 +1024,8 @@ class auto_management extends MY_Controller {
 		}
 		return $message;
 	}
-   
-        //function to download guidelines from the nascop 
+
+        //function to download guidelines from the nascop
         public function get_guidelines(){
          $this->load->library('ftp');
 
@@ -943,8 +1039,8 @@ class auto_management extends MY_Controller {
         $this->ftp->connect($config);
         $server_file="/";
         $dir = realpath($_SERVER['DOCUMENT_ROOT']);
-       
-        
+
+
         $files = $this->ftp->list_files($server_file);
 	        if(!empty($files))
 	        {
@@ -954,7 +1050,7 @@ class auto_management extends MY_Controller {
 		        }
 	        }
         }
-   
+
         public function update_system_version(){
 		$url = $this -> nascop_url . "sync/gitlog";
 		$facility_code = $this -> session -> userdata("facility");
@@ -1003,7 +1099,7 @@ class auto_management extends MY_Controller {
 
 			$sql = "SELECT sf.name as facility_name,sf.code as facility_code,IF(c.id,'reported','not reported') as status
 			        FROM sync_facility sf
-			        LEFT JOIN cdrr c ON c.facility_id=sf.id AND c.period_begin='$start_date' 
+			        LEFT JOIN cdrr c ON c.facility_id=sf.id AND c.period_begin='$start_date'
 			        WHERE sf.parent_id='$central_site'
 			        AND sf.category LIKE '%satellite%'
 			        AND sf.name NOT LIKE '%dispensing%'
@@ -1020,14 +1116,14 @@ class auto_management extends MY_Controller {
 			}
 			$notification .= "</tbody></table>";
 
-			//send notification via email 
+			//send notification via email
 			ini_set("SMTP", "ssl://smtp.gmail.com");
 			ini_set("smtp_port", "465");
 
-			$sql = "SELECT DISTINCT(Email_Address) as email 
+			$sql = "SELECT DISTINCT(Email_Address) as email
 			        FROM users u
 			        LEFT JOIN access_level al ON al.id=u.Access_Level
-			        WHERE al.Level_Name LIKE '%facility%' 
+			        WHERE al.Level_Name LIKE '%facility%'
                     AND u.Facility_Code = '$facility_code'
 			        AND Email_Address !=''
 			        AND Email_Address !='kevomarete@gmail.com'";
@@ -1068,13 +1164,13 @@ class auto_management extends MY_Controller {
 		}
 		return $message;
 	}
-	
+
 	function createStoredProcedures(){
 		$data =array();
-		
+
 		$data["MAPS: Patient Revisit OC CM Stored Procedure"] ="
 			DROP procedure IF EXISTS `sp_GetRevisitCMOC`;
-			
+
 			DELIMITER $$
 			CREATE PROCEDURE `sp_GetRevisitCMOC` (IN start_date DATE, IN end_date DATE)
 			BEGIN
@@ -1090,27 +1186,27 @@ class auto_management extends MY_Controller {
 				) as temp2 ON temp2.ccc_number = temp1.ccc_number
 				WHERE temp2.other_illnesses LIKE '%cryptococcal%' OR temp1.opportunistic_infection LIKE '%oesophageal%';
 			END$$
-			
+
 			DELIMITER ;";
-		
+
 		$data["MAPS: Revisit Patient By Gender Stored Procedure"] ="
 			DROP procedure IF EXISTS `sp_GetRevisitPatient`;
-			
+
 			DELIMITER $$
 			CREATE  PROCEDURE `sp_GetRevisitPatient`(IN start_date DATE, IN end_date DATE)
 			BEGIN
-			        SELECT COUNT(DISTINCT(p.id)) as total,IF(p.gender=1,'new_male','new_female') as  gender 
+			        SELECT COUNT(DISTINCT(p.id)) as total,IF(p.gender=1,'new_male','new_female') as  gender
 							FROM patient p
 							LEFT JOIN patient_visit pv ON pv.patient_id = p.patient_number_ccc
 							INNER JOIN patient_status ps ON ps.id=p.current_status
-							WHERE p.date_enrolled < start_date 
+							WHERE p.date_enrolled < start_date
 							AND ( pv.dispensing_date BETWEEN start_date AND end_date)
 							AND ps.name LIKE '%active%'
 							GROUP BY p.gender;
 			END$$
-			
+
 			DELIMITER ;";
-			$message = "";	
+			$message = "";
 			foreach ($data as $key => $value) {
 				echo $value;$this ->db ->query($value);
 				if($this->db->affected_rows() >0){
@@ -1121,7 +1217,7 @@ class auto_management extends MY_Controller {
 			}
 		return $message;
 	}
-	
+
 	public function addIndex(){//Create indexes on columns in table;
 		$columns = array(
 						array(
@@ -1149,15 +1245,15 @@ class auto_management extends MY_Controller {
 				$this ->db ->query("ALTER TABLE  ".$value['table']." DROP INDEX `$index_to_drop`");
 			}
 			$sql = "ALTER TABLE ".$value['table']." ADD INDEX (`".$value['column']."`)";
-				
+
 			if($this ->db ->query($sql)){
 				$message.=$value['message']. " successfully created ! <br>";
 			}else{
 				$message.=$value['message']. " could not be created ! ".$this->db->_error_message()." <br>";
 			}
-			
+
 		}
-		
+
 		return $message;
 	}
 }

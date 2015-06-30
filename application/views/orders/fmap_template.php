@@ -66,7 +66,7 @@ if ($facility_object -> service_pep == "1") {
 		var end_date = reporting_period + "-" + $("#period_end_date").attr("value");
 		<?php }else{?>
 		var report_period="<?php echo date('F-Y', strtotime($fmaps_array[0]['period_begin'])); ?>";
-		$("#reporting_period").val(report_period);	
+		$("#reporting_period").val(report_period);
 		var month=parseInt("<?php echo date('m', strtotime($fmaps_array[0]['period_begin'])); ?>");
 		var year=parseInt("<?php echo date('Y', strtotime($fmaps_array[0]['period_begin'])); ?>");
         var last_day_month=LastDayOfMonth(year,month);
@@ -75,7 +75,7 @@ if ($facility_object -> service_pep == "1") {
         var reporting_period = $("#reporting_period").attr("value");
 		reporting_period = convertDate(reporting_period);
 		var start_date = reporting_period + "-" + $("#period_start_date").attr("value");
-		var end_date = reporting_period + "-" + $("#period_end_date").attr("value");			
+		var end_date = reporting_period + "-" + $("#period_end_date").attr("value");
 		<?php }?>
         //getPeriodRegimenPatients(start_date, end_date);
 	});
@@ -86,14 +86,14 @@ if ($facility_object -> service_pep == "1") {
     function processData(form) {
       var form_selector = "#" + form;
       var validated = $(form_selector).validationEngine('validate');
-        
+
         if(!validated) {
            return false;
         }else{
         	$(".btn").attr("disabled","disabled");
         	return true;
         }
-    }   
+    }
 </script>
 <style>
 	.ui-datepicker-calendar {
@@ -110,7 +110,7 @@ if ($facility_object -> service_pep == "1") {
 		<?php
 		 	if ($this->session->flashdata('order_message')){
 				echo '<p class="message info">'.$this->session->flashdata('order_message').'</p>';
-			}	
+			}
 		 ?>
 		<form id="fmPostMaps" action="<?php echo base_url() . 'order/save/maps/prepared';?>" method="post" name="fmPostMaps" style="margin-bottom:8%;">
 			<input type="hidden"  id="report_type" name="report_type" value="<?php echo $report_type;?>"/>
@@ -124,7 +124,7 @@ if ($facility_object -> service_pep == "1") {
 					</li>
 				</ul>
 			</div>
-			
+
 				<div>
 					<?php
 				if($options=='view'){
@@ -134,13 +134,13 @@ if ($facility_object -> service_pep == "1") {
 				      	if($access_level=="facility_administrator"){
 					      	if($status=="prepared"){
 							?> <input type="hidden" name="status_change" value="approved"/>
-							   <input type="hidden" name="save_maps" value="Approve"/> 
+							   <input type="hidden" name="save_maps" value="Approve"/>
 					           <input type='submit' name='save_maps' class='btn btn-info state_change' value='Approve'/>
 							<?php
 							      } else if($status=="approved"){
 							 ?>
-							 		<input type="hidden" name="status_change" value="archived"/> 
-							 		<input type="hidden" name="save_maps" value="Archive"/> 
+							 		<input type="hidden" name="status_change" value="archived"/>
+							 		<input type="hidden" name="save_maps" value="Archive"/>
 			 		                <input type='submit' name='save_maps' class='btn btn-info state_change' value='Archive'/>
 							 <?php
 							      }
@@ -149,15 +149,15 @@ if ($facility_object -> service_pep == "1") {
 						<input type="hidden"  id="created" name="created" value="<?php echo $created;?>"/>
 							 <?php
 						}
-					
+
 				}
 				else if($options=='update'){
-					echo "<h4>".ucfirst($options).' '.@$maps_id.' '.@ucfirst($status)."</h4>";	
+					echo "<h4>".ucfirst($options).' '.@$maps_id.' '.@ucfirst($status)."</h4>";
 				?>
 				<input type="hidden"  id="status" name="status" value="<?php echo $status;?>"/>
 				<input type="hidden"  id="created" name="created" value="<?php echo $created;?>"/>
 				<?php
-		
+
 				}
 				?>
 				</div>
@@ -195,7 +195,7 @@ if ($facility_object -> service_pep == "1") {
 							</td>
 							<input name="start_date" id="period_start" type="hidden">
 							<input name="end_date" id="period_end" type="hidden">
-							</td> 
+							</td>
 							<td colspan="2"></td>
 						</tr>
 						<tr>
@@ -208,7 +208,7 @@ if ($facility_object -> service_pep == "1") {
 							<th>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_male" id="new_male" value="<?php echo @$fmaps_array[0]['new_male'];?>" /></th>
 							<th>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_male" id="revisit_male" value="<?php echo @$fmaps_array[0]['new_female'];?>" /></th>
 							<th>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_female" id="new_female" value="<?php echo @$fmaps_array[0]['revisit_male'];?>" /></th>
-							<th>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_female" id="revisit_female" value="<?php echo @$fmaps_array[0]['revisit_female'];?>"/></th>				
+							<th>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_female" id="revisit_female" value="<?php echo @$fmaps_array[0]['revisit_female'];?>"/></th>
 						</tr>
 					</tbody>
 				</table>
@@ -216,16 +216,16 @@ if ($facility_object -> service_pep == "1") {
 					if($hide_generate==2 && $hide_btn==0){
 				?>
 				<input type="button" style="width: auto" name="generate" id="generate" class="btn" value="Update Aggregated Data" >
-				<?php		
+				<?php
 					}
 					else if($hide_generate==0 && $hide_btn==0){
 				?>
 				<input type="button" style="width: auto" name="generate_central" id="generate_central" class="btn" value="Generate Report" >
-				<?php		
+				<?php
 					}
 				?>
-								
-				
+
+
 			</div>
 			<div class="facility_info_bottom" style="width:100%;">
 				<table class=" table table-bordered regimen-table big-table research" id="tbl_patients_regimen">
@@ -239,9 +239,9 @@ if ($facility_object -> service_pep == "1") {
 						</tr>
 					</thead>
 					<?php
-			$counter = 1;                       
+			$counter = 1;
 			foreach($regimen_categories as $category){
-					$cat = str_replace(' ', '_',$category); 
+					$cat = str_replace(' ', '_',$category);
 						?>
 					<tbody>
 						<?php
@@ -251,7 +251,7 @@ if ($facility_object -> service_pep == "1") {
 								getOiRegimenPatients();
 							}
 							echo '<tr class="accordion"><th colspan="3" id="'.$cat.'"  >'.$category.'</th></tr>';
-							
+
 							$regimen_list=array_filter($regimen_array,function($item) use ($category){
 								return $item['name']==$category;
 							});
@@ -271,7 +271,7 @@ if ($facility_object -> service_pep == "1") {
 							}
 						   }else{
 						   	foreach($regimen_list as $regimen){
-                                                            
+
                                                              ?>
 								<tr>
 								<td style="border-right:2px solid #DDD;"><?php echo $regimen['code'];?></td>
@@ -282,7 +282,7 @@ if ($facility_object -> service_pep == "1") {
 								<input type="hidden" name="item_id[]" class="item_id"/>
 								</td>
 							</tr>
-							<?php	
+							<?php
 						   }
 						   }
 						}
@@ -292,8 +292,8 @@ if ($facility_object -> service_pep == "1") {
 							if(strtoupper($category -> Name) == 'OI REGIMEN'){
 							 continue;
 							}
-							$regimens = $category -> Regimens; 
-                                                        
+							$regimens = $category -> Regimens;
+
 							$cat = str_replace(' ', '_',$category -> Name);
 						?><tr class="accordion"><th colspan="3" class="reg_cat_name" id="<?php echo $cat; ?>" ><?php echo $category -> Name;?></th></tr><?php
 						 if($supplier=="KEMSA"){
@@ -325,12 +325,12 @@ if ($facility_object -> service_pep == "1") {
 								<input type="text" class="f_right patient_number" data-cat="<?php echo $cat; ?>" name="patient_numbers[]" id="patient_numbers_<?php echo $regimen -> id;?>" >
 								<input name="patient_regimens[]"class="regimen_list" value="<?php echo $regimen -> id;?>" type="hidden">
 								<input type="hidden" name="item_id[]" class="item_id"/>
-								
+
 								</td>
 							</tr>
 						<?php
 						   }
-                                           }          
+                                           }
 					   }			?>
 					</tbody>
 					<?php
@@ -346,7 +346,7 @@ if ($facility_object -> service_pep == "1") {
 						<tr>
 							<th colspan="4" style="text-align: center">Central site Reporting rate</th>
 						</tr>
-					
+
 						<tr>
 							<th colspan="2">Total No. of Facility Reports Expected <input type="text"  class="validate[requied] tbl_header_input f_right" name="reports_expected" id="reports_expected" /></th>
 							<th colspan="2">Actual No. of Facility reports Received <input type="text"  class="validate[requied] tbl_header_input f_right" name="reports_actual" id="reports_actual" /></th>
@@ -359,8 +359,8 @@ if ($facility_object -> service_pep == "1") {
 				if($is_view==1 || $is_update==1){
 				?>
 			    <table style="width:100%;" class="table table-bordered">
-			    	<?php 
-			    	    error_reporting(0); 
+			    	<?php
+			    	    error_reporting(0);
 			    	    foreach($logs as $log){?>
 					<tr>
 						<td><b>Report <?php echo $log->description;?> by:</b>
@@ -383,14 +383,14 @@ if ($facility_object -> service_pep == "1") {
 				    <input type="hidden" value="Submit Order" name="save_maps">
 				<?php
 				}}else{
-				?>	
+				?>
 					<input type="submit" id="save_changes" class="btn btn-info actual" value="Submit Report">
 					<input type="hidden" value="Submit Order" name="save_maps">
-				<?php	
+				<?php
 				}
 				?>
 			</div>
-	</form>		
+	</form>
 	</div>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -398,7 +398,7 @@ if ($facility_object -> service_pep == "1") {
 		//Check if report is a duplicate
 		var duplicate = "<?=$duplicate?>";
 		if(duplicate == true)
-		{ 
+		{
 		   bootbox.alert("<h4>Duplicate</h4>\n\<hr/><center>This Report already exists!</center>");
 		}
 
@@ -407,18 +407,18 @@ if ($facility_object -> service_pep == "1") {
              $(".btn").attr("disabled","disabled");
              $(".state_change").attr("disabled","disabled");
 		});
-		//Check if data is being updated 
+		//Check if data is being updated
 		var is_update="<?php echo @$is_update; ?>";
 		var is_view="<?php echo @$is_view; ?>";
 		var fmaps_id="<?php echo @$map_id; ?>";
-		
+
 		if(is_update==1){//If form is open for updating data
 			getFacilityData(fmaps_id);
-			$("#fmPostMaps").attr("action","<?php echo base_url() . 'order/save/maps/prepared/'.@$map_id;?>");//Change action to be posted to update function 
+			$("#fmPostMaps").attr("action","<?php echo base_url() . 'order/save/maps/prepared/'.@$map_id;?>");//Change action to be posted to update function
 		}
 		if(is_view==1){//When viewing maps details
 			getFacilityData(fmaps_id);
-			$("#fmPostMaps").attr("action","<?php echo base_url() . 'order/save/maps/prepared/'.@$map_id;?>");//Change action to be posted to update function 
+			$("#fmPostMaps").attr("action","<?php echo base_url() . 'order/save/maps/prepared/'.@$map_id;?>");//Change action to be posted to update function
 			$(":input").attr('readonly',true);
 			$(".state_change").attr("readonly",false);
 			if($('#report_type').val()=='2'){//If reporting for satellite, enable art total
@@ -428,16 +428,16 @@ if ($facility_object -> service_pep == "1") {
 		}
 
 		$("#generate").click(function() {//Get aggregated data
-			$.blockUI({ message: '<h3><img width="30" height="30" src="<?php echo asset_url().'images/loading_spin.gif' ?>" /> Generating...</h3>' }); 
+			$.blockUI({ message: '<h3><img width="30" height="30" src="<?php echo asset_url().'images/loading_spin.gif' ?>" /> Generating...</h3>' });
             var period_start = '<?php echo date('Y-m-01',strtotime(date('Y-m-d').'-1 month')) ?>';
             var period_end = '<?php echo date('Y-m-t',strtotime(date('Y-m-d').'-1 month')) ?>';
 
             getAggregateFmaps(period_start, period_end);
-            setTimeout($.unblockUI, 10000);	
+            setTimeout($.unblockUI, 10000);
 		});
-		
+
 		$("#generate_central").click(function() {//Generate data for central report
-			$.blockUI({ message: '<h3><img width="30" height="30" src="<?php echo asset_url().'images/loading_spin.gif' ?>" /> Generating...</h3>' }); 
+			$.blockUI({ message: '<h3><img width="30" height="30" src="<?php echo asset_url().'images/loading_spin.gif' ?>" /> Generating...</h3>' });
             var period_start = '<?php echo date('Y-m-01',strtotime(date('Y-m-d').'-1 month')) ?>';
             var period_end = '<?php echo date('Y-m-t',strtotime(date('Y-m-d').'-1 month')) ?>';
             var data_type = 'new_patient';
@@ -451,10 +451,10 @@ if ($facility_object -> service_pep == "1") {
             getNonMappedRegimen(period_start, period_end);
             getCentralData(period_start, period_end,data_type);
             getOiData(period_start,period_end);
-            
+
 		});
-		
-		
+
+
 		//When user changes patient number on a regimen, update total number on ART
 		$(".patient_number").live("focus",function(){
 			old_value = parseInt($(this).val());//Keep track of old values
@@ -464,9 +464,9 @@ if ($facility_object -> service_pep == "1") {
 			//Get regimen category, adult or paed
 			reg_category =$(this).data("cat");
 			reg_category =reg_category.toLowerCase();
-			
-			
-			
+
+
+
 		});
 		$(".patient_number").live("blur",function(){//On change, get old and new value before updating total ART
 			new_value = $(this).val();
@@ -475,12 +475,12 @@ if ($facility_object -> service_pep == "1") {
 			}
 			var change = new_value - old_value;
 			if((reg_category.indexOf('pep')>-1 || reg_category.indexOf('pmtct')>-1)){
-				
+
 			}
 			else if((reg_category.indexOf('paed')>-1 || reg_category.indexOf('ped')>-1 || reg_category.indexOf('child')>-1)){//Check if regimen is adult or paed
 				var old_val = $("#art_child").val();
 				if(old_val !=''){
-					var new_val = parseInt(old_val)+(parseInt(change));	
+					var new_val = parseInt(old_val)+(parseInt(change));
 				}else{
 					var new_val = parseInt(change);
 				}
@@ -496,9 +496,9 @@ if ($facility_object -> service_pep == "1") {
 			}
 			old_value = new_value;
 		});
-		
+
 	});
-	
+
 	function getNonMappedRegimen(start_date, end_date){//Get regimens that are not mapped(Not in the Escm or Nascop and list them as others)
 		var base_url = getbaseurl();
 		var link = base_url + 'order/getNotMappedRegimenPatients/' + start_date + '/' + end_date;
@@ -511,19 +511,19 @@ if ($facility_object -> service_pep == "1") {
 				var total_patients = 0;
 				var total_patients_div = "";
 				$.each(data, function(i, jsondata) {
-					
+
 					var total_patients = jsondata.patients;
 					var regimen_desc = jsondata.regimen_desc;
 					if(regimen_desc.toLowerCase().search("oi") == -1)
-					{   
+					{
 					    $("#other_regimen").append(""+regimen_desc+ " : "+total_patients);
 					    $("#other_regimen").append(" ||  ");
 					}
-					
+
 				});
 			}
 		});
-		
+
 	}
 
     function getOiData(period_start,period_end){
@@ -533,24 +533,26 @@ if ($facility_object -> service_pep == "1") {
             "period_start" : period_start,
             "period_end" : period_end
         }
+
         $.ajax({
             url : link,
             type : 'POST',
             dataType : 'json',
             data:packets,
             success : function(data) {
-              $("#patient_numbers_169").val(data.cotrimo[0].total);
-                $("#patient_numbers_170").val(data.cotrimo[1].total);
-                $("#patient_numbers_171").val(data.dapsone[0].total);
-                $("#patient_numbers_172").val(data.dapsone[1].total);
-                $("#patient_numbers_173").val(data.isoniazid[0].total);
-                $("#patient_numbers_174").val(data.isoniazid[1].total);
-                $("#patient_numbers_175").val(data.diflucan[0].total);
-                $("#patient_numbers_176").val(data.diflucan[1].total);
-                $("#patient_numbers_177").val(data.new_oc_cm[0].total);
-                $("#patient_numbers_179").val(data.new_oc_cm[1].total);
-                $("#patient_numbers_178").val(data.revisit_oc_cm[0].total);
-                $("#patient_numbers_180").val(data.revisit_oc_cm[1].total);
+							// console.log(data);
+              $("#patient_numbers_72").val(data.cotrimo[0].total);
+                $("#patient_numbers_73").val(data.cotrimo[1].total);
+                $("#patient_numbers_74").val(data.dapsone[0].total);
+                $("#patient_numbers_75").val(data.dapsone[1].total);
+                $("#patient_numbers_76").val(data.isoniazid[0].total);
+                $("#patient_numbers_77").val(data.isoniazid[1].total);
+                $("#patient_numbers_78").val(data.diflucan[0].total);
+                $("#patient_numbers_79").val(data.diflucan[1].total);
+                $("#patient_numbers_80").val(data.new_oc_cm[0].total);
+                $("#patient_numbers_81").val(data.new_oc_cm[1].total);
+                $("#patient_numbers_82").val(data.revisit_oc_cm[0].total);
+                $("#patient_numbers_83").val(data.revisit_oc_cm[1].total);
 
 
             }
@@ -558,10 +560,10 @@ if ($facility_object -> service_pep == "1") {
 
     }
 	function getCentralData(period_start,period_end,data_type){
-		
+
 		var base_url = getbaseurl();
 	  	var link = base_url + 'order/getCentralDataMaps/' + period_start + '/' + period_end + '/'+data_type;
-	  	
+
 	  	$.ajax({
 				url : link,
 				type : 'POST',
@@ -583,14 +585,14 @@ if ($facility_object -> service_pep == "1") {
 								$('#new_male').val(data.new_patient[1].total);
 								$('#new_female').val(data.new_patient[0].total);
 							}
-							
+
 						}
-						
+
 						getCentralData(period_start,period_end,'revisit_patient');//Recursive function for the next data to be appended
-						
+
 					}else if('revisit_patient' in data){
 						var l_revisit_patient=data.revisit_patient.length;
-						
+
 						if(l_revisit_patient==1){
 							if(data.revisit_patient[0].gender=='revisit_male'){$('#revisit_male').val(data.revisit_patient[0].total);}
 							else{$('#revisit_female').val(data.revisit_patient[0].total);}
@@ -604,18 +606,16 @@ if ($facility_object -> service_pep == "1") {
 								$('#revisit_male').val(data.revisit_patient[1].total);
 								$('#revisit_female').val(data.revisit_patient[0].total);
 							}
-							
+
 						}
 
-						setTimeout($.unblockUI,1000);	
+						setTimeout($.unblockUI,1000);
 					}
-							
+
 				}
 		});
-	  	
+
 	}
 
-	
+
 </script>
-
-
