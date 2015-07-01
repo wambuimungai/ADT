@@ -395,7 +395,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 	                    ?>
 						<td> <input name="losses[]" id="losses_in_period_<?php echo $commodity->id;?>" type="text" class="losses"/></td>
 						<td> <input name="adjustments[]" id="adjustments_in_period_<?php echo $commodity->id;?>" type="text" class="adjustments"/></td>
-            <td> <input name="neg_adjustments[]" id="neg_adjustments_in_period_<?php echo $commodity->id;?>" type="text" class="neg_adjustments" /></td>
+                        <td> <input name="adjustments_neg[]" id="adjustments_in_period_neg_<?php echo $commodity->id;?>" type="text" class="adjustments_neg" /></td>
 						<td> <input tabindex="-1" name="physical_count[]" id="physical_in_period_<?php echo $commodity->id;?>" type="text" class="physical_count"/></td>
 						<?php
 	                    if($hide_generate==2){
@@ -569,7 +569,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		$(".adjustments").live('change',function() {
             calculateResupply($(this));
         });
-        $(".neg_adjustments").live('change',function() {
+        $(".adjustments_neg").live('change',function() {
             calculateResupply($(this));
         });
 		$(".physical_count").live('change',function() {
@@ -620,7 +620,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		?>
 		  $("#losses_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['losses']; ?>");
 		  $("#adjustments_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['adjustments']; ?>");
-          $("#neg_adjustments_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['neg_adjustments']; ?>");
+          $("#adjustments_in_period_neg_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['adjustments_neg']; ?>");
 		  $("#physical_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['count']; ?>");
 		  <?php
 		  if($cdrr_array[0]['code']=='D-CDRR'){
@@ -705,7 +705,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		?>
 		var losses = parseInt(row_element.find(".losses").attr("value"));
 		var adjustments = parseInt(row_element.find(".adjustments").attr("value"));
-        var neg_adjustments = parseInt(row_element.find(".neg_adjustments").attr("value"));
+        var neg_adjustments = parseInt(row_element.find(".adjustments_neg").attr("value"));
 		var physical_count = parseInt(row_element.find(".physical_count").attr("value"));
 		var resupply = 0;
 		if(!(opening_balance + 0)) {

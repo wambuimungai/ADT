@@ -293,6 +293,7 @@ function getPeriodDrugBalance(count,start_date, facility_id, code,total,drugs,st
 			$("#dispensed_in_period_" + drug).attr("value", data.dispensed_to_patients);
 			$("#losses_in_period_" + drug).attr("value", data.losses);
 			$("#adjustments_in_period_" + drug).attr("value", data.adjustments);
+            $("#adjustments_in_period_neg_" + drug).attr("value", data.adjustments_neg);
 			$("#physical_in_period_" + drug).attr("value", data.physical_stock);
 			$("#expire_qty_" + drug).attr("value", data.expiry_qty);
 			$("#expire_period_" + drug).attr("value", data.expiry_month);

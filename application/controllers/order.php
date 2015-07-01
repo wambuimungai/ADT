@@ -178,6 +178,7 @@ class Order extends MY_Controller {
 				$error_log .= "Error: " . $curl -> error_code . "<br/>";
 			} else {
 				$main_array = json_decode($curl -> response, TRUE);
+               // echo "<pre>";print_r($main_array);die;
 				foreach ($main_array as $key => $value) {
 					unset($main_array[$key]['lmis_id']);
 					# code...
@@ -794,7 +795,7 @@ class Order extends MY_Controller {
 				}
 				$losses = $this -> input -> post('losses');
 				$adjustments = $this -> input -> post('adjustments');
-        $neg_adjustments = $this -> input -> post('neg_adjustments');
+                $neg_adjustments = $this -> input -> post('adjustments_neg');
 				$physical_count = $this -> input -> post('physical_count');
 				$expiry_quantity = $this -> input -> post('expire_qty');
 				$expiry_date = $this -> input -> post('expire_period');
@@ -856,7 +857,7 @@ class Order extends MY_Controller {
 						}
 						$cdrr_array[$commodity_counter]['losses'] = $losses[$commodity_counter];
 						$cdrr_array[$commodity_counter]['adjustments'] = $adjustments[$commodity_counter];
-                        $cdrr_array[$commodity_counter]['neg_adjustments'] = $neg_adjustments[$commodity_counter];
+                        $cdrr_array[$commodity_counter]['adjustments_neg'] = $neg_adjustments[$commodity_counter];
 						$cdrr_array[$commodity_counter]['count'] = $physical_count[$commodity_counter];
 						$cdrr_array[$commodity_counter]['expiry_quant'] = $expiry_quantity[$commodity_counter];
 						if ($expiry_date[$commodity_counter] != "-" && $expiry_date[$commodity_counter] != "" && $expiry_date[$commodity_counter] !=null && $expiry_date[$commodity_counter] != "NULL" && $expiry_date[$commodity_counter] != "1970-01-01" && $expiry_date[$commodity_counter] != "0000-00-00") {
@@ -939,14 +940,6 @@ class Order extends MY_Controller {
 				$total_infant = $this -> input -> post("total_infant");
 				$pep_adult = $this -> input -> post("pep_adult");
 				$pep_child = $this -> input -> post("pep_child");
-				$total_adult = $this -> input -> post("tot_cotr_adult");
-				$total_child = $this -> input -> post("tot_cotr_child");
-				$diflucan_adult = $this -> input -> post("diflucan_adult");
-				$diflucan_child = $this -> input -> post("diflucan_child");
-				$new_cm = $this -> input -> post("new_cm");
-				$revisit_cm = $this -> input -> post("revisit_cm");
-				$new_oc = $this -> input -> post("new_oc");
-				$revisit_oc = $this -> input -> post("revisit_oc");
 				$comments = $this -> input -> post("other_regimen");
 				//trim comments tabs
 				$comments = preg_replace('/[ ]{2,}|[\t]/', ' ', trim($comments));
@@ -978,14 +971,6 @@ class Order extends MY_Controller {
 				$main_array['total_infant'] = $total_infant;
 				$main_array['pep_adult'] = $pep_adult;
 				$main_array['pep_child'] = $pep_child;
-				$main_array['total_adult'] = $total_adult;
-				$main_array['total_child'] = $total_child;
-				$main_array['diflucan_adult'] = $diflucan_adult;
-				$main_array['diflucan_child'] = $diflucan_child;
-				$main_array['new_cm'] = $new_cm;
-				$main_array['revisit_cm'] = $revisit_cm;
-				$main_array['new_oc'] = $new_oc;
-				$main_array['revisit_oc'] = $revisit_oc;
 				$main_array['comments'] = $comments;
 				$main_array['report_id'] = $report_id;
 				$main_array['facility_id'] = $facility_id;
@@ -1763,7 +1748,7 @@ class Order extends MY_Controller {
 									$cdrr_array[$commodity_counter]['dispensed_packs'] = ceil(str_replace(',', '', @trim($arr[$i]['E']) / @$pack_size));
 									$cdrr_array[$commodity_counter]['losses'] = str_replace(',', '', trim($arr[$i]['F']));
 									$cdrr_array[$commodity_counter]['adjustments'] = str_replace(',', '', trim($arr[$i]['G']));
-                                    $cdrr_array[$commodity_counter]['neg_adjustments'] = str_replace(',', '', trim($arr[$i]['H']));
+                                    $cdrr_array[$commodity_counter]['adjustments_neg'] = str_replace(',', '', trim($arr[$i]['H']));
 									$cdrr_array[$commodity_counter]['count'] = str_replace(',', '', trim($arr[$i]['I']));
 									$cdrr_array[$commodity_counter]['expiry_quant'] = str_replace(',', '', trim($arr[$i]['J']));
 									$expiry_date = trim($arr[$i]['J']);
@@ -2197,7 +2182,7 @@ class Order extends MY_Controller {
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('F' . $i, $cdrr_item['dispensed_packs']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('G' . $i, $cdrr_item['losses']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('H' . $i, $cdrr_item['adjustments']);
-                  $objPHPExcel -> getActiveSheet() -> SetCellValue('I' . $i, $cdrr_item['neg_adjustments']);
+                                    $objPHPExcel -> getActiveSheet() -> SetCellValue('I' . $i, $cdrr_item['adjustments_neg']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('J' . $i, $cdrr_item['count']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('K' . $i, $cdrr_item['expiry_quant']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('L' . $i, $cdrr_item['expiry_date']);
@@ -2210,7 +2195,7 @@ class Order extends MY_Controller {
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('E' . $i, $cdrr_item['dispensed_packs']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('F' . $i, $cdrr_item['losses']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('G' . $i, $cdrr_item['adjustments']);
-                    $objPHPExcel -> getActiveSheet() -> SetCellValue('H' . $i, $cdrr_item['neg_adjustments']);
+                    $objPHPExcel -> getActiveSheet() -> SetCellValue('H' . $i, $cdrr_item['adjustments_neg']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('I' . $i, $cdrr_item['count']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('J' . $i, $cdrr_item['aggr_consumed']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('K' . $i, $cdrr_item['aggr_on_hand']);
@@ -2224,7 +2209,7 @@ class Order extends MY_Controller {
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('E' . $i, $cdrr_item['dispensed_units']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('F' . $i, $cdrr_item['losses']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('G' . $i, $cdrr_item['adjustments']);
-                    $objPHPExcel -> getActiveSheet() -> SetCellValue('H' . $i, $cdrr_item['neg_adjustments']);
+                    $objPHPExcel -> getActiveSheet() -> SetCellValue('H' . $i, $cdrr_item['adjustments_neg']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('I' . $i, $cdrr_item['count']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('J' . $i, $cdrr_item['expiry_quant']);
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('K' . $i, $cdrr_item['expiry_date']);
@@ -2375,28 +2360,6 @@ class Order extends MY_Controller {
 			$objPHPExcel -> getActiveSheet() -> SetCellValue('H38', $fmaps_array[0]['total_infant']);
 			$objPHPExcel -> getActiveSheet() -> SetCellValue('H107', $fmaps_array[0]['pep_adult']);
 			$objPHPExcel -> getActiveSheet() -> SetCellValue('H108', $fmaps_array[0]['pep_child']);
-
-			if ($report_type == "D-MAPS") {
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('E124', $fmaps_array[0]['total_adult']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('G124', $fmaps_array[0]['total_child']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('E128', $fmaps_array[0]['diflucan_adult']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('G128', $fmaps_array[0]['diflucan_child']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('D134', $fmaps_array[0]['new_cm']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('E134', $fmaps_array[0]['revisit_cm']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('F134', $fmaps_array[0]['new_oc']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('G134', $fmaps_array[0]['revisit_oc']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('D138', $fmaps_array[0]['reports_expected']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('G138', $fmaps_array[0]['reports_actual']);
-			} else {
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('E164', $fmaps_array[0]['total_adult']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('G164', $fmaps_array[0]['total_child']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('E168', $fmaps_array[0]['diflucan_adult']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('G168', $fmaps_array[0]['diflucan_child']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('D174', $fmaps_array[0]['new_cm']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('E174', $fmaps_array[0]['revisit_cm']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('F174', $fmaps_array[0]['new_oc']);
-				$objPHPExcel -> getActiveSheet() -> SetCellValue('G174', $fmaps_array[0]['revisit_oc']);
-			}
 
 			$arr = $objPHPExcel -> getActiveSheet() -> toArray(null, true, true, true);
 			for ($i = 25; $i <= 120; $i++) {
@@ -3427,7 +3390,7 @@ class Order extends MY_Controller {
 						$objPHPExcel -> getActiveSheet() -> SetCellValue($columns[$index] . ($drug_count + 2), $order['dispensed_units']);
 						$objPHPExcel -> getActiveSheet() -> SetCellValue($columns[$index] . ($drug_count + 3), $order['losses']);
                         $objPHPExcel -> getActiveSheet() -> SetCellValue($columns[$index] . ($drug_count + 4), $order['adjustments']);
-                        $objPHPExcel -> getActiveSheet() -> SetCellValue($columns[$index] . ($drug_count + 5), $order['neg_adjustments']);
+                        $objPHPExcel -> getActiveSheet() -> SetCellValue($columns[$index] . ($drug_count + 5), $order['adjustments_neg']);
 						$objPHPExcel -> getActiveSheet() -> SetCellValue($columns[$index] . ($drug_count + 6), $order['count']);
 						$objPHPExcel -> getActiveSheet() -> SetCellValue($columns[$index] . ($drug_count +7), $order['out_of_stock']);
 						$objPHPExcel -> getActiveSheet() -> SetCellValue($columns[$index] . ($drug_count + 8), $order['resupply']);
@@ -3596,7 +3559,7 @@ class Order extends MY_Controller {
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('F' . $i, $cdrr_item['dispensed_packs']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('G' . $i, $cdrr_item['losses']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('H' . $i, $cdrr_item['adjustments']);
-                                    $objPHPExcel -> getActiveSheet() -> SetCellValue('I' . $i, $cdrr_item['neg_adjustmentss']);
+                                    $objPHPExcel -> getActiveSheet() -> SetCellValue('I' . $i, $cdrr_item['adjustments_neg']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('J' . $i, $cdrr_item['count']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('K' . $i, $cdrr_item['expiry_quant']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('L' . $i, $cdrr_item['expiry_date']);
@@ -3608,7 +3571,7 @@ class Order extends MY_Controller {
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('E' . $i, $cdrr_item['dispensed_units']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('F' . $i, $cdrr_item['losses']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('G' . $i, $cdrr_item['adjustments']);
-                                    $objPHPExcel -> getActiveSheet() -> SetCellValue('H' . $i, $cdrr_item['neg_adjustments']);
+                                    $objPHPExcel -> getActiveSheet() -> SetCellValue('H' . $i, $cdrr_item['adjustments_neg']);
 									$objPHPExcel -> getActiveSheet() -> SetCellValue('I' . $i, $cdrr_item['count']);
 									if ($cdrr_array[0]['code'] == "D-CDRR") {
 										$objPHPExcel -> getActiveSheet() -> SetCellValue('I' . $i, $cdrr_item['aggr_consumed']);
@@ -3800,7 +3763,7 @@ class Order extends MY_Controller {
 			    'dispensed_to_patients'=>0,
 			    'losses'=>0,
 			    'adjustments'=>0,
-          'neg_adjustments'=>0,
+          'adjustments_neg'=>0,
 			    'physical_stock'=>0,
 			    'expiry_qty'=>0,
 			    'expiry_month'=>"-",
@@ -3919,7 +3882,7 @@ class Order extends MY_Controller {
 				}
 			}
 			//Get Physical Count
-			$row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments']-$row['neg_adjustments'];
+			$row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments']-$row['adjustments_neg'];
 		    //Get Resupply
 		    $row['resupply'] = ($row['reported_consumed'] * 3) - $row['physical_stock'];
 		}
@@ -3930,7 +3893,7 @@ class Order extends MY_Controller {
                     $row[$i] = round(@$v / @$pack_size);
                 }
             }
-			$row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments']-$row['neg_adjustments'];
+			$row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments']-$row['adjustments_neg'];
                         $row['resupply'] = ($row['dispensed_to_patients'] * 3) - $row['physical_stock'];
         }
 
@@ -3944,7 +3907,7 @@ class Order extends MY_Controller {
 //			if($row['dispensed_to_patients'] >0){
 //			   $row['dispensed_packs']=round(@$row['dispensed_to_patients'] / @$pack_size);
 //			}
-                        $row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments']-$row['neg_adjustments'];
+                        $row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_to_patients'] - $row['losses'] + $row['adjustments']-$row['adjustments_neg'];
                         $row['resupply'] = ($row['dispensed_to_patients'] * 3) - $row['physical_stock'];
 		}
 
@@ -4029,7 +3992,7 @@ class Order extends MY_Controller {
 		//adjustments
 		$row['adjustments'] = @$row['adjustment_plus'];
         unset($row['adjustment_plus']);
-        $row['neg_adjustments']= @$row['adjustment__'];
+        $row['adjustments_neg']= @$row['adjustment__'];
 		unset($row['adjustment__']);
 
 		//Drugs with less than 6 months to expiry

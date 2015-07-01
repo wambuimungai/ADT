@@ -541,18 +541,18 @@ if ($facility_object -> service_pep == "1") {
             data:packets,
             success : function(data) {
 							// console.log(data);
-              $("#patient_numbers_72").val(data.cotrimo[0].total);
-                $("#patient_numbers_73").val(data.cotrimo[1].total);
-                $("#patient_numbers_74").val(data.dapsone[0].total);
-                $("#patient_numbers_75").val(data.dapsone[1].total);
-                $("#patient_numbers_76").val(data.isoniazid[0].total);
-                $("#patient_numbers_77").val(data.isoniazid[1].total);
-                $("#patient_numbers_78").val(data.diflucan[0].total);
-                $("#patient_numbers_79").val(data.diflucan[1].total);
-                $("#patient_numbers_80").val(data.new_oc_cm[0].total);
-                $("#patient_numbers_81").val(data.new_oc_cm[1].total);
-                $("#patient_numbers_82").val(data.revisit_oc_cm[0].total);
-                $("#patient_numbers_83").val(data.revisit_oc_cm[1].total);
+              $("#patient_numbers_232").val(data.cotrimo[0].total);
+                $("#patient_numbers_233").val(data.cotrimo[1].total);
+                $("#patient_numbers_234").val(data.dapsone[0].total);
+                $("#patient_numbers_235").val(data.dapsone[1].total);
+                $("#patient_numbers_236").val(data.isoniazid[0].total);
+                $("#patient_numbers_237").val(data.isoniazid[1].total);
+                $("#patient_numbers_238").val(data.diflucan[0].total);
+                $("#patient_numbers_239").val(data.diflucan[1].total);
+                $("#patient_numbers_240").val(data.new_oc_cm[0].total);
+                $("#patient_numbers_241").val(data.new_oc_cm[1].total);
+                $("#patient_numbers_242").val(data.revisit_oc_cm[0].total);
+                $("#patient_numbers_243").val(data.revisit_oc_cm[1].total);
 
 
             }
