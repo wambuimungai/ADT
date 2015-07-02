@@ -63,7 +63,7 @@ class Drugcode_management extends MY_Controller {
 		$data['suppliers'] = Drug_Source::getAllHydrated();
 		$data['classifications'] = Drug_Classification::getAllHydrated($access_level, "0");
 		$query = $this -> db -> query("SELECT s.id,CONCAT_WS('] ',CONCAT_WS(' [',s.name,s.abbreviation),CONCAT_WS(' | ',s.strength,s.formulation)) as name,s.packsize
-                                       FROM sync_drug s 
+                                       FROM new_sync_drug s
                                        WHERE s.id NOT IN(SELECT dc.map
                                                          FROM drugcode dc
                                                          WHERE dc.map !='0')
@@ -71,7 +71,7 @@ class Drugcode_management extends MY_Controller {
                                        ORDER BY name asc");
 
 		$data['edit_mappings'] = $query -> result_array();
-		$data['mappings'] = Sync_Drug::getActive();
+		$data['mappings'] = New_Sync_Drug::getActive();
         $data['instructions']=  Drug_instructions::getAllInstructions();
 		$this -> base_params($data);
 	}
@@ -189,7 +189,7 @@ class Drugcode_management extends MY_Controller {
 	}
 
 	public function enable($drugcode_id) {
-		
+
 		if($this ->input ->post('multiple')){
 			//Handle the array with all drugcodes that are to be merged
 			$drugcodes = $this -> input -> post('drug_codes');
@@ -231,8 +231,8 @@ class Drugcode_management extends MY_Controller {
 			//Filter
 			redirect('settings_management');
 		}
-		
-		
+
+
 	}
 
 	public function merge($primary_drugcode_id) {
@@ -287,11 +287,11 @@ class Drugcode_management extends MY_Controller {
 
 		return $this -> form_validation -> run();
 	}
-	
+
 	public function getNonMappedDrugs($param='0'){
 		$data = array();
 		$query = $this -> db -> query("SELECT s.id,CONCAT_WS('] ',CONCAT_WS(' [',s.name,s.abbreviation),CONCAT_WS(' | ',s.strength,s.formulation)) as name,s.packsize
-                                       FROM sync_drug s 
+                                       FROM new_sync_drug s
                                        WHERE s.id NOT IN(SELECT dc.map
                                                          FROM drugcode dc
                                                          WHERE dc.map !='0')
@@ -302,20 +302,20 @@ class Drugcode_management extends MY_Controller {
 			echo json_encode($data['sync_drugs']);
 			die();
 		}
-		
+
 		$data['non_mapped_drugs'] = Drugcode::getNonMappedDrugs();//Not mapped regimens
-		 
+
 		echo json_encode($data);
 	}
 
 	public function updateBulkMapping(){
 		$drug_id = $this ->input ->post("drug_id");
 		$map_id = $this ->input ->post("map_id");
-		
+
 		$query = $this ->db ->query("UPDATE drugcode SET map = '$map_id' WHERE id = '$drug_id'");
 		$aff = $this->db->affected_rows();
 		echo $aff;
-		
+
 	}
 
 	public function base_params($data) {

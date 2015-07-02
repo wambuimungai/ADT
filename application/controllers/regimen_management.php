@@ -93,10 +93,10 @@ class Regimen_management extends MY_Controller {
 
 		$data['regimen_categories'] = Regimen_Category::getAll();
 		$data['regimen_service_types'] = Regimen_Service_Type::getAll();
-        
+
         $sql = "SELECT s.id,s.code,s.name,sr.Name as category_name,s.category_id
-                FROM sync_regimen s 
-                LEFT JOIN sync_regimen_category sr ON sr.id = s.category_id
+                FROM new_sync_regimen s
+                LEFT JOIN new_sync_regimen_category sr ON sr.id = s.category_id
                 WHERE s.id NOT IN(SELECT r.map
                                   FROM regimen r
                                   WHERE r.map !='0')
@@ -104,8 +104,8 @@ class Regimen_management extends MY_Controller {
                 OR s.code LIKE '%x%'
                 ORDER BY s.category_id,s.code asc";
 		$query = $this -> db -> query($sql);
-        $unmapped_regimens = $query->result_array();                               
-        $sync_regimens = Sync_Regimen::getActive();
+        $unmapped_regimens = $query->result_array();
+        $sync_regimens = New_Sync_Regimen::getActive();
 		$data['edit_mappings'] = $unmapped_regimens;
 		$data['mappings'] = $sync_regimens;
 
@@ -179,10 +179,10 @@ class Regimen_management extends MY_Controller {
 			$this -> session -> set_userdata('msg_success', $results -> Regimen_Code . ' was enabled');
 			$this -> session -> set_flashdata('filter_datatable', $results -> Regimen_Code);
 			//Filter
-	
+
 			redirect('settings_management');
 		}
-		
+
 	}
 
 	public function disable($regimen_id) {
@@ -205,7 +205,7 @@ class Regimen_management extends MY_Controller {
 			//Filter
 			redirect('settings_management');
 		}
-		
+
 	}
 
 	public function merge($primary_drugcode_id) {
@@ -284,15 +284,15 @@ class Regimen_management extends MY_Controller {
 	}
 
 	public function getAllDrugs($regimen) {
-		$sql = "SELECT 
+		$sql = "SELECT
 		            rd.drugcode as drug_id,
-		            d.drug as drug_name 
-		        FROM regimen_drug rd  
-		        LEFT JOIN regimen r ON r.id=rd.regimen 
+		            d.drug as drug_name
+		        FROM regimen_drug rd
+		        LEFT JOIN regimen r ON r.id=rd.regimen
       			LEFT JOIN drugcode d ON d.id=rd.drugcode
-		        WHERE (rd.regimen='$regimen' or r.regimen_code LIKE '%oi%') 
+		        WHERE (rd.regimen='$regimen' or r.regimen_code LIKE '%oi%')
 		        AND (d.drug !='NULL')
-		        GROUP BY d.id 
+		        GROUP BY d.id
 		        ORDER BY d.drug ASC";
 		$query = $this -> db -> query($sql);
 		$results = $query -> result_array();
@@ -300,12 +300,12 @@ class Regimen_management extends MY_Controller {
 			echo json_encode($results);
 		}
 	}
-	
+
 	public function getNonMappedRegimens($param='0'){
 		$data = array();
 		$query = $this -> db -> query("SELECT s.id,s.code,s.name,sr.Name as category_name,s.category_id
-                                       FROM sync_regimen s 
-                                       LEFT JOIN sync_regimen_category sr ON sr.id = s.category_id
+                                       FROM new_sync_regimen s
+                                       LEFT JOIN new_sync_regimen_category sr ON sr.id = s.category_id
                                        WHERE s.id NOT IN(SELECT r.map
                                                          FROM regimen r
                                                          WHERE r.map !='0')
@@ -316,22 +316,22 @@ class Regimen_management extends MY_Controller {
 			echo json_encode($data['sync_regimen']);
 			die();
 		}
-		
+
 		$data['non_mapped_regimen'] = Regimen::getNonMappedRegimens();//Not mapped regimens
-		 
+
 		echo json_encode($data);
 	}
-	
+
 	public function updateBulkMapping(){
 		$regimen_id = $this ->input ->post("regimen_id");
 		$map_id = $this ->input ->post("map_id");
-		
+
 		$query = $this ->db ->query("UPDATE regimen SET map = '$map_id' WHERE id = '$regimen_id'");
 		$aff = $this->db->affected_rows();
 		echo $aff;
-		
+
 	}
-	
+
 	public function getFilteredRegiments(){
 		$age = $this ->input ->post("age");
 		$regimens = "";

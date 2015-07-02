@@ -1,9 +1,9 @@
-<?php 
+<?php
 foreach($results as $result){
-	
+
 }
 foreach ($expiries as $expiry) {
-	
+
 }
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@ foreach ($expiries as $expiry) {
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<style type="text/css">
 			.icondose {
-				background: #FFFFFF url(../../assets/images/dropdown.png) no-repeat 95% 4px;		
+				background: #FFFFFF url(../../assets/images/dropdown.png) no-repeat 95% 4px;
 			}
 		</style>
 		<script type="text/javascript">
@@ -23,43 +23,43 @@ foreach ($expiries as $expiry) {
 				var last_name="<?php echo strtoupper($result['last_name']); ?>";
 				$("#ccc_id").val("<?php echo $ccc_id; ?>");
 				$("#patient_details").val(first_name+" "+other_name+" "+last_name);
-				 
-				$("#dispensing_date").val("<?php echo @$result['dispensing_date'];?>"); 
-				$("#original_dispensing_date").val("<?php echo @$result['dispensing_date'];?>"); 
+
+				$("#dispensing_date").val("<?php echo @$result['dispensing_date'];?>");
+				$("#original_dispensing_date").val("<?php echo @$result['dispensing_date'];?>");
 				$("#original_drug").val("<?php echo @$result['drug_id']; ?>");
 				$("#original_expiry_date").val("<?php echo @$expiry['expiry_date']; ?>");
-				$("#dispensing_id").val("<?php echo @$record;?>"); 
+				$("#dispensing_id").val("<?php echo @$record;?>");
 				$("#batch_hidden").val("<?php echo @$result['batch_number']; ?>");
 				$("#qty_hidden").val("<?php echo @$result['quantity']; ?>");
-				$("#purpose").val("<?php echo @$result['visit_purpose'];?>"); 
-				$("#weight").val("<?php echo @$result['current_weight'];?>"); 
-				$("#height").val("<?php echo @$result['current_height'];?>"); 
-				$("#last_regimen").val("<?php echo @$result['last_regimen'];?>"); 
-				$("#current_regimen").val("<?php echo @$result['regimen'];?>"); 
-				$("#adherence").val("<?php echo @$result['adherence'];?>"); 
-				$("#non_adherence_reasons").val("<?php echo @$result['non_adherence_reason'];?>"); 
-				$("#regimen_change_reason").val("<?php echo @$result['regimen_change_reason'];?>"); 
+				$("#purpose").val("<?php echo @$result['visit_purpose'];?>");
+				$("#weight").val("<?php echo @$result['current_weight'];?>");
+				$("#height").val("<?php echo @$result['current_height'];?>");
+				$("#last_regimen").val("<?php echo @$result['last_regimen'];?>");
+				$("#current_regimen").val("<?php echo @$result['regimen'];?>");
+				$("#adherence").val("<?php echo @$result['adherence'];?>");
+				$("#non_adherence_reasons").val("<?php echo @$result['non_adherence_reason'];?>");
+				$("#regimen_change_reason").val("<?php echo @$result['regimen_change_reason'];?>");
 				$("#brand").val("<?php echo @$result['brand']; ?>");
 				$("#indication").val("<?php echo @$result['indication']; ?>");
 				$("#pill_count").val("<?php echo @$result['months_of_stock']; ?>");
 				$("#missed_pills").val("<?php echo @$result['missed_pills']; ?>");
 				$("#comment").val("<?php echo @$result['comment']; ?>");
-				
+
 				$("#original_drug").val("<?php echo $result['drug_id'];?>");
-				
+
 				if($("#last_regimen").val() !=""){
 					if($("#last_regimen").val() !=$("#current_regimen").val()){
-				      $("#regimen_change_reason_container").show();	
+				      $("#regimen_change_reason_container").show();
 				    }
 				}
-				
-				
-				
+
+
+
 				//Get Drugs in current_regimen
 				getRegimenDrugs($("#current_regimen").val());
-				
-				
-				
+
+
+
 			//Dynamically change the list of drugs once a current regimen is selected
 			$("#current_regimen").change(function() {
 			   var regimen = $("#current_regimen option:selected").attr("value");
@@ -74,9 +74,9 @@ foreach ($expiries as $expiry) {
 				}else{
 					  $("#regimen_change_reason_container").hide();
 					  $("#regimen_change_reason").val("");
-				}	
+				}
 			});
-				
+
 			//Attach date picker for date of dispensing
 	        $("#dispensing_date").datepicker({
 					yearRange : "-120:+0",
@@ -85,7 +85,7 @@ foreach ($expiries as $expiry) {
 					changeMonth : true,
 					changeYear : true
 			});
-			
+
 			//Add datepicker for the expiry date
 			$("#expiry").datepicker({
 					defaultDate : new Date(),
@@ -94,8 +94,8 @@ foreach ($expiries as $expiry) {
 					changeYear : true
 
 			});
-			
-			
+
+
 			//Set Delete Trigger
 			$("#delete_btn").click(function(){
 				$("#delete_trigger").val("1");
@@ -105,9 +105,9 @@ foreach ($expiries as $expiry) {
 				}else{
 					return false;
 				}
-				
+
 			});
-			
+
 	       //Function to display all Drugs in this regimen
 		   $("#current_regimen").change(function() {
 		   	  $("#drug option").remove();
@@ -115,7 +115,7 @@ foreach ($expiries as $expiry) {
 		   	  var current_regimen = $(this).val();
                           getRegimenDrugs(current_regimen);
 		   });
-		   
+
 		   function getRegimenDrugs(regimen){
 		   	  var base_url="<?php echo base_url();?>";
 		   	  var link=base_url+"regimen_management/getAllDrugs/"+regimen;
@@ -123,7 +123,7 @@ foreach ($expiries as $expiry) {
 				    url: link,
 				    type: 'POST',
 				    dataType: "json",
-				    success: function(data) {	
+				    success: function(data) {
 				    	$("#drug").append($("<option></option>").attr("value",'').text('--Select One--'));
 				    	$.each(data, function(i, jsondata){
 				    		$("#drug").append($("<option></option>").attr("value",jsondata.drug_id).text(jsondata.drug_name));
@@ -140,7 +140,7 @@ foreach ($expiries as $expiry) {
 				    }
 				});
 		   }
-		   
+
 		   //Event Checker for Drugs
 		   $("#drug").change(function(){
 		   	  $("#batch option").remove();
@@ -151,18 +151,18 @@ foreach ($expiries as $expiry) {
 		   	  $("#expiry").val("");
 			  $("#soh").val("");
 		   	  var drug = $(this).val();
-		   	  
+
               getDrugBatches(drug);
               getBrands(drug);
 		   });
-		   
+
 		   //Validate quantity dispensed
 		   $(".qty_disp").blur(function() {
 				checkQtyDispense();
 			});
-			
-			
-		   
+
+
+
 		   function getDrugBatches(drug){
 		   	  var base_url="<?php echo base_url();?>";
 		   	  var link=base_url+"inventory_management/getAllDrugsBatches/"+drug;
@@ -170,17 +170,17 @@ foreach ($expiries as $expiry) {
 				    url: link,
 				    type: 'POST',
 				    dataType: "json",
-				    success: function(data) {	
-				    	
+				    success: function(data) {
+
 				    	$("#batch").append($("<option></option>").attr("value",'').text('--Select One--'));
 				    	$.each(data, function(i, jsondata){
 				    		$("#batch").append($("<option></option>").attr("value",jsondata.batch_number).text(jsondata.batch_number));
 				    	    $("#unit").val(jsondata.unit);
 				    	    $("#dose").val(jsondata.dose);
 				    	    $("#duration").val(jsondata.duration);
-				    	    $("#qty_disp").val(jsondata.quantity); 
+				    	    $("#qty_disp").val(jsondata.quantity);
 				    	    if($("#original_drug").val()==drug){
-				    	    $("#batch").val($("#batch_hidden").val());   
+				    	    $("#batch").val($("#batch_hidden").val());
 				    	    $("#dose").val("<?php echo $result['dose']; ?>");
 				    	    $("#duration").val("<?php echo $result['duration']; ?>");
 				    	    $("#qty_disp").val("<?php echo $result['quantity']; ?>");
@@ -189,10 +189,10 @@ foreach ($expiries as $expiry) {
                         getDoses();
 				    	getBatchInfo();
 				    }
-				    
+
 				});
 		   }
-		   
+
 		   function getDoses(){
 		   	var url_dose="<?php echo base_url().'dispensement_management/getDoses'; ?>";
 					//Get doses
@@ -206,10 +206,10 @@ foreach ($expiries as $expiry) {
 				    	$.each(data,function(key,value){
 				    		$(".dose").append("<option value='"+value.Name+"'  dose_val='"+value.value+"' dose_freq='"+value.frequency+"' >"+value.Name+"</option> ");
 				   		});
-				   		$(".dose").val("<?php echo @$result['dose']; ?>");			    	
+				   		$(".dose").val("<?php echo @$result['dose']; ?>");
 				    });
 		   }
-		   
+
 		   function getBrands(drug){
 		   	 var base_url="<?php echo base_url();?>";
 		   	  var link=base_url+"inventory_management/getDrugsBrands/"+drug;
@@ -217,17 +217,17 @@ foreach ($expiries as $expiry) {
 				    url: link,
 				    type: 'POST',
 				    dataType: "json",
-				    success: function(data) {	
-				    	
+				    success: function(data) {
+
 				    	$("#brand").append($("<option></option>").attr("value",'').text('-Select One-'));
 				    	$.each(data, function(i, jsondata){
-				    		$("#brand").append($("<option></option>").attr("value",jsondata.id).text(jsondata.brand));			    		
+				    		$("#brand").append($("<option></option>").attr("value",jsondata.id).text(jsondata.brand));
 				    	});
-				    	
+
 				    }
 				});
 		   }
-		   
+
 		   $("#batch").change(function(){
 		   	if($(this).prop("selectedIndex")>1){
 		   		bootbox.alert("<h4>Expired Batch</h4>\
@@ -236,20 +236,20 @@ foreach ($expiries as $expiry) {
 		   	}
 		   	   getBatchInfo();
 		   });
-		   
+
 		   function getBatchInfo(){
 		   	 var base_url="<?php echo base_url();?>";
 			 var stock_type='<?php echo $ccc_id; ?>';
 		   	 var drug=$("#drug").val();
 		   	 var batch=$("#batch").val();
-		   	 var link=base_url+"inventory_management/getAllBacthDetails";
-		   	
+		   	 var link=base_url+"inventory_management/getAllBatchDetails";
+
 		   	 $.ajax({
 				    url: link,
 				    type: 'POST',
 					data: {"stock_type":stock_type,"selected_drug":drug,"batch_selected":batch},
 				    dataType: "json",
-				    success: function(data) {	
+				    success: function(data) {
 				    	console.log(stock_type+'');
 				    	$("#expiry").val(data[0].expiry_date);
 				    	if(data[0].balance<0){
@@ -257,18 +257,18 @@ foreach ($expiries as $expiry) {
 				    	}else{
 				    		$("#soh").val(data[0].balance);
 				    	}
-				    	
+
 				    }
 				});
 		   }
-		   
+
 		   //check button wen submitted
 		   		$(".my_btn").click(function(){
 		     		var btn_id=$(this).attr("id");
 		     		$("#btn_id").val(btn_id);
 		     	});
-		   
-		   		  
+
+
 		});
 			function checkQtyDispense(){
 				var selected_value = $("#qty_disp").attr("value");
@@ -278,7 +278,7 @@ foreach ($expiries as $expiry) {
 				var current_qty=$("#qty_disp").val();
 				var difference = original_qty - current_qty;
 				var stock_validity = parseInt(stock_at_hand) + parseInt(difference);
-				
+
 				var dtToday = Date.parse(new Date());
 				$("#qty_disp").css("background-color","white");
 				$("#qty_disp").removeClass("input_error");
@@ -286,7 +286,7 @@ foreach ($expiries as $expiry) {
 					bootbox.alert("<h4>Quantity-Stock  Alert</h4>\n\<hr/><center>Quantity Cannot Be larger Than Stock at Hand</center>");
 					$("#qty_disp").css("background-color","red");
 					$("#qty_disp").addClass("input_error");
-					return false;	
+					return false;
 				}else if((dtToday>expiry_batch) && original_qty!=current_qty){//If value is being edited and batch has expired, should not allow editing
 					bootbox.alert("<h4>Expiry Date  Alert</h4>\n\<hr/><center>The batch you are trying to edit has already expired</center>");
 					return false;
@@ -295,13 +295,13 @@ foreach ($expiries as $expiry) {
 					$("#qty_disp").css("background-color","white");
 					$("#qty_disp").removeClass("input_error");
 					return true;
-				}	
-				
+				}
+
 			}
 			 //Function to validate required fields
 		    function processData(form) {
 		          var form_selector = "#" + form;
-		          var validated = $(form_selector).validationEngine('validate');                 
+		          var validated = $(form_selector).validationEngine('validate');
 		            if(!validated) {
 		            	if($("#btn_id").val()=="delete_btn"){
 		            	  return true;
@@ -312,17 +312,17 @@ foreach ($expiries as $expiry) {
 		            	//Validate quantity dispensed
 		            	var check=checkQtyDispense();
 		            	var last_row=$('#drugs_table tr:last');
-                                
+
 		            	if(check === false){
                             return false;
 		            	}
-                        else if(last_row.find(".qty_disp").hasClass("input_error")){ 
+                        else if(last_row.find(".qty_disp").hasClass("input_error")){
                            return false;
 						}
 						else{
                            return true;
 						}
-                                             
+
 		            }
 		     }
 		</script>
@@ -385,7 +385,7 @@ foreach ($expiries as $expiry) {
 						<label><span class='astericks'>*</span>Purpose of Visit</label>
 						<select type="text"name="purpose" id="purpose" class="validate[required]"/>
 						<option value="">--Select One--</option>
-									<?php 
+									<?php
 									foreach($purposes as $purpose){
 										echo "<option value='".$purpose['id']."'>".$purpose['Name']."</option>";
 									}
@@ -408,7 +408,7 @@ foreach ($expiries as $expiry) {
 							<label>Last Regimen Dispensed</label>
 							<select name="last_regimen" id="last_regimen" />
 							<option value="">-Select One--</option>
-										<?php 
+										<?php
 									       foreach($regimens as $regimen){
 										     echo "<option value='".$regimen['id']."'>".$regimen['Regimen_Code']." | ".$regimen['Regimen_Desc']."</option>";
 									       }
@@ -419,7 +419,7 @@ foreach ($expiries as $expiry) {
 							<label><span class='astericks'>*</span>Current Regimen</label>
 							<select name="current_regimen" id="current_regimen"  class="validate[required]"/>
 							<option value="">-Select One--</option>
-										<?php 
+										<?php
 									       foreach($regimens as $regimen){
 										     echo "<option value='".$regimen['id']."'>".$regimen['Regimen_Code']." | ".$regimen['Regimen_Desc']."</option>";
 									       }
@@ -449,7 +449,7 @@ foreach ($expiries as $expiry) {
 							<label> Poor/Fair Adherence Reasons </label>
 							<select type="text"name="non_adherence_reasons" id="non_adherence_reasons">
 								<option value="">-Select One--</option>
-										<?php 
+										<?php
 									       foreach($non_adherence_reasons as $reasons){
 										     echo "<option value='".$reasons['id']."'>".$reasons['Name']."</option>";
 									       }
@@ -507,7 +507,7 @@ foreach ($expiries as $expiry) {
 					<td>
 					<select name="indication" id="indication" class="indication input-small">
 					<option value=" ">None</option>
-					<?php 
+					<?php
 					foreach($indications as $indication){
 						echo "<option value='".$indication['Indication']."'>".$indication['Indication']." | ".$indication['Name']."</option>";
 					}
@@ -524,7 +524,7 @@ foreach ($expiries as $expiry) {
 					</td>
 					</tr>
 				</tbody>
-			
+
 			</table>
 		</div>
 		<div id="submit_section">

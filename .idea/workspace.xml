@@ -5,36 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb598a3c-bd85-483a-a42c-b4d6f9900eec" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\14096443121cd61b25796ccb6cbf22d8e1527cc816.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1409987786ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\14108764721cd61b25796ccb6cbf22d8e1527cc816.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1412090863ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1413871032ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1414998763ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\14150076831cd61b25796ccb6cbf22d8e1527cc816.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\14151749471cd61b25796ccb6cbf22d8e1527cc816.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1415255025ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\14160598981cd61b25796ccb6cbf22d8e1527cc816.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1416291834ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1416838227ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1416838443ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1416952151ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1417070420ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1417598114ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\14213114121cd61b25796ccb6cbf22d8e1527cc816.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1421311412ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\14222722951cd61b25796ccb6cbf22d8e1527cc816.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1422272295ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\xampp\htdocs\ADT\assets\cache\1424854261ed02267cd3d575ee044c19024723e9cf.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/scripts/Merged_JS.js" afterPath="$PROJECT_DIR$/assets/scripts/Merged_JS.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/auto_management.php" afterPath="$PROJECT_DIR$/application/controllers/auto_management.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/orders/cdrr_template.php" afterPath="$PROJECT_DIR$/application/views/orders/cdrr_template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/orders/fmap_template.php" afterPath="$PROJECT_DIR$/application/views/orders/fmap_template.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/sections/link.php" afterPath="$PROJECT_DIR$/application/views/sections/link.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/nascop.txt" afterPath="$PROJECT_DIR$/assets/nascop.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/order.php" afterPath="$PROJECT_DIR$/application/controllers/order.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/viral_load.json" afterPath="$PROJECT_DIR$/assets/viral_load.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -83,89 +54,89 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="order.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="order.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="50.909092" vertical-offset="9226" max-vertical-offset="69020">
-              <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.33269963" vertical-offset="6319" max-vertical-offset="69020">
+              <caret line="382" column="8" selection-start-line="382" selection-start-column="8" selection-end-line="382" selection-end-column="8" />
               <folding>
-                <marker date="1435737352493" expanded="true" signature="3481:3544" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="4257:4304" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="4374:4456" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="14587:14972" placeholder="SELECT c.id,..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="15018:15385" placeholder="SELECT m.id,..maps..." />
-                <marker date="1435737352493" expanded="true" signature="15655:16376" placeholder="SELECT c.per..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="21771:22150" placeholder="SELECT sd.id..cdrr_item..." />
-                <marker date="1435737352493" expanded="true" signature="26675:26956" placeholder="SELECT rc.id..." />
-                <marker date="1435737352493" expanded="true" signature="28966:29118" placeholder="select * fro..." />
-                <marker date="1435737352493" expanded="true" signature="51763:52288" placeholder="SELECT c.*,c..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="53185:53754" placeholder="SELECT m.*,m..maps..." />
-                <marker date="1435737352493" expanded="true" signature="54458:54983" placeholder="SELECT c.*,c..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="55627:56215" placeholder="SELECT m.*,m..maps..." />
-                <marker date="1435737352493" expanded="true" signature="59175:59214" placeholder="SELECT statu..." />
-                <marker date="1435737352493" expanded="true" signature="59538:59569" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="59593:59638" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="59662:59702" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="59824:59855" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="59879:59920" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="59944:59984" placeholder="DELETE FROM ..." />
-                <marker date="1435737352493" expanded="true" signature="77280:77535" placeholder="SELECT sd.id..new_sync_drug..." />
-                <marker date="1435737352493" expanded="true" signature="78108:78231" placeholder="SELECT r.map..regimen..." />
-                <marker date="1435737352493" expanded="true" signature="78535:78654" placeholder="SELECT sr.id..new_sync_regimen..." />
-                <marker date="1435737352493" expanded="true" signature="79232:80026" placeholder="SELECT c.*,c..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="89167:89834" placeholder="SELECT m.*,m..maps..." />
-                <marker date="1435737352493" expanded="true" signature="96965:97291" placeholder="SELECT ci.dr..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="97718:98044" placeholder="SELECT ci.dr..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="98899:99921" placeholder="SELECT trans..id..." />
-                <marker date="1435737352493" expanded="true" signature="98983:99277" placeholder="SELECT id, n..transaction_type..." />
-                <marker date="1435737352493" expanded="true" signature="99306:99851" placeholder="SELECT dsm.t..drug_stock_movement..." />
-                <marker date="1435737352493" expanded="true" signature="101445:102528" placeholder="SELECT dispe..SUM..." />
-                <marker date="1435737352493" expanded="true" signature="101522:102018" placeholder="SELECT SUM(d..drug_stock_movement..." />
-                <marker date="1435737352493" expanded="true" signature="102042:102518" placeholder="SELECT SUM(d..drug_stock_movement..." />
-                <marker date="1435737352493" expanded="true" signature="102955:104011" placeholder="SELECT phy.i..drug_id..." />
-                <marker date="1435737352493" expanded="true" signature="103053:103488" placeholder="SELECT dsb.d..drug_stock_balance..." />
-                <marker date="1435737352493" expanded="true" signature="103516:103986" placeholder="SELECT dsb.d..drug_stock_balance..." />
-                <marker date="1435737352493" expanded="true" signature="105066:106088" placeholder="SELECT trans..id..." />
-                <marker date="1435737352493" expanded="true" signature="105150:105444" placeholder="SELECT id, n..transaction_type..." />
-                <marker date="1435737352493" expanded="true" signature="105473:106018" placeholder="SELECT dsm.t..drug_stock_movement..." />
-                <marker date="1435737352493" expanded="true" signature="107647:108264" placeholder="SELECT m.id,..maps..." />
-                <marker date="1435737352493" expanded="true" signature="111348:111554" placeholder="SELECT temp...regimen_id..." />
-                <marker date="1435737352493" expanded="true" signature="111426:111513" placeholder="SELECT DISTI..maps_item..." />
-                <marker date="1435737352493" expanded="true" signature="111982:112054" placeholder="SELECT m.* F..maps..." />
-                <marker date="1435737352493" expanded="true" signature="114961:115072" placeholder="SELECT id as..maps_item..." />
-                <marker date="1435737352493" expanded="true" signature="115574:116131" placeholder="SELECT count..patient..." />
-                <marker date="1435737352493" expanded="true" signature="116529:117059" placeholder="SELECT IF(RO..patient..." />
-                <marker date="1435737352493" expanded="true" signature="117088:117680" placeholder="SELECT IF( R..patient..." />
-                <marker date="1435737352493" expanded="true" signature="117710:118348" placeholder="SELECT IF( R..patient..." />
-                <marker date="1435737352493" expanded="true" signature="118377:118902" placeholder="SELECT IF(ro..patient..." />
-                <marker date="1435737352493" expanded="true" signature="118932:119917" placeholder="SELECT IF( p..patient..." />
-                <marker date="1435737352493" expanded="true" signature="119951:121317" placeholder="SELECT IF( t..patient_id..." />
-                <marker date="1435737352493" expanded="true" signature="120153:120457" placeholder="SELECT DISTI..patient_visit..." />
-                <marker date="1435737352493" expanded="true" signature="120579:121065" placeholder="SELECT DISTI..patient..." />
-                <marker date="1435737352493" expanded="true" signature="121794:122222" placeholder="SELECT count..regimen..." />
-                <marker date="1435737352493" expanded="true" signature="122837:123294" placeholder="SELECT COUNT..v_patient_visits..." />
-                <marker date="1435737352493" expanded="true" signature="123502:123938" placeholder="SELECT COUNT..patient..." />
-                <marker date="1435737352493" expanded="true" signature="124181:124581" placeholder="SELECT COUNT..patient..." />
-                <marker date="1435737352493" expanded="true" signature="124806:125201" placeholder="SELECT COUNT..patient..." />
-                <marker date="1435737352493" expanded="true" signature="125453:125837" placeholder="SELECT COUNT..patient..." />
-                <marker date="1435737352493" expanded="true" signature="126078:126408" placeholder="SELECT IF(ro..patient..." />
-                <marker date="1435737352493" expanded="true" signature="126738:126906" placeholder="SELECT COUNT..new_sync_facility..." />
-                <marker date="1435737352493" expanded="true" signature="127356:127673" placeholder="SELECT COUNT..." />
-                <marker date="1435737352493" expanded="true" signature="128627:128653" placeholder="update regim..." />
-                <marker date="1435737352493" expanded="true" signature="130251:130632" placeholder="SELECT sf.na..new_sync_facility..." />
-                <marker date="1435737352493" expanded="true" signature="131985:132636" placeholder="SELECT SUM(c..." />
-                <marker date="1435737352493" expanded="true" signature="136361:136599" placeholder="SELECT * FRO..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="139887:140148" placeholder="SELECT * FRO..maps..." />
-                <marker date="1435737352493" expanded="true" signature="142491:143293" placeholder="SELECT c.*,c..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="149679:150346" placeholder="SELECT m.*,m..maps..." />
-                <marker date="1435737352493" expanded="true" signature="158609:159008" placeholder="SELECT ci.dr..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="159332:159711" placeholder="SELECT ci.dr..cdrr..." />
-                <marker date="1435737352493" expanded="true" signature="160172:160660" placeholder="SELECT SUM(d..drug_stock_movement..." />
-                <marker date="1435737352493" expanded="true" signature="163888:164827" placeholder="SELECT trans..id..." />
-                <marker date="1435737352493" expanded="true" signature="163972:164191" placeholder="SELECT id, n..transaction_type..." />
-                <marker date="1435737352493" expanded="true" signature="164234:164757" placeholder="SELECT dsm.t..drug_stock_movement..." />
-                <marker date="1435737352493" expanded="true" signature="165834:166334" placeholder="SELECT SUM(d..drugcode..." />
-                <marker date="1435737352493" expanded="true" signature="166588:166961" placeholder="SELECT DATED..drug_stock_movement..." />
+                <marker date="1435752000702" expanded="true" signature="3481:3544" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="4257:4304" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="4374:4456" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="14587:14972" placeholder="SELECT c.id,..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="15018:15385" placeholder="SELECT m.id,..maps..." />
+                <marker date="1435752000702" expanded="true" signature="15655:16376" placeholder="SELECT c.per..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="21771:22150" placeholder="SELECT sd.id..cdrr_item..." />
+                <marker date="1435752000702" expanded="true" signature="26675:26956" placeholder="SELECT rc.id..." />
+                <marker date="1435752000702" expanded="true" signature="28966:29118" placeholder="select * fro..." />
+                <marker date="1435752000702" expanded="true" signature="51763:52288" placeholder="SELECT c.*,c..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="53185:53754" placeholder="SELECT m.*,m..maps..." />
+                <marker date="1435752000702" expanded="true" signature="54458:54983" placeholder="SELECT c.*,c..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="55627:56215" placeholder="SELECT m.*,m..maps..." />
+                <marker date="1435752000702" expanded="true" signature="59175:59214" placeholder="SELECT statu..." />
+                <marker date="1435752000702" expanded="true" signature="59538:59569" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="59593:59638" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="59662:59702" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="59824:59855" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="59879:59920" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="59944:59984" placeholder="DELETE FROM ..." />
+                <marker date="1435752000702" expanded="true" signature="77280:77535" placeholder="SELECT sd.id..new_sync_drug..." />
+                <marker date="1435752000702" expanded="true" signature="78108:78231" placeholder="SELECT r.map..regimen..." />
+                <marker date="1435752000702" expanded="true" signature="78535:78654" placeholder="SELECT sr.id..new_sync_regimen..." />
+                <marker date="1435752000702" expanded="true" signature="79232:80026" placeholder="SELECT c.*,c..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="89167:89834" placeholder="SELECT m.*,m..maps..." />
+                <marker date="1435752000702" expanded="true" signature="96965:97291" placeholder="SELECT ci.dr..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="97718:98044" placeholder="SELECT ci.dr..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="98899:99921" placeholder="SELECT trans..id..." />
+                <marker date="1435752000702" expanded="true" signature="98983:99277" placeholder="SELECT id, n..transaction_type..." />
+                <marker date="1435752000702" expanded="true" signature="99306:99851" placeholder="SELECT dsm.t..drug_stock_movement..." />
+                <marker date="1435752000702" expanded="true" signature="101445:102528" placeholder="SELECT dispe..SUM..." />
+                <marker date="1435752000702" expanded="true" signature="101522:102018" placeholder="SELECT SUM(d..drug_stock_movement..." />
+                <marker date="1435752000702" expanded="true" signature="102042:102518" placeholder="SELECT SUM(d..drug_stock_movement..." />
+                <marker date="1435752000702" expanded="true" signature="102955:104011" placeholder="SELECT phy.i..drug_id..." />
+                <marker date="1435752000702" expanded="true" signature="103053:103488" placeholder="SELECT dsb.d..drug_stock_balance..." />
+                <marker date="1435752000702" expanded="true" signature="103516:103986" placeholder="SELECT dsb.d..drug_stock_balance..." />
+                <marker date="1435752000702" expanded="true" signature="105066:106088" placeholder="SELECT trans..id..." />
+                <marker date="1435752000702" expanded="true" signature="105150:105444" placeholder="SELECT id, n..transaction_type..." />
+                <marker date="1435752000702" expanded="true" signature="105473:106018" placeholder="SELECT dsm.t..drug_stock_movement..." />
+                <marker date="1435752000702" expanded="true" signature="107647:108264" placeholder="SELECT m.id,..maps..." />
+                <marker date="1435752000702" expanded="true" signature="111348:111554" placeholder="SELECT temp...regimen_id..." />
+                <marker date="1435752000702" expanded="true" signature="111426:111513" placeholder="SELECT DISTI..maps_item..." />
+                <marker date="1435752000702" expanded="true" signature="111982:112054" placeholder="SELECT m.* F..maps..." />
+                <marker date="1435752000702" expanded="true" signature="114961:115072" placeholder="SELECT id as..maps_item..." />
+                <marker date="1435752000702" expanded="true" signature="115574:116131" placeholder="SELECT count..patient..." />
+                <marker date="1435752000702" expanded="true" signature="116529:117059" placeholder="SELECT IF(RO..patient..." />
+                <marker date="1435752000702" expanded="true" signature="117088:117680" placeholder="SELECT IF( R..patient..." />
+                <marker date="1435752000702" expanded="true" signature="117710:118348" placeholder="SELECT IF( R..patient..." />
+                <marker date="1435752000702" expanded="true" signature="118377:118902" placeholder="SELECT IF(ro..patient..." />
+                <marker date="1435752000702" expanded="true" signature="118932:119917" placeholder="SELECT IF( p..patient..." />
+                <marker date="1435752000702" expanded="true" signature="119951:121317" placeholder="SELECT IF( t..patient_id..." />
+                <marker date="1435752000702" expanded="true" signature="120153:120457" placeholder="SELECT DISTI..patient_visit..." />
+                <marker date="1435752000702" expanded="true" signature="120579:121065" placeholder="SELECT DISTI..patient..." />
+                <marker date="1435752000702" expanded="true" signature="121794:122222" placeholder="SELECT count..regimen..." />
+                <marker date="1435752000702" expanded="true" signature="122837:123294" placeholder="SELECT COUNT..v_patient_visits..." />
+                <marker date="1435752000702" expanded="true" signature="123502:123938" placeholder="SELECT COUNT..patient..." />
+                <marker date="1435752000702" expanded="true" signature="124181:124581" placeholder="SELECT COUNT..patient..." />
+                <marker date="1435752000702" expanded="true" signature="124806:125201" placeholder="SELECT COUNT..patient..." />
+                <marker date="1435752000702" expanded="true" signature="125453:125837" placeholder="SELECT COUNT..patient..." />
+                <marker date="1435752000702" expanded="true" signature="126078:126408" placeholder="SELECT IF(ro..patient..." />
+                <marker date="1435752000702" expanded="true" signature="126738:126906" placeholder="SELECT COUNT..new_sync_facility..." />
+                <marker date="1435752000702" expanded="true" signature="127356:127673" placeholder="SELECT COUNT..." />
+                <marker date="1435752000702" expanded="true" signature="128627:128653" placeholder="update regim..." />
+                <marker date="1435752000702" expanded="true" signature="130251:130632" placeholder="SELECT sf.na..new_sync_facility..." />
+                <marker date="1435752000702" expanded="true" signature="131985:132636" placeholder="SELECT SUM(c..." />
+                <marker date="1435752000702" expanded="true" signature="136361:136599" placeholder="SELECT * FRO..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="139887:140148" placeholder="SELECT * FRO..maps..." />
+                <marker date="1435752000702" expanded="true" signature="142491:143293" placeholder="SELECT c.*,c..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="149679:150346" placeholder="SELECT m.*,m..maps..." />
+                <marker date="1435752000702" expanded="true" signature="158609:159008" placeholder="SELECT ci.dr..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="159332:159711" placeholder="SELECT ci.dr..cdrr..." />
+                <marker date="1435752000702" expanded="true" signature="160172:160660" placeholder="SELECT SUM(d..drug_stock_movement..." />
+                <marker date="1435752000702" expanded="true" signature="163888:164827" placeholder="SELECT trans..id..." />
+                <marker date="1435752000702" expanded="true" signature="163972:164191" placeholder="SELECT id, n..transaction_type..." />
+                <marker date="1435752000702" expanded="true" signature="164234:164757" placeholder="SELECT dsm.t..drug_stock_movement..." />
+                <marker date="1435752000702" expanded="true" signature="165834:166334" placeholder="SELECT SUM(d..drugcode..." />
+                <marker date="1435752000702" expanded="true" signature="166588:166961" placeholder="SELECT DATED..drug_stock_movement..." />
               </folding>
             </state>
           </provider>
@@ -174,7 +145,7 @@
       <file leaf-file-name="cdrr_template.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/orders/cdrr_template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="23.50909" vertical-offset="11867" max-vertical-offset="14127">
+            <state vertical-scroll-proportion="36.49091" vertical-offset="12581" max-vertical-offset="14127">
               <caret line="622" column="40" selection-start-line="622" selection-start-column="40" selection-end-line="622" selection-end-column="40" />
               <folding>
                 <marker date="1435671806067" expanded="true" signature="7563:7598" placeholder="..." />
@@ -203,11 +174,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2054054" vertical-offset="685" max-vertical-offset="1496">
-              <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
+            <state vertical-scroll-proportion="-4.3846154" vertical-offset="685" max-vertical-offset="1496">
+              <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -248,9 +219,9 @@
         <option value="$PROJECT_DIR$/application/controllers/auto_management.php" />
         <option value="$PROJECT_DIR$/assets/nascop.txt" />
         <option value="$PROJECT_DIR$/assets/scripts/Merged_JS.js" />
-        <option value="$PROJECT_DIR$/application/controllers/order.php" />
         <option value="$PROJECT_DIR$/application/views/orders/fmap_template.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/controllers/order.php" />
       </list>
     </option>
   </component>
@@ -375,6 +346,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="orders" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ADT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ADT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -992,9 +981,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/orders/fmap_template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.5" vertical-offset="8937" max-vertical-offset="10659">
+          <caret line="554" column="39" selection-start-line="554" selection-start-column="39" selection-end-line="554" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/orders/cdrr_template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="23.50909" vertical-offset="11867" max-vertical-offset="14127">
+        <state vertical-scroll-proportion="36.49091" vertical-offset="12581" max-vertical-offset="14127">
           <caret line="622" column="40" selection-start-line="622" selection-start-column="40" selection-end-line="622" selection-end-column="40" />
           <folding>
             <marker date="1435671806067" expanded="true" signature="7563:7598" placeholder="..." />
@@ -1022,105 +1019,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/orders/fmap_template.php">
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.5" vertical-offset="8937" max-vertical-offset="10659">
-          <caret line="554" column="39" selection-start-line="554" selection-start-column="39" selection-end-line="554" selection-end-column="39" />
+        <state vertical-scroll-proportion="-4.3846154" vertical-offset="685" max-vertical-offset="1496">
+          <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="50.909092" vertical-offset="9226" max-vertical-offset="69020">
-          <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33269963" vertical-offset="6319" max-vertical-offset="69020">
+          <caret line="382" column="8" selection-start-line="382" selection-start-column="8" selection-end-line="382" selection-end-column="8" />
           <folding>
-            <marker date="1435737352493" expanded="true" signature="3481:3544" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="4257:4304" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="4374:4456" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="14587:14972" placeholder="SELECT c.id,..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="15018:15385" placeholder="SELECT m.id,..maps..." />
-            <marker date="1435737352493" expanded="true" signature="15655:16376" placeholder="SELECT c.per..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="21771:22150" placeholder="SELECT sd.id..cdrr_item..." />
-            <marker date="1435737352493" expanded="true" signature="26675:26956" placeholder="SELECT rc.id..." />
-            <marker date="1435737352493" expanded="true" signature="28966:29118" placeholder="select * fro..." />
-            <marker date="1435737352493" expanded="true" signature="51763:52288" placeholder="SELECT c.*,c..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="53185:53754" placeholder="SELECT m.*,m..maps..." />
-            <marker date="1435737352493" expanded="true" signature="54458:54983" placeholder="SELECT c.*,c..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="55627:56215" placeholder="SELECT m.*,m..maps..." />
-            <marker date="1435737352493" expanded="true" signature="59175:59214" placeholder="SELECT statu..." />
-            <marker date="1435737352493" expanded="true" signature="59538:59569" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="59593:59638" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="59662:59702" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="59824:59855" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="59879:59920" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="59944:59984" placeholder="DELETE FROM ..." />
-            <marker date="1435737352493" expanded="true" signature="77280:77535" placeholder="SELECT sd.id..new_sync_drug..." />
-            <marker date="1435737352493" expanded="true" signature="78108:78231" placeholder="SELECT r.map..regimen..." />
-            <marker date="1435737352493" expanded="true" signature="78535:78654" placeholder="SELECT sr.id..new_sync_regimen..." />
-            <marker date="1435737352493" expanded="true" signature="79232:80026" placeholder="SELECT c.*,c..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="89167:89834" placeholder="SELECT m.*,m..maps..." />
-            <marker date="1435737352493" expanded="true" signature="96965:97291" placeholder="SELECT ci.dr..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="97718:98044" placeholder="SELECT ci.dr..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="98899:99921" placeholder="SELECT trans..id..." />
-            <marker date="1435737352493" expanded="true" signature="98983:99277" placeholder="SELECT id, n..transaction_type..." />
-            <marker date="1435737352493" expanded="true" signature="99306:99851" placeholder="SELECT dsm.t..drug_stock_movement..." />
-            <marker date="1435737352493" expanded="true" signature="101445:102528" placeholder="SELECT dispe..SUM..." />
-            <marker date="1435737352493" expanded="true" signature="101522:102018" placeholder="SELECT SUM(d..drug_stock_movement..." />
-            <marker date="1435737352493" expanded="true" signature="102042:102518" placeholder="SELECT SUM(d..drug_stock_movement..." />
-            <marker date="1435737352493" expanded="true" signature="102955:104011" placeholder="SELECT phy.i..drug_id..." />
-            <marker date="1435737352493" expanded="true" signature="103053:103488" placeholder="SELECT dsb.d..drug_stock_balance..." />
-            <marker date="1435737352493" expanded="true" signature="103516:103986" placeholder="SELECT dsb.d..drug_stock_balance..." />
-            <marker date="1435737352493" expanded="true" signature="105066:106088" placeholder="SELECT trans..id..." />
-            <marker date="1435737352493" expanded="true" signature="105150:105444" placeholder="SELECT id, n..transaction_type..." />
-            <marker date="1435737352493" expanded="true" signature="105473:106018" placeholder="SELECT dsm.t..drug_stock_movement..." />
-            <marker date="1435737352493" expanded="true" signature="107647:108264" placeholder="SELECT m.id,..maps..." />
-            <marker date="1435737352493" expanded="true" signature="111348:111554" placeholder="SELECT temp...regimen_id..." />
-            <marker date="1435737352493" expanded="true" signature="111426:111513" placeholder="SELECT DISTI..maps_item..." />
-            <marker date="1435737352493" expanded="true" signature="111982:112054" placeholder="SELECT m.* F..maps..." />
-            <marker date="1435737352493" expanded="true" signature="114961:115072" placeholder="SELECT id as..maps_item..." />
-            <marker date="1435737352493" expanded="true" signature="115574:116131" placeholder="SELECT count..patient..." />
-            <marker date="1435737352493" expanded="true" signature="116529:117059" placeholder="SELECT IF(RO..patient..." />
-            <marker date="1435737352493" expanded="true" signature="117088:117680" placeholder="SELECT IF( R..patient..." />
-            <marker date="1435737352493" expanded="true" signature="117710:118348" placeholder="SELECT IF( R..patient..." />
-            <marker date="1435737352493" expanded="true" signature="118377:118902" placeholder="SELECT IF(ro..patient..." />
-            <marker date="1435737352493" expanded="true" signature="118932:119917" placeholder="SELECT IF( p..patient..." />
-            <marker date="1435737352493" expanded="true" signature="119951:121317" placeholder="SELECT IF( t..patient_id..." />
-            <marker date="1435737352493" expanded="true" signature="120153:120457" placeholder="SELECT DISTI..patient_visit..." />
-            <marker date="1435737352493" expanded="true" signature="120579:121065" placeholder="SELECT DISTI..patient..." />
-            <marker date="1435737352493" expanded="true" signature="121794:122222" placeholder="SELECT count..regimen..." />
-            <marker date="1435737352493" expanded="true" signature="122837:123294" placeholder="SELECT COUNT..v_patient_visits..." />
-            <marker date="1435737352493" expanded="true" signature="123502:123938" placeholder="SELECT COUNT..patient..." />
-            <marker date="1435737352493" expanded="true" signature="124181:124581" placeholder="SELECT COUNT..patient..." />
-            <marker date="1435737352493" expanded="true" signature="124806:125201" placeholder="SELECT COUNT..patient..." />
-            <marker date="1435737352493" expanded="true" signature="125453:125837" placeholder="SELECT COUNT..patient..." />
-            <marker date="1435737352493" expanded="true" signature="126078:126408" placeholder="SELECT IF(ro..patient..." />
-            <marker date="1435737352493" expanded="true" signature="126738:126906" placeholder="SELECT COUNT..new_sync_facility..." />
-            <marker date="1435737352493" expanded="true" signature="127356:127673" placeholder="SELECT COUNT..." />
-            <marker date="1435737352493" expanded="true" signature="128627:128653" placeholder="update regim..." />
-            <marker date="1435737352493" expanded="true" signature="130251:130632" placeholder="SELECT sf.na..new_sync_facility..." />
-            <marker date="1435737352493" expanded="true" signature="131985:132636" placeholder="SELECT SUM(c..." />
-            <marker date="1435737352493" expanded="true" signature="136361:136599" placeholder="SELECT * FRO..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="139887:140148" placeholder="SELECT * FRO..maps..." />
-            <marker date="1435737352493" expanded="true" signature="142491:143293" placeholder="SELECT c.*,c..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="149679:150346" placeholder="SELECT m.*,m..maps..." />
-            <marker date="1435737352493" expanded="true" signature="158609:159008" placeholder="SELECT ci.dr..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="159332:159711" placeholder="SELECT ci.dr..cdrr..." />
-            <marker date="1435737352493" expanded="true" signature="160172:160660" placeholder="SELECT SUM(d..drug_stock_movement..." />
-            <marker date="1435737352493" expanded="true" signature="163888:164827" placeholder="SELECT trans..id..." />
-            <marker date="1435737352493" expanded="true" signature="163972:164191" placeholder="SELECT id, n..transaction_type..." />
-            <marker date="1435737352493" expanded="true" signature="164234:164757" placeholder="SELECT dsm.t..drug_stock_movement..." />
-            <marker date="1435737352493" expanded="true" signature="165834:166334" placeholder="SELECT SUM(d..drugcode..." />
-            <marker date="1435737352493" expanded="true" signature="166588:166961" placeholder="SELECT DATED..drug_stock_movement..." />
+            <marker date="1435752000702" expanded="true" signature="3481:3544" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="4257:4304" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="4374:4456" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="14587:14972" placeholder="SELECT c.id,..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="15018:15385" placeholder="SELECT m.id,..maps..." />
+            <marker date="1435752000702" expanded="true" signature="15655:16376" placeholder="SELECT c.per..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="21771:22150" placeholder="SELECT sd.id..cdrr_item..." />
+            <marker date="1435752000702" expanded="true" signature="26675:26956" placeholder="SELECT rc.id..." />
+            <marker date="1435752000702" expanded="true" signature="28966:29118" placeholder="select * fro..." />
+            <marker date="1435752000702" expanded="true" signature="51763:52288" placeholder="SELECT c.*,c..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="53185:53754" placeholder="SELECT m.*,m..maps..." />
+            <marker date="1435752000702" expanded="true" signature="54458:54983" placeholder="SELECT c.*,c..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="55627:56215" placeholder="SELECT m.*,m..maps..." />
+            <marker date="1435752000702" expanded="true" signature="59175:59214" placeholder="SELECT statu..." />
+            <marker date="1435752000702" expanded="true" signature="59538:59569" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="59593:59638" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="59662:59702" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="59824:59855" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="59879:59920" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="59944:59984" placeholder="DELETE FROM ..." />
+            <marker date="1435752000702" expanded="true" signature="77280:77535" placeholder="SELECT sd.id..new_sync_drug..." />
+            <marker date="1435752000702" expanded="true" signature="78108:78231" placeholder="SELECT r.map..regimen..." />
+            <marker date="1435752000702" expanded="true" signature="78535:78654" placeholder="SELECT sr.id..new_sync_regimen..." />
+            <marker date="1435752000702" expanded="true" signature="79232:80026" placeholder="SELECT c.*,c..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="89167:89834" placeholder="SELECT m.*,m..maps..." />
+            <marker date="1435752000702" expanded="true" signature="96965:97291" placeholder="SELECT ci.dr..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="97718:98044" placeholder="SELECT ci.dr..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="98899:99921" placeholder="SELECT trans..id..." />
+            <marker date="1435752000702" expanded="true" signature="98983:99277" placeholder="SELECT id, n..transaction_type..." />
+            <marker date="1435752000702" expanded="true" signature="99306:99851" placeholder="SELECT dsm.t..drug_stock_movement..." />
+            <marker date="1435752000702" expanded="true" signature="101445:102528" placeholder="SELECT dispe..SUM..." />
+            <marker date="1435752000702" expanded="true" signature="101522:102018" placeholder="SELECT SUM(d..drug_stock_movement..." />
+            <marker date="1435752000702" expanded="true" signature="102042:102518" placeholder="SELECT SUM(d..drug_stock_movement..." />
+            <marker date="1435752000702" expanded="true" signature="102955:104011" placeholder="SELECT phy.i..drug_id..." />
+            <marker date="1435752000702" expanded="true" signature="103053:103488" placeholder="SELECT dsb.d..drug_stock_balance..." />
+            <marker date="1435752000702" expanded="true" signature="103516:103986" placeholder="SELECT dsb.d..drug_stock_balance..." />
+            <marker date="1435752000702" expanded="true" signature="105066:106088" placeholder="SELECT trans..id..." />
+            <marker date="1435752000702" expanded="true" signature="105150:105444" placeholder="SELECT id, n..transaction_type..." />
+            <marker date="1435752000702" expanded="true" signature="105473:106018" placeholder="SELECT dsm.t..drug_stock_movement..." />
+            <marker date="1435752000702" expanded="true" signature="107647:108264" placeholder="SELECT m.id,..maps..." />
+            <marker date="1435752000702" expanded="true" signature="111348:111554" placeholder="SELECT temp...regimen_id..." />
+            <marker date="1435752000702" expanded="true" signature="111426:111513" placeholder="SELECT DISTI..maps_item..." />
+            <marker date="1435752000702" expanded="true" signature="111982:112054" placeholder="SELECT m.* F..maps..." />
+            <marker date="1435752000702" expanded="true" signature="114961:115072" placeholder="SELECT id as..maps_item..." />
+            <marker date="1435752000702" expanded="true" signature="115574:116131" placeholder="SELECT count..patient..." />
+            <marker date="1435752000702" expanded="true" signature="116529:117059" placeholder="SELECT IF(RO..patient..." />
+            <marker date="1435752000702" expanded="true" signature="117088:117680" placeholder="SELECT IF( R..patient..." />
+            <marker date="1435752000702" expanded="true" signature="117710:118348" placeholder="SELECT IF( R..patient..." />
+            <marker date="1435752000702" expanded="true" signature="118377:118902" placeholder="SELECT IF(ro..patient..." />
+            <marker date="1435752000702" expanded="true" signature="118932:119917" placeholder="SELECT IF( p..patient..." />
+            <marker date="1435752000702" expanded="true" signature="119951:121317" placeholder="SELECT IF( t..patient_id..." />
+            <marker date="1435752000702" expanded="true" signature="120153:120457" placeholder="SELECT DISTI..patient_visit..." />
+            <marker date="1435752000702" expanded="true" signature="120579:121065" placeholder="SELECT DISTI..patient..." />
+            <marker date="1435752000702" expanded="true" signature="121794:122222" placeholder="SELECT count..regimen..." />
+            <marker date="1435752000702" expanded="true" signature="122837:123294" placeholder="SELECT COUNT..v_patient_visits..." />
+            <marker date="1435752000702" expanded="true" signature="123502:123938" placeholder="SELECT COUNT..patient..." />
+            <marker date="1435752000702" expanded="true" signature="124181:124581" placeholder="SELECT COUNT..patient..." />
+            <marker date="1435752000702" expanded="true" signature="124806:125201" placeholder="SELECT COUNT..patient..." />
+            <marker date="1435752000702" expanded="true" signature="125453:125837" placeholder="SELECT COUNT..patient..." />
+            <marker date="1435752000702" expanded="true" signature="126078:126408" placeholder="SELECT IF(ro..patient..." />
+            <marker date="1435752000702" expanded="true" signature="126738:126906" placeholder="SELECT COUNT..new_sync_facility..." />
+            <marker date="1435752000702" expanded="true" signature="127356:127673" placeholder="SELECT COUNT..." />
+            <marker date="1435752000702" expanded="true" signature="128627:128653" placeholder="update regim..." />
+            <marker date="1435752000702" expanded="true" signature="130251:130632" placeholder="SELECT sf.na..new_sync_facility..." />
+            <marker date="1435752000702" expanded="true" signature="131985:132636" placeholder="SELECT SUM(c..." />
+            <marker date="1435752000702" expanded="true" signature="136361:136599" placeholder="SELECT * FRO..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="139887:140148" placeholder="SELECT * FRO..maps..." />
+            <marker date="1435752000702" expanded="true" signature="142491:143293" placeholder="SELECT c.*,c..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="149679:150346" placeholder="SELECT m.*,m..maps..." />
+            <marker date="1435752000702" expanded="true" signature="158609:159008" placeholder="SELECT ci.dr..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="159332:159711" placeholder="SELECT ci.dr..cdrr..." />
+            <marker date="1435752000702" expanded="true" signature="160172:160660" placeholder="SELECT SUM(d..drug_stock_movement..." />
+            <marker date="1435752000702" expanded="true" signature="163888:164827" placeholder="SELECT trans..id..." />
+            <marker date="1435752000702" expanded="true" signature="163972:164191" placeholder="SELECT id, n..transaction_type..." />
+            <marker date="1435752000702" expanded="true" signature="164234:164757" placeholder="SELECT dsm.t..drug_stock_movement..." />
+            <marker date="1435752000702" expanded="true" signature="165834:166334" placeholder="SELECT SUM(d..drugcode..." />
+            <marker date="1435752000702" expanded="true" signature="166588:166961" placeholder="SELECT DATED..drug_stock_movement..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2054054" vertical-offset="685" max-vertical-offset="1496">
-          <caret line="47" column="37" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>

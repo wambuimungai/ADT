@@ -11,7 +11,7 @@ class New_Sync_Regimen extends Doctrine_Record {
 
     public function setUp() {
         $this -> setTableName('new_sync_regimen');
-        $this -> hasOne('New_Sync_Regimen_Category as Sync_Regimen_Category', array('local' => 'category_id', 'foreign' => 'id'));
+        $this -> hasOne('New_Sync_Regimen_Category as New_Sync_Regimen_Category', array('local' => 'category_id', 'foreign' => 'id'));
     }
 
     public function getAll() {
@@ -21,7 +21,8 @@ class New_Sync_Regimen extends Doctrine_Record {
     }
 
     public function getActive() {
-        $query = Doctrine_Query::create() -> select("sr.id,sr.code,sr.name,sr.category_id, sr.New_Sync_Regimen_Category .Name as category_name") -> from("new_sync_regimen sr") -> orderBy("category_id, code asc");
+        $query = Doctrine_Query::create() -> select("sr.id,sr.code,sr.name,sr.category_id,sr.New_Sync_Regimen_Category.Name as category_name") -> from("new_sync_regimen sr") -> orderBy("category_id, code asc");
+      //  $query->getSql();die;
         $sync_regimen = $query -> execute(array(), Doctrine::HYDRATE_ARRAY);
         return $sync_regimen;
     }
