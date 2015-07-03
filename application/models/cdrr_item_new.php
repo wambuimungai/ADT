@@ -8,7 +8,7 @@ class Cdrr_Item_New extends Doctrine_Record {
 		$this -> hasColumn('dispensed_packs', 'int', 11);
 		$this -> hasColumn('losses', 'int', 11);
 		$this -> hasColumn('adjustments', 'int', 11);
-        $this -> hasColumn('adjustments_neg', 'int', 11);
+    $this -> hasColumn('adjustments_neg', 'int', 11);
 		$this -> hasColumn('count', 'int', 11);
 		$this -> hasColumn('expiry_quant', 'int', 11);
 		$this -> hasColumn('expiry_date', 'date');
@@ -24,7 +24,7 @@ class Cdrr_Item_New extends Doctrine_Record {
 	public function setUp() {
 		$this -> setTableName('cdrr_item_new');
 		$this -> hasOne('Cdrr as Cdrr', array('local' => 'cdrr_id', 'foreign' => 'id'));
-		$this -> hasOne('Sync_Drug as S_Drug', array('local' => 'drug_id', 'foreign' => 'id'));
+		$this -> hasOne('New_Sync_Drug as S_Drug', array('local' => 'drug_id', 'foreign' => 'id'));
 	}
 
 	public static function getOrderItems($cdrr) {

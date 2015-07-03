@@ -15,8 +15,8 @@ class auto_management extends MY_Controller {
 		$this -> nascop_url = trim(file_get_contents($link));
 		$this -> eid_url="http://nascop.org/eid/";
 
-               // $this->ftp_url='41.89.6.210';
-       $this->ftp_url='192.168.133.10';
+               $this->ftp_url='41.89.6.210';
+      //  $this->ftp_url='192.168.133.10';
 
     }
 	public function index($manual=FALSE){
@@ -923,6 +923,7 @@ class auto_management extends MY_Controller {
 																			) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1902746 ;";
 
 
+
             foreach($tables as $table=>$statements){
             if (!$this->db->table_exists($table)){
             	$statements=explode(";",$statements);
@@ -984,7 +985,24 @@ class auto_management extends MY_Controller {
                                         (18,	'PAEDIATRIC ART Third-Line Regimens','1', 2),
                                         (19,	'Universal Prophylaxis','1', 2),
                                         (20,	'IPT','1', 2),
-                                        (21,	'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]','1', 2)";
+                                        (21,	'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]','1', 2);";
+									$tables['maps_new']="CREATE TABLE IF NOT EXISTS `maps_new` (
+																		  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+																		  `status` varchar(10) NOT NULL,
+																		  `created` datetime NOT NULL,
+																		  `updated` datetime NOT NULL,
+																		  `code` varchar(15) NOT NULL,
+																		  `period_begin` date NOT NULL,
+																		  `period_end` date NOT NULL,
+																		  `reports_expected` int(11) DEFAULT NULL,
+																		  `reports_actual` int(11) DEFAULT NULL,
+																		  `services` varchar(255) DEFAULT NULL,
+																		  `sponsors` varchar(255) DEFAULT NULL,
+																		  `comments` text,
+																		  `report_id` int(11) DEFAULT NULL,
+																		  `facility_id` int(11) unsigned NOT NULL,
+																		  PRIMARY KEY (`id`)
+																		) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21385 ;";
 
 
             foreach($tables as $table=>$statements){

@@ -4,9 +4,9 @@ $(document).ready(function() {
 	}, 60000);
 	$(".error").css("display", "block");
 
-	$(".actual").on('click',function(e) { 
+	$(".actual").on('click',function(e) {
             var parentForm = $(".actual").closest("form").attr("name");
-            e.preventDefault(); 
+            e.preventDefault();
             if(processData(parentForm)){
               bootbox.confirm("<h4>Save</h4>\n\<hr/><center>Are you sure?</center>",
                 function(res){
@@ -96,15 +96,15 @@ $(document).ready(function() {
 		sTitle = jQuery(this).text();
 		this.setAttribute( 'title', sTitle );
 	});
-	
+
 	$('.listing_table tbody td').live('mouseover', function() {//Show full text when one mouseovers
 		var sTitle;
 		sTitle = jQuery(this).text();
 		this.setAttribute( 'title', sTitle );
 	});
-	
+
 	$(".patient_table").wrap('<div class="dataTables_scroll" />');//Alignment
-	
+
 	var base_url = $("#base_url").val();
 	$("#change_password_link").click(function() {
 		$("#old_password").attr("value", "");
@@ -159,7 +159,7 @@ $(document).ready(function() {
 		}
 	}
 
-  
+
 	$("#btn_submit_change_pass").click(function(event) {
 		var base_url = $("#base_url").val();
 		$(".error").css("display", "none");
@@ -275,7 +275,7 @@ function getPeriodDrugBalance(count,start_date, facility_id, code,total,drugs,st
 	var base_url = getbaseurl();
 	var drug = drugs[count];
 	var link = base_url + 'order/getItems';
-	
+
 	$.ajax({
 		url : link,
 		type : 'POST',
@@ -324,7 +324,7 @@ function getPeriodDrugBalance(count,start_date, facility_id, code,total,drugs,st
 function getExpectedActualReports(facility_code,period_start,type){
 	var base_url = getbaseurl();
 	var link = base_url + 'order/getExpectedActualReport';
-	
+
 	$.ajax({
 		url : link,
 		type : 'POST',
@@ -388,9 +388,9 @@ function getPeriodRegimenPatients(start_date, end_date) {
 				total_patients_div = "#patient_numbers_" + jsondata.regimen;
 				$(total_patients_div).attr("value", total_patients);
 				//Calculate total summary of ART patients
-				
+
 				if((regimen_category.indexOf('pep')>-1 || regimen_category.indexOf('pmtct')>-1)){
-					
+
 				}
 				else if((regimen_category.indexOf('paed')>-1 || regimen_category.indexOf('ped')>-1 || regimen_category.indexOf('child')>-1)){//Check if regimen is adult or paed
 					var old_val = $("#art_child").val();
@@ -908,11 +908,11 @@ $(document).ready(function() {
 						var adherence_type = $("#adherence_type_report").val();
 						report = report + "/"+adherence_type;
 					}
-					
+
 					if($(".report_type").is(":visible")) {
 						report = report + "/" + $(".report_type:visible").attr("value");
 					}
-					
+
 					var report_url = base_url + "report_management/" + report + "/" + from + "/" + to;
 					window.location = report_url;
 				} else if(id == "generate_month_range_report") {
@@ -1079,7 +1079,7 @@ $(document).ready(function() {
 	$(".select_report").change(function() {
 		var get_type = $("option:selected", this).attr("class");
 		var get_id = $("option:selected", this).attr("id");
-		
+
 		if(get_type == "none") {
 			$(".select_types").css("display", "none");
 			return;
@@ -1088,7 +1088,7 @@ $(document).ready(function() {
 			$(".select_types").css("display", "none");
 			$("#donor_date_range_report").css("display", "block");
 		} else if(get_type == "annual_report") {
-			
+
 			$(".select_types").css("display", "none");
 			$("#year").css("display", "block");
 			//Check if it is drug_consumption to check if it is pack or unit

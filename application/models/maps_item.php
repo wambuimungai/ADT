@@ -10,7 +10,7 @@ class Maps_Item extends Doctrine_Record {
 	public function setUp() {
 		$this -> setTableName('maps_item');
 		$this -> hasOne('Maps as Maps', array('local' => 'maps_id', 'foreign' => 'id'));
-		$this -> hasOne('Sync_Regimen as S_Regimen', array('local' => 'regimen_id', 'foreign' => 'id'));
+		$this -> hasOne('New_Sync_Regimen as S_Regimen', array('local' => 'regimen_id', 'foreign' => 'id'));
 	}
 
 	public static function getOrderItems($map) {

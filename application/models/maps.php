@@ -37,7 +37,7 @@ class Maps extends Doctrine_Record {
 
 	public function setUp() {
 		$this -> setTableName('maps');
-		$this -> hasOne('Sync_Facility as S_Facility', array('local' => 'facility_id', 'foreign' => 'id'));
+		$this -> hasOne('New_Sync_Facility as S_Facility', array('local' => 'facility_id', 'foreign' => 'id'));
 	}
 
 	public function getAll() {
