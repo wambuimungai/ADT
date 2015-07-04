@@ -1662,7 +1662,7 @@ class Order extends MY_Controller {
 					$code = "F-CDRR_units";
 					$text = $arr[2]['A'];
 
-					$file_type = $this -> checkFileType($code, $text);
+					$file_type = $this -> checkNewFileType($code, $text);
 					$facilities = New_Sync_Facility::getId($facility_code, 2);
 				    $facility_id= $facilities['id'];
 					$duplicate = $this -> check_duplicate($code, $period_begin, $period_end, $facilities['id']);
@@ -1843,7 +1843,7 @@ class Order extends MY_Controller {
 				    $facility_id= $facilities['id'];
 					$duplicate = $this -> check_duplicate($code, $period_begin, $period_end, $facilities['id'], "maps");
 
-					$file_type = $this -> checkFileType($code, $text);
+					$file_type = $this -> checkNewFileType($code, $text);
 
 					if ($period_begin != date('Y-m-01', strtotime(date('Y-m-d') . "-1 month")) || $period_end != date('Y-m-t', strtotime(date('Y-m-d') . "-1 month"))) {
 						$ret[] = "You can only report for current month. Kindly check the period fields !-" . $_FILES["file"]["name"][$i];
@@ -2104,7 +2104,7 @@ class Order extends MY_Controller {
 			$dir = "Export";
 			$drug_name = "CONCAT_WS('] ',CONCAT_WS(' [',sd.name,sd.abbreviation),CONCAT_WS(' ',sd.strength,sd.formulation)) as drug_map";
 
-			echo $sql = "SELECT c.*,ci.*,cl.*,f.*,co.county as county_name,d.name as district_name,u.*,al.level_name,IF(c.code='D-CDRR',CONCAT('D-CDRR#',c.id),CONCAT('F-CDRR#',c.id)) as cdrr_label,c.status as status_name,sf.name as facility_name,$drug_name
+			 $sql = "SELECT c.*,ci.*,cl.*,f.*,co.county as county_name,d.name as district_name,u.*,al.level_name,IF(c.code='D-CDRR',CONCAT('D-CDRR#',c.id),CONCAT('F-CDRR#',c.id)) as cdrr_label,c.status as status_name,sf.name as facility_name,$drug_name
 				FROM cdrr c
 				LEFT JOIN cdrr_item_new ci ON ci.cdrr_id=c.id
 				LEFT JOIN cdrr_log cl ON cl.cdrr_id=c.id
@@ -2117,7 +2117,7 @@ class Order extends MY_Controller {
 				LEFT JOIN access_level al ON al.id=u.Access_Level
 				LEFT JOIN new_sync_drug sd ON sd.id=ci.drug_id
 				LEFT JOIN drugcode dc ON dc.map=sd.id
-				WHERE c.id='$cdrr_id'";die;
+				WHERE c.id='$cdrr_id'";
 			$query = $this -> db -> query($sql);
 			$cdrr_array = $query -> result_array();
 			$report_type = $cdrr_array[0]['code'];
@@ -3234,6 +3234,25 @@ class Order extends MY_Controller {
 			$match = trim("FACILITY CONSUMPTION DATA REPORT AND REQUEST (F-CDRR) FOR ANTIRETROVIRAL AND OPPORTUNISTIC INFECTION MEDICINES");
 		} else if ($type == "F-MAPS") {
 			$match = trim("FACILITY MONTHLY ARV PATIENT SUMMARY (F-MAPS) REPORT");
+		}
+
+		//Test
+		if (trim($text) === $match) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public function checkNewFileType($type, $text) {
+
+		if ($type == "D-CDRR") {
+			$match = trim("CENTRAL SITE  / DISTRICT STORE CONSUMPTION DATA REPORT and REQUEST (D-CDRR) for ANTIRETROVIRAL and OPPORTUNISTIC INFECTION MEDICINES (MoH 730A)");
+		} else if ($type == "D-MAPS") {
+			$match = trim("CENTRAL SITE  / DISTRICT STORE MONTHLY ARV PATIENT SUMMARY (D-MAPS) Report (MoH 729A)");
+		} else if ($type == "F-CDRR_packs" || $type == "F-CDRR_units") {
+			$match = trim("FACILITY CONSUMPTION DATA REPORT and REQUEST (F-CDRR) for ANTIRETROVIRAL and OPPORTUNISTIC INFECTION MEDICINES (MoH 730B)");
+		} else if ($type == "F-MAPS") {
+			$match = trim("FACILITY MONTHLY ARV PATIENT SUMMARY (F-MAPS) Report (MoH 729B)");
 		}
 
 		//Test

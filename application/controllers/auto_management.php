@@ -1016,7 +1016,7 @@ class auto_management extends MY_Controller {
         }
 
         if($count>0){
- 			$message="(".$count.") tables created!<br/>";
+ 			$message="(".$count.") tables Updated!<br/>";
         }
         return $message;
 
