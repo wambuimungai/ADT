@@ -2332,62 +2332,32 @@ class Order extends MY_Controller {
 				mkdir($dir);
 			}
 
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('B4', $fmaps_array[0]['facility_name']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('F4', $fmaps_array[0]['facilitycode']);
+			$objPHPExcel -> getActiveSheet() -> SetCellValue('C4', $fmaps_array[0]['facility_name']);
+			$objPHPExcel -> getActiveSheet() -> SetCellValue('G4', $fmaps_array[0]['facilitycode']);
 
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('B5', $fmaps_array[0]['county_name']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('F5', $fmaps_array[0]['district_name']);
+			$objPHPExcel -> getActiveSheet() -> SetCellValue('c5', $fmaps_array[0]['county_name']);
+			$objPHPExcel -> getActiveSheet() -> SetCellValue('G5', $fmaps_array[0]['district_name']);
 
 			$objPHPExcel -> getActiveSheet() -> SetCellValue('D7', date('d/m/y', strtotime($fmaps_array[0]['period_begin'])));
 			$objPHPExcel -> getActiveSheet() -> SetCellValue('G7', date('d/m/y', strtotime($fmaps_array[0]['period_end'])));
 
-			if (strtoupper($fmaps_array[0]['sponsors']) == "GOK") {
-				$loc = "D";
-			} else if (strtoupper($fmaps_array[0]['sponsors']) == "PEPFAR") {
-				$loc = "F";
-			} else if (strtoupper($fmaps_array[0]['sponsors']) == "MSF") {
-				$loc = "H";
-			}
-			if($loc){
-			    $objPHPExcel -> getActiveSheet() -> SetCellValue($loc . '9', "X");
-		    }
-
-			$services = explode(",", $fmaps_array[0]['services']);
-			foreach ($services as $service) {
-				if (strtoupper($service) == "ART") {
-					$objPHPExcel -> getActiveSheet() -> SetCellValue('D11', "X");
-				} else if (strtoupper($service) == "PMTCT") {
-					$objPHPExcel -> getActiveSheet() -> SetCellValue('F11', "X");
-				} else if (strtoupper($service) == "PEP") {
-					$objPHPExcel -> getActiveSheet() -> SetCellValue('H11', "X");
-				}
-			}
-
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('D14', $fmaps_array[0]['art_adult']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('F14', $fmaps_array[0]['art_child']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('D18', $fmaps_array[0]['new_male']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('E18', $fmaps_array[0]['revisit_male']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('F18', $fmaps_array[0]['new_female']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('G18', $fmaps_array[0]['revisit_female']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('H26', $fmaps_array[0]['new_pmtct']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('H27', $fmaps_array[0]['revisit_pmtct']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('H38', $fmaps_array[0]['total_infant']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('H107', $fmaps_array[0]['pep_adult']);
-			$objPHPExcel -> getActiveSheet() -> SetCellValue('H108', $fmaps_array[0]['pep_child']);
 
 			$arr = $objPHPExcel -> getActiveSheet() -> toArray(null, true, true, true);
-			for ($i = 25; $i <= 120; $i++) {
-				if ($i == 36 || $i == 43 || $i == 53 || $i == 68 || $i == 75 || $i == 88 || $i == 99 || $i == 105 || $i == 113) {
+			for ($i = 14; $i <= 66; $i++) {
+				if ($i == 23 || $i == 31 || $i == 37 || $i == 49 || $i == 55 || $i == 61 ) {
 					continue;
 				}
 
-				$regimen_code = $arr[$i]['A'];
-				$regimen_desc = $arr[$i]['B'];
+				$regimen_code = $arr[$i]['B'];
+				$regimen_desc = $arr[$i]['C'];
 				$key = $this -> getMappedRegimen($regimen_code, $regimen_desc);
+
 				if ($key !== null) {
+
 					foreach ($fmaps_array as $fmaps_item) {
+						//echo "<pre>";print_r($fmaps_item);die;
 						if ($key == $fmaps_item['regimen_id']) {
-							$objPHPExcel -> getActiveSheet() -> SetCellValue('E' . $i, $fmaps_item['total']);
+							$objPHPExcel -> getActiveSheet() -> SetCellValue('D' . $i, $fmaps_item['total']);
 						}
 					}
 				}

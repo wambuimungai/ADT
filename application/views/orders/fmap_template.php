@@ -179,7 +179,7 @@ if ($facility_object -> service_pep == "1") {
 							<th>District:</th>
 							<td><span class="_green"><?php echo @$facility_object -> Parent_District -> Name;?></span></td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<th>Programme Sponsor:</th>
 							<td><span name="sponsors" id="fmap_sponsors" class="_green"><?php echo @$supporter;?></span>
 								<input type="hidden" name="sponsor" value="<?php echo @$supporter;?>" />
@@ -188,7 +188,7 @@ if ($facility_object -> service_pep == "1") {
 							<td><span name="service" id="fmap_services" class="_green"><?php echo @$type_of_service;?></span>
 								<input type="hidden" name="services" value="<?php echo @$type_of_service;?>" />
 							</td>
-						</tr>
+						</tr> -->
 						<tr>
 							<th>Reporting Period : </th><td>
 							<input class="_green" name="reporting_period" id="reporting_period" type="text" placeholder="Click here to select period" readonly="readonly">
@@ -198,18 +198,18 @@ if ($facility_object -> service_pep == "1") {
 							</td>
 							<td colspan="2"></td>
 						</tr>
-						<tr>
+						<!-- <tr>
 							<th colspan="2">Total Number of Patients on ART ONLY:</th>
 							<td><span>Adults (&gt;15yrs)</span><input type="text"  class="validate[requied] tbl_header_input f_right"  name="art_adult" id="art_adult" readonly="readonly" value="<?php echo @$fmaps_array[0]['art_adult'];?>"/></td>
 							<td><span>Children (&lt;= 15yrs)</span><input type="text" class="validate[requied] tbl_header_input f_right" name="art_child" id="art_child" readonly="readonly" value="<?php echo @$fmaps_array[0]['art_child'];?>"/></td>
 						</tr>
-						<tr><th style="text-align: center" colspan="2">Males</th><th style="text-align: center" colspan="2">Females</th></tr>
-						<tr>
+						<tr><th style="text-align: center" colspan="2">Males</th><th style="text-align: center" colspan="2">Females</th></tr> -->
+						<!-- <tr>
 							<th>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_male" id="new_male" value="<?php echo @$fmaps_array[0]['new_male'];?>" /></th>
 							<th>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_male" id="revisit_male" value="<?php echo @$fmaps_array[0]['new_female'];?>" /></th>
 							<th>New <input type="text"  class="validate[requied] tbl_header_input f_right" name="new_female" id="new_female" value="<?php echo @$fmaps_array[0]['revisit_male'];?>" /></th>
 							<th>Revisit <input type="text"  class="validate[requied] tbl_header_input f_right" name="revisit_female" id="revisit_female" value="<?php echo @$fmaps_array[0]['revisit_female'];?>"/></th>
-						</tr>
+						</tr> -->
 					</tbody>
 				</table>
 				<?php
