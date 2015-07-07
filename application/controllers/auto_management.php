@@ -52,9 +52,7 @@ class auto_management extends MY_Controller {
 			//function to add new facilities list
 			$message .= $this->updateFacilties();
 			//function to create new tables into adt
-			$message .= $this->update_database_tables();
-                        //function to update existing tables
-                        $message .= $this->update_existing_tables();
+			$message .= $this->update_database_tables(););
 			//function to create new columns into table
 			$message .= $this->update_database_columns();
 			//function to set negative batches to zero
@@ -812,12 +810,7 @@ class auto_management extends MY_Controller {
                                         (10,	'PMTCT Regimens for Pregnant Women','1', 2),
                                         (11,	'PMTCT Regimens for Infants','1', 2),
                                         (12,	'Post Exposure Prophylaxis (PEP) for Adults','1', 2),
-                                        (13,	'Post Exposure Prophylaxis (PEP) for Children',	'1', 2),
-                                        (17,	'ADULT ART Third-Line Regimens','1', 2),
-                                        (18,	'PAEDIATRIC ART Third-Line Regimens','1', 2),
-                                        (19,	'Universal Prophylaxis','1', 2),
-                                        (20,	'IPT','1', 2),
-                                        (21,	'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]','1', 2)";
+                                        (13,	'Post Exposure Prophylaxis (PEP) for Children',	'1', 2)";
 
                             $tables['faq'] = "CREATE TABLE IF NOT EXISTS `faq` (
                                                   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -827,103 +820,6 @@ class auto_management extends MY_Controller {
                                                   `active` int(5) NOT NULL DEFAULT '1',
                                                   PRIMARY KEY (`id`)
                                                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;";
-        $tables['new_sync_drug']="CREATE TABLE IF NOT EXISTS `new_sync_drug` (
-                                  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                                  `name` varchar(255) NOT NULL,
-                                  `abbreviation` varchar(255) DEFAULT NULL,
-                                  `strength` varchar(255) NOT NULL,
-                                  `packsize` int(7) DEFAULT NULL,
-                                  `formulation` varchar(255) DEFAULT NULL,
-                                  `unit` varchar(255) DEFAULT NULL,
-                                  `note` varchar(255) DEFAULT NULL,
-                                  `weight` int(4) DEFAULT '999',
-                                  `category_id` int(11) unsigned DEFAULT NULL,
-                                  `regimen_id` int(11) NOT NULL,
-                                  PRIMARY KEY (`id`)
-                                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
-
-        $tables['new_sync_regimen']="CREATE TABLE IF NOT EXISTS `new_sync_regimen` (
-                                      `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                                      `name` varchar(255) NOT NULL,
-                                      `code` varchar(5) DEFAULT NULL,
-                                      `old_code` varchar(45) DEFAULT NULL,
-                                      `description` text NOT NULL,
-                                      `category_id` int(11) unsigned DEFAULT NULL,
-                                      PRIMARY KEY (`id`)
-                                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
-
-        $tables['new_sync_facility']="CREATE TABLE IF NOT EXISTS `new_sync_facility` (
-                                  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-                                  `name` varchar(255) NOT NULL,
-                                  `code` varchar(15) DEFAULT NULL,
-                                  `category` varchar(15) DEFAULT NULL,
-                                  `sponsors` varchar(255) DEFAULT NULL,
-                                  `services` varchar(255) DEFAULT NULL,
-                                  `manager_id` int(11) unsigned DEFAULT NULL,
-                                  `district_id` int(11) unsigned NOT NULL,
-                                  `address_id` int(11) unsigned DEFAULT NULL,
-                                  `parent_id` int(11) unsigned DEFAULT NULL,
-                                  `ordering` tinyint(1) NOT NULL DEFAULT '1',
-                                  `affiliation` varchar(255) DEFAULT NULL,
-                                  `service_point` tinyint(1) NOT NULL DEFAULT '1',
-                                  `county_id` int(11) unsigned DEFAULT NULL,
-                                  `hcsm_id` int(11) unsigned DEFAULT NULL,
-                                  `keph_level` varchar(25) DEFAULT 'Not Classified',
-                                  `location` varchar(255) DEFAULT NULL,
-                                  `affiliate_organization_id` int(11) unsigned DEFAULT NULL,
-                                  PRIMARY KEY (`id`)
-                                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;";
-
-        $tables['new_sync_regimen_category']="CREATE TABLE IF NOT EXISTS `new_sync_regimen_category` (
-                                              `id` int(2) NOT NULL AUTO_INCREMENT,
-                                              `Name` varchar(255) NOT NULL,
-                                              `Active` varchar(2) NOT NULL,
-                                              `ccc_store_sp` int(11) NOT NULL DEFAULT '2',
-                                              PRIMARY KEY (`id`),
-                                              KEY `ccc_store_sp` (`ccc_store_sp`)
-                                            ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
-
-                                            INSERT INTO `new_sync_regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
-                                            (4, 'ADULT ART First-Line Regimens', '1', 2),
-                                            (5, 'ADULT ART Second-Line Regimens', '1', 2),
-                                            (6, 'Other ADULT ART Regimens', '1', 2),
-                                            (7, 'PAEDIATRIC ART First-Line Regimens', '1', 2),
-                                            (8, 'PAEDIATRIC ART Second-Line Regimens', '1', 2),
-                                            (9, 'Other PAEDIATRIC ART Regimens', '1', 2),
-                                            (10, 'PMTCT Regimens for Pregnant Women', '1', 2),
-                                            (11, 'PMTCT Regimens for Infants', '1', 2),
-                                            (12, 'Post Exposure Prophylaxis (PEP) for Adults', '1', 2),
-                                            (13, 'Post Exposure Prophylaxis (PEP) for Children', '1', 2),
-                                            (17, 'ADULT ART Third-Line Regimens', '1', 2),
-                                            (18, 'PAEDIATRIC ART Third-Line Regimens', '1', 2),
-                                            (19, 'Universal Prophylaxis', '1', 2),
-                                            (20, 'IPT', '1', 2),
-                                            (21, 'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]', '1', 2);
-                                            ";
-							$tables['cdrr_item_new']="CREATE TABLE IF NOT EXISTS `cdrr_item_new` (
-																			  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																			  `balance` int(11) DEFAULT NULL,
-																			  `received` int(11) DEFAULT NULL,
-																			  `dispensed_units` int(11) DEFAULT NULL,
-																			  `dispensed_packs` int(11) DEFAULT NULL,
-																			  `losses` int(11) DEFAULT NULL,
-																			  `adjustments` int(11) DEFAULT NULL,
-																			  `adjustments_neg` int(11) DEFAULT NULL,
-																			  `count` int(11) DEFAULT NULL,
-																			  `expiry_quant` int(11) DEFAULT NULL,
-																			  `expiry_date` date DEFAULT NULL,
-																			  `out_of_stock` int(11) DEFAULT NULL,
-																			  `resupply` int(11) DEFAULT NULL,
-																			  `aggr_consumed` int(11) DEFAULT NULL,
-																			  `aggr_on_hand` int(11) DEFAULT NULL,
-																			  `publish` tinyint(1) NOT NULL DEFAULT '0',
-																			  `cdrr_id` int(11) unsigned NOT NULL,
-																			  `drug_id` int(11) unsigned NOT NULL,
-																			  PRIMARY KEY (`id`)
-																			) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1902746 ;";
-
-
-
             foreach($tables as $table=>$statements){
             if (!$this->db->table_exists($table)){
             	$statements=explode(";",$statements);
@@ -939,88 +835,6 @@ class auto_management extends MY_Controller {
         }
         return $message;
 	}
-
-        public function update_existing_tables(){
-            $count=0;
-            $message="";
-            $tables['regimen_category'] = "TRUNCATE TABLE regimen_category;
-                                        INSERT INTO `regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
-                                        (1,	'ADULT ART First-Line Regimens','1', 2),
-                                        (2,	'ADULT ART Second-Line Regimens','1', 2),
-                                        (3,	'Other ADULT ART Regimens','1', 2),
-                                        (4,	'PAEDIATRIC ART First-Line Regimens','1', 2),
-                                        (5,	'PAEDIATRIC ART Second-Line Regimens','1', 2),
-                                        (6,	'Other PAEDIATRIC ART Regimens','1', 2),
-                                        (7,	'PMTCT Regimens for Pregnant Women','1', 2),
-                                        (8,	'PMTCT Regimens for Infants','1', 2),
-                                        (9,	'Post Exposure Prophylaxis (PEP) for Adults','1', 2),
-                                        (10,	'Post Exposure Prophylaxis (PEP) for Children',	'1', 2),
-                                        (11,	'ADULT ART Third-Line Regimens','1', 2),
-                                        (12,	'PAEDIATRIC ART Third-Line Regimens','1', 2),
-                                        (13,	'Universal Prophylaxis','1', 2),
-                                        (14,	'IPT','1', 2),
-                                        (15,	'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]','1', 2);";
-
-            		$tables['sync_regimen_category']="DROP TABLE IF EXISTS sync_regimen_category;
-                                          CREATE TABLE IF NOT EXISTS `sync_regimen_category` (
-										  `id` int(2) NOT NULL AUTO_INCREMENT,
-										  `Name` varchar(255) NOT NULL,
-										  `Active` varchar(2) NOT NULL,
-										  `ccc_store_sp` int(11) NOT NULL DEFAULT '2',
-										  PRIMARY KEY (`id`),
-										  KEY `ccc_store_sp` (`ccc_store_sp`)
-										) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21;
-										INSERT INTO `sync_regimen_category` (`id`, `Name`, `Active`, `ccc_store_sp`) VALUES
-                                        (4,	'ADULT ART First-Line Regimens','1', 2),
-                                        (5,	'ADULT ART Second-Line Regimens','1', 2),
-                                        (6,	'Other ADULT ART Regimens','1', 2),
-                                        (7,	'PAEDIATRIC ART First-Line Regimens','1', 2),
-                                        (8,	'PAEDIATRIC ART Second-Line Regimens','1', 2),
-                                        (9,	'Other PAEDIATRIC ART Regimens','1', 2),
-                                        (10,	'PMTCT Regimens for Pregnant Women','1', 2),
-                                        (11,	'PMTCT Regimens for Infants','1', 2),
-                                        (12,	'Post Exposure Prophylaxis (PEP) for Adults','1', 2),
-                                        (13,	'Post Exposure Prophylaxis (PEP) for Children',	'1', 2),
-                                        (17,	'ADULT ART Third-Line Regimens','1', 2),
-                                        (18,	'PAEDIATRIC ART Third-Line Regimens','1', 2),
-                                        (19,	'Universal Prophylaxis','1', 2),
-                                        (20,	'IPT','1', 2),
-                                        (21,	'Cryptococcal meningitis (CM) and Oesophageal candidiasis (OC) [For Diflucan Donation Program ONLY]','1', 2);";
-									$tables['maps_new']="CREATE TABLE IF NOT EXISTS `maps_new` (
-																		  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-																		  `status` varchar(10) NOT NULL,
-																		  `created` datetime NOT NULL,
-																		  `updated` datetime NOT NULL,
-																		  `code` varchar(15) NOT NULL,
-																		  `period_begin` date NOT NULL,
-																		  `period_end` date NOT NULL,
-																		  `reports_expected` int(11) DEFAULT NULL,
-																		  `reports_actual` int(11) DEFAULT NULL,
-																		  `services` varchar(255) DEFAULT NULL,
-																		  `sponsors` varchar(255) DEFAULT NULL,
-																		  `comments` text,
-																		  `report_id` int(11) DEFAULT NULL,
-																		  `facility_id` int(11) unsigned NOT NULL,
-																		  PRIMARY KEY (`id`)
-																		) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=21385 ;";
-
-
-            foreach($tables as $table=>$statements){
-            if ($this->db->table_exists($table)){
-            	$statements=explode(";",$statements);
-            	foreach($statements as $statement){
-            		$this->db->query($statement);
-            	}
-		        $count++;
-			}
-        }
-
-        if($count>0){
- 			$message="(".$count.") tables Updated!<br/>";
-        }
-        return $message;
-
-            }
 
 	public function update_database_columns(){
 		$message='';

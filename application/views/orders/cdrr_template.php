@@ -9,26 +9,26 @@
 			</li>
 		</ul>
 	</div>
-	<?php
+	<?php 
 	if($options=="update" || $options=="view"){
 	?>
-	<form id="fmPostCdrr" name="fmPostCdrr" method="post" action="<?php echo site_url('order/save/cdrr/prepared/'.$cdrr_id)?>">
-	<?php
+	<form id="fmPostCdrr" name="fmPostCdrr" method="post" action="<?php echo site_url('order/save/cdrr/prepared/'.$cdrr_id)?>">	
+	<?php	
 	}else{
 	?>
 	<form id="fmPostCdrr" name="fmPostCdrr" method="post" action="<?php echo site_url('order/save/cdrr/prepared')?>">
 	<?php
 	}
 	?>
-	<?php
+	<?php 
 	if($this->session->flashdata('order_delete')){
 		echo '<p class="message error">'.$this->session->flashdata('order_delete').'</p>';
 	}
 	else if ($this->session->flashdata('order_message')){
 		echo '<p class="message info">'.$this->session->flashdata('order_message').'</p>';
-	}
+	}	
 	?>
-		<?php
+		<?php 
 		 if($options=="view"){
 		?>
 		<ul class="nav nav-tabs">
@@ -39,7 +39,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		<p></p>
 		<input type="hidden"  id="status" name="status" value="<?php echo strtolower($cdrr_array[0]['status_name']);?>"/>
 		<input type="hidden"  id="created" name="created" value="<?php echo $cdrr_array[0]['created'];?>"/>
-		<?php
+		<?php 
 		   $access_level = $this -> session -> userdata("user_indicator");
 		      if($access_level=="facility_administrator"){
 		      	if($status_name=="prepared"){
@@ -49,21 +49,21 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		<?php
 		      } else if($status_name == "approved" && $cdrr_array[0]['status'] == "F-CDRR_units" && $is_central_site == TRUE){
 		 ?>
-		        <input type="hidden" name="status_change" value="archived"/>
+		        <input type="hidden" name="status_change" value="archived"/> 
 		 		<input type='submit' name='save' class='btn btn-info state_change' value='Archive'/>
 		 <?php
 		      }
-		  ?>
+		  ?> 	  	  
 		<?php
 			  }
-		?>
-		<?php
+		?>	     
+		<?php	
 		 }else if($options=="update"){
 		 ?>
 		<label><h2><b>Update <?php echo $cdrr_array[0]['cdrr_label']." ".$cdrr_array[0]['status_name'];?></b></h2></label>
 					<input type="hidden"  id="status" name="status" value="<?php echo strtolower($cdrr_array[0]['status_name']);?>"/>
 					<input type="hidden"  id="created" name="created" value="<?php echo $cdrr_array[0]['created'];?>"/>
-		 <?php
+		 <?php	
 		 }
 		?>
 		<div class="facility_info">
@@ -72,15 +72,15 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 				<thead>
 					<tr>
 						<td colspan='2' align="center"><b>
-						<?php
+						<?php 
 						if($hide_generate==2){
 						?>
 						CENTRAL SITE / DISTRICT STORE CONSUMPTION DATA REPORT AND REQUEST (D-CDRR) FOR ANTIRETROVIRAL AND OPPORTUNISTIC INFECTION MEDICINES
-						<?php
+						<?php 
 						}else{
 						?>
 						FACILITY CONSUMPTION DATA REPORT AND REQUEST (F-CDRR) FOR ANTIRETROVIRAL AND OPPORTUNISTIC INFECTION MEDICINES
-						<?php
+						<?php 
 						}
 						?>
 						</b></td>
@@ -98,13 +98,11 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<td><b>County: &nbsp;</b><?php echo $facility_object -> County -> county;?></td>
 						<td><b>District: &nbsp;</b><?php echo $facility_object -> Parent_District -> Name;?></td>
 					</tr>
-
 					<tr>
 						<td colspan='2'><b>Programme Sponsor: &nbsp;</b><?php echo $facility_object -> support -> Name;?>
 							<input type="hidden" name="sponsor" value="<?php echo $facility_object -> support -> Name; ?>"/>
 						</td>
 					</tr>
-
 					<tr>
 						<td><b>Type of Service provided at the Facility: &nbsp; </b><?php
 						$type_of_service = array();
@@ -141,14 +139,14 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						</select>
 						<select readonly="readonly" name="period_end" id="period_end">
 							<option selected="selected" value="<?php echo date('Y-m-t', strtotime($cdrr_array[0]['period_end'])); ?>"><?php echo date('Y', strtotime($cdrr_array[0]['period_end']));?></option>
-						</select>
+						</select>			
 						<?php
-						  }
+						  } 
 						  if($hide_generate !=1){
 						?>
 
                        	<select class="multiselect" id="stores" name="stores" multiple="multiple">
-				        <?php
+				        <?php 
 				          foreach($stores as $category=>$groups){
 				        ?>
                            <optgroup label="<?php echo $category; ?>">
@@ -168,7 +166,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						  if($hide_generate==0 && $hide_btn==0){
 						?>
 						<input type="button" style="width:auto" name="generate" id="generate" class="btn" disabled value="Generate Report" >
-						<?php
+						<?php 
 						  }else if($hide_generate==2 && $hide_btn==0){
 						?>
 					    <input type="button" style="width:auto" name="generate" id="generate" class="btn" disabled value="Update Aggregated Data" >
@@ -193,8 +191,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<th class="number">Quantity <br/>Received in this period</th>
 						<th class="col_dispensed_units">Total Quantity ISSUED to <br/> ARV dispensing sites <br/>(Satellite sites plus<br/>Central site dispensing <br/>point(s) where relevant)</th>
 						<th class="col_losses_units">Losses<br/>(Damages, Expiries, Missing)</th>
-						<th class="col_adjustments">Positive Adjustments (Stocks transfer <br/>from Other Facilities)</th>
-						<th class="col_adjustments">Negative Adjustments (Stocks issued<br/>out to Other Facilities)</th>
+						<th class="col_adjustments">Adjustments (Borrowed from <br/>or Issued out to Other Facilities)</th>
 						<th class="number">End of Month Physical Count</th>
 						<th class="number">Reported Aggregated Quantity CONSUMED in the reporting period (Satellite sites plus Central site dispensing point where relevant)</th>
 						<th class="number">Reported Aggregated Physical Stock on Hand at end of reporting period (Satellite sites plus Central site dispensing point where relevant)</th>
@@ -211,7 +208,6 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<th>In Packs</th>
 						<th>In Packs</th>
 						<th>In Packs</th>
-						<th>In Packs</th>
 						<th>Quantity</th>
 						<th>Expiry Date</th>
 						<th></th>
@@ -226,11 +222,10 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<th>F</th>
 						<th>G</th>
 						<th>H</th>
-						<th>I</th>
 						<th>In Packs</th>
 						<th>mm-yy</th>
+						<th>I</th>
 						<th>J</th>
-						<th>K</th>
 					</tr>
 			</thead>';
 	}else if($stand_alone==1){
@@ -240,10 +235,9 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<th class="number" rowspan="3">Basic Unit</th>
 						<th class="number">Beginning Balance</th>
 						<th class="number">Quantity <br/>Received in this period</th>
-						<th class="col_dispensed_units">Total Quantity Dispensed <br/>this period</th>
+						<th class="col_dispensed_units" colspan="2">Total Quantity Dispensed <br/>this period</th>
 						<th class="col_losses_units">Losses <br/>(Damages, Expiries, Missing)</th>
-						<th class="col_adjustments">Positive Adjustments (Stocks transfer <br/>from Other Facilities)</th>
-						<th class="col_adjustments">Negative Adjustments (Stocks issued<br/>out to Other Facilities)</th>
+						<th class="col_adjustments">Adjustments (Borrowed from <br/>or Issued out to Other Facilities)</th>
 						<th class="number">End of Month Physical Count</th>
 						<th class="number" colspan="2">Drugs with less than 6 months to expiry</th>
 						<th class="number">Days out of stock this Month</th>
@@ -252,9 +246,9 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 					<tr>
 						<th>In Packs</th>
 						<th>In Packs</th>
+						<th class="col_dispensed_units">In Units</th>
 						<th class="col_dispensed_units">In Packs</th>
 						<th class="col_dispensed_units">In Packs</th>
-						<th>In Packs</th>
 						<th>In Packs</th>
 						<th>In Packs</th>
 						<th>Quantity</th>
@@ -265,18 +259,18 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 					<tr>
 						<th>A</th>
 						<th>B</th>
+						<th></th>
 						<th>C</th>
 						<th>D</th>
 						<th>E</th>
 						<th>F</th>
-						<th>G</th>
 						<th>In Units</th>
 						<th>mm-yy</th>
+						<th>G</th>
 						<th>H</th>
-						<th>I</th>
 					</tr>
 			</thead>';
-
+		
 	}else if($stand_alone==0 && $hide_generate !=2){
 		$header_text = '<thead style="text-align:left;background:#c3d9ff;">
 					<tr>
@@ -286,25 +280,23 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<th class="number">Quantity <br/>Received in this period</th>
 						<th class="col_dispensed_units">Total Quantity Dispensed <br/>this period</th>
 						<th class="col_losses_units">Losses <br/>(Damages, Expiries, Missing)</th>
-						<th class="col_adjustments">Positive Adjustments (Stocks transfer <br/>from Other Facilities)</th>
-						<th class="col_adjustments">Negative Adjustments (Stocks issued<br/>out to Other Facilities)</th>
+						<th class="col_adjustments">Adjustments (Borrowed from <br/>or Issued out to Other Facilities)</th>
 						<th class="number">End of Month Physical Count</th>
 						<th class="number" colspan="2">Drugs with less than 6 months to expiry</th>
 						<th class="number">Days out of stock this Month</th>
 						<th class="number">Quantity required for RESUPPLY</th>
 					</tr>
 					<tr>
-						<th>In Packs</th>
-						<th>In Packs</th>
-						<th class="col_dispensed_units">In Packs</th>
-						<th class="col_dispensed_units">In Packs</th>
-						<th>In Packs</th>
-						<th>In Packs</th>
-						<th>In Packs</th>
+						<th>In Units</th>
+						<th>In Units</th>
+						<th class="col_dispensed_units">In Units</th>
+						<th class="col_dispensed_units">In Units</th>
+						<th>In Units</th>
+						<th>In Units</th>
 						<th>Quantity</th>
 						<th>Expiry Date</th>
 						<th></th>
-						<th>In Packs</th>
+						<th>In Units</th>
 					</tr>
 					<tr>
 						<th>A</th>
@@ -313,15 +305,14 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						<th>D</th>
 						<th>E</th>
 						<th>F</th>
-						<th>G</th>
-						<th>In Packs</th>
+						<th>In Units</th>
 						<th>mm-yy</th>
+						<th>G</th>
 						<th>H</th>
-						<th>I</th>
 					</tr>
 			</thead>';}echo $header_text;?>
 				<tbody>
-					<?php
+					<?php 
 					$counter =-1;
 					$count_one=0;
 					$count_two=0;
@@ -335,22 +326,22 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 			                   }
 						  if($hide_generate==2){
 						  if($commodity->Category==1 && $count_one==0){
-						  	  echo '<tr><td colspan="16" style="text-align:center;background:#999;">Adult Preparations</td></tr>';
+						  	  echo '<tr><td colspan="14" style="text-align:center;background:#999;">Adult Preparations</td></tr>';
 							  $count_one++;
-						  }
+						  }	   
 						  if($commodity->Category==2 && $count_two==0){
-						  	  echo '<tr><td colspan="16" style="text-align:center;background:#999;">Pediatric Preparations</td></tr>';
+						  	  echo '<tr><td colspan="14" style="text-align:center;background:#999;">Pediatric Preparations</td></tr>';
 							  $count_two++;
 						  }
                           if($commodity->Category==3 && $count_three==0){
-						  	  echo '<tr><td colspan="16" style="text-align:center;background:#999;">Drugs for OIs</td></tr>';
+						  	  echo '<tr><td colspan="14" style="text-align:center;background:#999;">Drugs for OIs</td></tr>';
 							  $count_three++;
 						  }
 						  }else{
 						  if($commodity->Category==1 && $count_one==0){
 						  	  echo '<tr><td colspan="13" style="text-align:center;background:#999;">Adult Preparations</td></tr>';
 							  $count_one++;
-						  }
+						  }	   
 						  if($commodity->Category==2 && $count_two==0){
 						  	  echo '<tr><td colspan="13" style="text-align:center;background:#999;">Pediatric Preparations</td></tr>';
 							  $count_two++;
@@ -364,7 +355,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 					<tr class="ordered_drugs" drug_id="<?php echo $commodity -> id;?>">
 						<td class="col_drug"><?php echo $commodity -> Drug;?>
 							<input type="hidden" class="pack_size" name="pack_size[]" id="pack_size_<?php echo $commodity -> id;?>" value="<?php echo $commodity ->Pack_Size;?>"/>
-							<?php
+							<?php 
 							if($options=="update" || $options=="view"){
 							?>
 							<input type="hidden" name="item_id[]" id="item_id_<?php echo $commodity -> id;?>" value=""/>
@@ -380,22 +371,21 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						}else{
 						?>
 						<td class="number calc_count"><?php if($options=="view"){echo $commodity->Unit_Name;}else{echo $commodity->Unit_Name;}?></td>
-						<?php
+						<?php	
 						}
 						?>
 						<td> <input name="opening_balance[]" id="opening_balance_<?php echo $commodity -> id;?>" type="text" class="opening_balance"/></td>
 						<td> <input name="quantity_received[]" id="received_in_period_<?php echo $commodity -> id;?>" type="text" class="quantity_received"/></td>
 						<td> <input name="quantity_dispensed[]" id="dispensed_in_period_<?php echo $commodity -> id;?>" type="text" class="quantity_dispensed"/></td>
 						<?php
-//	                    if($stand_alone==1){
-//	                    ?>
-<!--	                    <td> <input name="quantity_dispensed_packs[]" id="dispensed_in_period_packs_--><?php //echo $commodity -> id;?><!--" type="text" class="quantity_dispensed_packs"/></td>-->
-<!--	                    --><?php
-//						}
+	                    if($stand_alone==1){
+	                    ?>
+	                    <td> <input name="quantity_dispensed_packs[]" id="dispensed_in_period_packs_<?php echo $commodity -> id;?>" type="text" class="quantity_dispensed_packs"/></td>
+	                    <?php
+						}
 	                    ?>
 						<td> <input name="losses[]" id="losses_in_period_<?php echo $commodity->id;?>" type="text" class="losses"/></td>
 						<td> <input name="adjustments[]" id="adjustments_in_period_<?php echo $commodity->id;?>" type="text" class="adjustments"/></td>
-                        <td> <input name="adjustments_neg[]" id="adjustments_in_period_neg_<?php echo $commodity->id;?>" type="text" class="adjustments_neg" /></td>
 						<td> <input tabindex="-1" name="physical_count[]" id="physical_in_period_<?php echo $commodity->id;?>" type="text" class="physical_count"/></td>
 						<?php
 	                    if($hide_generate==2){
@@ -406,12 +396,12 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 						}
 						?>
 						<td> <input tabindex="-1" name="expire_qty[]" id="expire_qty_<?php echo $commodity -> id;?>" type="text" class="expire_qty"/></td>
-						<td> <input tabindex="-1" name="expire_period[]" id="expire_period_<?php echo $commodity -> id;?>" type="text" class="expire_period"/></td>
+						<td> <input tabindex="-1" name="expire_period[]" id="expire_period_<?php echo $commodity -> id;?>" type="text" class="expire_period"/></td>	
 						<td> <input tabindex="-1" name="out_of_stock[]" id="out_of_stock_<?php echo $commodity -> id;?>" type="text" class="out_of_stock"/></td>
-						<td> <input tabindex="-1" name="resupply[]" id="resupply_<?php echo $commodity -> id;?>" type="text" class="resupply"/></td>
-						<input type="hidden" name="commodity[]" value="<?php echo $commodity -> id;?>"/>
-					</tr>
-					<?php
+						<td> <input tabindex="-1" name="resupply[]" id="resupply_<?php echo $commodity -> id;?>" type="text" class="resupply"/></td>	
+						<input type="hidden" name="commodity[]" value="<?php echo $commodity -> id;?>"/>					
+					</tr>					
+					<?php 
 						  }
 						 }
 					?>
@@ -421,7 +411,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		<div>
 			<span style="vertical-align:bottom;font-size:1.2em;">Comments (Explain ALL Losses and Adjustments):</span>
 			<textarea style="width:100%;font-size:18px;" rows="8" name="comments" id="comments">
-				<?php
+				<?php 
 				  if($options=="update" || $options=="view"){
 					 echo @$cdrr_array[0]['comments'];
 					}
@@ -439,16 +429,16 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 					<td><input type="text" name="actual_report" id="actual_report"/></td>
 				</tr>
 			</table>
-						<?php
+						<?php 
 				 }if($options=="view" || $options=="update"){
 		    ?>
 		    <table style="width:100%;" class="table table-bordered">
-		    	<?php
-					error_reporting(0);
+		    	<?php 
+					error_reporting(0); 
 		    	    foreach($logs as $log){?>
 				<tr>
-					<td><b>Report <?php echo $log->description;?> by:</b>
-					<input type="hidden" name="log_id[]" id="log_id_<?php echo $log -> id;?>" value="<?php echo $log -> id;?>"/>
+					<td><b>Report <?php echo $log->description;?> by:</b> 
+					<input type="hidden" name="log_id[]" id="log_id_<?php echo $log -> id;?>" value="<?php echo $log -> id;?>"/>	
 					</td>
 					<td><?php echo $log->s_user->name; ?></td>
 					<td><b>Designation:</b></td>
@@ -462,7 +452,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 				</tr>
 				<?php }?>
 			</table>
-		    <?php
+		    <?php		 	
 				 }
 			?>
 			<?php
@@ -482,7 +472,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		//Check if report is a duplicate
 		var duplicate = "<?=$duplicate?>";
 		if(duplicate == true)
-		{
+		{ 
 		   bootbox.alert("<h4>Duplicate</h4>\n\<hr/><center>This Report already exists!</center>");
 		}
 
@@ -494,10 +484,10 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 				$(this).val(0);
 			}
 		});
-
+		
 		$("#generate").on('click',function() {
 		    //display generating modal
-		    $.blockUI({ message: '<h3><img width="30" height="30" src="<?php echo asset_url().'images/loading_spin.gif' ?>" /> Generating...</h3>' });
+		    $.blockUI({ message: '<h3><img width="30" height="30" src="<?php echo asset_url().'images/loading_spin.gif' ?>" /> Generating...</h3>' }); 
             //parameters
             var count = 0;
 		    var total =$(".ordered_drugs").length;
@@ -505,8 +495,8 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
             var drugs=[];
             var stores=$('#stores').val();
 
-            $(".ordered_drugs").each(function(i,v){
-           	    drugs.push($(this).attr("drug_id"));
+            $(".ordered_drugs").each(function(i,v){ 
+           	    drugs.push($(this).attr("drug_id")); 
 	           	if(i==(total-1)){
 	           	    var period_start = $("#period_start").attr("value");
 		            var facility_id= $("#facility_id").attr("value");
@@ -523,7 +513,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 				   ?>
 				   var code = "<?php echo $code; ?>";
 		           //run function
-	    	       getPeriodDrugBalance(count,period_start, facility_id,code,total,drugs,stores);
+	    	       getPeriodDrugBalance(count,period_start, facility_id,code,total,drugs,stores); 
 	           	}
             });
 
@@ -537,7 +527,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
     	    }
 
 		});
-
+			
 		$(".pack_size").live('change',function() {
 			calculateResupply($(this));
 		});
@@ -567,11 +557,8 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 			calculateResupply($(this));
 		});
 		$(".adjustments").live('change',function() {
-            calculateResupply($(this));
-        });
-        $(".adjustments_neg").live('change',function() {
-            calculateResupply($(this));
-        });
+			calculateResupply($(this));
+		});
 		$(".physical_count").live('change',function() {
 			calculateResupply($(this));
 		});
@@ -579,18 +566,17 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		$(".aggregated_qty").live('change',function() {
 			calculateResupply($(this));
 		});
-
-
+		
+		
 		<?php
 		if (!empty($cdrr_array)) {
 			if($cdrr_array[0]['code']=='D-CDRR'){
 		?>
 		$("#central_rate").val("<?php echo $cdrr_array[0]['reports_expected']; ?>");
 		$("#actual_report").val("<?php echo $cdrr_array[0]['reports_actual']; ?>");
-		<?php
+		<?php	
 		    }
 		  foreach($cdrr_array as $cdrr){
-				//echo "<pre>";print_r($cdrr);die;
 		  	if($cdrr['non_arv']==1){
 	    ?>
 	    $("#non_arv").val("<?php echo $cdrr['non_arv']; ?>");
@@ -603,24 +589,23 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		  $("#item_id_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['item_id']; ?>");
 		  $("#opening_balance_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['balance']; ?>");
 		  $("#received_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['received']; ?>");
-		  $("#dispensed_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['dispensed_units']; ?>");
-		<?php
+		  $("#dispensed_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['dispensed_units']; ?>"); 
+		<?php	
 		if($cdrr_array[0]['code']=="D-CDRR"){
 		?>
- 		  $("#dispensed_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['dispensed_packs']; ?>");
-		<?php
+ 		  $("#dispensed_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['dispensed_packs']; ?>"); 
+		<?php	
 		}
 		?>
-		<?php
+		<?php  
 		if($cdrr_array[0]['code']=="F-CDRR_packs"){
 		?>
-		  $("#dispensed_in_period_packs_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['dispensed_packs']; ?>");
-		<?php
+		  $("#dispensed_in_period_packs_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['dispensed_packs']; ?>"); 	
+		<?php	
 		}
 		?>
 		  $("#losses_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['losses']; ?>");
 		  $("#adjustments_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['adjustments']; ?>");
-          $("#adjustments_in_period_neg_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['adjustments_neg']; ?>");
 		  $("#physical_in_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['count']; ?>");
 		  <?php
 		  if($cdrr_array[0]['code']=='D-CDRR'){
@@ -634,18 +619,18 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		  $("#expire_period_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['expiry_date']; ?>");
 		  $("#out_of_stock_<?php echo $cdrr['drug_id']; ?>").val("<?php echo $cdrr['out_of_stock']; ?>");
 		  $("#resupply_<?php echo $cdrr['drug_id']; ?>").val("<?php echo @$cdrr['resupply']; ?>");
-		<?php
+		<?php	
 		   }
 		}
 	   ?>
-	  <?php
+	  <?php 
 	  if($options=="view"){
 	  ?>
 	   $("input,textarea").attr("readonly","readonly");
 	   $(".state_change").attr("readonly",false);
-	  <?php
-	  }
-	  ?>
+	  <?php	
+	  } 
+	  ?>  
 
 		//Initialize the multi select plugin:
 		$('.multiselect').multiselect({
@@ -655,7 +640,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 				filterBehavior : 'both',
 				enableCaseInsensitiveFiltering : true,
 				filterPlaceholder : 'Search'
-		});
+		});	
 
 		$("#stores").on('change', function() {
 			var check = checkTableSelected();
@@ -665,7 +650,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 				$("#generate").attr('disabled', 'disabled');
 			}
 		});
-
+	  
 	});
 
 	function checkTableSelected(){//Function to check if database tables to be migrated were selected
@@ -676,14 +661,14 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		  if(allSelected){//If all database tables are selected
 		  	check = selectedTables;
 		  }else{
-
+		  	 
 		  	if(selectedTables==null){//If no table was selected
 		  		check = 0;
 		  	}else{//Is some tables were selected
 		  		check = selectedTables;
 		  	}
 		  }
-
+		  
 		  return check;
 	}
 
@@ -705,7 +690,6 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		?>
 		var losses = parseInt(row_element.find(".losses").attr("value"));
 		var adjustments = parseInt(row_element.find(".adjustments").attr("value"));
-        var neg_adjustments = parseInt(row_element.find(".adjustments_neg").attr("value"));
 		var physical_count = parseInt(row_element.find(".physical_count").attr("value"));
 		var resupply = 0;
 		if(!(opening_balance + 0)) {
@@ -722,21 +706,18 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		}
 
 		if(!(adjustments + 0)) {
-            adjustments = 0;
-        }
-        if(!(neg_adjustments + 0)) {
-          neg_adjustments = 0;
-        }
+			adjustments = 0;
+		}
 		if(!(physical_count + 0)) {
 			physical_count = 0;
 		}
-		calculated_physical = (opening_balance + quantity_received - quantity_dispensed - losses + adjustments-neg_adjustments);
+		calculated_physical = (opening_balance + quantity_received - quantity_dispensed - losses + adjustments);
 		if(element.attr("class") == "physical_count") {
 		 resupply = 0 - physical_count;
 		 } else {
 		 resupply = 0 - calculated_physical;
 		 physical_count = calculated_physical;
-		 }
+		 } 
 		//If D-CDRR use reported consumed
 	    <?php
 	    	if($hide_generate==2){
@@ -760,7 +741,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
     function processData(form) {
       var form_selector = "#" + form;
       var validated = $(form_selector).validationEngine('validate');
-
+        
         if(!validated) {
            return false;
         }else{
@@ -800,7 +781,7 @@ o		<a href='<?php echo site_url("order/download_order/cdrr/".$cdrr_id);?>'><?php
 		width:63%;
 	}
 	.regimen-table {
-	   width: 35%;
+	   width: 35%;   
     }
     .breadcrumb{
     	margin: 0 0 10px;
