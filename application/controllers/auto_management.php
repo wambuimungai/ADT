@@ -52,7 +52,7 @@ class auto_management extends MY_Controller {
 			//function to add new facilities list
 			$message .= $this->updateFacilties();
 			//function to create new tables into adt
-			$message .= $this->update_database_tables(););
+			$message .= $this->update_database_tables();
 			//function to create new columns into table
 			$message .= $this->update_database_columns();
 			//function to set negative batches to zero

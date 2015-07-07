@@ -10,7 +10,6 @@ class Order extends MY_Controller {
 		$dir = realpath($_SERVER['DOCUMENT_ROOT']);
 	    $link = $dir . "\\ADT\\assets\\nascop.txt";
 		$this -> nascop_url = file_get_contents($link);
-
 	}
 
 	public function index() {
@@ -58,7 +57,7 @@ class Order extends MY_Controller {
 				     "email" =>  $this -> input -> post("email", TRUE),
 			         "password" => $this -> input -> post("password",TRUE)
 			        );
-		    $url = trim($this -> nascop_url) . 'sync/user';
+		    $url = $this -> nascop_url . 'sync/user';
 		    $curl -> post($url,$post_data);
 		}
 		if ($curl -> error) {
@@ -133,7 +132,7 @@ class Order extends MY_Controller {
 
 	public function api_sync() {
 		/*Get Drugs,facilities and Regimens from NASCOP or eSCM
-		 *Update Drugs,facilities and Regimens into weADT
+		 *Update Drugs,facilities and Regimens into webADT
 		 */
 		$facility_code = $this -> session -> userdata('facility');
 		$facility = Facilities::getSupplier($facility_code);
@@ -157,29 +156,18 @@ class Order extends MY_Controller {
 			$links['sync_facility'] = "sync/facilities";
 			$links['sync_regimen'] = "sync/regimen";
 		}
-
 		foreach ($links as $table => $link) {
-			$target_url = trim($url.$link);
-			//print_r($target_url);
+			$target_url = $url . $link;
 			$curl -> get($target_url);
 			if ($curl -> error) {
 				$curl -> error_code;
 				$error_log .= "Error: " . $curl -> error_code . "<br/>";
 			} else {
 				$main_array = json_decode($curl -> response, TRUE);
-
 				foreach ($main_array as $key => $value) {
 					unset($main_array[$key]['lmis_id']);
-					# code...
 				}
-					/*echo "<pre>";
-				print_r($main_array);
-				echo "</pre>";*/
-
-//die();
-
 				$this -> db -> query("TRUNCATE $table");
-
 				$this -> db -> insert_batch($table, $main_array);
 				$success_log .= "Success: " . $table . " Synched <br/>";
 				//start mapping process
@@ -405,7 +393,7 @@ class Order extends MY_Controller {
 			$columns = array('#', 'Facility Name', 'Period Beginning', 'Options');
 
 			if ($facility_type > 1  && $supplier == "KEMSA") {
-				 $sql = "SELECT c.period_begin as id,sf.name as facility_name,c.period_begin,c.id as cdrr_id,m.id as maps_id,c.facility_id as facility_id,f.facilitycode as facility_code
+				$sql = "SELECT c.period_begin as id,sf.name as facility_name,c.period_begin,c.id as cdrr_id,m.id as maps_id,c.facility_id as facility_id,f.facilitycode as facility_code
 						FROM cdrr c
 						LEFT JOIN maps m ON (c.facility_id=m.facility_id) AND (c.period_begin=m.period_begin) AND (c.period_end=m.period_end)
 						LEFT JOIN sync_facility sf ON sf.id=c.facility_id
@@ -419,9 +407,8 @@ class Order extends MY_Controller {
 	                    ORDER BY c.period_begin desc";
 			}
 		}
-
-		$query = $this -> db -> query($sql);
-		if ($query != "") {
+		if ($sql != "") {
+			$query = $this -> db -> query($sql);
 			$results = $query -> result_array();
 		} else {
 			$results = array();
@@ -497,11 +484,9 @@ class Order extends MY_Controller {
 				$facility = $this -> input -> post("satellite_facility", TRUE);
 				if ($facility == null) {
 					$facility = $this -> session -> userdata("facility");
-
 				} else {
 					$data['hide_generate'] = 1;
 				}
-
 
 			} else if ($order_type == 3) {
 				$data['page_title'] = "Stand-alone(F-CDRR)";
@@ -646,12 +631,6 @@ class Order extends MY_Controller {
 				$data['map_id'] = $map_id;
 				$data['logs'] = Maps_Log::getMapLogs($map_id);
 
-				/*echo "<pre>";
-				print_r($data);
-				echo "</pre>";
-				die();*/
-
-
 				if ($data['options'] == "view") {
 					$data['hide_save'] = 1;
 					$regimen_table = 'sync_regimen';
@@ -714,8 +693,6 @@ class Order extends MY_Controller {
 		}
 
 	}
-
-
 
 	public function check_duplicate($code, $period_start, $period_end, $facility, $table = "cdrr") {
 		$response = false;
@@ -1381,8 +1358,6 @@ class Order extends MY_Controller {
 			$cdrr_array = $query -> result_array();
 			$data['cdrr_array'] = $cdrr_array;
 			$data['options'] = "view";
-
-			//echo "<pre>"; print_r($cdrr_array); die;
 			if ($cdrr_array[0]['code'] == "D-CDRR") {
 				$code = 0;
 			} else if ($cdrr_array[0]['code'] == "F-CDRR_units") {
@@ -2593,6 +2568,7 @@ class Order extends MY_Controller {
 			      AND t.name LIKE '%issue%')as issued";
 
 			$query = $this -> db -> query($sql);
+			echo "<pre>";print_r($query);die;
 			$results = $query -> result_array();
 			$row['Dispensed_to_Patients'] = ceil(($results[0]['total_dispensed'] + $results[0]['total_issued']) / @$pack_size);
 		} else if ($stock_type == 3) {
@@ -2714,17 +2690,16 @@ class Order extends MY_Controller {
 		echo json_encode($row);
 	}
 
-	public function get_aggregated_fmaps($period_start, $period_end) {//Generate aggregated fmaps
+	public function get_aggregated_fmaps($period_start = '2014-09-01', $period_end = '2014-09-30') {//Generate aggregated fmaps
 		$map_id = '"NOTTHERE"';
 		$facility_code = $this -> session -> userdata("facility");
-
 		//Get only F-MAPS
 		$sql_maps = "
 					SELECT m.id, m.code, m.status, m.period_begin,m.period_end,m.reports_expected,m.reports_actual,m.services,m.sponsors,m.art_adult, m.art_child,m.new_male,m.revisit_male,m.new_female,m.revisit_female,m.new_pmtct,m.revisit_pmtct,m.total_infant,m.pep_adult,m.pep_child,m.total_adult,m.total_child, m.diflucan_adult,m.diflucan_child,m.new_cm,m.revisit_cm,m.new_oc,m.revisit_oc,m.comments
 					FROM maps m LEFT JOIN sync_facility sf ON sf.id=m.facility_id
-                    WHERE  m.status ='prepared'
+                    WHERE  m.status ='approved'
                     AND m.code='F-MAPS'
-
+                    AND sf.category = 'satellite'
                     AND m.period_begin='$period_start'  ORDER BY m.code DESC
 					";
 
@@ -2804,13 +2779,9 @@ class Order extends MY_Controller {
 
 		$data['maps_array'] = $maps_array;
 		$data['maps_items_array'] = $maps_items_array;
-
 		echo json_encode($data);
-		//die();
 
 	}
-
-
 
 	public function get_fmaps_details($map_id) {
 		$facility_code = $this -> session -> userdata('facility');
@@ -3215,15 +3186,12 @@ class Order extends MY_Controller {
 		        AND sf.name NOT LIKE '%dispensing%'
 		        GROUP BY sf.id";
 		$query = $this -> db -> query($sql);
-
 		$satellites = $query -> result_array();
-
 
 		$notification .= "<table class='dataTables table table-bordered table-hover'>";
 		$notification .= "<thead><tr><th>Name</th><th>Code</th><th>Status</th></tr></thead><tbody>";
 		if ($satellites) {
 			foreach ($satellites as $satellite) {
-			//echo "<pre>";print_r($satellite);die;
 				if ($satellite['status'] == "reported") {
 					$satellite['status'] = "<div class='alert-success'>" . $satellite['status'] . "</div>";
 				} else {
@@ -3858,7 +3826,7 @@ class Order extends MY_Controller {
         	$row['resupply'] = ($row['dispensed_to_patients'] * 3) - $row['physical_stock'];
         }
 
-        if($code == "F-CDRR_packs"){
+       if($code == "F-CDRR_packs"){
             foreach ($row as $i => $v) {
 				if ($i != "expiry_month" && $i != "dispensed_to_patients" && $i !="beginning_balance") {
 					$row[$i] = round(@$v / @$pack_size);
@@ -3869,7 +3837,12 @@ class Order extends MY_Controller {
 			   $row['dispensed_packs']=round(@$row['dispensed_to_patients'] / @$pack_size);
 			}
 		}
+        $row['physical_stock'] = $row['beginning_balance'] + $row['received_from'] - $row['dispensed_packs'] - $row['losses'] + $row['adjustments'];
 
+		if($row['physical_stock'] <0){
+			$row['physical_stock'] = 0;
+		}
+		$row['resupply'] = ($row['dispensed_packs'] * 3) - $row['physical_stock'];
 		echo json_encode($row);
 	}
 
